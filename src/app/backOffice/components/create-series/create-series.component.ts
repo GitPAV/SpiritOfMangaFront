@@ -12,22 +12,29 @@ import { UserServiceService} from '../../../services/user-service.service';
 export class CreateSeriesComponent implements OnInit {
 
   postSeriesForm = this.fb.group({
-    titleSeries: ['', Validators.required],
-    imageSeries: ['', Validators.required],
-    typeSeries: ['', Validators.required],
-    descritpionSeries: ['', Validators.required],
+    nameSeries: ['', Validators.required],
+    photoCover: ['', Validators.required],
+    types_id: ['', Validators.required],
+    descriptionSeries: ['', Validators.required],
   });
+
+  types;
 
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
 
   ngOnInit() {
+    this.userService.getTypes().subscribe(
+      types => { this.types = types;
+      console.log(this.types)
+    });
   }
 
   onSubmit() {
     //Call the observable in service with the apropiate http method 
 
-    const seriesRoute = 'series/create-serie';
+    const seriesRoute = 'series/manage-series';
     this.userService.testPost(this.postSeriesForm.value, seriesRoute).subscribe();
   }
 
 }
+
