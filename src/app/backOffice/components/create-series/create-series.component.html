@@ -1,0 +1,39 @@
+<form [formGroup]="postSeriesForm" (ngSubmit)="onSubmit()">
+  <label>
+    Titre:
+    <input type="text" formControlName="titleSeries" required>
+  </label>
+    
+  <label>
+    Image:
+    <input type="text" formControlName="imageSeries" required>
+  </label>
+  
+  <div>
+    type:
+    <select formControlName="typeSeries" required>
+      <option value="option1">option number 1</option>
+      <option value="option2">option number 2</option>
+      <option value="option3">option number 3</option>
+      <option value="option4">option number 4</option>
+    </select>
+  </div>
+
+  <label>
+    Descritption:
+    <textarea formControlName="descritpionSeries" required></textarea>
+  </label>
+
+  <button type="submit" [disabled]="!postSeriesForm.valid">Submit</button>
+</form>
+
+<hr>
+
+<p>
+  Form Value: {{ postSeriesForm.value | json }}
+</p>
+
+
+<p>
+  Form Status: {{ postSeriesForm.status }}
+</p>

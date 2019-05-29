@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { UserServiceService} from '../../services/user-service.service'
+import { UserServiceService} from '../../../services/user-service.service';
 
 @Component({
   selector: 'app-form',
@@ -19,7 +19,7 @@ export class FormComponent {
     email: ['', Validators.required],
     numRue: ['', Validators.required],
     rue: ['', Validators.required],
-    ville: ['', Validators.required], 
+    ville: ['', Validators.required],
     cp: ['', Validators.required],
     newsletter: ['', Validators.required],
     connaissance: ['', Validators.required],
@@ -32,7 +32,8 @@ export class FormComponent {
   onSubmit() {
     //Call the observable in service with the apropiate http method 
 
-    this.userService.testPost(this.postUserForm.value).subscribe()
+    const profileRoute = 'users/create-profile';
+    this.userService.testPost(this.postUserForm.value, profileRoute).subscribe()
   }
 
 }
