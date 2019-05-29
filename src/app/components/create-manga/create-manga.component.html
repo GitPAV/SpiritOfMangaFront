@@ -1,0 +1,115 @@
+<div class="container d-flex justify-content-center">
+  
+  <form [formGroup]='mangaForm' 
+  (ngSubmit)='onSubmit()' 
+  class='flex-column align-items-start'>
+  
+    <div class='form-group row'>
+      <label for='serie' class="col-12">
+        Serie
+        <select formControlName='serie' id='serie'>
+          <option *ngFor="let serie of series">{{serie.nameSeries}}</option>
+        </select>
+      </label>  
+    </div>
+    
+    <div class='form-group row'>
+      <label for='public'>
+        Public
+        <select formControlName='public' id='public'>
+          <option *ngFor="let public of publics">{{public.name}}</option>
+        </select>
+      </label>
+    </div>
+
+    <div class='form-group row'>
+      <label for='title'>
+        Title
+        <input type='text' 
+        formControlName='title' 
+        name='title'
+        id='title'>
+      </label>
+    </div>
+
+    <div class='form-group row'>
+      <label for='photoCover'>
+        Photo Cover
+        <input type='text' 
+        formControlName='photoCover' 
+        name='photoCover'
+        id='photoCover'>
+      </label>
+    </div>
+
+    <div class='form-group row'>
+      <label for='tome'>
+        Tome
+        <input type='number' 
+        formControlName='tome' 
+        name='tome'
+        id='tome'>
+      </label>
+    </div>
+
+    <div class='form-group row'>
+      <label for='auteur'>
+        Auteur
+        <input type='text' 
+        formControlName='auteur' 
+        name='auteur'
+        id='auteur'>
+      </label>
+    </div>
+
+    <div class='form-group row'>
+      <label for='editeur'>
+        Editeur
+        <input type='text' 
+        formControlName='editeur' 
+        name='editeur'
+        id='editeur'>
+      </label>
+    </div>
+
+    <div class='form-group row'>
+      <label for='resume'>
+        Resume
+        <input type='text' 
+        formControlName='resume' 
+        name='resume'
+        id='resume'>
+      </label>
+    </div>  
+
+    <div class='form-group row'>
+      <label for='prixNeuf'>
+        Prix Neuf
+        <input type='number' 
+        formControlName='prixNeuf' 
+        name='prixNeuf'
+        id='prixNeuf'>
+      </label>
+    </div>  
+      
+    <div class='form-group row'>
+      <label for='stock'>
+        Stock
+        <input type='number' 
+        formControlName='stock' 
+        name='stock'
+        id='stock'>
+      </label>
+    </div>  
+
+    <div class='form-group row'>
+      <label for='weight'>
+        Weight
+        <input type='number' 
+        formControlName='weight' 
+        name='weight'
+        id='weight'>
+      </label>
+    </div>  
+  </form>
+</div>

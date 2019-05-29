@@ -1,7 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CreateMangaComponent } from './components/create-manga/create-manga.component';
+import { FormComponent } from './components/form/form.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path:'form-manga',
+    component: CreateMangaComponent
+  },
+  {
+    path: 'form-user',
+    component: FormComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
