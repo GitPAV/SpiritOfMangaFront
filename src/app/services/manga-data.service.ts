@@ -18,4 +18,11 @@ export class MangaDataService {
   getPublics(): Observable<any> {
     return this.http.get(this.publicsUrl);
   }
+
+  postManga(formManga) {
+    // Take as argument the formvalue
+    // The http.post methode is redirected to port 4242 with proxy.conf at the root of 
+    // the angular project, use 'npm start' to compile
+    return this.http.post("mangas/create-manga", formManga, {responseType: 'text'})
+  }
 }

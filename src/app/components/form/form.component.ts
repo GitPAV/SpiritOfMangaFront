@@ -31,8 +31,8 @@ export class FormComponent {
 
   onSubmit() {
     //Call the observable in service with the apropiate http method 
-
-    this.userService.testPost(this.postUserForm.value).subscribe()
+    const route ='users/create-profile'; 
+    this.userService.testPost(this.postUserForm.value, route).subscribe()
   }
 
 }

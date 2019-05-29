@@ -7,8 +7,8 @@
     <div class='form-group row'>
       <label for='serie' class="col-12">
         Serie
-        <select formControlName='serie' id='serie'>
-          <option *ngFor="let serie of series">{{serie.nameSeries}}</option>
+        <select formControlName='series_id' id='serie' required>
+          <option *ngFor="let serie of series" [value]=serie.id>{{serie.nameSeries}}</option>
         </select>
       </label>  
     </div>
@@ -16,8 +16,8 @@
     <div class='form-group row'>
       <label for='public'>
         Public
-        <select formControlName='public' id='public'>
-          <option *ngFor="let public of publics">{{public.name}}</option>
+        <select formControlName='publics_id' id='public' required>
+          <option *ngFor="let public of publics" [value]=public.id>{{public.name}}</option>
         </select>
       </label>
     </div>
@@ -96,7 +96,7 @@
       <label for='stock'>
         Stock
         <input type='number' 
-        formControlName='stock' 
+        formControlName='stockTotal' 
         name='stock'
         id='stock'>
       </label>
@@ -111,5 +111,7 @@
         id='weight'>
       </label>
     </div>  
+
+    <button type="submit">CREATE</button>
   </form>
 </div>
