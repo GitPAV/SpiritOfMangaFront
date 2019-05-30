@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class MangaDataService {
   seriesUrl = 'series/manage-series';
   publicsUrl = 'publics/manage-publics';
+  mangasUrl = 'mangas/manage-mangas';
 
   constructor(private http: HttpClient) { }
 
@@ -20,9 +21,16 @@ export class MangaDataService {
   }
 
   postManga(formManga) {
-    // Take as argument the formvalue
-    // The http.post methode is redirected to port 4242 with proxy.conf at the root of 
-    // the angular project, use 'npm start' to compile
     return this.http.post("mangas/create-manga", formManga, {responseType: 'text'})
+  }
+
+  getMangas(): Observable<any> {
+    return this.http.get(this.mangasUrl);
+  }
+
+  delete(manga : number){
+    const id = manga;
+    const url = `${this.mangasUrl}/${id}`;
+    return this.http.delete(url, {responseType: 'text'});
   }
 }

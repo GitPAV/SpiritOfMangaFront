@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MangaDataService } from 'src/app/services/manga-data.service';
-import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-create-manga',
@@ -12,23 +11,28 @@ export class CreateMangaComponent implements OnInit {
   mangaForm: FormGroup;
   series = [];
   publics = [];
+  mangas = [];
   mangaToadd;
+  mangaToDelete;
 
-  constructor(private fb: FormBuilder, private mangaService: MangaDataService, private postService: UserServiceService) { }
+  constructor(private fb: FormBuilder, private mangaService: MangaDataService) { }
 
   ngOnInit() {
     this.formInit();
     this.mangaService.getSeries()
       .subscribe(series => {
         this.series = series;
-        console.log(this.series)
- 
     });
+
     this.mangaService.getPublics()
       .subscribe(publics => {
         this.publics = publics;
-        console.log(this.publics)
     });
+
+    this.mangaService.getMangas()
+      .subscribe(mangas => {
+        this.mangas = mangas;
+      })
   }
 
   formInit() {
@@ -42,18 +46,19 @@ export class CreateMangaComponent implements OnInit {
       editeur:[''],
       resume:['',Validators.required],
       prixNeuf:['',Validators.required],
-      stockTotal:['',Validators.required],
       weight:['',Validators.required],
     });
   }
 
   onSubmit() {
-    const route = "mangas/create-manga";
     this.mangaToadd = this.mangaForm.value;
     this.mangaToadd.series_id = +this.mangaToadd.series_id;
     this.mangaToadd.publics_id = +this.mangaToadd.publics_id;
     
-    console.log(this.mangaToadd);
-    this.postService.testPost(this.mangaForm.value, route).subscribe();
+    this.mangaService.postManga(this.mangaForm.value).subscribe();
+  }
+
+  delete(manga){
+    this.mangaService.delete(manga.id).subscribe();
   }
 }

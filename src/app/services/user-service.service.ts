@@ -9,7 +9,7 @@ export class UserServiceService {
 
   constructor(private http: HttpClient) { }
 
-  testPost(dataForm, route){
+  testPost(dataForm, route): Observable<any> {
     // Take as argument the formvalue
     // The http.post methode is redirected to port 4242 with proxy.conf at the root of 
     // the angular project, use 'npm start' to compile
