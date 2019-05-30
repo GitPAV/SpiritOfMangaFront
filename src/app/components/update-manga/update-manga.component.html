@@ -1,0 +1,14 @@
+<section>
+  <ul *ngFor="let manga of mangas; let i = index">
+    <li>
+        {{manga.title}}
+      <input [(ngModel)]='mangas[i].title' placeholder={{manga.title}}>
+    </li>
+    <li>
+      <img src={{manga.photoCover}}>
+      <input [(ngModel)]='mangas[i].photoCover' placeholder={{manga.photoCover}}>
+    </li>
+    <button (click)='update(mangas[i])'>UPDATE</button>
+  </ul>
+
+</section>

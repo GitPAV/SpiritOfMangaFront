@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { CreateMangaComponent } from './components/create-manga/create-manga.component'
+import { CreateMangaComponent } from './components/create-manga/create-manga.component';
+import { UpdateMangaComponent } from './components/update-manga/update-manga.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    CreateMangaComponent
+    CreateMangaComponent,
+    UpdateMangaComponent
   ],
   imports: [
     BrowserModule,

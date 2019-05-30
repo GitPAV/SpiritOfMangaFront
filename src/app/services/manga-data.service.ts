@@ -24,6 +24,11 @@ export class MangaDataService {
     return this.http.post("mangas/create-manga", formManga, {responseType: 'text'})
   }
 
+  updateManga(manga): Observable<any> {
+    console.log(manga);
+    return this.http.put(this.mangasUrl, manga, {responseType: 'text'});
+  }
+
   getMangas(): Observable<any> {
     return this.http.get(this.mangasUrl);
   }

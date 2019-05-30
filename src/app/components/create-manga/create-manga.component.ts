@@ -59,6 +59,8 @@ export class CreateMangaComponent implements OnInit {
   }
 
   delete(manga){
-    this.mangaService.delete(manga.id).subscribe();
+    this.mangaService.delete(manga.id).subscribe( _ => {
+      this.mangas = this.mangas.filter(eachmanga => eachmanga.id != manga.id);
+    });
   }
 }
