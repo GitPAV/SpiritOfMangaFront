@@ -1,0 +1,14 @@
+<app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+
+<section *ngIf="chosenManga">
+  <ul *ngFor="let manga of chosenManga">
+    <li>
+      <p>{{manga.title}}</p>
+    </li>
+    <li>
+      <img src={{manga.photoCover}}>
+    </li>
+    <button (click)="delete(manga)">DELETE</button>
+  </ul>
+
+</section>

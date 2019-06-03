@@ -30,12 +30,12 @@ export class SearchMangaBarComponent implements OnInit {
   }
 
   sendChosenManga(){
-    console.log(this.selectedManga);
     let mangasToSend = [];
     mangasToSend = this.mangas.filter(item => item.title === this.selectedManga);
-    console.log(mangasToSend);
     this.chosenManga.emit(mangasToSend);
     this.research = '';
+    this.selectedManga = '';
+    this.mangas = [];
   }
   
 }

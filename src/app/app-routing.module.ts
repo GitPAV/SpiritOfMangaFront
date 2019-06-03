@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { CreateMangaComponent } from './components/create-manga/create-manga.component';
 import { FormComponent } from './components/form/form.component';
 import { UpdateMangaComponent } from './components/update-manga/update-manga.component';
+import { DeleteMangaComponent } from './delete-manga/delete-manga.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
     path: 'update-manga',
     component: UpdateMangaComponent
   },
+  {
+    path: 'delete-manga',
+    component: DeleteMangaComponent
+  }
 ];
 
 @NgModule({

@@ -9,7 +9,8 @@ import { FormComponent } from './components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateMangaComponent } from './components/create-manga/create-manga.component';
 import { UpdateMangaComponent } from './components/update-manga/update-manga.component';
-import { SearchMangaBarComponent } from './components/search-manga-bar/search-manga-bar.component'
+import { SearchMangaBarComponent } from './components/search-manga-bar/search-manga-bar.component';
+import { DeleteMangaComponent } from './delete-manga/delete-manga.component'
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchMangaBarComponent } from './components/search-manga-bar/search-ma
     FormComponent,
     CreateMangaComponent,
     UpdateMangaComponent,
-    SearchMangaBarComponent
+    SearchMangaBarComponent,
+    DeleteMangaComponent
   ],
   imports: [
     BrowserModule,
