@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MangaDataService } from 'src/app/services/manga-data.service';
+import { Mangas } from 'src/app/common/models/manga.model';
 
 @Component({
   selector: 'app-search-manga-bar',
@@ -7,7 +8,7 @@ import { MangaDataService } from 'src/app/services/manga-data.service';
   styleUrls: ['./search-manga-bar.component.scss']
 })
 export class SearchMangaBarComponent implements OnInit {
-  mangas=[];
+  mangas: Mangas[] = [];
   searchTitle: string;
 
   @Output() chosenManga = new EventEmitter();
@@ -15,14 +16,16 @@ export class SearchMangaBarComponent implements OnInit {
   constructor(private searchMangaService : MangaDataService) { }
 
   ngOnInit() {
+
   }
 
-  getSearchedManga(){
-    console.log(this.searchTitle);
-    this.searchMangaService.getSearchedTitle('tita')
+  getSearchedManga(event){
+    console.log(event);
+    this.searchMangaService.getSearchedTitle(event)
       .subscribe(mangas =>
-        this.mangas = mangas);
-        console.log(this.mangas);
+        { this.mangas = mangas
+        console.log(this.mangas)
+      });
   }
 
   sendChosenManga(manga){
