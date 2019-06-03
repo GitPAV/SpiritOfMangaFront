@@ -19,7 +19,7 @@ export class SearchMangaBarComponent implements OnInit {
 
   getSearchedManga(){
     console.log(this.searchTitle);
-    this.searchMangaService.getSearchedTitle('tita')
+    this.searchMangaService.getSearchedTitle(this.searchTitle)
       .subscribe(mangas =>
         this.mangas = mangas);
         console.log(this.mangas);
@@ -27,6 +27,6 @@ export class SearchMangaBarComponent implements OnInit {
 
   sendChosenManga(manga){
     this.chosenManga.emit(manga);
+
   }
-  
 }
