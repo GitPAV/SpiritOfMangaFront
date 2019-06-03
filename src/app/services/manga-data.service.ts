@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Mangas } from '../common/models/manga.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,8 +26,8 @@ export class MangaDataService {
     return this.http.post("mangas/create-manga", formManga, {responseType: 'text'})
   }
 
-  getSearchedTitle(title : string) :Observable<any> {
-    return this.http.get(`${this.searchUrl}/${title}`);
+  getSearchedTitle(title : string) :Observable<Mangas[]> {
+    return this.http.get<Mangas[]>(`${this.searchUrl}/${title}`);
   }
 
   updateManga(manga): Observable<any> {
