@@ -24,4 +24,8 @@ export class UserServiceService {
       return this.http.get(`types/manage-types`);
     }
 
+    getSeries() {
+      return this.http.get(`series/manage-series`);
+    }
+
 }

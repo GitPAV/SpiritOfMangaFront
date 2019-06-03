@@ -8,19 +8,26 @@ import { FormComponent } from './backOffice/components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateSeriesComponent } from './backOffice/components/create-series/create-series.component';
 import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.component';
+import { ManageSeriesComponent } from './backOffice/components/manage-series/manage-series.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './../app/services/filter.pipe';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
     CreateSeriesComponent,
-    SeriesPageComponent
+    SeriesPageComponent,
+    ManageSeriesComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
