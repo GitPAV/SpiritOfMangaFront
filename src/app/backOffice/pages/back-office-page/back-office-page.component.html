@@ -1,3 +1,26 @@
-<p>
-  back-office-page works!
-</p>
+<aside class="menu">
+  <ul class="menu-list">
+
+    <p class="menu-label">
+      GÉRER MES MANGAS
+    </p>
+      <li><a [routerLink]="['/']">Créer Manga</a></li>
+      <li><a [routerLink]="['/']">Modifier Manga</a></li>
+      <li><a [routerLink]="['/manage-series']">Créer/Modifier Série</a></li>
+      <li><a [routerLink]="['/']">Créer Pack</a></li>
+      <li><a [routerLink]="['/']">Modifier Pack</a></li>
+      <li><a [routerLink]="['/']">Gérer Promotions</a></li>
+
+    <p class="menu-label">
+      GÉRER MES COMMANDES
+    </p>
+      <li><a [routerLink]="['/']">Commandes en cours</a></li>
+      <li><a [routerLink]="['/']">Commandes archivées</a></li>
+
+    <p class="menu-label">
+      GÉRER MES UTILISATEURS
+    </p>
+      <li><a [routerLink]="['/']">Alertes disponibilités</a></li>
+      <li><a [routerLink]="['/']">Mes utilisateurs</a></li>
+  </ul>
+</aside>

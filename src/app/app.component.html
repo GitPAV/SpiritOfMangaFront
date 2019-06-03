@@ -1,7 +1,15 @@
-<app-series-page></app-series-page>
+ <!-- <div *ngIf="role admin">  -->
+    <div id="bodyBackContent">
 
-<hr><hr><hr><hr><hr><br>
+        <div id="navbarBack">
+            <app-back-office-page></app-back-office-page>
+        </div>
 
-<app-form></app-form>
+        <div id="componentsBack">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+<!-- </div> -->
 
-<router-outlet></router-outlet>
+<!-- <div *ngIf="role lambda"> -->
+<!-- </div> -->
