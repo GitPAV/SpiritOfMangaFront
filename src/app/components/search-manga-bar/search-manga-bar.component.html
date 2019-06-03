@@ -1,6 +1,7 @@
 <div>
-  <input #searchText (change)='getSearchedManga(searchText.value)' placeholder="Search">
+  <input #searchText (input)='getSearchedManga(searchText.value)' placeholder="Search">
 </div>
-<select class="mangaTable">
-  <option *ngFor= 'let manga of mangas' (click)="sendChosenManga(manga)">{{ manga.title + manga.tome }}</option>
+<select *ngIf="mangas" class="mangaTable" (change)="sendChosenManga()">
+  <option value="">Choisir un manga</option>
+  <option *ngFor= 'let manga of mangas'>{{ manga.title }}</option>
 </select>
