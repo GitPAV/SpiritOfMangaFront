@@ -10,6 +10,7 @@ export class UpdateMangaComponent implements OnInit {
   mangas = [];
   title;
   picture;
+  chosenManga;
 
   constructor(private mangaService: MangaDataService) { }
 
@@ -23,6 +24,10 @@ export class UpdateMangaComponent implements OnInit {
   update(manga){
     console.log(manga);
     this.mangaService.updateManga(manga).subscribe();
+  }
+
+  getChosenManga(event):void {
+    this.chosenManga = event
   }
 
 }

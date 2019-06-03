@@ -1,14 +1,16 @@
+<app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+
 <section>
-  <ul *ngFor="let manga of mangas; let i = index">
+  <ul>
     <li>
-        {{manga.title}}
-      <input [(ngModel)]='mangas[i].title' placeholder={{manga.title}}>
+        {{chosenManga.title}}
+      <input [(ngModel)]='chosenManga.title' placeholder={{chosenManga.title}}>
     </li>
     <li>
-      <img src={{manga.photoCover}}>
-      <input [(ngModel)]='mangas[i].photoCover' placeholder={{manga.photoCover}}>
+      <img src={{chosenManga.photoCover}}>
+      <input [(ngModel)]='chosenManga.photoCover' placeholder={{chosenManga.photoCover}}>
     </li>
-    <button (click)='update(mangas[i])'>UPDATE</button>
+    <button (click)='update(chosenManga)'>UPDATE</button>
   </ul>
 
 </section>
