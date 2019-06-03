@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class SearchMangaBarComponent implements OnInit {
   mangas: Mangas[];
-  searchTitle: string;
+  research: string;
   selectedManga;
 
   @Output() chosenManga = new EventEmitter();
@@ -29,8 +29,13 @@ export class SearchMangaBarComponent implements OnInit {
       });
   }
 
-  sendChosenManga(){    
-    this.chosenManga.emit(this.mangas);
+  sendChosenManga(){
+    console.log(this.selectedManga);
+    let mangasToSend = [];
+    mangasToSend = this.mangas.filter(item => item.title === this.selectedManga);
+    console.log(mangasToSend);
+    this.chosenManga.emit(mangasToSend);
+    this.research = '';
   }
   
 }
