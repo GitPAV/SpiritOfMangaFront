@@ -1,6 +1,6 @@
 <div>
-  <input [(ngModel)]='searchTitle' (ngModelChange)='getSearchedManga(searchTitle)'>
+  <input [(ngModel)]='searchTitle' (change)='getSearchedManga()' placeholder="Search">
 </div>
 <select class="mangaTable">
-  <option *ngFor= 'let manga of mangas' (click)="sendChosenManga(manga)">{{manga.title + manga.tome}}</option>
+  <option *ngFor= 'let manga of mangas' (click)="sendChosenManga(manga)">{{ manga.title + manga.tome }}</option>
 </select>

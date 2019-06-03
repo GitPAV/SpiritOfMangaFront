@@ -15,17 +15,18 @@ export class SearchMangaBarComponent implements OnInit {
   constructor(private searchMangaService : MangaDataService) { }
 
   ngOnInit() {
-    
   }
 
-  getSearchedManga(event){
-    this.searchMangaService.getSearchedTitle(event)
+  getSearchedManga(){
+    console.log(this.searchTitle);
+    this.searchMangaService.getSearchedTitle('tita')
       .subscribe(mangas =>
         this.mangas = mangas);
+        console.log(this.mangas);
   }
 
   sendChosenManga(manga){
-    this.chosenManga.emit(manga)
+    this.chosenManga.emit(manga);
   }
   
 }

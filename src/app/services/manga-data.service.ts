@@ -9,6 +9,7 @@ export class MangaDataService {
   seriesUrl = 'series/manage-series';
   publicsUrl = 'publics/manage-publics';
   mangasUrl = 'mangas/manage-mangas';
+  searchUrl = 'mangas/search-mangas/';
 
   constructor(private http: HttpClient) { }
 
@@ -25,7 +26,7 @@ export class MangaDataService {
   }
 
   getSearchedTitle(title : string) :Observable<any> {
-    return this.http.get(`${this.mangasUrl}/${title}`);
+    return this.http.get(`${this.searchUrl}/${title}`);
   }
 
   updateManga(manga): Observable<any> {
