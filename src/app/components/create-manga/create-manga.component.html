@@ -8,7 +8,7 @@
     
     <div class="title">
         <label for='title'>
-          Titre <br>
+          Titre : <br>
           <input type='text' 
           formControlName='title' 
           name='title'
@@ -19,7 +19,7 @@
 
     <div class="serie">
         <label for='serie'>
-          Serie <br>
+          Serie : <br>
           <select formControlName='series_id' id='serie' required>
             <option *ngFor="let serie of series" [value]=serie.id>{{serie.nameSeries}}</option>
           </select>
@@ -28,7 +28,7 @@
     
     <div class="prixNeuf">
         <label for='prixNeuf'>
-          Prix Neuf <br> 
+          Prix Neuf : <br> 
           <input type='number' 
           formControlName='prixNeuf' 
           name='prixNeuf'
@@ -39,7 +39,7 @@
    
     <div class="auteur">
         <label for='auteur'>
-          Auteur <br>
+          Auteur : <br>
           <input type='text' 
           formControlName='auteur' 
           name='auteur'
@@ -50,7 +50,7 @@
       
     <div class="tome">
         <label for='tome'>
-          Tome <br>
+          Tome : <br>
           <input type='number' 
           formControlName='tome' 
           name='tome'
@@ -61,7 +61,7 @@
 
     <div class= "public">
         <label for='public'>
-          Public <br>
+          Public : <br>
           <select formControlName='publics_id' id='public' required>
             <option *ngFor="let public of publics" [value]=public.id>{{public.name}}</option>
           </select>
@@ -70,7 +70,7 @@
     
     <div class="editeur">
         <label for='editeur'>
-          Editeur <br>
+          Editeur : <br>
           <input type='text' 
           formControlName='editeur' 
           name='editeur'
@@ -81,7 +81,7 @@
 
     <div class="photoCover">
         <label for='photoCover'>
-          Image <br>
+          Image : <br>
           <input type='text' 
           formControlName='photoCover' 
           name='photoCover'
@@ -92,7 +92,7 @@
 
     <div class="resume">
         <label for='resume'>
-          Description <br>
+          Description : <br>
           <input type='text' 
           formControlName='resume' 
           name='resume'
@@ -103,7 +103,7 @@
 
     <div class="weight">  
         <label for='weight'>
-          Poids <br>
+          Poids : <br>
           <input type='number' 
           formControlName='weight' 
           name='weight'

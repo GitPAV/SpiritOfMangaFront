@@ -1,9 +1,10 @@
 .main {
     height: 600px;
     width: 800px;
-    justify-content: center;
-
+    display: flex;
+    justify-content:center;
     .form {
+
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows:repeat(8,100px) ; 
@@ -11,7 +12,7 @@
         "formTitle . ."
         "title serie publicPrice"
         "author tome notrePrix"
-        "editeur etat promo"
+        "editeur weight promo"
         "image public prixPromo"
         "description type stock"
         ". genre ."
@@ -29,7 +30,7 @@
         .title {
             grid-area: title;
             .input {
-                border-color: #FF8D30 ;
+                border:4px solid #FF8D30 ;
             }
         }
 
@@ -78,6 +79,19 @@
         }
         .resume {
             grid-area: description;
+            .input {
+                border-color: #FF8D30 ;
+            }
+        }
+        .prixNeuf {
+            grid-area: publicPrice;
+            .input {
+                border-color: #FF8D30 ;
+            }
+        }
+
+        .weight {
+            grid-area: weight;
             .input {
                 border-color: #FF8D30 ;
             }
