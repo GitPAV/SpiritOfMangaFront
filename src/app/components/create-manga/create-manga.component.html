@@ -1,10 +1,10 @@
-<div class="container d-flex">
+<div class="main">
   
   <h3>CREER MANGA</h3>
   
   <form [formGroup]='mangaForm' 
   (ngSubmit)='onSubmit()' 
-  class='flex-column align-items-start'>
+  >
 
     <div class="serie">
       <div class='form-group row'>
@@ -28,12 +28,10 @@
       </div>
     </div>  
 
-    <div class="main">
-
     <div class="title">
       <div class='form-group row'>
         <label for='title'>
-          Title 
+          Titre 
           <input type='text' 
           formControlName='title' 
           name='title'
@@ -43,10 +41,10 @@
       </div>
     </div>  
 
-    <div class="photocover">
+    <div class="photoCover">
       <div class='form-group row'>
         <label for='photoCover'>
-          Photo Cover
+          Image
           <input type='text' 
           formControlName='photoCover' 
           name='photoCover'
@@ -56,6 +54,7 @@
       </div>
     </div>  
 
+    <div class="tome">
       <div class='form-group row'>
         <label for='tome'>
           Tome 
@@ -66,7 +65,9 @@
           class='input'>
         </label>
       </div>
+    </div>
 
+    <div class="auteur">
       <div class='form-group row'>
         <label for='auteur'>
           Auteur
@@ -77,7 +78,9 @@
           class='input'>
         </label>
       </div>
+    </div>
 
+    <div class="editeur">
       <div class='form-group row'>
         <label for='editeur'>
           Editeur
@@ -88,10 +91,12 @@
           class='input'>
         </label>
       </div>
+    </div>
 
+    <div class="resume">
       <div class='form-group row'>
         <label for='resume'>
-          Resume 
+          Description 
           <input type='text' 
           formControlName='resume' 
           name='resume'
@@ -99,7 +104,9 @@
           class='input'>
         </label>
       </div>  
+    </div>
 
+    <div class="prixNeuf">
       <div class='form-group row'>
         <label for='prixNeuf'>
           Prix Neuf 
@@ -110,10 +117,12 @@
           class='input'>
         </label>
       </div>   
+    </div>  
 
+    <div class="weight">
       <div class='form-group row'>
         <label for='weight'>
-          Weight 
+          Poids 
           <input type='number' 
           formControlName='weight' 
           name='weight'
@@ -122,8 +131,10 @@
         </label>
       </div>  
     </div>
-
-    <button type="submit">CREATE</button>
+    
+    <div class="create">
+      <button type="submit">CREATE</button>
+    </div>  
   </form>
 </div>
 
