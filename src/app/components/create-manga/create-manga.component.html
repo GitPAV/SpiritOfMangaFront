@@ -1,19 +1,23 @@
 <div class="container d-flex">
   
+  <h3>CREER MANGA</h3>
+  
   <form [formGroup]='mangaForm' 
   (ngSubmit)='onSubmit()' 
   class='flex-column align-items-start'>
 
-    <div class="seriePublic">
+    <div class="serie">
       <div class='form-group row'>
         <label for='serie' class="col-12">
-          Serie <br>
+          Serie 
           <select formControlName='series_id' id='serie' required>
             <option *ngFor="let serie of series" [value]=serie.id>{{serie.nameSeries}}</option>
           </select>
         </label>  
       </div>
+    </div>  
       
+    <div class= "public">
       <div class='form-group row'>
         <label for='public'>
           Public
@@ -25,33 +29,41 @@
     </div>  
 
     <div class="main">
+
+    <div class="title">
       <div class='form-group row'>
         <label for='title'>
-          Title
+          Title 
           <input type='text' 
           formControlName='title' 
           name='title'
-          id='title'>
+          id='title'
+          class='input'>
         </label>
       </div>
+    </div>  
 
+    <div class="photocover">
       <div class='form-group row'>
         <label for='photoCover'>
           Photo Cover
           <input type='text' 
           formControlName='photoCover' 
           name='photoCover'
-          id='photoCover'>
+          id='photoCover'
+          class='input'>
         </label>
       </div>
+    </div>  
 
       <div class='form-group row'>
         <label for='tome'>
-          Tome
+          Tome 
           <input type='number' 
           formControlName='tome' 
           name='tome'
-          id='tome'>
+          id='tome'
+          class='input'>
         </label>
       </div>
 
@@ -61,7 +73,8 @@
           <input type='text' 
           formControlName='auteur' 
           name='auteur'
-          id='auteur'>
+          id='auteur'
+          class='input'>
         </label>
       </div>
 
@@ -71,37 +84,41 @@
           <input type='text' 
           formControlName='editeur' 
           name='editeur'
-          id='editeur'>
+          id='editeur'
+          class='input'>
         </label>
       </div>
 
       <div class='form-group row'>
         <label for='resume'>
-          Resume
+          Resume 
           <input type='text' 
           formControlName='resume' 
           name='resume'
-          id='resume'>
+          id='resume'
+          class='input'>
         </label>
       </div>  
 
       <div class='form-group row'>
         <label for='prixNeuf'>
-          Prix Neuf
+          Prix Neuf 
           <input type='number' 
           formControlName='prixNeuf' 
           name='prixNeuf'
-          id='prixNeuf'>
+          id='prixNeuf'
+          class='input'>
         </label>
       </div>   
 
       <div class='form-group row'>
         <label for='weight'>
-          Weight
+          Weight 
           <input type='number' 
           formControlName='weight' 
           name='weight'
-          id='weight'>
+          id='weight'
+          class='input'>
         </label>
       </div>  
     </div>

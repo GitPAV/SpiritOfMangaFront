@@ -1,14 +1,18 @@
 .container {
-    background-color: #C3C8D6;
-
-    .seriePublic{
-        display: flex;
-        justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2px;
+    grid-template-rows: auto;   
+    
+    .h3 {
+        grid-row: 1;
+        grid-column: 1;
+        font-size: 50px;
     }
 
-    .main{
-        display: flex;
-        flex-direction: column;
+    .serie {
+        grid-row: 2;
+        grid-column: 3;
+        font-size: 50px;
     }
-        
-}
+    }
