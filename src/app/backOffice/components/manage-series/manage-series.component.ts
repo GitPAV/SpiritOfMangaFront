@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from './../../../services/user-service.service'
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 
@@ -15,17 +15,14 @@ export class ManageSeriesComponent implements OnInit {
 
   constructor( private fb: FormBuilder, private userService: UserServiceService) { }
 
-  manageSeriesForm = this.fb.group({
-    nameSeries: ['', Validators.required],
-    photoCover: ['', Validators.required],
-    types_id: ['', Validators.required],
-    descriptionSeries: ['', Validators.required],
-  });
+  manageSeriesForm : FormGroup;
 
   nameSerie= '';
   photoSerie= '';
-  descriptionSerie= '';
+  description= '';
   searchText = '';
+  types_id = '';
+  serieId;
 
   series;
   types;
@@ -39,19 +36,36 @@ export class ManageSeriesComponent implements OnInit {
     this.userService.getTypes().subscribe(
       types => { this.types = types;
       });
+
+    this.initForm()
   };
 
   getTheSerie(serie){
     this.nameSerie = serie.nameSeries
     this.photoSerie = serie.photoCover
-    this.descriptionSerie = serie.description
+    this.description = serie.description
+    this.types_id = serie.types_id
+    this.serieId = serie.id
+    this.initForm()
+  }
+
+  initForm() {
+    this.manageSeriesForm = this.fb.group({
+      nameSeries: [ this.nameSerie, Validators],
+      photoCover: [ this.photoSerie, Validators],
+      types_id: [ this.types_id, Validators],
+      description: [ this.description, Validators],
+    });
   }
 
   onSubmit() {
-    //Call the observable in service with the apropiate http method 
-
     const seriesRoute = 'series/manage-series';
-    this.userService.testPut(this.manageSeriesForm.value, seriesRoute).subscribe();
+    const body = {
+      id : this.serieId,
+      data : this.manageSeriesForm.value
+    }
+    console.log(body);
+    this.userService.testPut(body, seriesRoute).subscribe();
   }
-  
+
 }

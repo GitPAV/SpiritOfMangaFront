@@ -20,17 +20,17 @@
 
             <label>
                 Titre:
-                <input type="text" formControlName="nameSeries" [value]=nameSerie required>
+                <input type="text" formControlName="nameSeries" [value]=nameSerie>
             </label>
             
             <label>
                 Image:
-                <input type="text" formControlName="photoCover" [value]=photoSerie required>
+                <input type="text" formControlName="photoCover" [value]=photoSerie >
             </label>
             
             <div>
                 type:
-                <select formControlName="types_id" id="types" required>
+                <select formControlName="types_id" id="types" >
                     <option [value]=type.id *ngFor="let type of types">{{type.name}}</option>
             
                 </select>
@@ -38,7 +38,7 @@
         
             <label>
                 Descritption:
-                <textarea formControlName="descriptionSeries" [value]=descriptionSerie  required></textarea>
+                <textarea formControlName="description" [value]=description  ></textarea>
             </label>
                 
         <button type="submit">Submit</button>
