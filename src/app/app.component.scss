@@ -1,13 +1,14 @@
+@import '../styles.scss';
+
 #bodyBackContent{
     display: flex;
-    margin: 5%;
-    padding: 3%;
-    border: 1px solid black;
+    height: 100vh;
+    width: 100vw;
 }
 
 #navbarBack{
-    width: 20%;
-    border-right: 1px solid black;
+    width: 17vw;
+    background-color: $blue ;
 }
 
 #componentsBack{
