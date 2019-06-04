@@ -1,62 +1,90 @@
 .main {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows:repeat(6,100px) ; 
-    
-    .h3 {
-        grid-row: 1;
-        grid-column: 1;
-        font-size: 50px;
-    }
+    height: 600px;
+    width: 800px;
+    justify-content: center;
 
-    .serie {
-        grid-row: 2;
-        grid-column: 2;
-    }
+    .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows:repeat(8,100px) ; 
+        grid-template-areas: 
+        "formTitle . ."
+        "title serie publicPrice"
+        "author tome notrePrix"
+        "editeur etat promo"
+        "image public prixPromo"
+        "description type stock"
+        ". genre ."
+        ". . button";
 
-    .title {
-        grid-row: 2;
-        grid-column: 1;
-        .input {
-            border-color: #FF8D30 ;
+        .formTitle {
+            grid-area: formTitle;
+            font-size: 30px;
         }
-    }
 
-    .auteur {
-        grid-row: 4;
-        grid-column: 1;
-        .input {
-            border-color: #FF8D30 ;
+        .serie {
+            grid-area: serie;
         }
-    }
 
-    .editeur {
-        grid-row: 5;
-        grid-column: 1;
-        .input {
-            border-color: #FF8D30 ;
+        .title {
+            grid-area: title;
+            .input {
+                border-color: #FF8D30 ;
+            }
         }
-    }
 
-    .photoCover {
-        grid-row: 2;
-        grid-column: 1;
-        .input {
-            border-color: #FF8D30 ;
+        .auteur {
+            grid-area: author;
+            flex-direction: column;
+            .input {
+                border-color: #FF8D30 ;
+            }
         }
-    }
-    .photoCover {
-        grid-row: 6;
-        grid-column: 1;
-        .input {
-            border-color: #FF8D30 ;
+
+        .editeur {
+            grid-area: editeur;
+            .input {
+                border-color: #FF8D30 ;
+            }
         }
-    }
-    .tome {
-        grid-row: 2;
-        grid-column: 2;
-        .input {
-            border-color: #FF8D30 ;
+
+        .public {
+            grid-area: public;
+            .input {
+                border-color: #FF8D30 ;
+            }
         }
-    }
+
+        .photoCover {
+            grid-area: image;
+            .input {
+                border-color: #FF8D30 ;
+            }
+        }
+        
+        .tome {
+            grid-area: tome;
+            .input {
+                border-color: #FF8D30 ;
+            }
+        }
+
+        .public-price {
+            grid-area: public;
+
+            .input {
+                border-color: #FF8D30 ;
+            }
+        }
+        .resume {
+            grid-area: description;
+            .input {
+                border-color: #FF8D30 ;
+            }
+        }
+
+        .create {
+            grid-area: button;
+        }
+    }    
 }

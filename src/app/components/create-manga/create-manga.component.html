@@ -1,135 +1,115 @@
 <div class="main">
   
-  <h3>CREER MANGA</h3>
-  
   <form [formGroup]='mangaForm' 
   (ngSubmit)='onSubmit()' 
+  class="form"
   >
-
-    <div class="serie">
-      <div class='form-group row'>
-        <label for='serie' class="col-12">
-          Serie 
-          <select formControlName='series_id' id='serie' required>
-            <option *ngFor="let serie of series" [value]=serie.id>{{serie.nameSeries}}</option>
-          </select>
-        </label>  
-      </div>
-    </div>  
-      
-    <div class= "public">
-      <div class='form-group row'>
-        <label for='public'>
-          Public
-          <select formControlName='publics_id' id='public' required>
-            <option *ngFor="let public of publics" [value]=public.id>{{public.name}}</option>
-          </select>
-        </label>
-      </div>
-    </div>  
-
+    <h3 class="formTitle">CREER MANGA</h3>
+    
     <div class="title">
-      <div class='form-group row'>
         <label for='title'>
-          Titre 
+          Titre <br>
           <input type='text' 
           formControlName='title' 
           name='title'
           id='title'
           class='input'>
         </label>
-      </div>
     </div>  
 
-    <div class="photoCover">
-      <div class='form-group row'>
-        <label for='photoCover'>
-          Image
-          <input type='text' 
-          formControlName='photoCover' 
-          name='photoCover'
-          id='photoCover'
-          class='input'>
-        </label>
-      </div>
+    <div class="serie">
+        <label for='serie'>
+          Serie <br>
+          <select formControlName='series_id' id='serie' required>
+            <option *ngFor="let serie of series" [value]=serie.id>{{serie.nameSeries}}</option>
+          </select>
+        </label>  
     </div>  
-
-    <div class="tome">
-      <div class='form-group row'>
-        <label for='tome'>
-          Tome 
-          <input type='number' 
-          formControlName='tome' 
-          name='tome'
-          id='tome'
-          class='input'>
-        </label>
-      </div>
-    </div>
-
-    <div class="auteur">
-      <div class='form-group row'>
-        <label for='auteur'>
-          Auteur
-          <input type='text' 
-          formControlName='auteur' 
-          name='auteur'
-          id='auteur'
-          class='input'>
-        </label>
-      </div>
-    </div>
-
-    <div class="editeur">
-      <div class='form-group row'>
-        <label for='editeur'>
-          Editeur
-          <input type='text' 
-          formControlName='editeur' 
-          name='editeur'
-          id='editeur'
-          class='input'>
-        </label>
-      </div>
-    </div>
-
-    <div class="resume">
-      <div class='form-group row'>
-        <label for='resume'>
-          Description 
-          <input type='text' 
-          formControlName='resume' 
-          name='resume'
-          id='resume'
-          class='input'>
-        </label>
-      </div>  
-    </div>
-
+    
     <div class="prixNeuf">
-      <div class='form-group row'>
         <label for='prixNeuf'>
-          Prix Neuf 
+          Prix Neuf <br> 
           <input type='number' 
           formControlName='prixNeuf' 
           name='prixNeuf'
           id='prixNeuf'
           class='input'>
         </label>
-      </div>   
+    </div>  
+   
+    <div class="auteur">
+        <label for='auteur'>
+          Auteur <br>
+          <input type='text' 
+          formControlName='auteur' 
+          name='auteur'
+          id='auteur'
+          class='input'>
+        </label>
+    </div>
+      
+    <div class="tome">
+        <label for='tome'>
+          Tome <br>
+          <input type='number' 
+          formControlName='tome' 
+          name='tome'
+          id='tome'
+          class='input'>
+        </label>
+    </div>
+
+    <div class= "public">
+        <label for='public'>
+          Public <br>
+          <select formControlName='publics_id' id='public' required>
+            <option *ngFor="let public of publics" [value]=public.id>{{public.name}}</option>
+          </select>
+        </label>
+    </div>  
+    
+    <div class="editeur">
+        <label for='editeur'>
+          Editeur <br>
+          <input type='text' 
+          formControlName='editeur' 
+          name='editeur'
+          id='editeur'
+          class='input'>
+        </label>
+    </div>
+
+    <div class="photoCover">
+        <label for='photoCover'>
+          Image <br>
+          <input type='text' 
+          formControlName='photoCover' 
+          name='photoCover'
+          id='photoCover'
+          class='input'>
+        </label>
     </div>  
 
-    <div class="weight">
-      <div class='form-group row'>
+    <div class="resume">
+        <label for='resume'>
+          Description <br>
+          <input type='text' 
+          formControlName='resume' 
+          name='resume'
+          id='resume'
+          class='input'>
+        </label>
+    </div>
+
+    <div class="weight">  
         <label for='weight'>
-          Poids 
+          Poids <br>
           <input type='number' 
           formControlName='weight' 
           name='weight'
           id='weight'
           class='input'>
         </label>
-      </div>  
     </div>
     
     <div class="create">
@@ -138,15 +118,3 @@
   </form>
 </div>
 
-<div>
-  <p>Supprimer un manga</p>
-
-  <ul>
-    <li *ngFor="let manga of mangas">
-      {{manga.title}}
-      <button class="delete" title="delete manga"
-      (click)="delete(manga)">x</button>
-    </li>
-  </ul>
-
-</div>
