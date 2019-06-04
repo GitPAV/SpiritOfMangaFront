@@ -1,6 +1,16 @@
 @import '../../../../styles.scss';
 
+#bodyBack{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: $grey;
+}
+
 .menu {
+    width: 17vw;
+    height: 100vh;
+    background-color: $blue ;
     img{
         display: block;
         width: 75%;
@@ -37,4 +47,24 @@
         padding-bottom: 1vh;
 
     }    
+}
+
+.headerBack{
+    width: 83vw;
+    height: 7vh;
+    background-color: white;
+    span{  
+        position: fixed;
+        left: 53vw;
+        top: 1.25vh;
+        color: $orange;
+        font-size: 27px;
+        font-weight: bold;
+    }
+    i{
+        position: fixed;
+        left: 95vw;
+        top: 1.5vh;
+        font-size: 33px;    
+    }
 }

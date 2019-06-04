@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackOfficePageComponent implements OnInit {
 
+  dateValue = new Date;
+
   constructor() { }
 
   ngOnInit() {
