@@ -1,0 +1,14 @@
+.container {
+    background-color: #C3C8D6;
+
+    .seriePublic{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main{
+        display: flex;
+        flex-direction: column;
+    }
+        
+}
