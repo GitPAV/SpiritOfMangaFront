@@ -1,7 +1,7 @@
 @import '../styles.scss';
 
 #bodyBackContent{
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;    
 }
 
@@ -10,7 +10,8 @@
     position: fixed;
     top: 12vh;
     left: 21vw;
-    width: 75vw;
-    height: auto;
+    width: auto;
+    min-height: auto;
     background-color: white;
+    padding-bottom: 10px;
 }

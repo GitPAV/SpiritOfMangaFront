@@ -1,6 +1,7 @@
 .main {
-    height: 600px;
+    height: auto;
     width: 800px;
+    overflow: scroll;
     display: flex;
     justify-content:center;
     box-shadow: 0 0 10px black;
