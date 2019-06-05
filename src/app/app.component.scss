@@ -1,7 +1,7 @@
 @import '../styles.scss';
 
 #bodyBackContent{
-    min-height: 100vh;
+    height: auto;
     width: 100vw;    
 }
 
@@ -11,7 +11,7 @@
     top: 12vh;
     left: 21vw;
     width: auto;
-    min-height: auto;
+    height: auto;
     background-color: white;
-    padding-bottom: 10px;
+    overflow: scroll;
 }
