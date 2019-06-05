@@ -11,6 +11,8 @@
     width: 17vw;
     height: 100vh;
     background-color: $blue ;
+    z-index: 1;
+    overflow: scroll;
     img{
         display: block;
         width: 75%;
@@ -49,7 +51,8 @@
 }
 
 .headerBack{
-    width: 83vw;
+    position: fixed;        
+    width: 100vw;
     height: 7vh;
     background-color: white;
     span{  
