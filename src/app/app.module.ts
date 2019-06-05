@@ -15,6 +15,8 @@ import { CreateSeriesComponent } from './backOffice/components/create-series/cre
 import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.component';
 import { ManageSeriesComponent } from './backOffice/components/manage-series/manage-series.component';
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
+import { FilterPipe } from './../app/services/filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { BackOfficePageComponent } from './backOffice/pages/back-office-page/bac
     SeriesPageComponent,
     ManageSeriesComponent,
     BackOfficePageComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -19,11 +19,35 @@ export class UserServiceService {
     console.log('dataform', dataForm);
     console.log('route', route);
 
+
+
     return this.http.post(`${route}`, dataForm, {responseType: 'text'});
+  };
+
+  testPut(dataForm, route) {
+    // Take as argument the formvalue
+    // The http.post methode is redirected to port 4242 with proxy.conf at the root of
+    // the angular project, use 'npm start' to compile
+
+    console.log('dataform', dataForm);
+    console.log('route', route);
+
+
+    return this.http.put(`${route}`, dataForm, {responseType: 'text'});
   };
 
     getTypes() {
       return this.http.get(`types/manage-types`);
     }
+
+    getSeries() {
+      return this.http.get(`series/manage-series`);
+    }
+
+    putSerie() {
+      
+    }
+
+
 
 }

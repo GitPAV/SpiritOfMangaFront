@@ -36,5 +36,6 @@ export class CreateSeriesComponent implements OnInit {
     this.userService.testPost(this.postSeriesForm.value, seriesRoute).subscribe();
   }
 
+
 }
 
