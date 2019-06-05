@@ -21,6 +21,7 @@
     "@angular/router": "~7.2.0",
     "body-parser": "^1.19.0",
     "bulma": "^0.7.5",
+    "bulma-start": "0.0.3",
     "core-js": "^2.5.4",
     "express": "^4.17.0",
     "morgan": "^1.9.1",
