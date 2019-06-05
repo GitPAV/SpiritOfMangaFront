@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validator } from '@angular/forms';
 import { UserServiceService} from '../../services/user-service.service'
+
+import { emailValidator } from '../../shared/validators/email.validator'
 
 @Component({
   selector: 'app-form',
@@ -16,7 +18,8 @@ export class FormComponent {
     lastname: ['', Validators.required],
     password: ['', Validators.required],
     forgetPassword: ['', Validators.required],
-    email: ['', Validators.required],
+    email: ['', [Validators.required, emailValidator()]],
+    telephone: [''],
     numRue: ['', Validators.required],
     rue: ['', Validators.required],
     ville: ['', Validators.required], 

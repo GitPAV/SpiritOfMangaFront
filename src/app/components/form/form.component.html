@@ -1,59 +1,63 @@
 <form [formGroup]="postUserForm" (ngSubmit)="onSubmit()">
-  <label>
-    Pseudo:
+  <div>
+    <label>Pseudo :</label>
     <input type="text" formControlName="pseudo" required>
-  </label>
-    
-  <label>
-    First Name:
+  </div>
+
+  <div>
+    <label>Prénom :</label>
     <input type="text" formControlName="firstname" required>
-  </label>
+  </div>
 
-  <label>
-    Last Name:
+  <div>
+    <label>Nom :</label>
     <input type="text" formControlName="lastname" required>
-  </label>
+  </div>
 
-  <label>
-    Password:
+  <div>
+    <label>Mot de passe :</label>
     <input type="text" formControlName="password" required>
-  </label>
-
-  <label>
-    forget Password:
+    <label>Confirmez votre mot de passe :</label>
     <input type="text" formControlName="forgetPassword" required>
-  </label>
+  </div>
 
-  <label>
-    Email :
-    <input type="text" formControlName="email" required>
-  </label>
+  <div class="form-group" >
+    <label>Email :</label>
+      <input type="email" formControlName="email" required>
+      <div *ngIf="postUserForm.get('email').errors && postUserForm.get('email').touched">     
+        Veuillez entrer une adresse mail valide
+      </div>
+  </div>
+  
+  <div>
+    <label>Phone number :</label>
+    <input type="number" formControlName="telephone">
+  </div>
 
   <h3>Address</h3>
 
-  <label>
-    Street number:
+  <div>
+    <label>Street number :</label>
     <input type="number" formControlName="numRue" required>
-  </label>
-
-  <label>
-    Street:
-    <input type="text" formControlName="rue" required>
-  </label>
-
-  <label>
-    City:
-    <input type="text" formControlName="ville" required>
-  </label>
-  
-  <label>
-    Zip Code:
-    <input type="text" formControlName="cp" required>
-  </label>
-
+  </div>
 
   <div>
-    Newsletter: 
+    <label>Street :</label>
+    <input type="text" formControlName="rue" required>
+  </div>
+
+  <div>
+    <label>City :</label>
+    <input type="text" formControlName="ville" required>
+  </div>
+
+  <div>
+    <label>Zip Code :</label>
+    <input type="text" formControlName="cp" required>
+  </div>
+  
+  <div>
+    <label>Newsletter :</label>  
     <select name="newsletter" formControlName="newsletter" required>
       <option value="1">Yes</option>
       <option value="0">Non</option>
@@ -61,7 +65,7 @@
   </div>
   
   <div>
-    Comment t'as connu frrère??? 
+    <label>Comment t'as connu frrère???</label> 
     <select name="connaissance" formControlName="connaissance" required>
       <option value="option1">option number 1</option>
       <option value="option2">option number 2</option>
@@ -71,14 +75,12 @@
   </div>
 
   <div>
-      Newsletter: 
-      <select name="droits" formControlName="droits" required>
-        <option value="Dieu">Dieu</option>
-        <option value="Paysans">Paysans</option>
-      </select>
-    </div>
-
-
+    <label>Newsletter :</label> 
+    <select name="droits" formControlName="droits" required>
+      <option value="Dieu">Dieu</option>
+      <option value="Paysans">Paysans</option>
+    </select>
+  </div>
 
   <button type="submit" [disabled]="!postUserForm.valid">Submit</button>
 </form>
@@ -89,7 +91,26 @@
   Form Value: {{ postUserForm.value | json }}
 </p>
 
+<!-- <p>
+  email Valid: {{ postUserForm.get('email').valid}}
+</p>
+
+<p>
+  email dirty: {{ postUserForm.get('email').}}
+</p>
+
+<p>
+  email errors: {{ postUserForm.get('email').errors}}
+</p>
 
 <p>
   Form Status: {{ postUserForm.status }}
 </p>
+
+<p>
+  Form dirty: {{ postUserForm.dirty }}
+</p>
+
+<p>
+  Form touched: {{ postUserForm.touched }}
+</p> -->
