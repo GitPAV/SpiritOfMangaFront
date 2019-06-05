@@ -3,14 +3,28 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './backOffice/components/form/form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CreateSeriesComponent } from './backOffice/components/create-series/create-series.component';
+import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.component';
+import { ManageSeriesComponent } from './backOffice/components/manage-series/manage-series.component';
+import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FormComponent,
+    CreateSeriesComponent,
+    SeriesPageComponent,
+    ManageSeriesComponent,
+    BackOfficePageComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
