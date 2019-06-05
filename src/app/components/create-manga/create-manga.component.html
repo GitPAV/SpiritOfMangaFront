@@ -4,7 +4,7 @@
   (ngSubmit)='onSubmit()' 
   class="form"
   >
-    <h3 class="formTitle">CREER MANGA</h3>
+    <h3 class="formTitle">CRÉER UN MANGA</h3>
     
     <div class="title" >
         <label for='title'>
@@ -15,7 +15,11 @@
           id='title'
           class='input'>
         </label>
-    </div>  
+        <div *ngIf="mangaForm.get('title').errors && mangaForm.get('title').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
+    </div>
+
 
     <div class="serie">
         <label for='serie'>
@@ -23,18 +27,24 @@
           <select formControlName='series_id' id='serie' required>
             <option *ngFor="let serie of series" [value]=serie.id>{{serie.nameSeries}}</option>
           </select>
-        </label>  
+        </label>
+        <div *ngIf="mangaForm.get('series_id').errors && mangaForm.get('series_id').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
     </div>  
     
     <div class="prixNeuf">
         <label for='prixNeuf'>
           Prix Neuf : <br> 
           <input type='number' 
-          formControlName='prixNeuf' 
+          formControlName='prixNeuf'
           name='prixNeuf'
           id='prixNeuf'
           class='input'>
         </label>
+        <div *ngIf="mangaForm.get('prixNeuf').errors && mangaForm.get('prixNeuf').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
     </div>  
    
     <div class="auteur">
@@ -46,6 +56,9 @@
           id='auteur'
           class='input'>
         </label>
+        <div *ngIf="mangaForm.get('auteur').errors && mangaForm.get('auteur').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
     </div>
       
     <div class="tome">
@@ -57,6 +70,9 @@
           id='tome'
           class='input'>
         </label>
+        <div *ngIf="mangaForm.get('tome').errors && mangaForm.get('tome').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
     </div>
 
     <div class= "public">
@@ -66,11 +82,14 @@
             <option *ngFor="let public of publics" [value]=public.id>{{public.name}}</option>
           </select>
         </label>
+        <div *ngIf="mangaForm.get('publics_id').errors && mangaForm.get('publics_id').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
     </div>  
     
     <div class="editeur">
         <label for='editeur'>
-          Editeur : <br>
+          Editeur (facultatif) : <br>
           <input type='text' 
           formControlName='editeur' 
           name='editeur'
@@ -88,6 +107,9 @@
           id='photoCover'
           class='input'>
         </label>
+        <div *ngIf="mangaForm.get('photoCover').errors && mangaForm.get('photoCover').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
     </div>  
 
     <div class="resume">
@@ -99,6 +121,9 @@
           id='resume'
           class='input'>
         </label>
+        <div *ngIf="mangaForm.get('resume').errors && mangaForm.get('resume').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
     </div>
 
     <div class="weight">  
@@ -110,10 +135,13 @@
           id='weight'
           class='input'>
         </label>
+        <div *ngIf="mangaForm.get('weight').errors && mangaForm.get('weight').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
     </div>
     
     <div class="create">
-      <button type="submit">CREATE</button>
+      <button type="submit" [disabled]="!mangaForm.valid">CREATE</button>
     </div>  
   </form>
 </div>
