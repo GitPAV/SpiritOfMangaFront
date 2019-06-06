@@ -12,11 +12,11 @@
         grid-template-rows:repeat(8,100px) ; 
         grid-template-areas: 
         "formTitle . ."
-        "title serie cleanPrice"
+        "title image cleanPrice"
         "author tome public"
-        "editeur weight image"
-        ". . prixPromo"
-        "description type button"
+        "editeur weight serie"
+        "description . ."
+        ". type button"
         ". . ."
         ". . .";
 
