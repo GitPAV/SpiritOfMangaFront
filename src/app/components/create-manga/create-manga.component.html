@@ -6,7 +6,7 @@
   >
     <h3 class="formTitle">CRÉER UN MANGA</h3>
     
-    <div class="title" >
+    <div class="mangaTitle" >
         <label for='title'>
           Titre : <br>
           <input type='text' 
@@ -113,13 +113,14 @@
     </div>  
 
     <div class="resume">
-        <label for='resume'>
+        <label for='resume' class="toto">
           Description : <br>
-          <input type='text' 
+          <textarea 
+          class="textarea" 
           formControlName='resume' 
           name='resume'
           id='resume'
-          class='input'>
+          ></textarea>
         </label>
         <div *ngIf="mangaForm.get('resume').errors && mangaForm.get('resume').touched">
           <span class='errorMessage'>Champ requis</span>
@@ -141,8 +142,7 @@
     </div>
     
     <div class="create">
-      <button type="submit" class="button">CREATE</button>
-      <button type="submit" [disabled]="!mangaForm.valid">CREATE</button>
+      <button type="submit" [disabled]="!mangaForm.valid" class="button">CREATE</button>
     </div>  
   </form>
 </div>
