@@ -7,10 +7,10 @@ import { Mangas } from '../common/models/manga.model';
   providedIn: 'root'
 })
 export class MangaDataService {
-  seriesUrl = 'series/manage-series';
-  publicsUrl = 'publics/manage-publics';
-  mangasUrl = 'mangas/manage-mangas';
-  searchUrl = 'mangas/search-mangas/';
+  seriesUrl = 'http://localhost:4242/series/manage-series';
+  publicsUrl = 'http://localhost:4242/publics/manage-publics';
+  mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
+  searchUrl = 'http://localhost:4242/mangas/search-mangas/';
 
   constructor(private http: HttpClient) { }
 
