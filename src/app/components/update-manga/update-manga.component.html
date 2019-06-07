@@ -3,8 +3,12 @@
 <section class='main' *ngIf="chosenManga">
   <ul *ngFor="let manga of chosenManga">
     <li>
-        <p>{{manga.title}}</p>
+        <p>{{ manga.title }}</p>
       <input [(ngModel)]="manga.title" placeholder={{manga.title}}>
+    </li>
+    <li>
+      <p>{{ manga.resume }}</p>
+      <input [(ngModel)]="manga.resume" placeholder={{manga.photoCover}}>
     </li>
     <li>
       <img id="cover" src={{manga.photoCover}}>

@@ -1,8 +1,8 @@
 @import '../../../styles.scss';
 
 .main {
-    height: fit-content;
-    width: 75vw;
+    height: auto;
+    width: 85vw;
     background-color: $grey;
     overflow: scroll;
 }
@@ -11,8 +11,13 @@ ul {
     li{
         display: flex;
         flex-direction: column;
-        width: 20%;
-        height: 30%;
+        width: 70%;
+        height: auto;
+
+        #cover {
+            height: 250px;
+            width: 150px;
+        }
 
        input {
            margin-top: 10px;
@@ -22,5 +27,6 @@ ul {
     button {
         background-color: white;
         border: 1px solid black;
+        margin-right: 1vw;
     }
 }
