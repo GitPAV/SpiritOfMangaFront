@@ -1,0 +1,16 @@
+<app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+
+<section class='main' *ngIf="chosenManga">
+  <ul *ngFor="let manga of chosenManga">
+    <li>
+        <p>{{manga.title}}</p>
+      <input [(ngModel)]="manga.title" placeholder={{manga.title}}>
+    </li>
+    <li>
+      <img id="cover" src={{manga.photoCover}}>
+      <input [(ngModel)]="manga.photoCover" placeholder={{manga.photoCover}}>
+    </li>
+    <button (click)="update(manga)">UPDATE</button>
+  </ul>
+
+</section>

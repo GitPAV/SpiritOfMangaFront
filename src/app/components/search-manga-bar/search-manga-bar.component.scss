@@ -1,0 +1,18 @@
+@import '../../../styles.scss';
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: $grey;
+}
+#searchBar {
+    width: 50vw;
+    border: 1px solid black;
+}
+.mangaTable {
+    margin-top: 5vh;
+    width: 50vw;
+    background-color: white;
+    height: 6vh;
+    margin-bottom: 5vh;
+}
