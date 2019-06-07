@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { UserServiceService} from '../../../services/user-service.service';
+import { UserServiceService} from '../../../services/user-service.service'
 
 
 @Component({
@@ -15,7 +15,7 @@ export class CreateSeriesComponent implements OnInit {
     nameSeries: ['', Validators.required],
     photoCover: ['', Validators.required],
     types_id: ['', Validators.required],
-    descriptionSeries: ['', Validators.required],
+    description: ['', Validators.required],
   });
 
   types;
@@ -32,9 +32,11 @@ export class CreateSeriesComponent implements OnInit {
   onSubmit() {
     //Call the observable in service with the apropiate http method 
 
-    const seriesRoute = 'series/manage-series';
+    const seriesRoute = 'http://localhost:4242/series/manage-series';
     this.userService.testPost(this.postSeriesForm.value, seriesRoute).subscribe();
+    this.postSeriesForm.reset();
   }
+
 
 }
 

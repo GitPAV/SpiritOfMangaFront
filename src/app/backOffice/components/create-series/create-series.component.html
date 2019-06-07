@@ -1,3 +1,7 @@
+<h3>
+  Créer Série
+</h3>
+
 <form [formGroup]="postSeriesForm" (ngSubmit)="onSubmit()">
   <label>
     Titre:
@@ -10,7 +14,7 @@
   </label>
   
   <div>
-    type:
+    <p>type:</p>
     <select formControlName="types_id" id="types" required>
       <option [value]=type.id *ngFor="let type of types">{{type.name}}</option>
 
@@ -19,19 +23,8 @@
 
   <label>
     Descritption:
-    <textarea formControlName="descriptionSeries" required></textarea>
+    <textarea formControlName="description" required></textarea>
   </label>
 
-  <button type="submit" [disabled]="!postSeriesForm.valid">Submit</button>
+  <button type="submit" [disabled]="!postSeriesForm.valid" class="button">ENVOYER</button>
 </form>
-
-<hr>
-
-<p>
-  Form Value: {{ postSeriesForm.value | json }}
-</p>
-
-
-<p>
-  Form Status: {{ postSeriesForm.status }}
-</p>
