@@ -20,15 +20,21 @@ export class UpdateMangaComponent implements OnInit {
         this.mangas = mangas;
       })
   }
-
+  
+  getChosenManga(event):void {
+    this.chosenManga = event;
+    console.log(this.chosenManga);
+  }
+  
   update(manga){
     console.log(manga);
     this.mangaService.updateManga(manga).subscribe();
   }
 
-  getChosenManga(event):void {
-    this.chosenManga = event;
-    console.log(this.chosenManga);
+  delete(manga){
+    this.mangaService.delete(manga.id).subscribe();
+    this.chosenManga = [];
   }
+
 
 }

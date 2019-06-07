@@ -1,9 +1,8 @@
 <div class="main">
   <div>
-    <input id='searchBar' #searchText (input)='getSearchedManga(searchText.value)' placeholder="Which manga are you looking for ?" [(ngModel)]="research">
+    <input id='searchBar' #searchText (input)='getSearchedManga(searchText.value)' placeholder=" Which manga are you looking for ?" [(ngModel)]="research">
   </div>
-  <div class="mangaTable">
-    <p value="">Choisir un manga</p>
-    <a (click)="sendChosenManga(manga)" *ngFor= 'let manga of mangas'>{{ manga.title }}</a>
+  <div *ngIf="mangas" class="mangaTable">
+    <a class="titlesSearched" (click)="sendChosenManga(manga)" *ngFor= 'let manga of mangas'>{{ manga.title }}</a>
   </div>
 </div>

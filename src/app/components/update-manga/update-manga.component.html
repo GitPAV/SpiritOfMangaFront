@@ -10,7 +10,8 @@
       <img id="cover" src={{manga.photoCover}}>
       <input [(ngModel)]="manga.photoCover" placeholder={{manga.photoCover}}>
     </li>
-    <button (click)="update(manga)">UPDATE</button>
+    <button class="button" (click)="update(manga)">UPDATE</button>
+    <button class="button" (click)="delete(manga)">DELETE</button>
   </ul>
 
 </section>
