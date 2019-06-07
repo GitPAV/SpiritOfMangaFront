@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateMangaComponent } from './components/create-manga/create-manga.component';
 import { UpdateMangaComponent } from './components/update-manga/update-manga.component';
 import { SearchMangaBarComponent } from './components/search-manga-bar/search-manga-bar.component';
-import { DeleteMangaComponent } from './delete-manga/delete-manga.component'
 import { FormComponent } from './backOffice/components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateSeriesComponent } from './backOffice/components/create-series/create-series.component';
@@ -25,7 +24,6 @@ import { FilterPipe } from './../app/services/filter.pipe';
     CreateMangaComponent,
     UpdateMangaComponent,
     SearchMangaBarComponent,
-    DeleteMangaComponent,
     CreateSeriesComponent,
     SeriesPageComponent,
     ManageSeriesComponent,
