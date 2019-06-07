@@ -59,7 +59,7 @@ export class ManageSeriesComponent implements OnInit {
   }
 
   onSubmit() {
-    const seriesRoute = 'series/manage-series';
+    const seriesRoute = 'http://localhost:4242/series/manage-series';
     const body = {
       id : this.serieId,
       data : this.manageSeriesForm.value

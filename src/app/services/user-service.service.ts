@@ -19,9 +19,6 @@ export class UserServiceService {
     console.log('dataform', dataForm);
     console.log('route', route);
 
-
-
-    return this.http.post(`${route}`, dataForm, {responseType: 'text'});
   };
 
   testPut(dataForm, route) {
@@ -37,11 +34,11 @@ export class UserServiceService {
   };
 
     getTypes() {
-      return this.http.get(`types/manage-types`);
+      return this.http.get(`http://localhost:4242/types/manage-types`);
     }
 
-    getSeries() {
-      return this.http.get(`series/manage-series`);
+    getSeries()  {
+      return this.http.get(`http://localhost:4242/series/manage-series`);
     }
 
     putSerie() {

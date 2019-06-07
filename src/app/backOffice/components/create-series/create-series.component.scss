@@ -11,19 +11,24 @@ h3 {
     font-weight: bolder;
 }
 
-label {
+label p {
     font-family: Verdana, Tahoma, sans-serif;
     font-size: 17px;
     color:  $blue;
     font-weight: bolder;
-    
+    padding: 5%;
 }
 
-button {
-    border:3px solid #FF8D30 ;
-    padding: 2% 5% 2% 5%;
-    color:  $orange;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
-    font-size: 15px;
+input {
+    margin: 5%;
+}
+
+.button {
+    background-color: orange;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-right: 10%;
 }
