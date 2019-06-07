@@ -1,0 +1,55 @@
+<div class="main">
+  <form [formGroup]="createPackForm" (ngSubmit)="onSubmit()">
+
+      <label>
+          Nom:
+          <input type="text" formControlName="namePack" [value]=namePack>
+      </label>
+      
+      <label>
+          Image:
+          <input type="text" formControlName="photoPack" [value]=photoPack>
+      </label>
+
+      <label>
+          Résumé:
+          <textarea formControlName="resumePack" [value]=resumePack></textarea>
+      </label>
+      
+      <div>
+          Stock:
+          <select formControlName="stock" id="stock" >
+              <option [value]=1>1</option>
+              <option [value]=2>2</option>
+              <option [value]=3>3</option>
+          </select>
+      </div>
+
+      <label>
+          Poids:
+          <textarea formControlName="weight" [value]=weight></textarea>
+      </label>
+
+      <label>
+          Prix HT:
+          <textarea formControlName="prixHT" [value]=prixHT></textarea>
+      </label>
+
+      <div>
+          T.V.A:
+          <select formControlName="TVA" id="TVA">
+              <option [value]=1>19,5</option>
+              <option [value]=2>autre</option>
+          </select>
+      </div>
+
+      <label>
+          Prix TTC:
+          <textarea formControlName="prixTTC" [value]=prixTTC></textarea>
+      </label>
+
+          
+    <button type="submit">Submit</button>
+
+  </form>
+</div>

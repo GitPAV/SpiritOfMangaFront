@@ -5,11 +5,12 @@ import { UpdateMangaComponent } from './components/update-manga/update-manga.com
 import { DeleteMangaComponent } from './delete-manga/delete-manga.component';
 import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.component';
 import { FormComponent } from './backOffice/components/form/form.component';
+import { CreatePackComponent } from './backOffice/components/create-pack/create-pack.component';
 
 
 const routes: Routes = [
   {
-    path:'form-manga',
+    path: 'form-manga',
     component: CreateMangaComponent
   },
   {
@@ -24,9 +25,13 @@ const routes: Routes = [
     path: 'delete-manga',
     component: DeleteMangaComponent
   },
-  { 
-    path: 'manage-series', 
-    component: SeriesPageComponent 
+  {
+    path: 'manage-series',
+    component: SeriesPageComponent
+  },
+  {
+    path: 'create-pack',
+    component: CreatePackComponent
   }
 ];
 
