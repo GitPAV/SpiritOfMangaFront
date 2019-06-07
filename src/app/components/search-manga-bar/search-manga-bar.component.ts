@@ -29,9 +29,10 @@ export class SearchMangaBarComponent implements OnInit {
       });
   }
 
-  sendChosenManga(){
+  sendChosenManga(manga){
     let mangasToSend = [];
-    mangasToSend = this.mangas.filter(item => item.title === this.selectedManga);
+    mangasToSend.push(manga);
+    console.log(mangasToSend);
     this.chosenManga.emit(mangasToSend);
     this.research = '';
     this.selectedManga = '';
