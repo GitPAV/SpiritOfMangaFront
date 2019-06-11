@@ -44,4 +44,5 @@ export class MangaDataService {
     const url = `${this.mangasUrl}/${id}`;
     return this.http.delete(url, {responseType: 'text'});
   }
+
 }
