@@ -15,6 +15,8 @@ import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.
 import { ManageSeriesComponent } from './backOffice/components/manage-series/manage-series.component';
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { FilterPipe } from './../app/services/filter.pipe';
+import { SearchPackBarComponent } from './components/search-pack-bar/search-pack-bar.component';
+import { UpdatePacksComponent } from './components/update-packs/update-packs.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { FilterPipe } from './../app/services/filter.pipe';
     SeriesPageComponent,
     ManageSeriesComponent,
     BackOfficePageComponent,
-    FilterPipe
+    FilterPipe,
+    SearchPackBarComponent,
+    UpdatePacksComponent
   ],
   imports: [
     BrowserModule,
