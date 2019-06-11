@@ -2,6 +2,9 @@
   <div>
     <label>Pseudo :</label>
     <input type="text" formControlName="pseudo" required>
+    <div *ngIf="postUserForm.get('pseudo').errors && postUserForm.get('pseudo').touched">     
+      Veuillez entrer un pseudo entre 4 et 15 lettres
+    </div>
   </div>
 
   <div>
@@ -17,15 +20,21 @@
   <div>
     <label>Mot de passe :</label>
     <input type="text" formControlName="password" required>
+    <div *ngIf="postUserForm.get('password').errors && postUserForm.get('password').touched">     
+      ta maman valentin
+    </div>
     <label>Confirmez votre mot de passe :</label>
-    <input type="text" formControlName="forgetPassword" required>
+    <input type="text" formControlName="checkPassword" required>
+    <div *ngIf="postUserForm.get('password').value !== postUserForm.get('checkPassword').value">     
+      Le mot de passe ne correspond pas.
+    </div>
   </div>
 
   <div class="form-group" >
     <label>Email :</label>
       <input type="email" formControlName="email" required>
       <div *ngIf="postUserForm.get('email').errors && postUserForm.get('email').touched">     
-        Veuillez entrer une adresse mail valide
+        Veuillez entrer une adresse mail valide(ex: john@doe.fr)
       </div>
   </div>
   
