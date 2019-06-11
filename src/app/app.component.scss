@@ -1,0 +1,18 @@
+@import '../styles.scss';
+
+#bodyBackContent{
+    height: auto;
+    width: 100vw;    
+    overflow: scroll;
+}
+
+
+#componentsBack{
+    position: fixed;
+    top: 12vh;
+    left: 21vw;
+    width: auto;
+    height: auto;
+    background-color: white;
+    overflow: scroll;
+}

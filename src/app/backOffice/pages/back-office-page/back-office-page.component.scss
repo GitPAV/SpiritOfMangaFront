@@ -1,0 +1,72 @@
+@import '../../../../styles.scss';
+
+#bodyBack{
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: $grey;
+}
+
+.menu {
+    width: 17vw;
+    height: 100vh;
+    background-color: $blue ;
+    z-index: 1;
+    overflow: scroll;
+    img{
+        display: block;
+        width: 75%;
+        height: auto;
+        padding-top: 5vh;
+        margin-left: auto;
+        margin-right: auto;    
+    }
+}
+
+.menu-list{
+
+    padding-top: 5vh;
+    padding-left: 2vw;
+    a{
+        color: white;
+        font-size: 16px; 
+        padding-left: 1.25vw;
+        padding-top: 1.25vh;
+        padding-bottom: 1.25vh;
+    }
+    a:hover{
+        background-color: $blue2;
+        width: 80%;
+    }
+    p{
+        color: white;
+        text-decoration: underline;
+        text-underline-position: under;
+        font-size: 17px;
+        font-weight: bold;
+        padding-top: 1.75vh;
+        padding-bottom: 1vh;
+
+    }    
+}
+
+.headerBack{
+    position: fixed;        
+    width: 100vw;
+    height: 7vh;
+    background-color: white;
+    span{  
+        position: fixed;
+        left: 53vw;
+        top: 1.25vh;
+        color: $orange;
+        font-size: 27px;
+        font-weight: bold;
+    }
+    i{
+        position: fixed;
+        left: 95vw;
+        top: 1.5vh;
+        font-size: 33px;    
+    }
+}

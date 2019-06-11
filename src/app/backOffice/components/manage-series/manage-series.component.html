@@ -1,0 +1,48 @@
+
+<div class="manageSerieCtn">
+
+        <h3>
+            Modifier Série
+        </h3>
+    
+        <div class="searchBar"> 
+            <input type="text" placeholder="Search Series" [(ngModel)]="searchText" >
+        </div>
+        <div class="resultBar" *ngFor="let serie of series | filter : searchText" >
+            <div  *ngIf="searchText"> <span (click)=getTheSerie(serie) > {{serie.nameSeries}}</span>
+            </div>
+        </div>
+    
+</div>
+
+    <div class="manageSerieForm" >
+        <form [formGroup]="manageSeriesForm" (ngSubmit)="onSubmit()">
+
+            <label>
+                Titre:
+                <input type="text" formControlName="nameSeries" [value]=nameSerie>
+            </label>
+            
+            <label>
+                Image:
+                <input type="text" formControlName="photoCover" [value]=photoSerie >
+            </label>
+            
+            <div>
+                type:
+                <select formControlName="types_id" id="types" >
+                    <option [value]=type.id *ngFor="let type of types">{{type.name}}</option>
+            
+                </select>
+            </div>
+        
+            <label>
+                Descritption:
+                <textarea formControlName="description" [value]=description  ></textarea>
+            </label>
+                
+        <button type="submit" class="button" >ENVOYER</button>
+
+        </form> 
+
+</div>
