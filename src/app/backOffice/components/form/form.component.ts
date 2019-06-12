@@ -3,7 +3,8 @@ import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { UserServiceService} from '../../../services/user-service.service';
 
-import { emailValidator, pseudoValidator, firstnameValidator, lastnameValidator, passwordValidator  } from '../../../shared/validators/email.validator'
+import { emailValidator, pseudoValidator, firstnameValidator, lastnameValidator, passwordValidator, phoneValidator, 
+streetNumberValidator, streetValidator, cityValidator, zipValidator  } from '../../../shared/validators/users.validator'
 
 @Component({
   selector: 'app-form',
@@ -14,20 +15,20 @@ export class FormComponent {
 
   postUserForm = this.fb.group({
     pseudo: ['', [Validators.required, pseudoValidator()]],
-    firstname: ['', [Validators.required], firstnameValidator()],
+    firstname: ['', [Validators.required, firstnameValidator()]],
     lastname: ['', [Validators.required, lastnameValidator()]],
     password: ['', [Validators.required, passwordValidator ()]],
     checkPassword: ['', Validators.required],
-    //forgetPassword: ['', Validators.required], ah push avc la request
+    //forgetPassword: ['', Validators.required], a push avc la request
     email: ['', [Validators.required, emailValidator()]],
-    telephone: [''],
-    numRue: ['', Validators.required],
-    rue: ['', Validators.required],
-    ville: ['', Validators.required],
-    cp: ['', Validators.required],
+    telephone: ['', phoneValidator()],
+    numRue: ['', [Validators.required, streetNumberValidator()]],
+    rue: ['', [Validators.required, streetValidator()]],
+    ville: ['', [Validators.required, cityValidator()]],
+    cp: ['', [Validators.required, zipValidator()]],
     newsletter: ['', Validators.required],
     connaissance: ['', Validators.required],
-    droits: ['', Validators.required],
+    // droits: ['', Validators.required], a push avec la request 
   });
 
   
@@ -37,7 +38,7 @@ export class FormComponent {
   onSubmit() {
     //Call the observable in service with the apropiate http method 
 
-    const profileRoute = 'users/create-profile';
+    const profileRoute = 'http://localhost:4200/users/create-profile';
     this.userService.testPost(this.postUserForm.value, profileRoute).subscribe()
   }
 

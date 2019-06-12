@@ -21,11 +21,11 @@
     <label>Mot de passe :</label>
     <input type="text" formControlName="password" required>
     <div *ngIf="postUserForm.get('password').errors && postUserForm.get('password').touched">     
-      ta maman valentin
+      Votre mot de passe doit au moins faire 8 caractères contenir une minuscule, une masjuscule, un chiffre et un caractère spécial(ex: !@#$%^&*)
     </div>
     <label>Confirmez votre mot de passe :</label>
     <input type="text" formControlName="checkPassword" required>
-    <div *ngIf="postUserForm.get('password').value !== postUserForm.get('checkPassword').value">     
+    <div *ngIf="postUserForm.get('password').value !== postUserForm.get('checkPassword').value && postUserForm.get('password').touched">     
       Le mot de passe ne correspond pas.
     </div>
   </div>
@@ -34,60 +34,67 @@
     <label>Email :</label>
       <input type="email" formControlName="email" required>
       <div *ngIf="postUserForm.get('email').errors && postUserForm.get('email').touched">     
-        Veuillez entrer une adresse mail valide(ex: john@doe.fr)
+        Veuillez entrer une adresse mail valide (ex: john@doe.fr)
       </div>
   </div>
   
   <div>
     <label>Phone number :</label>
-    <input type="number" formControlName="telephone">
+    <input type="text" formControlName="telephone">
+    <div *ngIf="postUserForm.get('telephone').errors && postUserForm.get('telephone').touched">     
+      Veuillez entrer un numéro de téléphone au bon format (ex: 0123456789)
+    </div>
   </div>
 
   <h3>Address</h3>
 
   <div>
     <label>Street number :</label>
-    <input type="number" formControlName="numRue" required>
+    <input type="text" formControlName="numRue" required>
+    <div *ngIf="postUserForm.get('numRue').errors && postUserForm.get('numRue').touched">     
+      Veuillez entrer votre numéro de rue
+    </div>
   </div>
 
   <div>
     <label>Street :</label>
     <input type="text" formControlName="rue" required>
+    <div *ngIf="postUserForm.get('rue').errors && postUserForm.get('rue').touched">     
+      Veuillez entrer un nom d'adresse valide
+    </div>
   </div>
 
   <div>
     <label>City :</label>
     <input type="text" formControlName="ville" required>
+    <div *ngIf="postUserForm.get('ville').errors && postUserForm.get('ville').touched">     
+      Veuillez entrer un nom d'adresse valide
+    </div>
   </div>
 
   <div>
     <label>Zip Code :</label>
     <input type="text" formControlName="cp" required>
+    <div *ngIf="postUserForm.get('cp').errors && postUserForm.get('cp').touched">     
+      Veuillez entrer un code postal au bon format
+    </div>
   </div>
   
   <div>
     <label>Newsletter :</label>  
     <select name="newsletter" formControlName="newsletter" required>
-      <option value="1">Yes</option>
+      <option value="1">Oui</option>
       <option value="0">Non</option>
     </select>
   </div>
   
   <div>
-    <label>Comment t'as connu frrère???</label> 
+    <label>Comment nous avez-vous connu ?</label> 
     <select name="connaissance" formControlName="connaissance" required>
-      <option value="option1">option number 1</option>
-      <option value="option2">option number 2</option>
-      <option value="option3">option number 3</option>
-      <option value="option4">option number 4</option>
-    </select>
-  </div>
-
-  <div>
-    <label>Newsletter :</label> 
-    <select name="droits" formControlName="droits" required>
-      <option value="Dieu">Dieu</option>
-      <option value="Paysans">Paysans</option>
+      <option value="Réseaux sociaux">Réseaux sociaux</option>
+      <option value="Un ami">Un ami</option>
+      <option value="Moteur de recherche">Moteur de recherche</option>
+      <option value="Autre">Autre</option>
     </select>
   </div>
 
@@ -100,26 +107,6 @@
   Form Value: {{ postUserForm.value | json }}
 </p>
 
-<!-- <p>
-  email Valid: {{ postUserForm.get('email').valid}}
-</p>
-
 <p>
-  email dirty: {{ postUserForm.get('email').}}
+  Form status : {{postUserForm.valid}}
 </p>
-
-<p>
-  email errors: {{ postUserForm.get('email').errors}}
-</p>
-
-<p>
-  Form Status: {{ postUserForm.status }}
-</p>
-
-<p>
-  Form dirty: {{ postUserForm.dirty }}
-</p>
-
-<p>
-  Form touched: {{ postUserForm.touched }}
-</p> -->
