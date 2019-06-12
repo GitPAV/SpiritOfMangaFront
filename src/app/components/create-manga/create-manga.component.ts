@@ -32,6 +32,7 @@ export class CreateMangaComponent implements OnInit {
     this.mangaService.getMangas()
       .subscribe(mangas => {
         this.mangas = mangas;
+        console.log(this.mangas)
       })
   }
 
@@ -56,6 +57,7 @@ export class CreateMangaComponent implements OnInit {
     this.mangaToadd.publics_id = +this.mangaToadd.publics_id;
     
     this.mangaService.postManga(this.mangaForm.value).subscribe();
+    this.formInit();
   }
 
   delete(manga){

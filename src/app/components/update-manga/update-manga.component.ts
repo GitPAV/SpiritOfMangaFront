@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MangaDataService } from 'src/app/services/manga-data.service';
+import { Mangas } from './../../common/models/manga.model';
 
 @Component({
   selector: 'app-update-manga',
@@ -7,27 +8,34 @@ import { MangaDataService } from 'src/app/services/manga-data.service';
   styleUrls: ['./update-manga.component.scss']
 })
 export class UpdateMangaComponent implements OnInit {
-  mangas = [];
+  mangas : Mangas[] = [];
   title;
   picture;
   chosenManga = [];
+  publics = [];
+  series = [];
 
   constructor(private mangaService: MangaDataService) { }
 
   ngOnInit() {
-    this.mangaService.getMangas()
-      .subscribe(mangas => {
-        this.mangas = mangas;
+      this.mangaService.getPublics()
+        .subscribe(publics => {
+          this.publics = publics;
       })
+
+        this.mangaService.getSeries()
+        .subscribe(series => {
+          this.series = series;
+      });
   }
   
   getChosenManga(event):void {
     this.chosenManga = event;
-    console.log(this.chosenManga);
+    const test = this.mangaService.getSeriePublicByManga('Test').subscribe();
+    console.log(test);
   }
   
   update(manga){
-    console.log(manga);
     this.mangaService.updateManga(manga).subscribe();
   }
 

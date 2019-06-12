@@ -11,6 +11,7 @@ export class MangaDataService {
   publicsUrl = 'http://localhost:4242/publics/manage-publics';
   mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
+  seriePublicUrl = 'http://localhost:4242/mangas/series';
 
   constructor(private http: HttpClient) { }
 
@@ -31,12 +32,16 @@ export class MangaDataService {
   }
 
   updateManga(manga): Observable<any> {
-    console.log(manga);
     return this.http.put(this.mangasUrl, manga, {responseType: 'text'});
   }
 
   getMangas(): Observable<any> {
     return this.http.get(this.mangasUrl);
+  }
+
+  getSeriePublicByManga(title: string): Observable<any> {
+    const data = this.http.get(`${this.seriePublicUrl}/${title}`);
+    return data;
   }
 
   delete(manga : number){

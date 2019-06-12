@@ -1,32 +1,107 @@
 @import '../../../styles.scss';
 
 .main {
-    height: auto;
-    width: 85vw;
-    background-color: $grey;
+    height: 75vh;
+    width: 100%;
     overflow: scroll;
+    display: flex;
+    justify-content:center;
+    background-color: $grey;
 }
 
-ul {
-    li{
-        display: flex;
-        flex-direction: column;
-        width: 70%;
-        height: auto;
+.infos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
 
-        #cover {
-            height: 250px;
-            width: 150px;
+    .infosPrio {
+
+        #title {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px;
+        }
+        
+        #photoCover {
+            display: flex;
+            flex-direction: column;
+    
+            input {
+                height:25px;
+                width:auto;
+                margin: 10px;
+            }
+    
+            #cover {
+                height: 250px;
+                width: 150px;
+                margin: 10px;
+            }
+        }
+    }
+
+
+    #description {
+        width: 90%;
+        height: auto;
+        margin: 10px;
+    }
+
+
+    #selectOption {
+        width: 100%;
+        margin: 10px;
+        display:flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .public {
+            width: 45%;
+
+            #public {
+                width: 80%;
+            }
         }
 
-       input {
-           margin-top: 10px;
-       }
+        .serie {
+            width: 45%;
+
+            #serie {
+                width: 80%;
+            }
+        }
     }
+
+    .infosSecondaires {
+        width: 90%;
+        margin: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        input {
+            border: 1px solid black;
+        }
+
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 90%;
 
     button {
         background-color: white;
         border: 1px solid black;
-        margin-right: 1vw;
+        margin-top: 10px;
+        width: 40%;
     }
 }
+
+
