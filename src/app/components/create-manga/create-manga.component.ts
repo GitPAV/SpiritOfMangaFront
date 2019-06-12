@@ -45,7 +45,7 @@ export class CreateMangaComponent implements OnInit {
       tome:['',Validators.required],
       auteur:['',Validators.required],
       editeur:[''],
-      resume:['',Validators.required],
+      resume:['',[Validators.required, Validators.minLength(8)]],
       prixNeuf:['',Validators.required],
       weight:['',Validators.required],
     });

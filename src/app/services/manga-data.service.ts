@@ -40,8 +40,7 @@ export class MangaDataService {
   }
 
   getSeriePublicByManga(title: string): Observable<any> {
-    const data = this.http.get(`${this.seriePublicUrl}/${title}`);
-    return data;
+    return this.http.get(`${this.seriePublicUrl}/${title}`);
   }
 
   delete(manga : number){

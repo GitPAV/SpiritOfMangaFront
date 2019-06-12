@@ -14,6 +14,9 @@ export class UpdateMangaComponent implements OnInit {
   chosenManga = [];
   publics = [];
   series = [];
+  seriePublic;
+  currentSerie;
+  currentPublic;
 
   constructor(private mangaService: MangaDataService) { }
 
@@ -31,17 +34,29 @@ export class UpdateMangaComponent implements OnInit {
   
   getChosenManga(event):void {
     this.chosenManga = event;
-    const test = this.mangaService.getSeriePublicByManga('Test').subscribe();
-    console.log(test);
+    this.mangaService.getSeriePublicByManga(this.chosenManga[0].title).subscribe(
+      serie => {
+        this.seriePublic = serie;
+        this.currentSerie = this.seriePublic[0][0].nameSeries;
+        this.currentPublic = this.seriePublic[1][0].name;
+      }
+    );
   }
   
-  update(manga){
-    this.mangaService.updateManga(manga).subscribe();
+  update(manga): void{
+    if (confirm(`Êtes-vous sûr de vouloir mettre à jour le manga ${manga.title} ?`)) {
+      this.mangaService.updateManga(manga).subscribe();
+      alert(`Le manga ${manga.title} a bien été mis-à-jour.`)
+      this.chosenManga = [];
+    }
   }
 
-  delete(manga){
-    this.mangaService.delete(manga.id).subscribe();
-    this.chosenManga = [];
+  delete(manga): void{
+    if (confirm(`Êtes-vous sûr de vouloir supprimer le manga ${manga.title} ?`)) {
+      this.mangaService.delete(manga.id).subscribe();
+      alert(`Le manga ${manga.title} a bien été supprimé.`)
+      this.chosenManga = [];
+    }
   }
 
 
