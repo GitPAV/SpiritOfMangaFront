@@ -1,8 +1,8 @@
 <div class="main">
   <div>
-    <input id='searchBar' #searchText (input)='getSearchedTitle(searchText.value)' placeholder=" Which pack are you looking for ?" [(ngModel)]="research">
+    <input id='searchBar' #searchText (input)='getTitlePacks(searchText.value)' placeholder=" Which pack are you looking for ?" [(ngModel)]="research">
   </div>
-  <div *ngIf="packs" >
-    <a class="titlesSearched" (click)="sendChosenManga(manga)" *ngFor= 'let pack of packs'>{{ pack.namePack }}</a>
+  <div *ngIf="packs" class="packTable" >
+    <a class="titlesSearched" (click)="sendChosenPack(pack)" *ngFor= 'let pack of packs'>{{ pack.namePack }}</a>
   </div>
 </div>

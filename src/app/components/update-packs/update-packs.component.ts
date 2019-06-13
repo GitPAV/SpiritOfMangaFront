@@ -19,7 +19,7 @@ export class UpdatePacksComponent implements OnInit {
       })
   }
 
-  getChosenManga(event):void {
+  getChosenPack(event):void {
     this.chosenPacks = event;
   }
 

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class GetPacksService {
   packsUrl = 'http://localhost:4242/packs/manage-packs';
+  searchUrl ='http://localhost:4242/search-packs/:title';
 
 
   constructor( private http: HttpClient) { }
@@ -17,7 +18,7 @@ export class GetPacksService {
   }
 
   getSearchTitle( title:string ): Observable<Packs[]> {
-    return this.http.get<Packs[]>(`${this.packsUrl}/${title}`)
+    return this.http.get<Packs[]>(`${this.searchUrl}/${title}`)
   }
 
   updatePack(pack): Observable<any> {

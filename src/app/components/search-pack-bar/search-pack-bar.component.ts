@@ -12,6 +12,7 @@ import { Packs } from '../../common/models/pack.model';
 export class SearchPackBarComponent implements OnInit {
   packs: Packs[];
   research: string;
+  selectPack;
 
   @Output() chosenPack = new EventEmitter();
 
@@ -25,6 +26,15 @@ export class SearchPackBarComponent implements OnInit {
     .subscribe(pack => {
       this.packs = pack;
     })
+  }
+
+  sendChosenPack(pack){
+    let packsToSend = [];
+    packsToSend.push(pack);
+    this.chosenPack.emit(packsToSend);
+    this.research = '';
+    this.selectPack = '';
+    this.packs = [];
   }
   
 }
