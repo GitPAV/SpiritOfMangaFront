@@ -27,10 +27,10 @@ export class CreatePackComponent implements OnInit {
 
   createMangasPackForm = this.fb.group({
     packs_id: ['', Validators.required],
+    mangas_id: ['', Validators.required],
   });
 
   states = [];
-  lastPack = '';
   chosenManga = [];
   packs = [];
 
@@ -63,13 +63,14 @@ export class CreatePackComponent implements OnInit {
 
     const seriesRoute = 'packs/manage-packs';
     this.userService.testPost(this.createPackForm.value, seriesRoute).subscribe();
-    this.lastPack = this.createPackForm.value.namePack;
     this.createPackForm.reset();
   }
 
   onSubmitMangaPack() {
+    console.log(this.createMangasPackForm.get('mangas_id').value);
     const seriesRoute = 'packsMangas/create-packs-mangas';
     this.userService.testPost(this.createMangasPackForm.value, seriesRoute).subscribe();
+    this.createMangasPackForm.reset();
   }
 
 

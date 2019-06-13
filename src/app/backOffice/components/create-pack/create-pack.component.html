@@ -11,10 +11,6 @@
           <input type="text" formControlName="photoPack">
       </label>
 
-      <label>
-          Résumé :
-          <textarea formControlName="resumePack"></textarea>
-      </label>
       
       <div>
           Stock : 
@@ -22,10 +18,15 @@
               <option [value]=1>1</option>
               <option [value]=2>2</option>
               <option [value]=3>3</option>
-          </select>
-      </div>
+            </select>
+        </div>
+        
+        <label>
+            Résumé :
+            <textarea formControlName="resumePack"></textarea>
+        </label>
 
-      <label>
+        <label>
           Poids :
           <input type="number" formControlName="weight">
       </label>
@@ -100,11 +101,12 @@
     <div *ngIf="chosenManga">
         <ul *ngFor="let manga of chosenManga">
             <li>
-                <p>{{manga.title}}</p>
+                <p>{{manga.title + manga.tome}}</p>
             </li>
             <li>
                 <img src={{manga.photoCover}}>
             </li>
+            <input type="checkbox" formControlName="mangas_id" value="manga.id">
         </ul>
     </div>
 
