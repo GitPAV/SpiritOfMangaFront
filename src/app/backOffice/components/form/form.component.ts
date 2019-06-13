@@ -19,7 +19,7 @@ export class FormComponent {
     lastname: ['', [Validators.required, lastnameValidator()]],
     password: ['', [Validators.required, passwordValidator ()]],
     checkPassword: ['', Validators.required],
-    //forgetPassword: ['', Validators.required], a push avc la request
+    forgetPassword: [''],
     email: ['', [Validators.required, emailValidator()]],
     telephone: ['', phoneValidator()],
     numRue: ['', [Validators.required, streetNumberValidator()]],
@@ -28,18 +28,41 @@ export class FormComponent {
     cp: ['', [Validators.required, zipValidator()]],
     newsletter: ['', Validators.required],
     connaissance: ['', Validators.required],
-    // droits: ['', Validators.required], a push avec la request 
+    droits: [''], 
   });
 
   
 
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
 
+  randomString() {
+    let chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    let string_length = 20;
+    let randomstring = '';
+    for (let i=0; i<string_length; i++) {
+      let rnum = Math.floor(Math.random() * chars.length);
+      randomstring += chars.substring(rnum,rnum+1);
+    }  
+    return randomstring
+  }
+
   onSubmit() {
     //Call the observable in service with the apropiate http method 
 
-    const profileRoute = 'http://localhost:4200/users/create-profile';
-    this.userService.testPost(this.postUserForm.value, profileRoute).subscribe()
+    let forgotKey = this.randomString()
+    this.postUserForm.patchValue({
+      forgetPassword : forgotKey,
+      droits : 'user'
+    })
+
+    console.log(this.postUserForm.controls['forgetPassword'].value)
+    console.log(this.postUserForm.controls['droits'].value)
+
+    console.log('***************' ,this.postUserForm.value)
+
+
+    // const profileRoute = 'http://localhost:4200/users/create-profile';
+    // this.userService.testPost(this.postUserForm.value, profileRoute).subscribe()
   }
 
 }

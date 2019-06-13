@@ -1,0 +1,25 @@
+.main {
+    height: 80vh;
+    width: 75vw;
+    overflow: scroll;
+    box-shadow: 0 0 10px black;
+
+    .title {
+        text-align: center;
+    }
+
+    .form {
+        .pseudo{
+
+            .input{
+                border:4px solid #FF8D30;
+            }
+        }
+
+    }
+}
+
+.errorMessage {
+    color: #FF8D30;
+    font-size: 16px;
+}
