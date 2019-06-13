@@ -1,7 +1,7 @@
 <app-search-pack-bar (chosenPack)= "getChosenPack($event)"></app-search-pack-bar>
 
-<section class='main' *ngIf="chosenPack">
-  <ul *ngFor="let pack of chosenPack">
+<section class='main' *ngIf="chosenPacks">
+  <ul *ngFor="let pack of chosenPacks">
     <li>
         <p>{{pack.namePack}}</p>
       <input [(ngModel)]="pack.namePack" placeholder={{pack.namePack}}>
