@@ -27,7 +27,7 @@ export class MangaDataService {
     return this.http.post("http://localhost:4242/mangas/create-manga", formManga, {responseType: 'text'})
   }
 
-  getSearchedTitle(title : string) :Observable<Mangas[]> {
+  getSearchedTitle(title: string): Observable<Mangas[]> {
     return this.http.get<Mangas[]>(`${this.searchUrl}/${title}`);
   }
 
