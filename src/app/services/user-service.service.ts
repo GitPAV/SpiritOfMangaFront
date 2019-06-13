@@ -44,9 +44,15 @@ export class UserServiceService {
       return this.http.get(`series/manage-series`);
     }
 
-    getStates(): Observable<any> {
+    getStates() {
       return this.http.get(`statesPack/manage-statesPack`, {responseType: 'text'});
     }
+
+    getPacks() {
+      return this.http.get(`packs/manage-packs`, {responseType: 'text'});
+    }
+
+
 
     putSerie() {
       

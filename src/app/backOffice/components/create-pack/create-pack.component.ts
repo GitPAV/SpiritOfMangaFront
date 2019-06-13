@@ -25,7 +25,15 @@ export class CreatePackComponent implements OnInit {
     tomes: ['', Validators.required],
   });
 
+  createMangasPackForm = this.fb.group({
+    packs_id: ['', Validators.required],
+  });
+
   states = [];
+  lastPack = '';
+  chosenManga = [];
+  packs = [];
+
 
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
 
@@ -34,10 +42,20 @@ export class CreatePackComponent implements OnInit {
     this.userService.getStates()
       .subscribe(states => {
         this.states = JSON.parse(states);
-        console.log(states);
+      });
+
+    this.userService.getPacks()
+      .subscribe(packs => {
+        this.packs = JSON.parse(packs);
+        console.log(this.packs);
       });
   }
 
+
+  getChosenManga(event) {
+    this.chosenManga = event;
+    console.log(this.chosenManga);
+  }
 
 
   onSubmit() {
@@ -45,7 +63,13 @@ export class CreatePackComponent implements OnInit {
 
     const seriesRoute = 'packs/manage-packs';
     this.userService.testPost(this.createPackForm.value, seriesRoute).subscribe();
+    this.lastPack = this.createPackForm.value.namePack;
     this.createPackForm.reset();
+  }
+
+  onSubmitMangaPack() {
+    const seriesRoute = 'packsMangas/create-packs-mangas';
+    this.userService.testPost(this.createMangasPackForm.value, seriesRoute).subscribe();
   }
 
 

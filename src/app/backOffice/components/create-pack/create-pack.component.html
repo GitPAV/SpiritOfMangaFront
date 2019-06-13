@@ -74,8 +74,43 @@
     <button type="submit">Submit</button>
 
   </form>
+
+  <br><br><hr>
+
+<form [formGroup]="createMangasPackForm" (ngSubmit)="onSubmitMangaPack()">
+  <div>
+    <div>
+        <label>
+            <h2>Pack sélectionné :</h2>
+            <select formControlName='packs_id' id='packs_id' required>
+                <option *ngFor="let pack of packs" [value]=pack.id>{{pack.namePack}}</option>
+            </select>
+        </label>    
+    </div>
+
+  </div>
+
+  <div>
+      <h2>Ajoutez des mangas au pack :</h2>
+  </div>
+
+  <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+
+
+    <div *ngIf="chosenManga">
+        <ul *ngFor="let manga of chosenManga">
+            <li>
+                <p>{{manga.title}}</p>
+            </li>
+            <li>
+                <img src={{manga.photoCover}}>
+            </li>
+        </ul>
+    </div>
+
+    <button type="submit">Submit</button>
+
+</form>
+
 </div>
 
-<p>
-  Form Value: {{ createPackForm.value | json }}
-</p>
