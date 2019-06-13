@@ -17,21 +17,35 @@ export class CreatePackComponent implements OnInit {
     resumePack: ['', Validators.required],
     stock: ['', Validators.required],
     weight: ['', Validators.required],
-    prixHT: ['', Validators.required],
-    TVA: ['', Validators.required],
-    prixTTC: ['', Validators.required],
+    prixPublic: ['', Validators.required],
+    promo: ['', Validators.required],
+    prixPromo: ['', Validators.required],
+    statesPack_id: ['', Validators.required],
+    notrePrix: ['', Validators.required],
+    tomes: ['', Validators.required],
   });
+
+  states = [];
 
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
 
   ngOnInit() {
+
+    this.userService.getStates()
+      .subscribe(states => {
+        this.states = JSON.parse(states);
+        console.log(states);
+      });
   }
+
+
 
   onSubmit() {
     // Call the observable in service with the apropiate http method
 
     const seriesRoute = 'packs/manage-packs';
     this.userService.testPost(this.createPackForm.value, seriesRoute).subscribe();
+    this.createPackForm.reset();
   }
 
 

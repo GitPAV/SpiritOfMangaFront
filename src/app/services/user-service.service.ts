@@ -44,6 +44,10 @@ export class UserServiceService {
       return this.http.get(`series/manage-series`);
     }
 
+    getStates(): Observable<any> {
+      return this.http.get(`statesPack/manage-statesPack`, {responseType: 'text'});
+    }
+
     putSerie() {
       
     }
