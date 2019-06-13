@@ -25,14 +25,12 @@ export class SearchMangaBarComponent implements OnInit {
     this.searchMangaService.getSearchedTitle(event)
       .subscribe(mangas =>
         { this.mangas = mangas
-        console.log(this.mangas)
       });
-  }
+    }
 
   sendChosenManga(manga){
     let mangasToSend = [];
     mangasToSend.push(manga);
-    console.log(mangasToSend);
     this.chosenManga.emit(mangasToSend);
     this.research = '';
     this.selectedManga = '';
