@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MangaDataService } from 'src/app/services/manga-data.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { GetPacksService } from 'src/app/services/get-packs.service';
 import { Packs } from '../../common/models/pack.model';
+
 
 
 @Component({
@@ -12,9 +13,18 @@ export class SearchPackBarComponent implements OnInit {
   packs: Packs[];
   research: string;
 
-  constructor(private searchPackService: MangaDataService) { }
+  @Output() chosenPack = new EventEmitter();
+
+  constructor(private searchPackService: GetPacksService) { }
 
   ngOnInit() {
   }
 
+  getTitlePacks(event){
+    this.searchPackService.getSearchTitle(event)
+    .subscribe(pack => {
+      this.packs = pack;
+    })
+  }
+  
 }

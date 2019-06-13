@@ -11,7 +11,6 @@ export class MangaDataService {
   publicsUrl = 'http://localhost:4242/publics/manage-publics';
   mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
-  packsUrl = 'http://localhost:4242/packs//manage-packs';
 
   constructor(private http: HttpClient) { }
 
@@ -46,7 +45,4 @@ export class MangaDataService {
     return this.http.delete(url, {responseType: 'text'});
   }
 
-   getPacks(): Observable<any> {
-     return this.http.get(this.packsUrl); 
-   }
 }
