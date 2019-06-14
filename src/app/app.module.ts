@@ -18,6 +18,7 @@ import { FilterPipe } from './../app/services/filter.pipe';
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component';
 import { NavBarComponent } from './frontOffice/components/nav-bar/nav-bar.component';
 import { HeaderHomeOneComponent } from './frontOffice/components/header-home-one/header-home-one.component';
+import { CardMangaComponent } from './frontOffice/components/card-manga/card-manga.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { HeaderHomeOneComponent } from './frontOffice/components/header-home-one
     FilterPipe,
     HomepageComponent,
     NavBarComponent,
-    HeaderHomeOneComponent
+    HeaderHomeOneComponent,
+    CardMangaComponent
   ],
   imports: [
     BrowserModule,
