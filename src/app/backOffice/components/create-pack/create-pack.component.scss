@@ -59,8 +59,12 @@ text-align: center
 
 .resultSearch{
     box-shadow: 0 0 10px black;
-    .eachMangas{
-        width: 20vw;
+    width: 20vw;
+    text-align: center;
+    display: flex;
+    margin-left: 2vw;
+    ul{
+        padding-left: 4.3vw;
     }
     img{
         width: 11vw;
