@@ -1,0 +1,128 @@
+<div id="main"> 
+ <div>
+
+    <app-create-state></app-create-state>
+
+  </div>
+
+  <div>
+
+    <app-search-manga-bar (chosenManga)="getTheChosenManga($event)"></app-search-manga-bar>
+
+  </div>
+
+  <div *ngIf="mangaTitle">
+
+    <div>{{mangaTitle[0].title}}</div>
+    <div>{{mangaTitle[0].tome}}</div>
+    <img [src]="mangaTitle[0].photoCover">
+
+
+    <form [formGroup]="stockForm"
+    (ngSubmit)="onSubmit()"
+    >
+
+    <p>Stock/Prix/Etat</p>
+
+      <div>
+        <label for="commentaire">
+          Commentaire
+          <input 
+          id="commentaire" 
+          type="text"
+          name="commentaire"
+          class="input"
+          formControlName="commentaire">
+        </label>
+      </div>
+
+      <div>
+        <label for="stock">
+          Stock
+          <input 
+          id="stock" 
+          type="number"
+          name="stock"
+          class="input"
+          formControlName="stock">
+        </label>
+      </div>
+
+      <div>
+        <label for="promo">
+          Promo
+          <input 
+          id="promo" 
+          type="number"
+          name="promo"
+          class="input"
+          formControlName="promo">
+        </label>
+      </div>
+
+      <div>
+        <label for="promoValue">
+          Montant de la Promotion
+          <input 
+          id="promoValue" 
+          type="number"
+          name="promoValue"
+          class="input"
+          formControlName="promoValue">
+        </label>
+      </div>
+
+      <div>
+        <label for="promoValue">
+          Montant de la Promotion
+          <input 
+          id="promoValue" 
+          type="number"
+          name="promoValue"
+          class="input"
+          formControlName="promoValue">
+        </label>
+      </div>
+
+      <div>
+        <label for="prixHT">
+          Prix HT
+          <input 
+          id="prixHT" 
+          type="number"
+          name="prixHT"
+          class="input"
+          formControlName="prixHT">
+        </label>
+      </div>
+
+      <div>
+        <label for="TVA">
+          TVA
+          <input 
+          id="TVA" 
+          type="number"
+          name="TVA"
+          class="input"
+          formControlName="TVA">
+        </label>
+      </div>
+
+      <div>
+        <label for="PrixTTC">
+          Prix TTC
+          <input 
+          id="PrixTTC" 
+          type="number"
+          name="PrixTTC"
+          class="input"
+          formControlName="PrixTTC">
+        </label>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+
