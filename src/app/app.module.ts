@@ -17,6 +17,7 @@ import { BackOfficePageComponent } from './backOffice/pages/back-office-page/bac
 import { FilterPipe } from './../app/services/filter.pipe';
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component';
 import { NavBarComponent } from './frontOffice/components/nav-bar/nav-bar.component';
+import { HeaderHomeOneComponent } from './frontOffice/components/header-home-one/header-home-one.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NavBarComponent } from './frontOffice/components/nav-bar/nav-bar.compon
     BackOfficePageComponent,
     FilterPipe,
     HomepageComponent,
-    NavBarComponent
+    NavBarComponent,
+    HeaderHomeOneComponent
   ],
   imports: [
     BrowserModule,
