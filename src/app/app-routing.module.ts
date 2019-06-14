@@ -5,6 +5,7 @@ import { UpdateMangaComponent } from './components/update-manga/update-manga.com
 import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.component';
 import { FormComponent } from './backOffice/components/form/form.component';
 import { CreatePackComponent } from './backOffice/components/create-pack/create-pack.component';
+import { UpdatePacksComponent} from './components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 
 
@@ -34,6 +35,10 @@ const routes: Routes = [
     component: SeriesPageComponent
   },
   {
+  path: 'manage-packs',
+  component: UpdatePacksComponent
+},
+{
     path: 'stock-manga',
     component: StockMangaComponent
   }

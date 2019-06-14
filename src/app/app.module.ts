@@ -16,6 +16,12 @@ import { ManageSeriesComponent } from './backOffice/components/manage-series/man
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { FilterPipe } from './../app/services/filter.pipe';
 import { CreatePackComponent } from './backOffice/components/create-pack/create-pack.component';
+import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component';
+import { NavBarComponent } from './frontOffice/components/nav-bar/nav-bar.component';
+import { HeaderHomeOneComponent } from './frontOffice/components/header-home-one/header-home-one.component';
+import { CardMangaComponent } from './frontOffice/components/card-manga/card-manga.component';
+import { SearchPackBarComponent } from './components/search-pack-bar/search-pack-bar.component';
+import { UpdatePacksComponent } from './components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
 
@@ -33,6 +39,12 @@ import { CreateStateComponent } from './backOffice/components/create-state/creat
     BackOfficePageComponent,
     FilterPipe,
     CreatePackComponent,
+    HomepageComponent,
+    NavBarComponent,
+    HeaderHomeOneComponent,
+    CardMangaComponent,
+    SearchPackBarComponent,
+    UpdatePacksComponent,
     StockMangaComponent,
     CreateStateComponent
   ],
