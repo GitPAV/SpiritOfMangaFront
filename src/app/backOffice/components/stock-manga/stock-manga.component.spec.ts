@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteMangaComponent } from './delete-manga.component';
+import { StockMangaComponent } from './stock-manga.component';
 
-describe('DeleteMangaComponent', () => {
-  let component: DeleteMangaComponent;
-  let fixture: ComponentFixture<DeleteMangaComponent>;
+describe('StockMangaComponent', () => {
+  let component: StockMangaComponent;
+  let fixture: ComponentFixture<StockMangaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DeleteMangaComponent ]
+      declarations: [ StockMangaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteMangaComponent);
+    fixture = TestBed.createComponent(StockMangaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

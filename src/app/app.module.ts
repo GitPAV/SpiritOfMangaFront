@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateMangaComponent } from './components/create-manga/create-manga.component';
 import { UpdateMangaComponent } from './components/update-manga/update-manga.component';
 import { SearchMangaBarComponent } from './components/search-manga-bar/search-manga-bar.component';
-import { DeleteMangaComponent } from './delete-manga/delete-manga.component'
 import { FormComponent } from './backOffice/components/form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateSeriesComponent } from './backOffice/components/create-series/create-series.component';
@@ -17,6 +16,8 @@ import { ManageSeriesComponent } from './backOffice/components/manage-series/man
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { FilterPipe } from './../app/services/filter.pipe';
 import { CreatePackComponent } from './backOffice/components/create-pack/create-pack.component';
+import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
+import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
 
 
 @NgModule({
@@ -26,13 +27,14 @@ import { CreatePackComponent } from './backOffice/components/create-pack/create-
     CreateMangaComponent,
     UpdateMangaComponent,
     SearchMangaBarComponent,
-    DeleteMangaComponent,
     CreateSeriesComponent,
     SeriesPageComponent,
     ManageSeriesComponent,
     BackOfficePageComponent,
     FilterPipe,
-    CreatePackComponent
+    CreatePackComponent,
+    StockMangaComponent,
+    CreateStateComponent
   ],
   imports: [
     BrowserModule,

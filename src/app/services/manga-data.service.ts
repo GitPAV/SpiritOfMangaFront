@@ -7,10 +7,11 @@ import { Mangas } from '../common/models/manga.model';
   providedIn: 'root'
 })
 export class MangaDataService {
-  seriesUrl = 'series/manage-series';
-  publicsUrl = 'publics/manage-publics';
-  mangasUrl = 'mangas/manage-mangas';
-  searchUrl = 'mangas/search-mangas/';
+  seriesUrl = 'http://localhost:4242/series/manage-series';
+  publicsUrl = 'http://localhost:4242/publics/manage-publics';
+  mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
+  searchUrl = 'http://localhost:4242/mangas/search-mangas';
+  seriePublicUrl = 'http://localhost:4242/mangas/series';
 
   constructor(private http: HttpClient) { }
 
@@ -23,15 +24,14 @@ export class MangaDataService {
   }
 
   postManga(formManga) {
-    return this.http.post("mangas/create-manga", formManga, {responseType: 'text'})
+    return this.http.post("http://localhost:4242/mangas/create-manga", formManga, {responseType: 'text'})
   }
 
-  getSearchedTitle(title : string) :Observable<Mangas[]> {
+  getSearchedTitle(title: string): Observable<Mangas[]> {
     return this.http.get<Mangas[]>(`${this.searchUrl}/${title}`);
   }
 
   updateManga(manga): Observable<any> {
-    console.log(manga);
     return this.http.put(this.mangasUrl, manga, {responseType: 'text'});
   }
 
@@ -39,9 +39,14 @@ export class MangaDataService {
     return this.http.get(this.mangasUrl);
   }
 
+  getSeriePublicByManga(title: string): Observable<any> {
+    return this.http.get(`${this.seriePublicUrl}/${title}`);
+  }
+
   delete(manga : number){
     const id = manga;
     const url = `${this.mangasUrl}/${id}`;
     return this.http.delete(url, {responseType: 'text'});
   }
+
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MangaDataService } from 'src/app/services/manga-data.service';
+import { Mangas } from './../../common/models/manga.model';
 
 @Component({
   selector: 'app-update-manga',
@@ -7,28 +8,56 @@ import { MangaDataService } from 'src/app/services/manga-data.service';
   styleUrls: ['./update-manga.component.scss']
 })
 export class UpdateMangaComponent implements OnInit {
-  mangas = [];
+  mangas : Mangas[] = [];
   title;
   picture;
   chosenManga = [];
+  publics = [];
+  series = [];
+  seriePublic;
+  currentSerie;
+  currentPublic;
 
   constructor(private mangaService: MangaDataService) { }
 
   ngOnInit() {
-    this.mangaService.getMangas()
-      .subscribe(mangas => {
-        this.mangas = mangas;
+      this.mangaService.getPublics()
+        .subscribe(publics => {
+          this.publics = publics;
       })
-  }
 
-  update(manga){
-    console.log(manga);
-    this.mangaService.updateManga(manga).subscribe();
+        this.mangaService.getSeries()
+        .subscribe(series => {
+          this.series = series;
+      });
   }
-
+  
   getChosenManga(event):void {
     this.chosenManga = event;
-    console.log(this.chosenManga);
+    this.mangaService.getSeriePublicByManga(this.chosenManga[0].title).subscribe(
+      serie => {
+        this.seriePublic = serie;
+        this.currentSerie = this.seriePublic[0][0].nameSeries;
+        this.currentPublic = this.seriePublic[1][0].name;
+      }
+    );
   }
+  
+  update(manga): void{
+    if (confirm(`Êtes-vous sûr de vouloir mettre à jour le manga ${manga.title} ?`)) {
+      this.mangaService.updateManga(manga).subscribe();
+      alert(`Le manga ${manga.title} a bien été mis-à-jour.`)
+      this.chosenManga = [];
+    }
+  }
+
+  delete(manga): void{
+    if (confirm(`Êtes-vous sûr de vouloir supprimer le manga ${manga.title} ?`)) {
+      this.mangaService.delete(manga.id).subscribe();
+      alert(`Le manga ${manga.title} a bien été supprimé.`)
+      this.chosenManga = [];
+    }
+  }
+
 
 }

@@ -1,16 +1,77 @@
 <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
 
-<section *ngIf="chosenManga">
-  <ul *ngFor="let manga of chosenManga">
-    <li>
-        <p>{{manga.title}}</p>
-      <input [(ngModel)]="manga.title" placeholder={{manga.title}}>
-    </li>
-    <li>
-      <img src={{manga.photoCover}}>
-      <input [(ngModel)]="manga.photoCover" placeholder={{manga.photoCover}}>
-    </li>
-    <button (click)="update(manga)">UPDATE</button>
-  </ul>
+<section class='main' *ngIf="chosenManga">
+
+  <div class="background">
+
+    <div *ngFor="let manga of chosenManga" class="infos">
+
+      <div class="infosPrio">
+        <div class="titreAuteur">
+          <div id="title">
+            <p>Titre :</p>
+            <input [(ngModel)]="manga.title" placeholder={{manga.title}}>
+          </div>
+
+          <div id="auteur">
+            <p>Auteur :</p>
+            <input [(ngModel)]="manga.auteur" placeholder={{manga.auteur}}>
+          </div>
+          </div>
+
+          <div id="photoCover">
+            <img id="cover" src={{manga.photoCover}}>
+            <input placeholder="Enter new url" [(ngModel)]="manga.photoCover">
+          </div>
+      </div>
+
+      <textarea row="5" col="20" [(ngModel)]="manga.resume" id="description">
+      </textarea>
+
+      <div id="selectOption">
+        <label class="serie" for='serie'>
+            {{ 'Série actuelle : ' + currentSerie }} <br>
+          <select id='serie'>
+            <option *ngFor="let serie of series" [value]=serie.id>{{serie.nameSeries}}</option>
+          </select>
+        </label>
+
+        <label class="public" for='public'>
+            {{ 'Public actuel : ' + currentPublic }} <br>
+          <select id='public'>
+            <option *ngFor="let public of publics" [value]=public.id>{{public.name}}</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="infosSecondaires">
+        <div id="tome">
+          <p>Tome :</p>
+          <input [(ngModel)]="manga.tome" placeholder={{manga.tome}}>
+        </div>
+
+        <div id="prix">
+          <p>Prix neuf :</p>
+          <input [(ngModel)]="manga.prixNeuf" placeholder={{manga.prixNeuf}}>
+        </div>
+
+        <div id="poids">
+          <p>Poids :</p>
+          <input [(ngModel)]="manga.weight" placeholder={{manga.weight}}>
+        </div>
+
+        <div id="editeur">
+          <p>Éditeur :</p>
+          <input [(ngModel)]="manga.editeur" placeholder={{manga.editeur}}>
+        </div>
+      </div>
+
+      <div class="buttons">
+        <button class="button" (click)="update(manga)">UPDATE</button>
+        <button class="button" (click)="delete(manga)">DELETE</button>
+      </div>
+
+    </div>
+  </div>
 
 </section>

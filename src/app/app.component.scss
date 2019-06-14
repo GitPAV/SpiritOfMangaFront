@@ -1,8 +1,9 @@
 @import '../styles.scss';
 
 #bodyBackContent{
-    height: 100vh;
+    height: auto;
     width: 100vw;    
+    overflow: scroll;
 }
 
 
@@ -10,7 +11,8 @@
     position: fixed;
     top: 12vh;
     left: 21vw;
-    width: 75vw;
-    height: auto;
+    width: auto;
+    min-height: fit-content;
     background-color: white;
+    overflow: scroll;
 }
