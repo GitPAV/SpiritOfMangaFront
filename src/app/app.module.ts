@@ -15,6 +15,8 @@ import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.
 import { ManageSeriesComponent } from './backOffice/components/manage-series/manage-series.component';
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { FilterPipe } from './../app/services/filter.pipe';
+import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
+import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { FilterPipe } from './../app/services/filter.pipe';
     SeriesPageComponent,
     ManageSeriesComponent,
     BackOfficePageComponent,
-    FilterPipe
+    FilterPipe,
+    StockMangaComponent,
+    CreateStateComponent
   ],
   imports: [
     BrowserModule,
