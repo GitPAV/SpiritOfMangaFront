@@ -1,5 +1,6 @@
 <div class="main">
-  <form [formGroup]="createPackForm" (ngSubmit)="onSubmit()">
+    <h3 class="formTitle">CRÉER UN PACK</h3>
+    <form [formGroup]="createPackForm" (ngSubmit)="onSubmit()">
 
       <label>
           Nom :
@@ -21,74 +22,73 @@
             </select>
         </div>
         
+        
         <label>
-            Résumé :
-            <textarea formControlName="resumePack"></textarea>
+            Poids :
+            <input type="number" formControlName="weight">
         </label>
-
+        
         <label>
-          Poids :
-          <input type="number" formControlName="weight">
-      </label>
-
-      <label>
-          Prix Public :
-          <input type="number" formControlName="prixPublic">
-      </label>
-
-      <div>
-          Promotion :
-          <select formControlName="promo" id="promo">
-              <option [value]=0>Non</option>
-              <option [value]=1>Oui</option>
-          </select>
-      </div>
-
+            Prix Public :
+            <input type="number" formControlName="prixPublic">
+        </label>
+        
+        <div>
+            Promotion :
+            <select formControlName="promo" id="promo">
+                <option [value]=0>Non</option>
+                <option [value]=1>Oui</option>
+            </select>
+        </div>
+        
         <div *ngIf="createPackForm.value.promo == 1">  
             <label>
                 Prix Promotion :
                 <input type="number" formControlName="prixPromo">
             </label>
         </div>
-
-    <div>
+        
+        <div>
+            <label>
+                Etat :
+                <select formControlName='statesPack_id' id='statesPack' required>
+                    <option *ngFor="let statesPack of states" [value]=statesPack.id>{{statesPack.name}}</option>
+                </select>
+            </label>    
+        </div>
+        
         <label>
-            Etat :
-            <select formControlName='statesPack_id' id='statesPack' required>
-                <option *ngFor="let statesPack of states" [value]=statesPack.id>{{statesPack.name}}</option>
-            </select>
-        </label>    
-    </div>
-
-    <label>
-        Notre Prix :
-        <input type="number" formControlName="notrePrix">
-    </label>
-  
-    <label>
-        Tomes :
-        <input type="number" formControlName="tomes">
-    </label>
-
-
-          
-    <button type="submit">Submit</button>
-
-  </form>
-
-  <br><br><hr>
-
-<form [formGroup]="createMangasPackForm" (ngSubmit)="onSubmitMangaPack()">
-  <div>
-    <div>
+            Notre Prix :
+            <input type="number" formControlName="notrePrix">
+        </label>
+        
         <label>
-            <h2>Pack sélectionné :</h2>
-            <select formControlName='packs_id' id='packs_id' required>
-                <option *ngFor="let pack of packs" [value]=pack.id>{{pack.namePack}}</option>
-            </select>
-        </label>    
-    </div>
-
+            Tomes :
+            <input type="number" formControlName="tomes">
+        </label>
+        
+        <label>
+            Résumé :
+            <textarea formControlName="resumePack"></textarea>
+        </label>        
+        
+        <button type="submit">Submit</button>
+        
+    </form>
+    
+    <br><br><hr>
+    
+    <form [formGroup]="createMangasPackForm" (ngSubmit)="onSubmitMangaPack()">
+        <div>
+            <div>
+                <label>
+                    <h2>Pack sélectionné :</h2>
+                    <select formControlName='packs_id' id='packs_id' required>
+                        <option *ngFor="let pack of packs" [value]=pack.id>{{pack.namePack}}</option>
+                    </select>
+                </label>    
+            </div>
+            
   </div>
 
   <div>
