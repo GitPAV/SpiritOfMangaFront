@@ -1,0 +1,25 @@
+@import '../../../styles.scss';
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: $grey;
+}
+#searchBar {
+    width: 50vw;
+    border: 1px solid black;
+}
+.packTable {
+    width: 50vw;
+    height: fit-content;
+    margin-bottom: 5vh;
+    display : flex;
+    flex-direction: column;
+    background-color: rgba(45,52,65,1);
+
+    .titlesSearched {
+        color: white;
+        padding-top: 1vh;
+        cursor: pointer;
+    }
+}
