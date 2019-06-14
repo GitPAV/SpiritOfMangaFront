@@ -14,11 +14,7 @@ export class UserServiceService {
     // The http.post methode is redirected to port 4242 with proxy.conf at the root of
     // the angular project, use 'npm start' to compile
     
-    return this.http.post(`${route}`, dataForm, {responseType: 'text'});
-
-    console.log('dataform', dataForm);
-    console.log('route', route);
-
+    return this.http.post(`${route}/${dataForm}`, {responseType: 'text'});
   };
 
   testPut(dataForm, route) {
