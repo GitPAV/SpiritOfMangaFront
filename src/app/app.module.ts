@@ -17,6 +17,8 @@ import { BackOfficePageComponent } from './backOffice/pages/back-office-page/bac
 import { FilterPipe } from './../app/services/filter.pipe';
 import { SearchPackBarComponent } from './components/search-pack-bar/search-pack-bar.component';
 import { UpdatePacksComponent } from './components/update-packs/update-packs.component';
+import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
+import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { UpdatePacksComponent } from './components/update-packs/update-packs.com
     BackOfficePageComponent,
     FilterPipe,
     SearchPackBarComponent,
-    UpdatePacksComponent
+    UpdatePacksComponent,
+    StockMangaComponent,
+    CreateStateComponent
   ],
   imports: [
     BrowserModule,
