@@ -19,6 +19,10 @@ import { HomepageComponent } from './frontOffice/pages/homepage/homepage.compone
 import { NavBarComponent } from './frontOffice/components/nav-bar/nav-bar.component';
 import { HeaderHomeOneComponent } from './frontOffice/components/header-home-one/header-home-one.component';
 import { CardMangaComponent } from './frontOffice/components/card-manga/card-manga.component';
+import { SearchPackBarComponent } from './components/search-pack-bar/search-pack-bar.component';
+import { UpdatePacksComponent } from './components/update-packs/update-packs.component';
+import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
+import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
 
 
 @NgModule({
@@ -36,7 +40,11 @@ import { CardMangaComponent } from './frontOffice/components/card-manga/card-man
     HomepageComponent,
     NavBarComponent,
     HeaderHomeOneComponent,
-    CardMangaComponent
+    CardMangaComponent,
+    SearchPackBarComponent,
+    UpdatePacksComponent,
+    StockMangaComponent,
+    CreateStateComponent
   ],
   imports: [
     BrowserModule,
