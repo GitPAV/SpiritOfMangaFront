@@ -15,9 +15,11 @@ export class StockMangaComponent implements OnInit {
   stockUrl = 'http://localhost:4242/statesMangas/manage-states-stock';
   states = [];
   promoTable=[
-    {name:"oui",boolean:true},
-    {name:"non",boolean:false}
-  ]
+    {name:"oui"},
+    {name:"non"}
+  ];
+  promoCheck = false;
+  mangaToAdd;
 
   constructor(private fb: FormBuilder, 
     private dbService: UserServiceService, 
@@ -36,6 +38,8 @@ export class StockMangaComponent implements OnInit {
       prixTTC:['',Validators.required],
     })
 
+    this.stockForm.get('TVA').patchValue(5.5);
+
     this.statesService.getStates()
       .subscribe( states => {
         this.states = states;
@@ -48,15 +52,21 @@ export class StockMangaComponent implements OnInit {
   }
 
   onSubmit(){
+    this.stockForm.get('promo').value === "oui" ? this.stockForm.get('promo').patchValue(true) : this.stockForm.get('promo').patchValue(false);
     this.stockForm.get("mangas_id").patchValue(this.mangaTitle[0].id);
-    console.log(this.stockForm.value);
-    this.dbService.testPost(this.stockForm.value, this.stockUrl);
+    this.mangaToAdd = this.stockForm.value;
+    this.mangaToAdd.states_id = +this.mangaToAdd.states_id;
+    this.dbService.testPost(this.mangaToAdd, this.stockUrl).subscribe();
     this.stockForm.reset();
   }
 
-  // getTheTVA(){
-  //   this.TVA = 5
-  //   prixHt * TVA / 100
-  // }
+  applyPromo(){
+    this.stockForm.get('promo').value === "oui" ? this.promoCheck = true : this.promoCheck = false;
+  }
+
+  getPrice(){
+    let tvaToEuros = this.stockForm.get('prixHT').value * this.stockForm.get('TVA').value / 100;
+    this.stockForm.get('prixTTC').patchValue((this.stockForm.get('prixHT').value + tvaToEuros).toFixed(2));
+  }
 
 }
