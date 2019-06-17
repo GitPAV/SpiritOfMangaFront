@@ -52,6 +52,7 @@ text-align: center
 
 .headerForm2{
     display: flex;
+    margin-bottom: 10vh;
     .formInput{
         margin-left: 2vw;
     }
@@ -63,8 +64,11 @@ text-align: center
     text-align: center;
     display: flex;
     margin-left: 2vw;
+    margin-bottom: 10vh;
+    padding-left: 4%;
+
+
     ul{
-        padding-left: 4.3vw;
     }
     img{
         width: 11vw;

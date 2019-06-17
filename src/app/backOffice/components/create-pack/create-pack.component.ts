@@ -33,7 +33,8 @@ export class CreatePackComponent implements OnInit {
   states = [];
   chosenManga = [];
   packs = [];
-
+  id;
+  idManga;
 
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
 
@@ -55,22 +56,26 @@ export class CreatePackComponent implements OnInit {
   getChosenManga(event) {
     this.chosenManga = event;
     console.log(this.chosenManga);
+    this.id = this.chosenManga.map((manga) => {
+      return manga.id;
+    });
+    this.idManga = this.id.join();
   }
 
 
   onSubmit() {
     // Call the observable in service with the apropiate http method
 
-    const seriesRoute = 'packs/manage-packs';
-    this.userService.testPost(this.createPackForm.value, seriesRoute).subscribe();
+    const seriesRoute = 'http://localhost:4242/packs/manage-packs';
+    this.userService.postMangas(this.createPackForm.value, seriesRoute).subscribe();
     this.createPackForm.reset();
   }
 
   onSubmitMangaPack() {
-    console.log(this.createMangasPackForm.get('mangas_id').value);
-    const seriesRoute = 'packsMangas/create-packs-mangas';
-    this.userService.testPost(this.createMangasPackForm.value, seriesRoute).subscribe();
-    this.createMangasPackForm.reset();
+    const seriesRoute = 'http://localhost:4242/packsMangas/create-packs-mangas';
+    this.createMangasPackForm.value.mangas_id = this.idManga;
+    console.log(this.createMangasPackForm.value);
+    this.userService.postMangas(this.createMangasPackForm.value, seriesRoute).subscribe();
   }
 
 

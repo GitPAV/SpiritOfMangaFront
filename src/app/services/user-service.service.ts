@@ -13,9 +13,13 @@ export class UserServiceService {
     // Take as argument the formvalue
     // The http.post methode is redirected to port 4242 with proxy.conf at the root of
     // the angular project, use 'npm start' to compile
-    
+
     return this.http.post(`${route}/${dataForm}`, {responseType: 'text'});
-  };
+  }
+
+  postMangas(dataForm, route) {
+    return this.http.post(`${route}`, dataForm, {responseType: 'text'});
+  }
 
   testPut(dataForm, route) {
     // Take as argument the formvalue
@@ -27,7 +31,7 @@ export class UserServiceService {
 
 
     return this.http.put(`${route}`, dataForm, {responseType: 'text'});
-  };
+  }
 
     getTypes() {
       return this.http.get(`http://localhost:4242/types/manage-types`);
@@ -38,17 +42,11 @@ export class UserServiceService {
     }
 
     getStates() {
-      return this.http.get(`statesPack/manage-statesPack`, {responseType: 'text'});
+      return this.http.get(`http://localhost:4242/statesPack/manage-statesPack`, {responseType: 'text'});
     }
 
     getPacks() {
-      return this.http.get(`packs/manage-packs`, {responseType: 'text'});
-    }
-
-
-
-    putSerie() {
-      
+      return this.http.get(`http://localhost:4242/packs/manage-packs`, {responseType: 'text'});
     }
 
 

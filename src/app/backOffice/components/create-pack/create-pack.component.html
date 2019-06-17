@@ -115,7 +115,7 @@
             
             
             <div class="formInput">
-                <h2>Ajoutez des mangas au pack :</h2>
+                <h2>Ajouter des mangas au pack :</h2>
                 
                 <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
             </div>
@@ -130,12 +130,11 @@
                     <li>
                         <img src={{manga.photoCover}}>
                     </li>
-                    <input type="checkbox" formControlName="mangas_id" value="manga.id">
+                    <button type="submit" class="button">Add</button>
                 </ul>
             </div>
         </div>
     
-        <button type="submit" class="button">Submit</button>
     
     </form>
 </div>
