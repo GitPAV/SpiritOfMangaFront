@@ -59,6 +59,9 @@
           class="input"
           formControlName="stock">
         </label>
+        <div *ngIf="stockForm.get('stock').errors && stockForm.get('stock').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
       </div>
 
       <div>
@@ -68,6 +71,9 @@
             <option *ngFor="let item of promoTable; let i = index" [value]="item.name">{{ item.name }}</option>
           </select>
         </label>
+        <div *ngIf="stockForm.get('promo').errors && stockForm.get('promo').touched">
+          <span class='errorMessage'>Indiquez si vous souhaitez appliquer une promotion</span>
+        </div>
       </div>
 
       <div *ngIf="promoCheck">
@@ -92,6 +98,9 @@
           class="input"
           formControlName="prixHT">
         </label>
+        <div *ngIf="stockForm.get('prixHT').errors && stockForm.get('prixHT').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
       </div>
 
       <div>
@@ -120,7 +129,7 @@
         </label>
       </div>
 
-      <button type="submit">CRÉER MANGA</button>
+      <button type="submit" [disabled]="!stockForm.valid">CRÉER MANGA</button>
     </form>
 
   </div>
