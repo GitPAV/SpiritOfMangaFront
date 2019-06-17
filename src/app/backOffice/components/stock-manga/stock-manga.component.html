@@ -24,6 +24,18 @@
 
     <p>Stock/Prix/Etat</p>
 
+      <div class= "state">
+        <label for='state'>
+          État : <br>
+          <select formControlName='states_id' id='state' required>
+            <option *ngFor="let state of states" [value]=state.id>{{state.name}}</option>
+          </select>
+        </label>
+        <div *ngIf="stockForm.get('states_id').errors && stockForm.get('states_id').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
+      </div> 
+
       <div>
         <label for="commentaire">
           Commentaire
@@ -51,24 +63,9 @@
       <div>
         <label for="promo">
           Promo
-          <input 
-          id="promo" 
-          type="number"
-          name="promo"
-          class="input"
-          formControlName="promo">
-        </label>
-      </div>
-
-      <div>
-        <label for="promoValue">
-          Montant de la Promotion
-          <input 
-          id="promoValue" 
-          type="number"
-          name="promoValue"
-          class="input"
-          formControlName="promoValue">
+          <select formControlName='promoValue' id='promo' required>
+            <option *ngFor="let item of promoTable" (value)="item.boolean">{{ item.name }}</option>
+          </select>
         </label>
       </div>
 
@@ -116,9 +113,11 @@
           type="number"
           name="PrixTTC"
           class="input"
-          formControlName="PrixTTC">
+          formControlName="prixTTC">
         </label>
       </div>
+
+      <button type="submit">CRÉER MANGA</button>
     </form>
 
   </div>
