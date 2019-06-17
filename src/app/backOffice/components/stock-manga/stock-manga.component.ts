@@ -37,7 +37,8 @@ export class StockMangaComponent implements OnInit {
       TVA:['',Validators.required],
       prixTTC:['',Validators.required],
     })
-
+    
+    /* default TVA value */
     this.stockForm.get('TVA').patchValue(5.5);
 
     this.statesService.getStates()
@@ -52,18 +53,26 @@ export class StockMangaComponent implements OnInit {
   }
 
   onSubmit(){
+    /* setting boolean type */
     this.stockForm.get('promo').value === "oui" ? this.stockForm.get('promo').patchValue(true) : this.stockForm.get('promo').patchValue(false);
+
+    /* setting manga id before sending to DB*/
     this.stockForm.get("mangas_id").patchValue(this.mangaTitle[0].id);
+
+    /* converting states_id from string to boolean */
     this.mangaToAdd = this.stockForm.value;
     this.mangaToAdd.states_id = +this.mangaToAdd.states_id;
+
     this.dbService.testPost(this.mangaToAdd, this.stockUrl).subscribe();
     this.stockForm.reset();
   }
 
+  /* Method to display promo field if wanted */
   applyPromo(){
     this.stockForm.get('promo').value === "oui" ? this.promoCheck = true : this.promoCheck = false;
   }
 
+  /* Method to directly calculate full price */
   getPrice(){
     let tvaToEuros = this.stockForm.get('prixHT').value * this.stockForm.get('TVA').value / 100;
     this.stockForm.get('prixTTC').patchValue((this.stockForm.get('prixHT').value + tvaToEuros).toFixed(2));
