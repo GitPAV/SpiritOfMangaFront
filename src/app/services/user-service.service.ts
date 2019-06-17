@@ -13,8 +13,7 @@ export class UserServiceService {
     // Take as argument the formvalue
     // The http.post methode is redirected to port 4242 with proxy.conf at the root of
     // the angular project, use 'npm start' to compile
-    
-    return this.http.post(`${route}/${dataForm}`, {responseType: 'text'});
+    return this.http.post(`${route}`, dataForm, {responseType: 'text'});
   };
 
   testPut(dataForm, route) {
