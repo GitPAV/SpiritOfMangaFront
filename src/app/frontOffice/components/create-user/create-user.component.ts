@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { UserServiceService} from '../../../services/user-service.service';
 
+import { UserServiceService} from '../../../services/user-service.service';
 import { emailValidator, pseudoValidator, firstnameValidator, lastnameValidator, passwordValidator, phoneValidator, 
-streetNumberValidator, streetValidator, cityValidator, zipValidator  } from '../../../shared/validators/users.validator'
-import { disableBindings } from '@angular/core/src/render3';
+streetNumberValidator, streetValidator, cityValidator, zipValidator } from '../../../common/validators/users.validator';
 
 @Component({
   selector: 'app-form',

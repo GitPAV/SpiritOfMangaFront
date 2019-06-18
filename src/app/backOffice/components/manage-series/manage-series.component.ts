@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServiceService } from './../../../services/user-service.service'
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
-
-  
+import { UserServiceService } from './../../../services/user-service.service';
 
 @Component({
   selector: 'app-manage-series',

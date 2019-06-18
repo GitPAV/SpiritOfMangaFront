@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -18,8 +18,7 @@ export class UserServiceService {
   }
 
   userPost(dataForm, route): Observable<any> {
-
-    return this.http.post(`${route}` , dataForm, {responseType: 'text'});
+    return this.http.post(`${route}`, dataForm, {responseType: 'text'});
   }
 
   postMangas(dataForm, route) {
@@ -39,12 +38,10 @@ export class UserServiceService {
   }
 
   getTypes() {
-
     return this.http.get(`http://localhost:4242/types/manage-types`);
   }
 
   getSeries() {
-
     return this.http.get(`http://localhost:4242/series/manage-series`);
   }
 

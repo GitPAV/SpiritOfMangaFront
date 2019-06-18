@@ -12,4 +12,8 @@ export class StatesService {
   getStates(): Observable<any> {
     return this.http.get('http://localhost:4242/states/manage-states');
   }
+
+  postStatesMangas(dataForm, route): Observable<any> {
+    return this.http.post(`${route}`, dataForm, {responseType: 'text'});
+  }
 }

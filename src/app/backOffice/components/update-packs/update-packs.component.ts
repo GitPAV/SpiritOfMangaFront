@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetPacksService } from '../../services/get-packs.service';
+import { GetPacksService } from '../../../services/get-packs.service';
 
 @Component({
   selector: 'app-update-packs',

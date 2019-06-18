@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mangas } from 'src/app/common/models/manga.model';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { UserServiceService } from 'src/app/services/user-service.service';
 import { StatesService } from 'src/app/services/states.service';
 
 @Component({
@@ -22,13 +21,12 @@ export class StockMangaComponent implements OnInit {
   mangaToAdd;
 
   constructor(private fb: FormBuilder, 
-    private dbService: UserServiceService, 
     private statesService: StatesService) { }
 
   ngOnInit() {
     this.stockForm = this.fb.group({
-      states_id:['',Validators.required],
-      mangas_id:['',Validators.required],
+      states_id:[''],
+      mangas_id:[''],
       commentaire:[''],
       stock:['',Validators.required],
       promo:['',Validators.required],
@@ -63,7 +61,7 @@ export class StockMangaComponent implements OnInit {
     this.mangaToAdd = this.stockForm.value;
     this.mangaToAdd.states_id = +this.mangaToAdd.states_id;
 
-    this.dbService.testPost(this.mangaToAdd, this.stockUrl).subscribe();
+    this.statesService.postStatesMangas(this.mangaToAdd, this.stockUrl).subscribe();
     this.stockForm.reset();
   }
 

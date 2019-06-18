@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { GetPacksService } from 'src/app/services/get-packs.service';
-import { Packs } from '../../common/models/pack.model';
+import { Packs } from '../../../common/models/pack.model';
 
 
 

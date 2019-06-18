@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { UserServiceService} from '../../../services/user-service.service';
+import { StatesService } from 'src/app/services/states.service';
 
 
 @Component({
@@ -36,13 +37,15 @@ export class CreatePackComponent implements OnInit {
   id;
   idManga;
 
-  constructor(private fb: FormBuilder, private userService: UserServiceService) { }
+  constructor(private fb: FormBuilder, 
+    private userService: UserServiceService,
+    private statesService: StatesService) { }
 
   ngOnInit() {
 
-    this.userService.getStates()
+    this.statesService.getStates()
       .subscribe(states => {
-        this.states = JSON.parse(states);
+        this.states = states;
       });
 
     this.userService.getPacks()
