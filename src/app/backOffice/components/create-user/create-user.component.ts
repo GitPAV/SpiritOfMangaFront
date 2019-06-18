@@ -31,8 +31,7 @@ export class FormComponent {
     connaissance: ['', Validators.required],
     droits: [''], 
   });
-
-
+ 
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
 
   randomString() {

@@ -56,6 +56,4 @@ export class UserServiceService {
     return this.http.get(`http://localhost:4242/packs/manage-packs`, {responseType: 'text'});
   }
 
-
-
 }
