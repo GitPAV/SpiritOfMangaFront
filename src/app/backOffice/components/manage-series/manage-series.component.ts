@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 import { UserServiceService } from './../../../services/user-service.service';
+import { SeriesService } from 'src/app/services/series.service';
 
 @Component({
   selector: 'app-manage-series',
@@ -11,7 +12,9 @@ import { UserServiceService } from './../../../services/user-service.service';
 })
 export class ManageSeriesComponent implements OnInit {
 
-  constructor( private fb: FormBuilder, private userService: UserServiceService) { }
+  constructor( private fb: FormBuilder, 
+    private userService: UserServiceService,
+    private seriesService: SeriesService) { }
 
   manageSeriesForm : FormGroup;
 
@@ -27,7 +30,7 @@ export class ManageSeriesComponent implements OnInit {
   
   
   ngOnInit() {
-    this.userService.getSeries().subscribe(
+    this.seriesService.getSeries().subscribe(
       series => { this.series = series;
     });
     

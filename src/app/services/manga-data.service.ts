@@ -7,17 +7,12 @@ import { Mangas } from '../common/models/manga.model';
   providedIn: 'root'
 })
 export class MangaDataService {
-  seriesUrl = 'http://localhost:4242/series/manage-series';
   publicsUrl = 'http://localhost:4242/publics/manage-publics';
   mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
   seriePublicUrl = 'http://localhost:4242/mangas/series';
 
   constructor(private http: HttpClient) { }
-
-  getSeries(): Observable<any> {
-    return this.http.get(this.seriesUrl);
-  }
 
   getPublics(): Observable<any> {
     return this.http.get(this.publicsUrl);

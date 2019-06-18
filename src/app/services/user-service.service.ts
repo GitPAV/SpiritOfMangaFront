@@ -11,8 +11,6 @@ export class UserServiceService {
 
   testPost(dataForm, route): Observable<any> {
     // Take as argument the formvalue
-    // The http.post methode is redirected to port 4242 with proxy.conf at the root of
-    // the angular project, use 'npm start' to compile
 
     return this.http.post(`${route}/${dataForm}`, {responseType: 'text'});
   }
@@ -45,14 +43,8 @@ export class UserServiceService {
     return this.http.get(`http://localhost:4242/series/manage-series`);
   }
 
-  getStates() {
-    return this.http.get(`http://localhost:4242/statesPack/manage-statesPack`, {responseType: 'text'});
-  }
-
   getPacks() {
     return this.http.get(`http://localhost:4242/packs/manage-packs`, {responseType: 'text'});
   }
-
-
 
 }
