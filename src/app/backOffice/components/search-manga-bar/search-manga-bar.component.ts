@@ -1,7 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MangaDataService } from 'src/app/services/manga-data.service';
 import { Mangas } from 'src/app/common/models/manga.model';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-search-manga-bar',

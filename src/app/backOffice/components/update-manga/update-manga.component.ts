@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MangaDataService } from 'src/app/services/manga-data.service';
-import { Mangas } from './../../common/models/manga.model';
+import { Mangas } from '../../../common/models/manga.model';
 
 @Component({
   selector: 'app-update-manga',
