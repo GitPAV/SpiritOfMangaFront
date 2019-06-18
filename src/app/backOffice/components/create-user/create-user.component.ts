@@ -63,12 +63,12 @@ export class FormComponent {
     console.log('*value.email*' ,this.postUserForm.value.email)
 
 
-    const getEmailRoute = 'http://localhost:4242/users/get-email'
-    this.userService.userGetEmail(this.postUserForm.value.email, getEmailRoute).subscribe()
+    // const getEmailRoute = 'http://localhost:4242/users/get-email'
+    // this.userService.userGetEmail(this.postUserForm.value.email, getEmailRoute).subscribe()
 
 
     const profileRoute = 'http://localhost:4242/users/create-profile';
-    this.userService.testPost(this.postUserForm.value, profileRoute).subscribe()
+    this.userService.userPost(this.postUserForm.value, profileRoute).subscribe()
   }
 
 }
