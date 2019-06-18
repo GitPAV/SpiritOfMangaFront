@@ -3,7 +3,6 @@
     <p>Création de votre compte</p>
   </div>
 
-
   <form class="form" [formGroup]="postUserForm" (ngSubmit)="onSubmit()">
     <div class="userInfoWrapper">
       <div class="inputField">
@@ -51,7 +50,7 @@
       </div>
     
       <div class="inputField">
-        <label>Phone number :</label>
+        <label>Téléphone :</label>
         <input class="input" type="text" formControlName="telephone">
         <div class="error" *ngIf="postUserForm.get('telephone').errors && postUserForm.get('telephone').touched">
           Veuillez entrer un numéro de téléphone au bon format (ex: 0123456789)
@@ -112,9 +111,7 @@
         </select>
       </div>
     </div>
-    <button class="butonForm" type="submit" [disabled]="!postUserForm.valid">Submit</button>
-    
+    <button class="butonForm" type="submit" [disabled]="!postUserForm.valid">Submit</button>   
   </form>
   
 </div>
-

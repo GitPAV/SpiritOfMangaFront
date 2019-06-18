@@ -5,11 +5,12 @@ import { UserServiceService} from '../../../services/user-service.service';
 
 import { emailValidator, pseudoValidator, firstnameValidator, lastnameValidator, passwordValidator, phoneValidator, 
 streetNumberValidator, streetValidator, cityValidator, zipValidator  } from '../../../shared/validators/users.validator'
+import { disableBindings } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.scss']
 })
 export class FormComponent {
 
@@ -31,7 +32,6 @@ export class FormComponent {
     droits: [''], 
   });
 
-  
 
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
 
@@ -52,17 +52,23 @@ export class FormComponent {
     let forgotKey = this.randomString()
     this.postUserForm.patchValue({
       forgetPassword : forgotKey,
-      droits : 'user'
+      droits : 'user',
     })
+    this.postUserForm.controls.checkPassword.disable()
 
     console.log(this.postUserForm.controls['forgetPassword'].value)
     console.log(this.postUserForm.controls['droits'].value)
 
     console.log('***************' ,this.postUserForm.value)
+    console.log('*value.email*' ,this.postUserForm.value.email)
 
 
-    // const profileRoute = 'http://localhost:4200/users/create-profile';
-    // this.userService.testPost(this.postUserForm.value, profileRoute).subscribe()
+    const getEmailRoute = 'http://localhost:4242/users/get-email'
+    this.userService.userGetEmail(this.postUserForm.value.email, getEmailRoute).subscribe()
+
+
+    const profileRoute = 'http://localhost:4242/users/create-profile';
+    this.userService.testPost(this.postUserForm.value, profileRoute).subscribe()
   }
 
 }
