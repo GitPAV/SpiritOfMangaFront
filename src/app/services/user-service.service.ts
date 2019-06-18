@@ -17,6 +17,11 @@ export class UserServiceService {
     return this.http.post(`${route}/${dataForm}`, {responseType: 'text'});
   }
 
+  userPost(dataForm, route): Observable<any> {
+
+    return this.http.post(`${route}` , dataForm, {responseType: 'text'});
+  }
+
   postMangas(dataForm, route) {
     return this.http.post(`${route}`, dataForm, {responseType: 'text'});
   }
