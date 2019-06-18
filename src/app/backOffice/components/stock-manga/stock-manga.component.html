@@ -20,9 +20,22 @@
 
     <form [formGroup]="stockForm"
     (ngSubmit)="onSubmit()"
+    #formStock
     >
 
     <p>Stock/Prix/Etat</p>
+
+      <div class= "state">
+        <label for='state'>
+          État : <br>
+          <select formControlName='states_id' id='state' required>
+            <option *ngFor="let state of states" [value]=state.id>{{state.name}}</option>
+          </select>
+        </label>
+        <div *ngIf="stockForm.get('states_id').errors && stockForm.get('states_id').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
+      </div> 
 
       <div>
         <label for="commentaire">
@@ -46,37 +59,28 @@
           class="input"
           formControlName="stock">
         </label>
+        <div *ngIf="stockForm.get('stock').errors && stockForm.get('stock').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
       </div>
 
       <div>
         <label for="promo">
-          Promo
-          <input 
-          id="promo" 
-          type="number"
-          name="promo"
-          class="input"
-          formControlName="promo">
+          Promotion :
+          <select formControlName='promo' id='promo' (change)='applyPromo()' required>
+            <option *ngFor="let item of promoTable; let i = index" [value]="item.name">{{ item.name }}</option>
+          </select>
         </label>
+        <div *ngIf="stockForm.get('promo').errors && stockForm.get('promo').touched">
+          <span class='errorMessage'>Indiquez si vous souhaitez appliquer une promotion</span>
+        </div>
       </div>
 
-      <div>
+      <div *ngIf="promoCheck">
         <label for="promoValue">
-          Montant de la Promotion
+          Montant de la Promotion :
           <input 
-          id="promoValue" 
-          type="number"
-          name="promoValue"
-          class="input"
-          formControlName="promoValue">
-        </label>
-      </div>
-
-      <div>
-        <label for="promoValue">
-          Montant de la Promotion
-          <input 
-          id="promoValue" 
+          id="promoValue"
           type="number"
           name="promoValue"
           class="input"
@@ -94,6 +98,9 @@
           class="input"
           formControlName="prixHT">
         </label>
+        <div *ngIf="stockForm.get('prixHT').errors && stockForm.get('prixHT').touched">
+          <span class='errorMessage'>Champ requis</span>
+        </div>
       </div>
 
       <div>
@@ -104,8 +111,10 @@
           type="number"
           name="TVA"
           class="input"
-          formControlName="TVA">
+          formControlName="TVA"
+          >
         </label>
+        <a (click)='getPrice()'>Obtenir le prix TTC</a>
       </div>
 
       <div>
@@ -116,9 +125,11 @@
           type="number"
           name="PrixTTC"
           class="input"
-          formControlName="PrixTTC">
+          formControlName="prixTTC">
         </label>
       </div>
+
+      <button type="submit" [disabled]="!stockForm.valid">CRÉER MANGA</button>
     </form>
 
   </div>

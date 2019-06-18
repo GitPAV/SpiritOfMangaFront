@@ -20,34 +20,36 @@ export class UserServiceService {
   postMangas(dataForm, route) {
     return this.http.post(`${route}`, dataForm, {responseType: 'text'});
   }
+  
+  postState(state, route): Observable<any> {
+    return this.http.post(`${route}/${state}`, {responseType: 'text'});
+  }
+
+  userGetEmail(mailValue, route): Observable<any> {
+    return this.http.get(`${route}`, mailValue);
+  };
 
   testPut(dataForm, route) {
-    // Take as argument the formvalue
-    // The http.post methode is redirected to port 4242 with proxy.conf at the root of
-    // the angular project, use 'npm start' to compile
-
-    console.log('dataform', dataForm);
-    console.log('route', route);
-
-
     return this.http.put(`${route}`, dataForm, {responseType: 'text'});
   }
 
-    getTypes() {
-      return this.http.get(`http://localhost:4242/types/manage-types`);
-    }
+  getTypes() {
 
-    getSeries()  {
-      return this.http.get(`http://localhost:4242/series/manage-series`);
-    }
+    return this.http.get(`http://localhost:4242/types/manage-types`);
+  }
 
-    getStates() {
-      return this.http.get(`http://localhost:4242/statesPack/manage-statesPack`, {responseType: 'text'});
-    }
+  getSeries() {
 
-    getPacks() {
-      return this.http.get(`http://localhost:4242/packs/manage-packs`, {responseType: 'text'});
-    }
+    return this.http.get(`http://localhost:4242/series/manage-series`);
+  }
+
+  getStates() {
+    return this.http.get(`http://localhost:4242/statesPack/manage-statesPack`, {responseType: 'text'});
+  }
+
+  getPacks() {
+    return this.http.get(`http://localhost:4242/packs/manage-packs`, {responseType: 'text'});
+  }
 
 
 

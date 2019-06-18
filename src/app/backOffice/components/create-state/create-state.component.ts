@@ -18,7 +18,7 @@ export class CreateStateComponent implements OnInit {
 
   sendEtat(){
     console.log(this.inputEtat)
-    this.etatService.testPost(this.inputEtat,this.stateUrl).subscribe();
+    this.etatService.postState(this.inputEtat,this.stateUrl).subscribe();
   }
 
 }

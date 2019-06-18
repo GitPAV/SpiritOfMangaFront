@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateMangaComponent } from './components/create-manga/create-manga.component';
 import { UpdateMangaComponent } from './components/update-manga/update-manga.component';
 import { SearchMangaBarComponent } from './components/search-manga-bar/search-manga-bar.component';
-import { FormComponent } from './backOffice/components/form/form.component';
+import { FormComponent } from './backOffice/components/create-user/create-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateSeriesComponent } from './backOffice/components/create-series/create-series.component';
 import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.component';

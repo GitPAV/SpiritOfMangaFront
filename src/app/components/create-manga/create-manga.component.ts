@@ -12,10 +12,10 @@ export class CreateMangaComponent implements OnInit {
   series = [];
   publics = [];
   mangas = [];
-  mangaToadd;
   mangaToDelete;
 
-  constructor(private fb: FormBuilder, private mangaService: MangaDataService) { }
+  constructor(private fb: FormBuilder, 
+    private mangaService: MangaDataService) { }
 
   ngOnInit() {
     this.formInit();
@@ -28,12 +28,6 @@ export class CreateMangaComponent implements OnInit {
       .subscribe(publics => {
         this.publics = publics;
     });
-
-    this.mangaService.getMangas()
-      .subscribe(mangas => {
-        this.mangas = mangas;
-        console.log(this.mangas)
-      })
   }
 
   formInit() {
@@ -52,10 +46,6 @@ export class CreateMangaComponent implements OnInit {
   }
 
   onSubmit() {
-    this.mangaToadd = this.mangaForm.value;
-    this.mangaToadd.series_id = +this.mangaToadd.series_id;
-    this.mangaToadd.publics_id = +this.mangaToadd.publics_id;
-    
     this.mangaService.postManga(this.mangaForm.value).subscribe();
     this.formInit();
   }
