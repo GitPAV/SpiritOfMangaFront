@@ -7,7 +7,17 @@
     type="text" 
     >
   </label>
-  <button (click)="sendEtat()">
+  <button (click)="sendEtat()" [disabled]='!inputEtat'>
     Créer
   </button>
 </div>
+
+<div class="deleteState">
+  <a (click)="showState()">Supprimer un état</a>
+</div>
+
+<div *ngIf="deleteStateAction">
+  <div *ngFor="let item of statesList"> 
+    <p>{{item.name}}</p>
+  </div>
+</div>  

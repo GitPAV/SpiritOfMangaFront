@@ -7,7 +7,8 @@ import { UserServiceService } from '../../../services/user-service.service';
   styleUrls: ['./create-state.component.scss']
 })
 export class CreateStateComponent {
-
+  
+  statesList;
   inputEtat: string;
   stateUrl= "http://localhost:4242/states/manage-states";
 
@@ -15,6 +16,11 @@ export class CreateStateComponent {
 
   sendEtat(){
     this.etatService.postState(this.inputEtat,this.stateUrl).subscribe();
+  }
+  
+  getSerie(){
+    this.statesList= this.etatService.getSeries().subscribe();
+    console.log(this.statesList)
   }
 
 }
