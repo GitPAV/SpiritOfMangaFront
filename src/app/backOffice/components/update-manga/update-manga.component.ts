@@ -57,7 +57,7 @@ export class UpdateMangaComponent implements OnInit {
 
   delete(manga): void{
     if (confirm(`Êtes-vous sûr de vouloir supprimer le manga ${manga.title} ?`)) {
-      this.mangaService.delete(manga.id).subscribe();
+      this.mangaService.delete(manga.id).toPromise();
       alert(`Le manga ${manga.title} a bien été supprimé.`)
       this.chosenManga = [];
     }
