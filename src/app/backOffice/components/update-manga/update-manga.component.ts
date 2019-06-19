@@ -18,14 +18,16 @@ export class UpdateMangaComponent implements OnInit {
   seriePublic;
   currentSerie;
   currentPublic;
+  mangasUnsubs;
 
   constructor(private mangaService: MangaDataService,
     private seriesService: SeriesService) { }
 
   ngOnInit() {
-      this.mangaService.getPublics()
+      this.mangasUnsubs = this.mangaService.getPublics()
         .subscribe(publics => {
           this.publics = publics;
+          this.mangasUnsubs.unsubscribe();
       })
 
         this.seriesService.getSeries()
