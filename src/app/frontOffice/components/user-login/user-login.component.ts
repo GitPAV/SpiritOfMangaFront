@@ -22,9 +22,10 @@ export class UserLoginComponent implements OnInit {
   onSubmit() {
     this.loginService.loginPost(this.loginForm.value)
     .then( res => {
-      console.log('response' + res);
       localStorage.setItem("token", res);
-      console.log('toto',localStorage.getItem("token"));
+      this.loginService.protectPost().then( (res) => {        
+        this.loginService.login();
+      } )
     }/* can make another get or send email to user or...*/)
     .catch( error => {
       console.error(error);

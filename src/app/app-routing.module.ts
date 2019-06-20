@@ -10,12 +10,14 @@ import { StockMangaComponent } from './backOffice/components/stock-manga/stock-m
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component'
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
+import { AuthGuard } from './common/security/auth.guard';
 
 
 const routes: Routes = [
   {
     path: 'form-manga',
-    component: CreateMangaComponent
+    component: CreateMangaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'form-user',
