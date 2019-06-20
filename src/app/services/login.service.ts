@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,7 @@ export class LoginService {
   protectedUrl = 'http://localhost:4242/users/protected';
   isLoggedIn = false;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   loginPost(userForm) {
     return this.http.post(this.loginUrl, userForm, {responseType: 'text'}).toPromise();
