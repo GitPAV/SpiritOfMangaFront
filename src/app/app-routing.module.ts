@@ -9,6 +9,7 @@ import { UpdatePacksComponent} from './backOffice/components/update-packs/update
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component'
+import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,10 @@ const routes: Routes = [
     path: 'stock-manga',
     component: StockMangaComponent
   },
+  {
+    path: 'user-login',
+    component: UserLoginComponent
+  }
 ];
 
 @NgModule({
