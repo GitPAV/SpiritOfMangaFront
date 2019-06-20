@@ -13,7 +13,11 @@
 </div>
 
 <div class="deleteState">
-  <a (click)="showState()">Supprimer un état</a>
+  <select [(ngModel)]="selectedValue">
+    <option value="">selectionner un état</option>
+    <option *ngFor="let state of statesList" [value]="state.id">{{state.name}}</option>
+  </select>
+  <button (click)="deleteState()">Supprimer</button>
 </div>
 
 <div *ngIf="deleteStateAction">

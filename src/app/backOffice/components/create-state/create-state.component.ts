@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserServiceService } from '../../../services/user-service.service';
+import { StatesService } from 'src/app/services/states.service';
 
 @Component({
   selector: 'app-create-state',
@@ -8,19 +9,28 @@ import { UserServiceService } from '../../../services/user-service.service';
 })
 export class CreateStateComponent {
   
-  statesList;
+  selectedValue;
+  statesList = [];
   inputEtat: string;
   stateUrl= "http://localhost:4242/states/manage-states";
 
-  constructor(private etatService: UserServiceService) { }
+  constructor(private etatService: UserServiceService,
+              private stateService: StatesService) { }
+
+  ngOnInit(){
+    this.stateService.getStates()
+    .subscribe(state => {
+      this.statesList = state;
+    });
+  }
 
   sendEtat(){
     this.etatService.postState(this.inputEtat,this.stateUrl).subscribe();
   }
-  
-  getSerie(){
-    this.statesList= this.etatService.getSeries().subscribe();
-    console.log(this.statesList)
+
+  deleteState(){
+    this.stateService.delete(this.selectedValue).subscribe();
+    console.log(this.selectedValue)
   }
 
 }
