@@ -28,6 +28,7 @@ export class UserLoginComponent implements OnInit {
     }/* can make another get or send email to user or...*/)
     .catch( error => {
       console.error(error);
+      alert('Mauvais email ou mot de passe')
     });
   }
 
