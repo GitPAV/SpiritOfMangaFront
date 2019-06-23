@@ -1,0 +1,17 @@
+<div class="headersCtn">
+  <h3>GESTION BANNIERES</h3>
+
+  <div class="searchBar">
+    <input placeholder="recherche manga" type="text">
+  </div>
+
+  <div class="resultBar" *ngFor="let manga of mangas | filter : searchText" >
+      <div  *ngIf="searchText"> <span (click)=getTheManga(manga) > {{manga.nameManga}}</span>
+      </div>
+  </div>
+
+  <div class="selectCtn">
+
+  </div>
+
+</div>

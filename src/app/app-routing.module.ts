@@ -6,6 +6,7 @@ import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.
 import { FormComponent } from './backOffice/components/form/form.component';
 import { UpdatePacksComponent} from './components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
+import { ManageHeadersComponent } from './backOffice/components/manage-headers/manage-headers.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,10 @@ const routes: Routes = [
 {
     path: 'stock-manga',
     component: StockMangaComponent
+  },
+  {
+    path: 'manage-headers',
+    component: ManageHeadersComponent
   }
 ];
 
