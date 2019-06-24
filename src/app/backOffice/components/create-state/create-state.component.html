@@ -7,7 +7,21 @@
     type="text" 
     >
   </label>
-  <button (click)="sendEtat()">
+  <button (click)="sendEtat()" [disabled]='!inputEtat'>
     Créer
   </button>
 </div>
+
+<div class="deleteState">
+  <select [(ngModel)]="selectedValue">
+    <option value="">selectionner un état</option>
+    <option *ngFor="let state of statesList" [value]="state.id">{{state.name}}</option>
+  </select>
+  <button (click)="deleteState()">Supprimer</button>
+</div>
+
+<div *ngIf="deleteStateAction">
+  <div *ngFor="let item of statesList"> 
+    <p>{{item.name}}</p>
+  </div>
+</div>  

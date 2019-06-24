@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MangaDataService } from 'src/app/services/manga-data.service';
 import { Mangas } from '../../../common/models/manga.model';
+import { SeriesService } from 'src/app/services/series.service';
 
 @Component({
   selector: 'app-update-manga',
@@ -18,7 +19,8 @@ export class UpdateMangaComponent implements OnInit {
   currentSerie;
   currentPublic;
 
-  constructor(private mangaService: MangaDataService) { }
+  constructor(private mangaService: MangaDataService,
+    private seriesService: SeriesService) { }
 
   ngOnInit() {
       this.mangaService.getPublics()
@@ -26,7 +28,7 @@ export class UpdateMangaComponent implements OnInit {
           this.publics = publics;
       })
 
-        this.mangaService.getSeries()
+        this.seriesService.getSeries()
         .subscribe(series => {
           this.series = series;
       });

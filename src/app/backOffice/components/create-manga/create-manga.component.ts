@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MangaDataService } from 'src/app/services/manga-data.service';
+import { SeriesService } from 'src/app/services/series.service';
 
 @Component({
   selector: 'app-create-manga',
@@ -15,11 +16,12 @@ export class CreateMangaComponent implements OnInit {
   mangaToDelete;
 
   constructor(private fb: FormBuilder, 
-    private mangaService: MangaDataService) { }
+    private mangaService: MangaDataService,
+    private seriesService: SeriesService) { }
 
   ngOnInit() {
     this.formInit();
-    this.mangaService.getSeries()
+    this.seriesService.getSeries()
       .subscribe(series => {
         this.series = series;
     });
