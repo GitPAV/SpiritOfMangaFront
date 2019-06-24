@@ -1,8 +1,7 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
-import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-user-login',
@@ -31,10 +30,9 @@ export class UserLoginComponent implements OnInit {
       localStorage.setItem("token", res);
       this.loginService.protectPost().then( (res) => {        
         this.loginService.login();
-        this.router.navigate(['/create-pack'])
         this.userMail = this.loginForm.get('email').value;
-        console.log(this.userMail)
         this.mailSender.emit(this.userMail)
+        this.router.navigate(['/create-pack'])
       } )
     }/* can make another get or send email to user or...*/)
     .catch( error => {
