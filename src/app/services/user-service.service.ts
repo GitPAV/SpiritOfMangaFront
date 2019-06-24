@@ -36,6 +36,10 @@ export class UserServiceService {
       return this.http.get(`http://localhost:4242/series/manage-series`);
     }
 
+    getGenres()  {
+      return this.http.get(`http://localhost:4242/genres/manage-genres`);
+    }
+
     putSerie() {
       
     }

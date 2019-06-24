@@ -25,7 +25,6 @@ export class CreateSeriesComponent implements OnInit {
   ngOnInit() {
     this.userService.getTypes().subscribe(
       types => { this.types = types;
-      console.log(this.types)
     });
   }
 

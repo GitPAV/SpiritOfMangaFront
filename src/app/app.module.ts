@@ -24,6 +24,7 @@ import { UpdatePacksComponent } from './components/update-packs/update-packs.com
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
 import { ManageHeadersComponent } from './backOffice/components/manage-headers/manage-headers.component';
+import { GenreBackComponent } from './backOffice/components/genre-back/genre-back.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { ManageHeadersComponent } from './backOffice/components/manage-headers/m
     UpdatePacksComponent,
     StockMangaComponent,
     CreateStateComponent,
-    ManageHeadersComponent
+    ManageHeadersComponent,
+    GenreBackComponent
   ],
   imports: [
     BrowserModule,
