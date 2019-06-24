@@ -28,7 +28,7 @@ export class UserServiceService {
   }
 
   userGetEmail(mailValue, route): Observable<any> {
-    return this.http.get(`${route}`, mailValue);
+    return this.http.get(`${route}/${mailValue}`);
   };
 
   testPut(dataForm, route) {
