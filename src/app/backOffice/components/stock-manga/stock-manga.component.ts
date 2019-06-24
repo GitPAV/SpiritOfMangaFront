@@ -76,4 +76,10 @@ export class StockMangaComponent implements OnInit {
     this.stockForm.get('prixTTC').patchValue((this.stockForm.get('prixHT').value + tvaToEuros).toFixed(2));
   }
 
+  /* Method to get the price with the promotion */ 
+  getPromoPrice(){
+   let priceWithPromo = this.stockForm.get('prixTTC').value * this.stockForm.get('promoValue').value / 100;
+   this.stockForm.get('prixTTC').patchValue((this.stockForm.get('prixTTC').value - priceWithPromo));
+  }
+
 }
