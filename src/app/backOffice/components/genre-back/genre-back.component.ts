@@ -11,24 +11,27 @@ export class GenreBackComponent implements OnInit {
   series;
   selectSerie;
   genres;
+  searchText;
 
   constructor(private userService: UserServiceService) { }
-
+  
   ngOnInit() {
     this.userService.getSeries().subscribe(
       series => { this.series = series;
-      console.log(series);
-    });
-
-    this.userService.getGenres().subscribe(
-      genres => { this.genres = genres;
-      console.log(genres);
-    });
-    
+        console.log(series);
+      });
+      
+      
+      this.userService.getGenres().subscribe(
+        genres => { this.genres = genres;
+        console.log(genres);
+        });
+        
   }
 
   getTheSerie(serie){
     this.selectSerie = serie.nameSeries;
+    this.searchText= '';
   }
   
 
