@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -6,15 +6,14 @@ import { Observable } from 'rxjs';
 })
 export class SwitchFrontToBackService {
   backOffice: Observable<boolean>;
+  @Output() sendBool = new EventEmitter()
 
   constructor() { }
 
   getAdminClick(bool) {
     this.backOffice = bool;
-    console.log(this.backOffice)
+    console.log('boolean : ' + this.backOffice)
+    this.sendBool.emit(this.backOffice)
   }
 
-  sendAdminClick(): Observable<any> {
-    return this.backOffice
-  }
 }

@@ -8,18 +8,17 @@ import { SwitchFrontToBackService } from './services/switch-front-to-back.servic
 })
 export class AppComponent implements OnInit {
   title = 'SpiritOfManga';
-  frontOfficeOn: boolean;
-  backOfficeOn: boolean;
+  frontOfficeOn: boolean = true;
+  backOfficeOn: boolean = false;
 
   constructor(private frontToBack: SwitchFrontToBackService){}
 
   ngOnInit(){
-    this.frontOfficeOn = true
-    this.backOfficeOn = false
+    this.frontToBack.sendBool.subscribe(bool => {
+        this.backOfficeOn = bool;
+        console.log(this.backOfficeOn)
+        this.backOfficeOn === true ? this.frontOfficeOn = false : this.frontOfficeOn = true;
+      })
   }
-
-  
-  
-
 
 }

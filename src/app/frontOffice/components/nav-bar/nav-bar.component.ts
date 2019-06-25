@@ -23,6 +23,7 @@ export class NavBarComponent implements OnInit {
 
   getUserConnected(email){
     this.userMail = email;
+    console.log('user mail : ' + this.userMail)
     this.userService.userGetEmail(this.userMail, this.route)
       .subscribe( user => {
         this.userConnected = user
@@ -36,7 +37,8 @@ export class NavBarComponent implements OnInit {
 
   goToBackOffice(){
     this.goToBackOfficeService.getAdminClick(this.adminConnected);
-    console.log(this.adminConnected)
   }
+
+
 
 }
