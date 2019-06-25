@@ -25,23 +25,28 @@ const routes: Routes = [
   },
   {
     path: 'update-manga',
-    component: UpdateMangaComponent
+    component: UpdateMangaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'manage-series',
-    component: SeriesComponent
+    component: SeriesComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-pack',
-    component: CreatePackComponent
+    component: CreatePackComponent,
+    canActivate: [AuthGuard]
   },
   {
   path: 'manage-packs',
-  component: UpdatePacksComponent
+  component: UpdatePacksComponent,
+  canActivate: [AuthGuard]
   },
   {
     path: 'stock-manga',
-    component: StockMangaComponent
+    component: StockMangaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'user-login',
