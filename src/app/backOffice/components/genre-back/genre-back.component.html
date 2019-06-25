@@ -12,13 +12,24 @@
             </div>
         </div>
 
-        <div class="resultCtn">
-            <span>{{selectSerie}}</span>
+        <div class="resultCtn" *ngIf="selectedSerie">
+            <span>{{selectedSerie.nameSeries}}</span>
         </div>
 
-        <select>
-            <option [value]=genre.id *ngFor="let genre of genres">{{genre.name}}</option>
+        <select [(ngModel)]="selectedKindindex">
+            <option *ngFor="let genre of genres let i = index" [value]="i" >{{genre.name}}</option>
         </select>
+
+        <button (click)="addAKind()">Ajouter un genre</button>
         
+        <p>
+            <span *ngFor="let kind of kinds"> {{ kind.name }} <button (click)="deletAKind()">X</button></span>
+        </p>
+
+        <button type="submit" (click)="onSubmit()">ENVOYER</button>
+
+        <div class="getKind">
+
+        </div>
     </div>
 </div>

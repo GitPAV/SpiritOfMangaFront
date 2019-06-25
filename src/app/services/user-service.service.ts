@@ -40,8 +40,8 @@ export class UserServiceService {
       return this.http.get(`http://localhost:4242/genres/manage-genres`);
     }
 
-    putSerie() {
-      
+    postGenresManga(genresMangasData, serieId) {
+      return this.http.post(`http://localhost:4242/genresMangas/manage-genres-mangas/${genresMangasData}/${serieId}`, {responseType: 'text'}).toPromise();
     }
 
 
