@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.frontToBack.sendBool.subscribe(bool => {
         this.backOfficeOn = bool;
-        console.log(this.backOfficeOn)
         this.backOfficeOn === true ? this.frontOfficeOn = false : this.frontOfficeOn = true;
       })
   }

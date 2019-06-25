@@ -12,7 +12,6 @@ export class SwitchFrontToBackService {
 
   getAdminClick(bool) {
     this.backOffice = bool;
-    console.log('boolean : ' + this.backOffice)
     this.sendBool.emit(this.backOffice)
   }
 

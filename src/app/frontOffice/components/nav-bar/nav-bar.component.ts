@@ -12,6 +12,7 @@ export class NavBarComponent implements OnInit {
   adminConnected: boolean;
   route = 'http://localhost:4242/users/get-users';
   userConnected;
+  loginForm = false;
 
   constructor(private userService: UserServiceService,
     private goToBackOfficeService: SwitchFrontToBackService) { }
@@ -23,7 +24,6 @@ export class NavBarComponent implements OnInit {
 
   getUserConnected(email){
     this.userMail = email;
-    console.log('user mail : ' + this.userMail)
     this.userService.userGetEmail(this.userMail, this.route)
       .subscribe( user => {
         this.userConnected = user
@@ -39,6 +39,8 @@ export class NavBarComponent implements OnInit {
     this.goToBackOfficeService.getAdminClick(this.adminConnected);
   }
 
-
+  activateLoginForm(){
+    this.loginForm = !this.loginForm
+  }
 
 }
