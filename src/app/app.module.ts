@@ -28,6 +28,7 @@ import { CatalogueMangasComponent } from './frontOffice/pages/catalogue-mangas/c
 import { PromotionsComponent } from './frontOffice/pages/promotions/promotions.component';
 import { CataloguePacksComponent } from './frontOffice/pages/catalogue-packs/catalogue-packs.component';
 import { VendreMangasComponent } from './frontOffice/pages/vendre-mangas/vendre-mangas.component';
+import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pack.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { VendreMangasComponent } from './frontOffice/pages/vendre-mangas/vendre-
     CatalogueMangasComponent,
     PromotionsComponent,
     CataloguePacksComponent,
-    VendreMangasComponent
+    VendreMangasComponent,
+    ModifPackComponent
   ],
   imports: [
     BrowserModule,

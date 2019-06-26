@@ -36,6 +36,8 @@ export class CreatePackComponent implements OnInit {
   packs = [];
   id;
   idManga;
+  conditionCreate:boolean = true;
+  conditionModifPack: boolean = false;
 
   constructor(private fb: FormBuilder, 
     private userService: UserServiceService,
@@ -81,6 +83,9 @@ export class CreatePackComponent implements OnInit {
     this.userService.postMangas(this.createMangasPackForm.value, seriesRoute).subscribe();
   }
 
-
+  chosenForm(){
+    this.conditionCreate = !this.conditionCreate;
+    this.conditionModifPack = !this.conditionModifPack;
+  }
 
 }

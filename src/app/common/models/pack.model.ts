@@ -5,7 +5,10 @@ export interface Packs {
     resumePack: string
     stock: number
     weight: number
-    prixHT: number
-    TVA: number
-    prixTTC: number
+    prixPublic: number
+    promo: boolean
+    prixPromo: number
+    statesPack_id: number
+    notrePrix: number
+    tomes: number
 }
