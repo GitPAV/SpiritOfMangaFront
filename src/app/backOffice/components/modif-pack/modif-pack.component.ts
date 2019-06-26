@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Packs } from '../../../common/models/pack.model';
 import { Validators, FormBuilder } from '@angular/forms';
+import { GetPacksService } from 'src/app/services/get-packs.service';
 
 
 
@@ -13,7 +14,10 @@ import { Validators, FormBuilder } from '@angular/forms';
 export class ModifPackComponent implements OnInit {
 @Input()  infoPack: Packs
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private packsService: GetPacksService
+    ) { }
 
   createPackForm = this.fb.group({
     namePack: ['', Validators.required],
@@ -30,7 +34,7 @@ export class ModifPackComponent implements OnInit {
   });
   
   ngOnInit() {
-    this.createPackForm.setValue({
+    this.createPackForm.patchValue({
       namePack: this.infoPack.namePack,
       photoPack: this.infoPack.photoPack,
       resumePack: this.infoPack.resumePack,
@@ -45,8 +49,8 @@ export class ModifPackComponent implements OnInit {
     });
   }
 
-  getPack(){
-
+  onSubmit(){
+ this.packsService.updatePack(this.createPackForm.value)
   }
 
 }

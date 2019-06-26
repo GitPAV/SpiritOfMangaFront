@@ -8,7 +8,7 @@ export interface Packs {
     prixPublic: number
     promo: boolean
     prixPromo: number
-    statesPack_id: number
+    statesPack_id: string
     notrePrix: number
     tomes: number
 }

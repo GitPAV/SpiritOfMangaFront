@@ -55,9 +55,7 @@
                 <label>
                     Etat :
                 </label>    
-                <select formControlName='statesPack_id' id='statesPack' required>
-                    <option *ngFor="let statesPack of states" [value]=statesPack.id>{{statesPack.name}}</option>
-                </select>
+                <input type="number" formControlName="statesPack_id">
             </div>
             
             <div class="formInput">
