@@ -17,4 +17,8 @@ export class SeriesService {
   getSeries(): Observable<any> {
     return this.http.get(this.seriesUrl);
   }
+
+  seriesPut(dataForm, route) {
+    return this.http.put(`${route}`, dataForm, {responseType: 'text'});
+  }
 }
