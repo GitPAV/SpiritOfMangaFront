@@ -32,7 +32,7 @@ export class UserServiceService {
   } */
 
   userGetEmail(mailValue, route): Observable<any> {
-    return this.http.get(`${route}`, mailValue);
+    return this.http.get(`${route}/${mailValue}`);
   };
 
   /* Methods put into other services and to delete from here.
