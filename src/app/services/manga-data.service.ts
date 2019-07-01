@@ -11,6 +11,7 @@ export class MangaDataService {
   mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
   seriePublicUrl = 'http://localhost:4242/mangas/series';
+  mangasAwaitingUrl = 'http://localhost:4242/mangasAwaiting/manage-mangas-awaiting';
 
   constructor(private http: HttpClient) { }
 
@@ -42,6 +43,10 @@ export class MangaDataService {
     const id = manga;
     const url = `${this.mangasUrl}/${id}`;
     return this.http.delete(url, {responseType: 'text'});
+  }
+
+  sendMangaAwaiting(infos) {
+    return this.http.post(this.mangasAwaitingUrl, infos, {responseType: 'text'}).toPromise()
   }
 
 }
