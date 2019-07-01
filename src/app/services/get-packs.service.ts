@@ -25,4 +25,8 @@ export class GetPacksService {
     return this.http.put(this.packsUrl, pack, {responseType: 'text'});
   }
 
+  postPacks(dataForm, route) {
+    return this.http.post(`${route}`, dataForm, {responseType: 'text'});
+  }
+
 }

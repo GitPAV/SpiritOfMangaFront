@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { UserServiceService } from '../../../services/user-service.service';
 import { StatesService } from 'src/app/services/states.service';
 
 @Component({
@@ -14,8 +13,7 @@ export class CreateStateComponent {
   inputEtat: string;
   stateUrl= "http://localhost:4242/states/manage-states";
 
-  constructor(private etatService: UserServiceService,
-              private stateService: StatesService) { }
+  constructor(private stateService: StatesService) { }
 
   ngOnInit(){
     this.stateService.getStates()
@@ -25,12 +23,11 @@ export class CreateStateComponent {
   }
 
   sendEtat(){
-    this.etatService.postState(this.inputEtat,this.stateUrl).subscribe();
+    this.stateService.postState(this.inputEtat,this.stateUrl).subscribe();
   }
 
   deleteState(){
     this.stateService.delete(this.selectedValue).subscribe();
-    console.log(this.selectedValue)
   }
 
 }
