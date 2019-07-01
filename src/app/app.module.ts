@@ -25,6 +25,11 @@ import { StockMangaComponent } from './backOffice/components/stock-manga/stock-m
 import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
 import { HeaderHomeTwoComponent } from './frontOffice/components/header-home-two/header-home-two.component';
 import { FrontFooterComponent } from './frontOffice/components/front-footer/front-footer.component';
+import { GalleryMangaPageComponent } from './frontOffice/pages/gallery-manga-page/gallery-manga-page.component';
+import { GalleryMangaComponent } from './frontOffice/components/gallery-manga/gallery-manga.component';
+import { CardComponent } from './frontOffice/components/card/card.component'
+
+  
 
 
 @NgModule({
@@ -48,7 +53,10 @@ import { FrontFooterComponent } from './frontOffice/components/front-footer/fron
     StockMangaComponent,
     CreateStateComponent,
     HeaderHomeTwoComponent,
-    FrontFooterComponent
+    FrontFooterComponent,
+    GalleryMangaPageComponent,
+    GalleryMangaComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

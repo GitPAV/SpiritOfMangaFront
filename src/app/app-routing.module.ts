@@ -6,7 +6,8 @@ import { SeriesPageComponent } from './backOffice/pages/series-page/series-page.
 import { FormComponent } from './backOffice/components/form/form.component';
 import { UpdatePacksComponent} from './components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
-
+import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component';
+import { GalleryMangaPageComponent } from './frontOffice/pages/gallery-manga-page/gallery-manga-page.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,20 @@ const routes: Routes = [
 {
     path: 'stock-manga',
     component: StockMangaComponent
+  },
+  {
+    path: '',
+    component: HomepageComponent
+  },
+  {
+    path: 'homepage',
+    component: HomepageComponent
+  },
+  {
+    path: 'gallery-manga',
+    component: GalleryMangaPageComponent
   }
+
 ];
 
 @NgModule({
