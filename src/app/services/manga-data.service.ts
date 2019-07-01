@@ -19,7 +19,7 @@ export class MangaDataService {
   }
 
   postManga(formManga) {
-    return this.http.post("http://localhost:4242/mangas/create-manga", formManga, {responseType: 'text'})
+    return this.http.post("http://localhost:4242/mangas/create-manga", formManga, {responseType: 'text'}).toPromise();
   }
 
   getSearchedTitle(title: string): Observable<Mangas[]> {
