@@ -12,6 +12,7 @@ import { HomepageComponent } from './frontOffice/pages/homepage/homepage.compone
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
 import { AuthGuard } from './common/security/auth.guard';
 import { CatalogueMangasComponent } from './frontOffice/pages/catalogue-mangas/catalogue-mangas.component';
+import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
 
 
 const routes: Routes = [
@@ -56,6 +57,10 @@ const routes: Routes = [
     path: 'stock-manga',
     component: StockMangaComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'alerts',
+    component: DisponibilityAlertsComponent
   }
 ];
 

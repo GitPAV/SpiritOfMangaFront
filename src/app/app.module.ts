@@ -30,6 +30,7 @@ import { CataloguePacksComponent } from './frontOffice/pages/catalogue-packs/cat
 import { VendreMangasComponent } from './frontOffice/pages/vendre-mangas/vendre-mangas.component';
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
 import { AlertButtonComponent } from './frontOffice/components/alert-button/alert-button.component';
+import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { AlertButtonComponent } from './frontOffice/components/alert-button/aler
     CataloguePacksComponent,
     VendreMangasComponent,
     UserLoginComponent,
-    AlertButtonComponent
+    AlertButtonComponent,
+    DisponibilityAlertsComponent
   ],
   imports: [
     BrowserModule,
