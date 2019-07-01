@@ -85,8 +85,16 @@ export class CreatePackComponent implements OnInit {
   }
 
   chosenForm(){
-    this.conditionCreate = !this.conditionCreate;
-    this.conditionModifPack = !this.conditionModifPack;
+    if(this.conditionCreate == false){
+      this.conditionCreate = !this.conditionCreate;
+      this.conditionModifPack = !this.conditionModifPack;
+    }
+  }
+  chosenForm_1(){  
+    if(this.conditionModifPack == false){
+      this.conditionCreate = !this.conditionCreate;
+      this.conditionModifPack = !this.conditionModifPack;
+    }
   }
 
 }
