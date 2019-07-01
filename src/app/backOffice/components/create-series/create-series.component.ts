@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
+import { TypesServiceService } from 'src/app/services/types-service.service';
 
-import { UserServiceService} from '../../../services/user-service.service';
 import { SeriesService } from '../../../services/series.service';
 
 
@@ -23,19 +23,16 @@ export class CreateSeriesComponent implements OnInit {
   types;
 
   constructor(private fb: FormBuilder, 
-    private userService: UserServiceService,
+    private typesService: TypesServiceService,
     private seriesService: SeriesService) { }
 
   ngOnInit() {
-    this.userService.getTypes().subscribe(
+    this.typesService.getTypes().subscribe(
       types => { this.types = types;
-      console.log(this.types)
     });
   }
 
   onSubmit() {
-    //Call the observable in service with the apropiate http method 
-
     const seriesRoute = 'http://localhost:4242/series/manage-series';
     this.seriesService.seriePost(this.postSeriesForm.value, seriesRoute).subscribe();
     this.postSeriesForm.reset();

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { UserServiceService} from '../../../services/user-service.service';
 import { StatesService } from 'src/app/services/states.service';
+import { GetPacksService } from 'src/app/services/get-packs.service';
+import { Packs } from 'src/app/common/models/pack.model';
 
 
 @Component({
@@ -33,12 +34,12 @@ export class CreatePackComponent implements OnInit {
 
   states = [];
   chosenManga = [];
-  packs = [];
+  packs : Packs[];
   id;
   idManga;
 
   constructor(private fb: FormBuilder, 
-    private userService: UserServiceService,
+    private packService: GetPacksService,
     private statesService: StatesService) { }
 
   ngOnInit() {
@@ -48,9 +49,9 @@ export class CreatePackComponent implements OnInit {
         this.states = states;
       });
 
-    this.userService.getPacks()
+    this.packService.getPacks()
       .subscribe(packs => {
-        this.packs = JSON.parse(packs);
+        this.packs = packs;
         console.log(this.packs);
       });
   }
@@ -70,7 +71,7 @@ export class CreatePackComponent implements OnInit {
     // Call the observable in service with the apropiate http method
 
     const seriesRoute = 'http://localhost:4242/packs/manage-packs';
-    this.userService.postMangas(this.createPackForm.value, seriesRoute).subscribe();
+    this.packService.postPacks(this.createPackForm.value, seriesRoute).subscribe();
     this.createPackForm.reset();
   }
 
@@ -78,7 +79,7 @@ export class CreatePackComponent implements OnInit {
     const seriesRoute = 'http://localhost:4242/packsMangas/create-packs-mangas';
     this.createMangasPackForm.value.mangas_id = this.idManga;
     console.log(this.createMangasPackForm.value);
-    this.userService.postMangas(this.createMangasPackForm.value, seriesRoute).subscribe();
+    this.packService.postPacks(this.createMangasPackForm.value, seriesRoute).subscribe();
   }
 
 

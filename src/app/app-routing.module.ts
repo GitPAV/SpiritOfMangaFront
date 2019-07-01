@@ -9,12 +9,15 @@ import { UpdatePacksComponent} from './backOffice/components/update-packs/update
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component'
+import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
+import { AuthGuard } from './common/security/auth.guard';
 
 
 const routes: Routes = [
   {
     path: 'form-manga',
-    component: CreateMangaComponent
+    component: CreateMangaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'form-user',
@@ -22,24 +25,33 @@ const routes: Routes = [
   },
   {
     path: 'update-manga',
-    component: UpdateMangaComponent
+    component: UpdateMangaComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'manage-series',
-    component: SeriesComponent
+    component: SeriesComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'create-pack',
-    component: CreatePackComponent
+    component: CreatePackComponent,
+    canActivate: [AuthGuard]
   },
   {
   path: 'manage-packs',
-  component: UpdatePacksComponent
+  component: UpdatePacksComponent,
+  canActivate: [AuthGuard]
   },
   {
     path: 'stock-manga',
-    component: StockMangaComponent
+    component: StockMangaComponent,
+    canActivate: [AuthGuard]
   },
+  {
+    path: 'user-login',
+    component: UserLoginComponent
+  }
 ];
 
 @NgModule({

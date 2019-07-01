@@ -9,6 +9,12 @@
             <li>PROMOTIONS</li>
             <li>PACKS</li>
             <li>VENDRE VOS MANGAS</li>
+            <li class="dropdown"><a (click)="activateLoginForm()">SE CONNECTER</a>
+                <div class="dropdown-content" *ngIf="loginForm">
+                    <li><app-user-login (mailSender)='getUserConnected($event)'></app-user-login></li>
+                    <li *ngIf="adminConnected"><a (click)="goToBackOffice()">Aller sur le back-office</a></li>
+                </div>
+            </li>
         </ul>
 
     </div>

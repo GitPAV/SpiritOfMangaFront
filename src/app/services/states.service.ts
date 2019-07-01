@@ -18,6 +18,10 @@ export class StatesService {
     return this.http.post(`${route}`, dataForm, {responseType: 'text'});
   }
 
+  postState(state, route): Observable<any> {
+    return this.http.post(`${route}/${state}`, {responseType: 'text'});
+  }
+
   delete(state : number){
     const url = `${this.path}/${state}`;
     console.log(url);
