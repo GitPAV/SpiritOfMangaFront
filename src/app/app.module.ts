@@ -23,6 +23,8 @@ import { SearchPackBarComponent } from './components/search-pack-bar/search-pack
 import { UpdatePacksComponent } from './components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
+import { HeaderHomeTwoComponent } from './frontOffice/components/header-home-two/header-home-two.component';
+import { FrontFooterComponent } from './frontOffice/components/front-footer/front-footer.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { CreateStateComponent } from './backOffice/components/create-state/creat
     SearchPackBarComponent,
     UpdatePacksComponent,
     StockMangaComponent,
-    CreateStateComponent
+    CreateStateComponent,
+    HeaderHomeTwoComponent,
+    FrontFooterComponent
   ],
   imports: [
     BrowserModule,
