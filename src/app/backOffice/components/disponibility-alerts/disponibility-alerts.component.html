@@ -1,3 +1,9 @@
 <div class="main">
   <h3 class="formTitle">En attente de disponibilité</h3>
+
+  <div class="awaitingOrders" *ngFor="let order of ordersAwaiting">
+    <p>{{order.email}}</p>
+    <p>{{order.title}}</p>
+  </div>
+
 </div>

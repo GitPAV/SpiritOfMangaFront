@@ -8,7 +8,7 @@ import { Mangas } from 'src/app/common/models/manga.model';
   styleUrls: ['./disponibility-alerts.component.scss']
 })
 export class DisponibilityAlertsComponent implements OnInit {
-  ordersAwaiting: Mangas[];
+  ordersAwaiting: [];
 
   constructor(private mangaService: MangaDataService) { }
 
