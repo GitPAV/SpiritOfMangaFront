@@ -59,6 +59,10 @@ text-align: center
 
     .mangasList{
         width: 75%;
+        p{
+            text-align: center;
+            margin-bottom: 2vh;
+        }
         ul{
             width: 100%;
             display: flex;

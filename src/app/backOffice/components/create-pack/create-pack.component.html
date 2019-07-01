@@ -120,12 +120,13 @@
                 </div>
 
                 <div *ngIf="chosenPack" class="mangasList">
-                    <ul *ngFor="let manga of listMangasPacks" class="eachMangas">
+                    <p>Pack selectionné : {{selectedPack.namePack}}</p>
+                    <ul *ngFor="let manga of listMangasPacks, let i =index" class="eachMangas">
                         <li>
                             <img src={{manga.photoCover}}>
                             <p>{{manga.title + " tome : " + manga.tome}}</p>
                         </li>
-                        <button (click)="deleteManga(manga.id)" class="button">X</button>
+                        <button (click)="deleteManga(manga.id, i)" class="button">X</button>
                     </ul>
                 </div>
             </div>
@@ -139,12 +140,12 @@
                 
                 <div class="resultSearch">
                     <div *ngIf="chosenManga" class="mangasList">
-                        <ul *ngFor="let manga of chosenManga" class="eachMangas">
+                        <ul *ngFor="let manga of chosenManga, let i = index" class="eachMangas">
                             <li>
                                 <img src={{manga.photoCover}}>
                                 <p>{{manga.title + " tome : " + manga.tome}}</p>
                             </li>
-                            <button (click)="onSubmitMangaPack()" class="button">Add</button>
+                            <button (click)="onSubmitMangaPack(i)" class="button">Add</button>
                         </ul>
                     </div>
                 </div>

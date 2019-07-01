@@ -39,6 +39,7 @@ export class CreatePackComponent implements OnInit {
   listMangas = [];
   mangasPacks = {};
   listMangasPacks = [];
+  selectedPack = [];
   packsMangas;
   id1;
   id2;
@@ -83,24 +84,32 @@ export class CreatePackComponent implements OnInit {
       return pack.id;
     });
     this.idPack = this.id2.join();
+    this.selectedPack = this.packs[this.idPack - 1];
+    console.log(this.selectedPack);
     this.packService.getPacksByID(this.idPack)
       .subscribe(packManga => {
       this.packsMangas = packManga;
       this.packsMangas.forEach(element => {
-        let value = element.mangas_id;
+        const value = element.mangas_id;
         this.mangaService.getMangasById(value)
           .subscribe(listMangas => {
           this.mangasPacks = listMangas;
           this.listMangasPacks.push(this.mangasPacks[0]);
-          console.log(this.listMangasPacks);
           });
       });
     });
   }
 
-  deleteManga(id){
-    console.log(id);
+  deleteManga(idManga, index) {
+    console.log(index);
     
+    const id2 = idManga;
+    const id1 = this.idPack;
+    this.mangaService.deleteMangaPack(id1, id2).subscribe(_ => {
+      this.listMangasPacks.splice(index, 1);
+      console.log(this.listMangasPacks);
+      
+    });
   }
 
 
@@ -112,12 +121,20 @@ export class CreatePackComponent implements OnInit {
     this.createPackForm.reset();
   }
 
-  onSubmitMangaPack() {
+  onSubmitMangaPack(i) {
     const seriesRoute = 'http://localhost:4242/packsMangas/create-packs-mangas';
     this.createMangasPackForm.value.mangas_id = this.idManga;
     this.createMangasPackForm.value.packs_id = this.idPack;
     console.log(this.createMangasPackForm.value);
-    this.userService.postMangas(this.createMangasPackForm.value, seriesRoute).subscribe();
+    this.userService.postMangas(this.createMangasPackForm.value, seriesRoute).subscribe(_=>{
+      this.listMangasPacks.push(this.chosenManga[i]);
+    });
+    console.log(this.chosenManga);
+    
+    // this.chosenManga.splice(0, 1); // A MODIFIER POUR SUPPRIMER LES RESULTATS DE RECHERCHE
+
+    
+
   }
 
 

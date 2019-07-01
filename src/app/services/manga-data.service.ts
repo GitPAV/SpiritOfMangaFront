@@ -12,6 +12,7 @@ export class MangaDataService {
   mangasUrlID = 'http://localhost:4242/mangas/manage-mangas/';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
   seriePublicUrl = 'http://localhost:4242/mangas/series';
+  packsMangasUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas';
 
   constructor(private http: HttpClient) { }
 
@@ -46,6 +47,13 @@ export class MangaDataService {
   delete(manga : number){
     const id = manga;
     const url = `${this.mangasUrl}/${id}`;
+    return this.http.delete(url, {responseType: 'text'});
+  }
+
+  deleteMangaPack(id1, id2) {
+    const idPack = id1;
+    const idManga = id2;
+    const url = `${this.packsMangasUrl}/${idPack}/${idManga}`;
     return this.http.delete(url, {responseType: 'text'});
   }
 
