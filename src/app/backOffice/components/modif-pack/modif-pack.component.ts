@@ -51,6 +51,7 @@ export class ModifPackComponent implements OnInit {
 
   onSubmit(){
  this.packsService.updatePack(this.createPackForm.value)
+ this.createPackForm.reset()
   }
 
 }
