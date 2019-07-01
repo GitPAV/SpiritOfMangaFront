@@ -11,14 +11,14 @@ import { BackOfficePageComponent } from './backOffice/pages/back-office-page/bac
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component'
 import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pack.component';
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
-import { AuthGuard } from './common/security/auth.guard';
+// import { AuthGuard } from './common/security/auth.guard';
 
 
 const routes: Routes = [
   {
     path: 'form-manga',
     component: CreateMangaComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'form-user',
@@ -27,27 +27,27 @@ const routes: Routes = [
   {
     path: 'update-manga',
     component: UpdateMangaComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'manage-series',
     component: SeriesComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'create-pack',
     component: CreatePackComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
   path: 'manage-packs',
   component: UpdatePacksComponent,
-  canActivate: [AuthGuard]
+  // canActivate: [AuthGuard]
   },
   {
     path: 'stock-manga',
     component: StockMangaComponent,
-    canActivate: [AuthGuard]
+    // canActivate: [AuthGuard]
   },
   {
     path: 'modif-packs',

@@ -3,9 +3,6 @@ import { Packs } from '../../../common/models/pack.model';
 import { Validators, FormBuilder } from '@angular/forms';
 import { GetPacksService } from 'src/app/services/get-packs.service';
 
-
-
-
 @Component({
   selector: 'app-modif-pack',
   templateUrl: './modif-pack.component.html',
@@ -20,6 +17,7 @@ export class ModifPackComponent implements OnInit {
     ) { }
 
   createPackForm = this.fb.group({
+    id: [''],
     namePack: ['', Validators.required],
     photoPack: ['', Validators.required],
     resumePack: ['', Validators.required],
@@ -34,7 +32,9 @@ export class ModifPackComponent implements OnInit {
   });
   
   ngOnInit() {
+    console.log(this.infoPack)
     this.createPackForm.patchValue({
+      id: this.infoPack.id,
       namePack: this.infoPack.namePack,
       photoPack: this.infoPack.photoPack,
       resumePack: this.infoPack.resumePack,
@@ -50,7 +50,7 @@ export class ModifPackComponent implements OnInit {
   }
 
   onSubmit(){
- this.packsService.updatePack(this.createPackForm.value)
+ this.packsService.updatePack(this.createPackForm.value).subscribe()
  this.createPackForm.reset()
   }
 
