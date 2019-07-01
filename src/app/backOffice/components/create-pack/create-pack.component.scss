@@ -50,25 +50,70 @@ text-align: center
 
 
 
-.headerForm2{
+.form2{
     display: flex;
     margin-bottom: 10vh;
-    .formInput{
-        margin-left: 2vw;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    border: 1px solid blue;
+
+    .mangasList{
+        width: 75%;
+        ul{
+            width: 100%;
+            display: flex;
+            border: 1px solid black;
+            margin-top: 0.5vh;
+            padding: auto;
+            li{
+                width:75%;
+                display: flex;
+            }
+            button{
+                width: 10%;
+                height: 5%;
+                margin: auto;
+            }
+        }
+        img{
+            width: 5vw;
+            height: 7vh;
+        }
+    }
+    h2{
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+
+    // .resultSearch{
+    //     box-shadow: 0 0 10px black;
+    //     width: 20vw;
+    //     text-align: center;
+    //     display: flex;
+    //     margin-left: 2vw;
+    //     margin-bottom: 10vh;
+    //     padding-left: 4%;
+    
+    //     img{
+    //         width: 11vw;
+    //         height: 20vh;
+    //     }
+    // }
+}
+
+.formLeft{
+    width: 50%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    .searchPack{
+        width: 30vw;
     }
 }
 
-.resultSearch{
-    box-shadow: 0 0 10px black;
-    width: 20vw;
-    text-align: center;
-    display: flex;
-    margin-left: 2vw;
-    margin-bottom: 10vh;
-    padding-left: 4%;
+.formRight{
+    width: 50%;
+    padding-left: 2vw;
+    padding-right: 2vw;
 
-    img{
-        width: 11vw;
-        height: 20vh;
-    }
 }

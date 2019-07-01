@@ -8,13 +8,17 @@ import { Observable } from 'rxjs';
 })
 export class GetPacksService {
   packsUrl = 'http://localhost:4242/packs/manage-packs';
-  searchUrl ='http://localhost:4242/packs/search-packs';
-
+  searchUrl = 'http://localhost:4242/packs/search-packs';
+  packsIdUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas/'
 
   constructor( private http: HttpClient) { }
 
   getPacks(): Observable<Packs[]> {
-    return this.http.get<Packs[]>(this.packsUrl); 
+    return this.http.get<Packs[]>(this.packsUrl);
+  }
+
+  getPacksByID(id) {
+    return this.http.get(this.packsIdUrl + id);
   }
 
   getSearchTitle( title:string ): Observable<Packs[]> {

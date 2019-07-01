@@ -3,7 +3,8 @@ import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { UserServiceService} from '../../../services/user-service.service';
 import { StatesService } from 'src/app/services/states.service';
-
+import { GetPacksService } from 'src/app/services/get-packs.service';
+import { MangaDataService } from 'src/app/services/manga-data.service';
 
 @Component({
   selector: 'app-create-pack',
@@ -33,13 +34,23 @@ export class CreatePackComponent implements OnInit {
 
   states = [];
   chosenManga = [];
+  chosenPack = [];
   packs = [];
-  id;
+  listMangas = [];
+  mangasPacks = {};
+  listMangasPacks = [];
+  packsMangas;
+  id1;
+  id2;
+  idPack;
   idManga;
 
-  constructor(private fb: FormBuilder, 
-    private userService: UserServiceService,
-    private statesService: StatesService) { }
+  constructor(private fb: FormBuilder,
+              private userService: UserServiceService,
+              private statesService: StatesService,
+              private packService: GetPacksService,
+              private mangaService: MangaDataService,
+              ) { }
 
   ngOnInit() {
 
@@ -59,10 +70,37 @@ export class CreatePackComponent implements OnInit {
   getChosenManga(event) {
     this.chosenManga = event;
     console.log(this.chosenManga);
-    this.id = this.chosenManga.map((manga) => {
+    this.id1 = this.chosenManga.map((manga) => {
       return manga.id;
     });
-    this.idManga = this.id.join();
+    this.idManga = this.id1.join();
+  }
+
+  getPacks(event) {
+    this.listMangasPacks = [];
+    this.chosenPack = event;
+    this.id2 = this.chosenPack.map((pack) => {
+      return pack.id;
+    });
+    this.idPack = this.id2.join();
+    this.packService.getPacksByID(this.idPack)
+      .subscribe(packManga => {
+      this.packsMangas = packManga;
+      this.packsMangas.forEach(element => {
+        let value = element.mangas_id;
+        this.mangaService.getMangasById(value)
+          .subscribe(listMangas => {
+          this.mangasPacks = listMangas;
+          this.listMangasPacks.push(this.mangasPacks[0]);
+          console.log(this.listMangasPacks);
+          });
+      });
+    });
+  }
+
+  deleteManga(id){
+    console.log(id);
+    
   }
 
 
@@ -77,6 +115,7 @@ export class CreatePackComponent implements OnInit {
   onSubmitMangaPack() {
     const seriesRoute = 'http://localhost:4242/packsMangas/create-packs-mangas';
     this.createMangasPackForm.value.mangas_id = this.idManga;
+    this.createMangasPackForm.value.packs_id = this.idPack;
     console.log(this.createMangasPackForm.value);
     this.userService.postMangas(this.createMangasPackForm.value, seriesRoute).subscribe();
   }

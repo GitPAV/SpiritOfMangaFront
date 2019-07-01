@@ -9,6 +9,7 @@ import { Mangas } from '../common/models/manga.model';
 export class MangaDataService {
   publicsUrl = 'http://localhost:4242/publics/manage-publics';
   mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
+  mangasUrlID = 'http://localhost:4242/mangas/manage-mangas/';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
   seriePublicUrl = 'http://localhost:4242/mangas/series';
 
@@ -32,6 +33,10 @@ export class MangaDataService {
 
   getMangas(): Observable<any> {
     return this.http.get(this.mangasUrl);
+  }
+
+  getMangasById(id): Observable<any> {
+    return this.http.get(this.mangasUrlID + id);
   }
 
   getSeriePublicByManga(title: string): Observable<any> {

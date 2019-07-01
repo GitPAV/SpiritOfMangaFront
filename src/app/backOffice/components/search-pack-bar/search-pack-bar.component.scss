@@ -3,14 +3,13 @@
 .main {
     display: flex;
     flex-direction: column;
-    background-color: $grey;
 }
 #searchBar {
-    width: 50vw;
+    width: 75%;
     border: 1px solid black;
 }
 .packTable {
-    width: 50vw;
+    width: 75%;
     height: fit-content;
     margin-bottom: 5vh;
     display : flex;
