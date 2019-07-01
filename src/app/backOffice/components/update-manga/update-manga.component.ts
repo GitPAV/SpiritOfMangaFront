@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MangaDataService } from 'src/app/services/manga-data.service';
 import { Mangas } from '../../../common/models/manga.model';
+import { SeriesService } from 'src/app/services/series.service';
 
 @Component({
   selector: 'app-update-manga',
@@ -17,16 +18,19 @@ export class UpdateMangaComponent implements OnInit {
   seriePublic;
   currentSerie;
   currentPublic;
+  mangasUnsubs;
 
-  constructor(private mangaService: MangaDataService) { }
+  constructor(private mangaService: MangaDataService,
+    private seriesService: SeriesService) { }
 
   ngOnInit() {
-      this.mangaService.getPublics()
+      this.mangasUnsubs = this.mangaService.getPublics()
         .subscribe(publics => {
           this.publics = publics;
+          this.mangasUnsubs.unsubscribe();
       })
 
-        this.mangaService.getSeries()
+        this.seriesService.getSeries()
         .subscribe(series => {
           this.series = series;
       });
@@ -53,7 +57,7 @@ export class UpdateMangaComponent implements OnInit {
 
   delete(manga): void{
     if (confirm(`Êtes-vous sûr de vouloir supprimer le manga ${manga.title} ?`)) {
-      this.mangaService.delete(manga.id).subscribe();
+      this.mangaService.delete(manga.id).toPromise();
       alert(`Le manga ${manga.title} a bien été supprimé.`)
       this.chosenManga = [];
     }

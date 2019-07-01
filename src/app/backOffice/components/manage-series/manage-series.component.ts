@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
-import { UserServiceService } from './../../../services/user-service.service';
+import { SeriesService } from 'src/app/services/series.service';
+import { TypesServiceService } from 'src/app/services/types-service.service';
 
 @Component({
   selector: 'app-manage-series',
@@ -11,7 +12,9 @@ import { UserServiceService } from './../../../services/user-service.service';
 })
 export class ManageSeriesComponent implements OnInit {
 
-  constructor( private fb: FormBuilder, private userService: UserServiceService) { }
+  constructor( private fb: FormBuilder, 
+    private seriesService: SeriesService,
+    private typesService: TypesServiceService) { }
 
   manageSeriesForm : FormGroup;
 
@@ -27,11 +30,11 @@ export class ManageSeriesComponent implements OnInit {
   
   
   ngOnInit() {
-    this.userService.getSeries().subscribe(
+    this.seriesService.getSeries().subscribe(
       series => { this.series = series;
     });
     
-    this.userService.getTypes().subscribe(
+    this.typesService.getTypes().subscribe(
       types => { this.types = types;
       });
 
@@ -63,7 +66,7 @@ export class ManageSeriesComponent implements OnInit {
       data : this.manageSeriesForm.value
     }
     console.log(body);
-    this.userService.testPut(body, seriesRoute).subscribe();
+    this.seriesService.seriesPut(body, seriesRoute).subscribe();
   }
 
 }
