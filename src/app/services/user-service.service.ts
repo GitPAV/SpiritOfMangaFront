@@ -35,6 +35,10 @@ export class UserServiceService {
     return this.http.get(`${route}/${mailValue}`);
   };
 
+  getUser(route): Observable<any> {
+    return this.http.get(`${route}`);
+  };
+
   /* Methods put into other services and to delete from here.
   testPut(dataForm, route) {
     return this.http.put(`${route}`, dataForm, {responseType: 'text'});

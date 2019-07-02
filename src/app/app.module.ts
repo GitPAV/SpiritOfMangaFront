@@ -29,6 +29,7 @@ import { PromotionsComponent } from './frontOffice/pages/promotions/promotions.c
 import { CataloguePacksComponent } from './frontOffice/pages/catalogue-packs/catalogue-packs.component';
 import { VendreMangasComponent } from './frontOffice/pages/vendre-mangas/vendre-mangas.component';
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
+import { ManageUsersComponent } from './backOffice/components/manage-users/manage-users.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { UserLoginComponent } from './frontOffice/components/user-login/user-log
     PromotionsComponent,
     CataloguePacksComponent,
     VendreMangasComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    ManageUsersComponent
   ],
   imports: [
     BrowserModule,
