@@ -9,6 +9,7 @@ import { UpdatePacksComponent} from './backOffice/components/update-packs/update
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component'
+import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pack.component';
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
 // import { AuthGuard } from './common/security/auth.guard';
 
@@ -47,6 +48,10 @@ const routes: Routes = [
     path: 'stock-manga',
     component: StockMangaComponent,
     // canActivate: [AuthGuard]
+  },
+  {
+    path: 'modif-packs',
+    component: ModifPackComponent
   },
   {
     path: 'user-login',

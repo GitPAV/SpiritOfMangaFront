@@ -4,10 +4,14 @@
     overflow: scroll;
     justify-content:center;
     box-shadow: 0 0 10px black;
-    h3{
-        font-size: 30px;
-        margin: 5%;
-    }
+    .tabForm {
+        display: flex;
+        justify-content: center;
+        h3{
+            font-size: 30px;
+            margin: 5%;
+        }
+    }    
     form{
         width: 75vw;
     }

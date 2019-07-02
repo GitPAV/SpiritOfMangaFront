@@ -3,7 +3,10 @@
 .main {
     display: flex;
     flex-direction: column;
-    background-color: $grey;
+    background-color: white;
+.searchBarDiv{
+    text-align: center;
+}
 }
 #searchBar {
     width: 50vw;
@@ -16,10 +19,17 @@
     display : flex;
     flex-direction: column;
     background-color: rgba(45,52,65,1);
+    text-align: center;
+    margin: 0 auto;
+
 
     .titlesSearched {
         color: white;
         padding-top: 1vh;
         cursor: pointer;
     }
+}
+
+.modifForm {
+    margin-top:40px;
 }

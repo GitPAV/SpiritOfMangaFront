@@ -28,6 +28,7 @@ import { CatalogueMangasComponent } from './frontOffice/pages/catalogue-mangas/c
 import { PromotionsComponent } from './frontOffice/pages/promotions/promotions.component';
 import { CataloguePacksComponent } from './frontOffice/pages/catalogue-packs/catalogue-packs.component';
 import { VendreMangasComponent } from './frontOffice/pages/vendre-mangas/vendre-mangas.component';
+import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pack.component';
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
 
 
@@ -56,6 +57,7 @@ import { UserLoginComponent } from './frontOffice/components/user-login/user-log
     PromotionsComponent,
     CataloguePacksComponent,
     VendreMangasComponent,
+    ModifPackComponent,
     UserLoginComponent
   ],
   imports: [
