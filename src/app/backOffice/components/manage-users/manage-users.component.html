@@ -3,4 +3,12 @@
 </p>
 <button (click)="getUserList()">GetUser</button>
 <p>--------------------</p>
-<div>{{userList}}</div>
+
+<div >
+  <li *ngFor="let user of userList">
+    <a href="http://localhost:4200/user/{{user.id}}">
+        {{ user.id }}
+        {{ user.pseudo}}
+    </a>
+  </li>
+</div>

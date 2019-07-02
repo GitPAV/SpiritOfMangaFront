@@ -1,0 +1,33 @@
+<div >
+  <li *ngFor="let user of userDetails">
+    <p>{{user.pseudo}}</p>
+    <p>{{user.firstname}} {{user.lastname}}</p>
+    <div> Adresse : </div>
+    <p>{{user.cp}} {{user.ville}}</p>
+    <p>{{user.numRue}} {{user.rue}}</p>
+    <div> Contact : </div>
+    <p>{{user.telephone}}</p>
+    <p>{{user.email}}</p>
+    <div> Information additionel : </div>
+    <p>{{user.connaissance}}</p>
+    <p>{{user.droits}}</p>
+    <p *ngIf="user.newsletter">Oui</p>
+    <p *ngIf="!user.newsletter">Non</p>
+  </li>
+</div>
+
+<!-- id: 1
+pseudo: "MangaLovers"
+firstname: "Adolf"
+lastname: "Hitler"
+
+ville: "Berlin"
+cp: 11011
+numRue: 1 // rue: "Platz der Republik"
+
+telephone: 681232452
+email: "angryGuy@germany.de"
+
+connaissance: "Mes services de renseignements"
+droits: "users"
+newsletter: 1 -->

@@ -31,6 +31,7 @@ import { VendreMangasComponent } from './frontOffice/pages/vendre-mangas/vendre-
 import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pack.component';
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
 import { ManageUsersComponent } from './backOffice/components/manage-users/manage-users.component';
+import { UserDetailsComponent } from './backOffice/components/user-details/user-details.component';
 
 
 @NgModule({
@@ -58,13 +59,11 @@ import { ManageUsersComponent } from './backOffice/components/manage-users/manag
     PromotionsComponent,
     CataloguePacksComponent,
     VendreMangasComponent,
-<<<<<<< HEAD
     UserLoginComponent,
-    ManageUsersComponent
-=======
+    ManageUsersComponent,
     ModifPackComponent,
-    UserLoginComponent
->>>>>>> 3f2c4d50f18b9d46dace5a6dde056ef7873fa787
+    UserLoginComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,

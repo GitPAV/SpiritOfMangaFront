@@ -17,8 +17,10 @@ export class ManageUsersComponent implements OnInit {
   }
 
   getUserList() {
-    this.userList = this.userService.getUser(this.getUserRoute).subscribe();
-    console.log(this.userList)
+     this.userService.getUser(this.getUserRoute).subscribe(user => {
+       this.userList = user
+     });
+    console.log('USERLIST',this.userList)
   }
 
 }
