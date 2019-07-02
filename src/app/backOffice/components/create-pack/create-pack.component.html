@@ -53,11 +53,9 @@
             
             <div class="formInput">
                 <label>
-                    Etat :
+                    Commentaire d'etat :
                 </label>    
-                <select formControlName='statesPack_id' id='statesPack' required>
-                    <option *ngFor="let statesPack of states" [value]=statesPack.id>{{statesPack.name}}</option>
-                </select>
+                <input type="text" formControlName='comment'>
             </div>
             
             <div class="formInput">
@@ -138,7 +136,7 @@
                     <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
                 </div>
                 
-                <div class="resultSearch">
+                <div class="resultSearch" *ngIf="displaySearch == true">
                     <div *ngIf="chosenManga" class="mangasList">
                         <ul *ngFor="let manga of chosenManga, let i = index" class="eachMangas">
                             <li>

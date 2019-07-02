@@ -22,9 +22,9 @@ export class CreatePackComponent implements OnInit {
     prixPublic: ['', Validators.required],
     promo: ['', Validators.required],
     prixPromo: ['', Validators.required],
-    statesPack_id: ['', Validators.required],
     notrePrix: ['', Validators.required],
     tomes: ['', Validators.required],
+    comment: ['', Validators.required],
   });
 
   createMangasPackForm = this.fb.group({
@@ -40,6 +40,7 @@ export class CreatePackComponent implements OnInit {
   mangasPacks = {};
   listMangasPacks = [];
   selectedPack = [];
+  displaySearch = true;
   packsMangas;
   id1;
   id2;
@@ -63,12 +64,12 @@ export class CreatePackComponent implements OnInit {
     this.userService.getPacks()
       .subscribe(packs => {
         this.packs = JSON.parse(packs);
-        console.log(this.packs);
       });
   }
 
 
   getChosenManga(event) {
+    this.displaySearch = true;
     this.chosenManga = event;
     console.log(this.chosenManga);
     this.id1 = this.chosenManga.map((manga) => {
@@ -101,21 +102,16 @@ export class CreatePackComponent implements OnInit {
   }
 
   deleteManga(idManga, index) {
-    console.log(index);
-    
     const id2 = idManga;
     const id1 = this.idPack;
     this.mangaService.deleteMangaPack(id1, id2).subscribe(_ => {
       this.listMangasPacks.splice(index, 1);
       console.log(this.listMangasPacks);
-      
     });
   }
 
 
   onSubmit() {
-    // Call the observable in service with the apropiate http method
-
     const seriesRoute = 'http://localhost:4242/packs/manage-packs';
     this.userService.postMangas(this.createPackForm.value, seriesRoute).subscribe();
     this.createPackForm.reset();
@@ -126,17 +122,11 @@ export class CreatePackComponent implements OnInit {
     this.createMangasPackForm.value.mangas_id = this.idManga;
     this.createMangasPackForm.value.packs_id = this.idPack;
     console.log(this.createMangasPackForm.value);
-    this.userService.postMangas(this.createMangasPackForm.value, seriesRoute).subscribe(_=>{
+    this.userService.postMangas(this.createMangasPackForm.value, seriesRoute).subscribe(_ => {
       this.listMangasPacks.push(this.chosenManga[i]);
     });
-    console.log(this.chosenManga);
-    
-    // this.chosenManga.splice(0, 1); // A MODIFIER POUR SUPPRIMER LES RESULTATS DE RECHERCHE
-
-    
-
+    this.displaySearch = false;
   }
-
 
 
 }
