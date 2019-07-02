@@ -11,7 +11,8 @@ export class MangaDataService {
   mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
   seriePublicUrl = 'http://localhost:4242/mangas/series';
-  mangasAwaitingUrl = 'http://localhost:4242/mangasAwaiting/awaiting-users-mangas';
+  mangasAwaitingUrl = 'http://localhost:4242/mangasAwaiting/manage-mangas-awaiting';
+  datasForAwaitingMangasUrl = 'http://localhost:4242/mangasAwaiting/awaiting-users-mangas';
 
   constructor(private http: HttpClient) { }
 
@@ -50,7 +51,7 @@ export class MangaDataService {
   }
 
   getMangasAwaiting(): Observable<any> {
-    return this.http.get<any>(this.mangasAwaitingUrl);
+    return this.http.get<any>(this.datasForAwaitingMangasUrl);
   }
 
 }

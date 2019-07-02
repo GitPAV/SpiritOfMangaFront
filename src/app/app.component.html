@@ -1,18 +1,21 @@
- <div *ngIf="backOfficeOn"> 
-    <div id="bodyBackContent">
-
-        <div id="navbarBack">
-            <app-back-office-page></app-back-office-page>
-        </div>
-        
-        <div id="componentsBack">
+ <div>
+     <div *ngIf="backOfficeOn"> 
+        <div id="bodyBackContent">
+    
+            <div id="navbarBack">
+                <app-back-office-page></app-back-office-page>
+            </div>
+            
+            <div id="componentsBack">
+            </div>
         </div>
     </div>
+    
+    <div *ngIf="frontOfficeOn">
+        <app-homepage></app-homepage>
+    </div>
+    
+    <router-outlet></router-outlet>
  </div>
 
-
-<div *ngIf="frontOfficeOn">
-    <app-homepage></app-homepage>
-    <router-outlet></router-outlet>
-</div>
 
