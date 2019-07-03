@@ -4,7 +4,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms'
 
 export function emailValidator (): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-        const mailPattern = RegExp('^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$')
+        const mailPattern = RegExp('^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.+[a-z]{2,4}$')
 
         if (!mailPattern.test(control.value)) {
              return {

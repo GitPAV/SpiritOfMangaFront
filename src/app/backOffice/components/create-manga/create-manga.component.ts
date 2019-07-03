@@ -48,7 +48,11 @@ export class CreateMangaComponent implements OnInit {
   }
 
   onSubmit() {
-    this.mangaService.postManga(this.mangaForm.value).subscribe();
+    this.mangaService.postManga(this.mangaForm.value)
+    .then(/* can make another get or send email to user or...*/)
+    .catch( error => {
+      console.error(error);
+    })
     this.formInit();
   }
 

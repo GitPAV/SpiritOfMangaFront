@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { UserServiceService} from '../../../services/user-service.service';
-import { StatesService } from 'src/app/services/states.service';
 import { GetPacksService } from 'src/app/services/get-packs.service';
 import { MangaDataService } from 'src/app/services/manga-data.service';
+
 
 @Component({
   selector: 'app-create-pack',
@@ -21,10 +20,10 @@ export class CreatePackComponent implements OnInit {
     weight: ['', Validators.required],
     prixPublic: ['', Validators.required],
     promo: ['', Validators.required],
-    prixPromo: ['', Validators.required],
+    prixPromo: [],
     notrePrix: ['', Validators.required],
-    tomes: ['', Validators.required],
-    comment: ['', Validators.required],
+    tomes: [],
+    comment: [],
   });
 
   createMangasPackForm = this.fb.group({
@@ -35,35 +34,32 @@ export class CreatePackComponent implements OnInit {
   states = [];
   chosenManga = [];
   chosenPack = [];
-  packs = [];
   listMangas = [];
   mangasPacks = {};
   listMangasPacks = [];
   selectedPack = [];
-  displaySearch = true;
+  packs = [];
   packsMangas;
   id1;
   id2;
   idPack;
+  id;
   idManga;
+  displaySearch = true;
+  conditionCreate = true;
+  conditionModifPack = false;
 
   constructor(private fb: FormBuilder,
-              private userService: UserServiceService,
-              private statesService: StatesService,
               private packService: GetPacksService,
               private mangaService: MangaDataService,
               ) { }
 
   ngOnInit() {
 
-    this.statesService.getStates()
-      .subscribe(states => {
-        this.states = states;
-      });
-
-    this.userService.getPacks()
+    this.packService.getPacks()
       .subscribe(packs => {
-        this.packs = JSON.parse(packs);
+        this.packs = packs;
+        console.log(this.packs);
       });
   }
 
@@ -81,12 +77,14 @@ export class CreatePackComponent implements OnInit {
   getPacks(event) {
     this.listMangasPacks = [];
     this.chosenPack = event;
+    console.log('CHOSEN PACK' + this.chosenPack);
+    
     this.id2 = this.chosenPack.map((pack) => {
       return pack.id;
     });
     this.idPack = this.id2.join();
     this.selectedPack = this.packs[this.idPack - 1];
-    console.log(this.selectedPack);
+    console.log('selected pack:' + this.selectedPack);
     this.packService.getPacksByID(this.idPack)
       .subscribe(packManga => {
       this.packsMangas = packManga;
@@ -101,6 +99,7 @@ export class CreatePackComponent implements OnInit {
     });
   }
 
+
   deleteManga(idManga, index) {
     const id2 = idManga;
     const id1 = this.idPack;
@@ -111,9 +110,10 @@ export class CreatePackComponent implements OnInit {
   }
 
 
+
   onSubmit() {
     const seriesRoute = 'http://localhost:4242/packs/manage-packs';
-    this.userService.postMangas(this.createPackForm.value, seriesRoute).subscribe();
+    this.packService.postPacks(this.createPackForm.value, seriesRoute).subscribe();
     this.createPackForm.reset();
   }
 
@@ -122,11 +122,26 @@ export class CreatePackComponent implements OnInit {
     this.createMangasPackForm.value.mangas_id = this.idManga;
     this.createMangasPackForm.value.packs_id = this.idPack;
     console.log(this.createMangasPackForm.value);
-    this.userService.postMangas(this.createMangasPackForm.value, seriesRoute).subscribe(_ => {
+    this.packService.postPacks(this.createMangasPackForm.value, seriesRoute).subscribe(_ => {
       this.listMangasPacks.push(this.chosenManga[i]);
     });
     this.displaySearch = false;
   }
 
+  //   this.packService.postPacks(this.createMangasPackForm.value, seriesRoute).subscribe();
+  // }
+
+  chosenForm(){
+    if(this.conditionCreate == false){
+      this.conditionCreate = !this.conditionCreate;
+      this.conditionModifPack = !this.conditionModifPack;
+    }
+  }
+  chosenForm_1(){  
+    if(this.conditionModifPack == false){
+      this.conditionCreate = !this.conditionCreate;
+      this.conditionModifPack = !this.conditionModifPack;
+    }
+  }
 
 }
