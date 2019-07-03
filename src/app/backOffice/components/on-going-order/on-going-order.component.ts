@@ -9,12 +9,13 @@ import { OnGoingOrderService } from '../../../services/on-going-order.service';
 export class OnGoingOrderComponent implements OnInit {
   finalOrderTable = [];
   mangaFinalOrderTable = [];
+  conditionPacks: Boolean = true;
+  conditionMangas: Boolean = false;
 
   constructor(private finalOrderService: OnGoingOrderService) { }
 
   ngOnInit() {
     this.getFinalOrder();
-    this.getMangaFinalOrder();
   }
 
   getFinalOrder(){
@@ -34,5 +35,20 @@ export class OnGoingOrderComponent implements OnInit {
     )
   }
 
+  showPacks(){
+    if(this.conditionPacks === false){
+      this.conditionPacks = !this.conditionPacks;
+      this.conditionMangas = !this.conditionMangas;
+      this.getFinalOrder();
+    }
+  }
+
+  showMangas(){
+    if(this.conditionMangas === false){
+      this.conditionMangas = !this.conditionMangas;
+      this.conditionPacks = !this.conditionPacks;
+      this.getMangaFinalOrder();
+    }  
+  }
 
 }
