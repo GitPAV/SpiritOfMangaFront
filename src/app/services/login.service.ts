@@ -11,16 +11,14 @@ import { User } from '../common/models/user.model';
 export class LoginService {
   loginUrl = 'http://localhost:4242/users/login';
   protectedUrl = 'http://localhost:4242/users/protected';
-  getUserByMail = 'http://localhost:4242/users/get-users';
+  getUserByMail = 'http://localhost:4242/users/display-user';
   isLoggedIn = false;
   userConnectedMail: string;
 
   constructor(private http: HttpClient, private router: Router) { }
 
   loginPost(userForm) {
-    console.log(userForm)
     this.userConnectedMail = userForm.email
-    console.log(this.userConnectedMail)
     return this.http.post(this.loginUrl, userForm, {responseType: 'text'}).toPromise();
   }
 
@@ -41,6 +39,7 @@ export class LoginService {
   }
 
   getUserConnected(): Observable<User>{
+    console.log(this.getUserByMail)
     return this.http.get<User>(`${this.getUserByMail}/${this.userConnectedMail}`)
   }
 
