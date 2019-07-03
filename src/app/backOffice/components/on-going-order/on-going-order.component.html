@@ -1,9 +1,19 @@
 <div class="main">
 
-  <div *ngFor="let item of finalOrderTable">
-    <p>{{item.title}}</p>
-    <p>{{item.date}}</p>
-    <p>{{item.auteur}}</p>
+  
+
+  <div class="packOrder"> 
+    <div *ngFor="let item of finalOrderTable">
+      <p>{{item[0].namePack}}</p>
+      <p>{{item[1].firstname}}</p>
+    </div>
+  </div>
+
+  <div class="mangaOrder"> 
+    <div *ngFor="let item of mangaFinalOrderTable">
+      <p>{{item[0].namePack}}</p>
+      <p>{{item[1].firstname}}</p>
+    </div>
   </div>
 
 </div>

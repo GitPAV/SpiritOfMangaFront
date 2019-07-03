@@ -7,23 +7,31 @@ import { OnGoingOrderService } from '../../../services/on-going-order.service';
   styleUrls: ['./on-going-order.component.scss']
 })
 export class OnGoingOrderComponent implements OnInit {
-  finalOrderTable = []
+  finalOrderTable = [];
+  mangaFinalOrderTable = [];
 
   constructor(private finalOrderService: OnGoingOrderService) { }
 
   ngOnInit() {
-    this.getFinalOrder()
-    this.finalOrderTable;
-    console.log(this.finalOrderTable)
+    this.getFinalOrder();
+    this.getMangaFinalOrder();
   }
 
   getFinalOrder(){
     this.finalOrderService.getFinalOrder().subscribe(
       item => {
         this.finalOrderTable = item;
-        console.log(item)
+        console.log(this.finalOrderTable)
+        })
       }
-    );
+
+  getMangaFinalOrder(){
+    this.finalOrderService.getMangaFinalOrder().subscribe(
+      item => {
+        this.mangaFinalOrderTable = item;
+        console.log(this.mangaFinalOrderTable)
+      }
+    )
   }
 
 
