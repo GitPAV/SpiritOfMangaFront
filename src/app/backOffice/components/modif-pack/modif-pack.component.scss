@@ -1,0 +1,64 @@
+form{
+    width: 75vw;
+}
+input{
+    border:4px solid #FF8D30;
+}
+select{
+    border:4px solid #FF8D30;
+}
+.formInput{
+    width: 33vw;
+    display: flex;
+    flex-direction: column;
+}
+.button{
+    background-color: #FF8D30;
+    margin: 3%;
+}
+
+
+.formP1{
+display: flex;
+.column1{
+    margin-left: 2vw;
+}
+.column2{
+    margin-left: 2vw;
+}
+textarea{
+    width: 100%;
+    height: 13vh;
+    border:4px solid #FF8D30;
+}
+
+}
+
+.formP2{
+    text-align: center
+    }
+    
+    
+    
+    .headerForm2{
+        display: flex;
+        margin-bottom: 10vh;
+        .formInput{
+            margin-left: 2vw;
+        }
+    }
+    
+    .resultSearch{
+        box-shadow: 0 0 10px black;
+        width: 20vw;
+        text-align: center;
+        display: flex;
+        margin-left: 2vw;
+        margin-bottom: 10vh;
+        padding-left: 4%;
+    
+        img{
+            width: 11vw;
+            height: 20vh;
+        }
+    }

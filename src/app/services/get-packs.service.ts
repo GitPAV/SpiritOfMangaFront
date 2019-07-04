@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 export class GetPacksService {
   packsUrl = 'http://localhost:4242/packs/manage-packs';
   searchUrl ='http://localhost:4242/packs/search-packs';
+  url = 'http://localhost:4242/packsMangas/manage-packs-mangas';
+
 
 
   constructor( private http: HttpClient) { }
@@ -22,6 +24,7 @@ export class GetPacksService {
   }
 
   updatePack(pack): Observable<any> {
+    console.log(pack)
     return this.http.put(this.packsUrl, pack, {responseType: 'text'});
   }
 

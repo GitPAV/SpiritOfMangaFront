@@ -13,8 +13,9 @@ export class SearchPackBarComponent implements OnInit {
   packs: Packs[];
   research: string;
   selectPack;
+  formCondition:boolean;
+  chosenPack: Packs;
 
-  @Output() chosenPack = new EventEmitter();
 
   constructor(private searchPackService: GetPacksService) { }
 
@@ -29,12 +30,11 @@ export class SearchPackBarComponent implements OnInit {
   }
 
   sendChosenPack(pack){
-    let packsToSend = [];
-    packsToSend.push(pack);
-    this.chosenPack.emit(packsToSend);
+    this.chosenPack = pack;
     this.research = '';
     this.selectPack = '';
     this.packs = [];
+    this.formCondition = !this.formCondition;
   }
   
 }
