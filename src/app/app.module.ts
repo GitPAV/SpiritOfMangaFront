@@ -30,6 +30,8 @@ import { CataloguePacksComponent } from './frontOffice/pages/catalogue-packs/cat
 import { VendreMangasComponent } from './frontOffice/pages/vendre-mangas/vendre-mangas.component';
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
 import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
+import { PackListItemComponent } from './backOffice/components/pack-list-item/pack-list-item.component';
+import { MangaListItemComponent } from './backOffice/components/manga-list-item/manga-list-item.component';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on
     CataloguePacksComponent,
     VendreMangasComponent,
     UserLoginComponent,
-    OnGoingOrderComponent
+    OnGoingOrderComponent,
+    PackListItemComponent,
+    MangaListItemComponent
   ],
   imports: [
     BrowserModule,
