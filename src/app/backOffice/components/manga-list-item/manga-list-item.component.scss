@@ -1,8 +1,10 @@
 @import '../../../../styles.scss';
 
 .main{
+    background-color: rgba($grey,0.6); 
+    border: 3px solid $grey; 
+    color: black;
     margin: 15px;
     padding: 20px;
-    color: black;
-    background-color: rgba($grey,0.6); 
+
 }

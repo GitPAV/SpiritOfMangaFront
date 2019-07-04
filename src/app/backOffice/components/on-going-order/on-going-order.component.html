@@ -1,8 +1,8 @@
 <div class="main">
 
   <div class="tab">
-    <p (click)="showPacks()">PACKS</p>
-    <p (click)="showMangas()">MANGAS</p>
+    <p (click)="showPacks()" [ngStyle]="{ textDecoration: underlinePack() }">PACKS</p>
+    <p (click)="showMangas()" [ngStyle]="{ textDecoration: underlineManga() }">MANGAS</p>
   </div>
 
   <div class="header">

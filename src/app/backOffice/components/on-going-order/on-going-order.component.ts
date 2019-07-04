@@ -16,6 +16,7 @@ export class OnGoingOrderComponent implements OnInit {
 
   ngOnInit() {
     this.getFinalOrder();
+    this.getMangaFinalOrder();
   }
 
   getFinalOrder(){
@@ -39,7 +40,6 @@ export class OnGoingOrderComponent implements OnInit {
     if(this.conditionPacks === false){
       this.conditionPacks = !this.conditionPacks;
       this.conditionMangas = !this.conditionMangas;
-      this.getFinalOrder();
     }
   }
 
@@ -47,8 +47,14 @@ export class OnGoingOrderComponent implements OnInit {
     if(this.conditionMangas === false){
       this.conditionMangas = !this.conditionMangas;
       this.conditionPacks = !this.conditionPacks;
-      this.getMangaFinalOrder();
     }  
   }
 
+  underlinePack(){
+    return this.conditionPacks ? 'underline' : '';
+  }
+
+  underlineManga(){
+    return this.conditionMangas ? 'underline' : '';
+  }
 }
