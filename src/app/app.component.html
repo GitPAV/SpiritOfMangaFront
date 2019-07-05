@@ -6,16 +6,16 @@
                 <app-back-office-page></app-back-office-page>
             </div>
             
-            <div id="componentsBack">
-            </div>
         </div>
     </div>
     
     <div *ngIf="frontOfficeOn">
         <app-homepage></app-homepage>
     </div>
-    
-    <router-outlet></router-outlet>
+
+    <div class='routerBack'>
+        <router-outlet></router-outlet>
+    </div>
  </div>
 
 

@@ -7,9 +7,9 @@ import { SwitchFrontToBackService } from './services/switch-front-to-back.servic
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'SpiritOfManga';
+  title = 'Spirit Of Manga';
   frontOfficeOn: boolean = true;
-  backOfficeOn: boolean = false;
+  backOfficeOn: boolean;
 
   constructor(private frontToBack: SwitchFrontToBackService){}
 
