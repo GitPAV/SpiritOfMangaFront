@@ -28,6 +28,10 @@ export class MangaDataService {
     return this.http.get<Mangas[]>(`${this.searchUrl}/${title}`);
   }
 
+  getMangaById(id: number): Observable<Mangas[]> {
+    return this.http.get<Mangas[]>(`${this.mangasUrl}/${id}`);
+  }
+
   updateManga(manga): Observable<any> {
     return this.http.put(this.mangasUrl, manga, {responseType: 'text'});
   }

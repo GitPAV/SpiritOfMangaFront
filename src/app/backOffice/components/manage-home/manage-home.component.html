@@ -1,0 +1,9 @@
+<app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+
+<div class="main">
+  <div *ngFor="let manga of mangasToDisplay">
+    <h4>{{ manga.title }}</h4>
+    <p>{{ manga.resume }}</p>
+    <button type="text" (click)="promote(manga.id)">PROMOUVOIR</button>
+  </div>
+</div>

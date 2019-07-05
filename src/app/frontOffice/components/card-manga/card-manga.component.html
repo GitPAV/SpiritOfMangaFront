@@ -1,13 +1,13 @@
 <div class="theCtn">
-    <div class="cardCtn">
+    <div class="cardCtn" *ngFor="let manga of mangasToPromote">
         <div class="cardContent">
-            <img src="../../../../assets/img/mangaOne.jpg"> 
-            <h4>NARUTO</h4>
-            <p>TOME 7</p>
+            <img [src]="manga.photoCover"> 
+            <h4>{{manga.title}}</h4>
+            <p>{{manga.tome}}</p>
         </div>
     </div>
 
-    <div class="cardCtn">
+    <!-- <div class="cardCtn">
             <div class="cardContent">
                 <img src="../../../../assets/img/mangaOne.jpg"> 
                 <h4>NARUTO</h4>
@@ -37,6 +37,6 @@
                 <h4>NARUTO</h4>
                 <p>TOME 7</p>
             </div>
-    </div>
+    </div> -->
     
 </div>

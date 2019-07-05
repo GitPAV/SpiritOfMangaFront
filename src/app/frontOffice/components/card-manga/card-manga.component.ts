@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Mangas } from 'src/app/common/models/manga.model';
 
 @Component({
   selector: 'app-card-manga',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-manga.component.scss']
 })
 export class CardMangaComponent implements OnInit {
+  @Input() mangasToPromote : Mangas[];
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.mangasToPromote)
   }
 
 }
