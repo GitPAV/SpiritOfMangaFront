@@ -23,16 +23,14 @@
       <p class="menu-label">
         GÉRER MES UTILISATEURS
       </p>
-        <li><a [routerLink]="['/']">Alertes disponibilités</a></li>
         <li><a [routerLink]="['/manage-users']">Mes utilisateurs</a></li>
         <li><a [routerLink]="['/alerts']">Alertes disponibilités</a></li>
-        <li><a [routerLink]="['/']">Mes utilisateurs</a></li>
     </ul>
   </aside>
 
   <div class="headerBack">
     <span class="date">{{dateValue | date:' d MMMM y '}}</span>
-    <img src="../../../../assets/img/logoSignOut.png" alt="signOutLogo"> <!-- ICI FONCTION DISCONNECT -->
+    <img (click)="logOut()" src="../../../../assets/img/logoSignOut.png" alt="signOutLogo"> <!-- ICI FONCTION DISCONNECT -->
 
   </div>
 </div>

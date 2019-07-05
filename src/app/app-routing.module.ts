@@ -18,7 +18,7 @@ import { CatalogueMangasComponent } from './frontOffice/pages/catalogue-mangas/c
 import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
 import { RoleGuardService } from './common/security/role-guard.service';
 import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
-// import { AuthGuard } from './common/security/auth.guard';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [
@@ -116,6 +116,11 @@ const routes: Routes = [
 
 // ************** FRONT OFFICE ********************
 
+  {
+    path:'',
+    redirectTo: '',
+    pathMatch: 'full'
+  },
   {
     path: 'form-user',
     component: FormComponent
