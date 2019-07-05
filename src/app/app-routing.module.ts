@@ -13,8 +13,10 @@ import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pac
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
 import { ManageUsersComponent } from './backOffice/components/manage-users/manage-users.component';
 import { UserDetailsComponent } from './backOffice/components/user-details/user-details.component';
-
-// import { AuthGuard } from './common/security/auth.guard';
+import { AuthGuard } from './common/security/auth.guard';
+import { CatalogueMangasComponent } from './frontOffice/pages/catalogue-mangas/catalogue-mangas.component';
+import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
+import { RoleGuardService } from './common/security/role-guard.service';
 
 
 const routes: Routes = [
@@ -24,51 +26,94 @@ const routes: Routes = [
   {
     path: 'form-manga',
     component: CreateMangaComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
   {
     path: 'update-manga',
     component: UpdateMangaComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
   {
     path: 'manage-series',
     component: SeriesComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
   {
     path: 'create-pack',
     component: CreatePackComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
   {
-  path: 'manage-packs',
-  component: UpdatePacksComponent,
-  // canActivate: [AuthGuard]
+    path: 'manage-packs',
+    component: UpdatePacksComponent,
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
   {
     path: 'stock-manga',
     component: StockMangaComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
   {
     path: 'manage-users',
     component: ManageUsersComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    } 
   },
   {
     path: 'user/:id',
     component: UserDetailsComponent,
-    // canActivate: [AuthGuard]
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
   {
     path: 'modif-packs',
-    component: ModifPackComponent
-    // canActivate: [AuthGuard]
+    component: ModifPackComponent,
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }   
+  },
+  {
+    path: 'alerts',
+    component: DisponibilityAlertsComponent,
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
 
 // ************** FRONT OFFICE ********************
 
+  {
+    path: 'form-user',
+    component: FormComponent
+  },
+  {
+    path: 'catalogue-mangas',
+    component: CatalogueMangasComponent
+  },
   {
     path: 'form-user',
     component: FormComponent

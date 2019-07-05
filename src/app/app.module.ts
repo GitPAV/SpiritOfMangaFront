@@ -32,6 +32,8 @@ import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pac
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
 import { ManageUsersComponent } from './backOffice/components/manage-users/manage-users.component';
 import { UserDetailsComponent } from './backOffice/components/user-details/user-details.component';
+import { AlertButtonComponent } from './frontOffice/components/alert-button/alert-button.component';
+import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
 
 
 @NgModule({
@@ -63,7 +65,9 @@ import { UserDetailsComponent } from './backOffice/components/user-details/user-
     ManageUsersComponent,
     ModifPackComponent,
     UserLoginComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    AlertButtonComponent,
+    DisponibilityAlertsComponent,
   ],
   imports: [
     BrowserModule,
