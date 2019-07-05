@@ -36,6 +36,9 @@ import { AlertButtonComponent } from './frontOffice/components/alert-button/aler
 import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
 import { HeaderHomeTwoComponent } from './frontOffice/components/header-home-two/header-home-two.component';
 import { FrontFooterComponent } from './frontOffice/components/front-footer/front-footer.component';
+import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
+import { PackListItemComponent } from './backOffice/components/pack-list-item/pack-list-item.component';
+import { MangaListItemComponent } from './backOffice/components/manga-list-item/manga-list-item.component';
 
 
 @NgModule({
@@ -65,6 +68,9 @@ import { FrontFooterComponent } from './frontOffice/components/front-footer/fron
     VendreMangasComponent,
     UserLoginComponent,
     ManageUsersComponent,
+    OnGoingOrderComponent,
+    PackListItemComponent,
+    MangaListItemComponent,
     ModifPackComponent,
     UserLoginComponent,
     UserDetailsComponent,

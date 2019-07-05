@@ -17,6 +17,8 @@ import { AuthGuard } from './common/security/auth.guard';
 import { CatalogueMangasComponent } from './frontOffice/pages/catalogue-mangas/catalogue-mangas.component';
 import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
 import { RoleGuardService } from './common/security/role-guard.service';
+import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
+// import { AuthGuard } from './common/security/auth.guard';
 
 
 const routes: Routes = [
@@ -103,6 +105,14 @@ const routes: Routes = [
       expectedRole: 'admin'
     }
   },
+  {
+    path: 'on-going-order',
+    component: OnGoingOrderComponent,
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
+  },
 
 // ************** FRONT OFFICE ********************
 
@@ -121,7 +131,7 @@ const routes: Routes = [
   {
     path: 'user-login',
     component: UserLoginComponent
-  }
+  },
 ];
 
 @NgModule({
