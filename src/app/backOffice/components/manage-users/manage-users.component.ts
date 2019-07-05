@@ -8,19 +8,24 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 })
 export class ManageUsersComponent implements OnInit {
 
-  constructor(private userService : UserServiceService) { }
+  constructor(private userService: UserServiceService) { }
 
   getUserRoute = 'http://localhost:4242/users/manage-users'
-  userList:any
+  userList: any
 
   ngOnInit() {
+    this.getUserList()
   }
 
   getUserList() {
-     this.userService.getUser(this.getUserRoute).subscribe(user => {
-       this.userList = user
-     });
-    console.log('USERLIST',this.userList)
+    this.userService.getUser(this.getUserRoute).subscribe(user => {
+      this.userList = user
+    });
+
+  }
+
+  getUserById(id: number) {
+    this.userService.getUserById(id)
   }
 
 }

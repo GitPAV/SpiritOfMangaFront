@@ -10,31 +10,22 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(private userService : UserServiceService) { }
 
-  getUserRoute = 'http://localhost:4242/users/get-users/1'
+  
   userDetails:any
+  idDetails: number
 
   ngOnInit() {
-    this.fuckOnInit()
-    // this.getUserDetails()
-    // console.log('Oninit', this.userDetails)
-  }
-
-  fuckOnInit() {
     this.getUserDetails()
-    console.log('fckONINIT',this.userDetails)
+
   }
 
   getUserDetails() {
-     this.userService.getUserDetails(this.getUserRoute).subscribe(user => {
-      console.log('USER****', user)
+    this.idDetails = this.userService.sendUserId()
+    let getUserRoute = 'http://localhost:4242/users/get-users/' + this.idDetails
+
+     this.userService.getUserDetails(getUserRoute).subscribe(user => {
        this.userDetails = user
-       console.log('USERDETAILS****',this.userDetails)
-       
-     });
-    
-    
-
+     }); 
   }
-
 
 }

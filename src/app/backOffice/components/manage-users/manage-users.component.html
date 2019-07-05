@@ -1,14 +1,10 @@
-<p>
-  manage-users works!
-</p>
-<button (click)="getUserList()">GetUser</button>
-<p>--------------------</p>
+<p> ---------------------- </p>
 
-<div >
+<div>
   <li *ngFor="let user of userList">
-    <a href="http://localhost:4200/user/{{user.id}}">
-        {{ user.id }}
-        {{ user.pseudo}}
+    <a routerLink="/user/{{user.id}}" (click)="getUserById(user.id)">
+      {{ user.id }}
+      {{ user.pseudo}}
     </a>
   </li>
 </div>
