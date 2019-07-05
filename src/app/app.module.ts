@@ -34,6 +34,8 @@ import { ManageUsersComponent } from './backOffice/components/manage-users/manag
 import { UserDetailsComponent } from './backOffice/components/user-details/user-details.component';
 import { AlertButtonComponent } from './frontOffice/components/alert-button/alert-button.component';
 import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
+import { HeaderHomeTwoComponent } from './frontOffice/components/header-home-two/header-home-two.component';
+import { FrontFooterComponent } from './frontOffice/components/front-footer/front-footer.component';
 
 
 @NgModule({
@@ -68,6 +70,8 @@ import { DisponibilityAlertsComponent } from './backOffice/components/disponibil
     UserDetailsComponent,
     AlertButtonComponent,
     DisponibilityAlertsComponent,
+    HeaderHomeTwoComponent,
+    FrontFooterComponent
   ],
   imports: [
     BrowserModule,
