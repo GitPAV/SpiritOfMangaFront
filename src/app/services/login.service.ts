@@ -12,7 +12,7 @@ export class LoginService {
   loginUrl = 'http://localhost:4242/users/login';
   protectedUrl = 'http://localhost:4242/users/protected';
   getUserByMail = 'http://localhost:4242/users/display-user';
-  isLoggedIn = false;
+  isLoggedIn : boolean;
   userConnectedMail: string;
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -31,7 +31,7 @@ export class LoginService {
   }
 
   login() {
-    this.isLoggedIn = true;
+    return true;
   }
 
   logout() {
