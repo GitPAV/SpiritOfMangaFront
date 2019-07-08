@@ -13,6 +13,8 @@ export class MangaDataService {
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
   seriePublicUrl = 'http://localhost:4242/mangas/series';
   packsMangasUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas';
+  mangasAwaitingUrl = 'http://localhost:4242/mangasAwaiting/manage-mangas-awaiting';
+  datasForAwaitingMangasUrl = 'http://localhost:4242/mangasAwaiting/awaiting-users-mangas';
 
   constructor(private http: HttpClient) { }
 
@@ -56,5 +58,11 @@ export class MangaDataService {
     const url = `${this.packsMangasUrl}/${idPack}/${idManga}`;
     return this.http.delete(url, {responseType: 'text'});
   }
+  sendMangaAwaiting(infos) {
+    return this.http.post(this.mangasAwaitingUrl, infos, {responseType: 'text'}).toPromise()
+  }
 
-}
+  getMangasAwaiting(): Observable<any> {
+    return this.http.get<any>(this.datasForAwaitingMangasUrl);
+  }
+

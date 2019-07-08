@@ -7,31 +7,30 @@
         GÉRER MES MANGAS
       </p>
         <li><a [routerLink]="['/']">Gérer Headers</a></li>
-        <li><a [routerLink]="['/form-manga']">Créer Manga</a></li>
+        <li><a [routerLink]="['form-manga']">Créer Manga</a></li>
         <li><a [routerLink]="['/update-manga']">Modifier/Supprimer Manga</a></li>
         <li><a [routerLink]="['/stock-manga']">Gérer Stock/Prix/Etat</a></li>
         <li><a [routerLink]="['/manage-series']">Créer/Modifier Série</a></li>
         <li><a [routerLink]="['/create-pack']">Créer Pack</a></li>
         <li><a [routerLink]="['/']">Gérer Promotions</a></li>
-        <li><a [routerLink]="['/']">Modifier Pack</a></li>
 
       <p class="menu-label">
         GÉRER MES COMMANDES
       </p>
-        <li><a [routerLink]="['/']">Commandes en cours</a></li>
+        <li><a [routerLink]="['/on-going-order']">Commandes en cours</a></li>
         <li><a [routerLink]="['/']">Commandes archivées</a></li>
 
       <p class="menu-label">
         GÉRER MES UTILISATEURS
       </p>
-        <li><a [routerLink]="['/']">Alertes disponibilités</a></li>
-        <li><a [routerLink]="['/']">Mes utilisateurs</a></li>
+        <li><a [routerLink]="['/manage-users']">Mes utilisateurs</a></li>
+        <li><a [routerLink]="['/alerts']">Alertes disponibilités</a></li>
     </ul>
   </aside>
 
   <div class="headerBack">
     <span class="date">{{dateValue | date:' d MMMM y '}}</span>
-    <img src="../../../../assets/img/logoSignOut.png" alt="signOutLogo"> <!-- ICI FONCTION DISCONNECT -->
+    <img (click)="logOut()" src="../../../../assets/img/logoSignOut.png" alt="signOutLogo"> <!-- ICI FONCTION DISCONNECT -->
 
   </div>
 </div>

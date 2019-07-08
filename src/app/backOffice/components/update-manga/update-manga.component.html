@@ -1,10 +1,14 @@
-<app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+<div class="component">
 
-<section class='main' *ngIf="chosenManga">
-
-  <div class="background">
-
-    <div *ngFor="let manga of chosenManga" class="infos">
+  
+  <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+  
+  <section class='main' *ngIf="chosenManga">
+    
+    <div class="background">
+      
+      <div *ngFor="let manga of chosenManga" class="infos">
+        <h3>MODIFER OU SUPPRIMER UN MANGA</h3>
 
       <div class="infosPrio">
         <div class="titreAuteur">
@@ -75,3 +79,5 @@
   </div>
 
 </section>
+
+</div>

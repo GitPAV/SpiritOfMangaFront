@@ -1,0 +1,21 @@
+<div >
+  <li *ngFor="let user of userDetails">
+    <p>{{user.pseudo}}</p>
+    <p>{{user.firstname}} {{user.lastname}}</p>
+    <div> Adresse : </div>
+    <p>{{user.cp}} {{user.ville}}</p>
+    <p>{{user.numRue}} {{user.rue}}</p>
+    <div> Contact : </div>
+    <p>{{user.telephone}}</p>
+    <p>{{user.email}}</p>
+    <div> Information additionel : </div>
+    <p>{{user.connaissance}}</p>
+    <p>{{user.droits}}</p>
+    <p *ngIf="user.newsletter">Oui</p>
+    <p *ngIf="!user.newsletter">Non</p>
+  </li>
+</div>
+
+<div>
+  <a routerLink="/manage-users"> Revenir à la liste des utilisateurs</a>
+</div>

@@ -9,11 +9,17 @@
     display: flex;
     justify-content:center;
     background-color: $grey;
+    overflow: scroll;
+
+    h3{
+        font-size: 30px;
+        margin-left: 10px;
+    }
 }
 
 .background{
     background-color: white;
-    height: 75vh;
+    height: fit-content;
     overflow: scroll;
     
 

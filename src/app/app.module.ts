@@ -30,6 +30,15 @@ import { CataloguePacksComponent } from './frontOffice/pages/catalogue-packs/cat
 import { VendreMangasComponent } from './frontOffice/pages/vendre-mangas/vendre-mangas.component';
 import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pack.component';
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
+import { ManageUsersComponent } from './backOffice/components/manage-users/manage-users.component';
+import { UserDetailsComponent } from './backOffice/components/user-details/user-details.component';
+import { AlertButtonComponent } from './frontOffice/components/alert-button/alert-button.component';
+import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
+import { HeaderHomeTwoComponent } from './frontOffice/components/header-home-two/header-home-two.component';
+import { FrontFooterComponent } from './frontOffice/components/front-footer/front-footer.component';
+import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
+import { PackListItemComponent } from './backOffice/components/pack-list-item/pack-list-item.component';
+import { MangaListItemComponent } from './backOffice/components/manga-list-item/manga-list-item.component';
 
 
 @NgModule({
@@ -57,8 +66,18 @@ import { UserLoginComponent } from './frontOffice/components/user-login/user-log
     PromotionsComponent,
     CataloguePacksComponent,
     VendreMangasComponent,
+    UserLoginComponent,
+    ManageUsersComponent,
+    OnGoingOrderComponent,
+    PackListItemComponent,
+    MangaListItemComponent,
     ModifPackComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    UserDetailsComponent,
+    AlertButtonComponent,
+    DisponibilityAlertsComponent,
+    HeaderHomeTwoComponent,
+    FrontFooterComponent
   ],
   imports: [
     BrowserModule,
