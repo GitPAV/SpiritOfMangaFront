@@ -1,4 +1,4 @@
- <div>
+ <!-- <div>
      <div *ngIf="backOfficeOn"> 
         <div id="bodyBackContent">
     
@@ -10,11 +10,17 @@
     </div> 
 
     <div *ngIf="!backOfficeOn">
-        <app-homepage></app-homepage>
+        <app-nav-bar></app-nav-bar>
+      
     </div>
 
     <div class='routerBack'>
         <router-outlet></router-outlet>
     </div>
- </div>
 
+    <div *ngIf="!backOfficeOn">
+        <app-front-footer></app-front-footer>
+    </div>
+
+ </div> -->
+ <router-outlet></router-outlet>

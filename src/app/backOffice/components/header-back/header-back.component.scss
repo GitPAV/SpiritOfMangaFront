@@ -1,0 +1,26 @@
+@import '../../../../styles.scss';
+@import '../../../common/styles/back-office.scss';
+
+.headerBack{
+    position: fixed;        
+    width: 100vw;
+    height: 7vh;
+    background-color: white;
+    border: $borderBackComponents;
+    span{  
+        position: fixed;
+        left: 53vw;
+        top: 1.25vh;
+        color: $orange;
+        font-size: 27px;
+        font-weight: bold;
+    }
+    img{
+        height: 5.5vh;
+        width: 4vw;
+        position: fixed;
+        left: 95vw;
+        top: 0.8vh;
+        font-size: 33px;    
+    }
+}

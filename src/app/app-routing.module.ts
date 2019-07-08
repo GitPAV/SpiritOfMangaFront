@@ -7,7 +7,6 @@ import { CreatePackComponent } from './backOffice/components/create-pack/create-
 import { FormComponent } from './frontOffice/components/create-user/create-user.component';
 import { UpdatePacksComponent} from './backOffice/components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
-import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component';
 import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pack.component';
 import { UserLoginComponent } from './frontOffice/components/user-login/user-login.component';
@@ -19,123 +18,37 @@ import { DisponibilityAlertsComponent } from './backOffice/components/disponibil
 import { RoleGuardService } from './common/security/role-guard.service';
 import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
 import { AppComponent } from './app.component';
+import { FrontOfficeWrapperComponent } from './frontOffice/pages/front-office-wrapper/front-office-wrapper.component'
+import { BackOfficeWrapperComponent } from './backOffice/pages/back-office-wrapper/back-office-wrapper.component';
 
 
 const routes: Routes = [
 
-// ************** BACK OFFICE ********************
-
-  {
-    path: 'form-manga',
-    component: CreateMangaComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }
-  },
-  {
-    path: 'update-manga',
-    component: UpdateMangaComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }
-  },
-  {
-    path: 'manage-series',
-    component: SeriesComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }
-  },
-  {
-    path: 'create-pack',
-    component: CreatePackComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }
-  },
-  {
-    path: 'manage-packs',
-    component: UpdatePacksComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }
-  },
-  {
-    path: 'stock-manga',
-    component: StockMangaComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }
-  },
-  {
-    path: 'manage-users',
-    component: ManageUsersComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    } 
-  },
-  {
-    path: 'user/:id',
-    component: UserDetailsComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }
-  },
-  {
-    path: 'modif-packs',
-    component: ModifPackComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }   
-  },
-  {
-    path: 'alerts',
-    component: DisponibilityAlertsComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }
-  },
-  {
-    path: 'on-going-order',
-    component: OnGoingOrderComponent,
-    canActivate: [RoleGuardService], 
-    data: { 
-      expectedRole: 'admin'
-    }
-  },
-
-// ************** FRONT OFFICE ********************
+  // ************** FRONT OFFICE ********************
 
   {
     path:'',
-    redirectTo: '',
+    redirectTo: 'front',
     pathMatch: 'full'
   },
+  // {
+  //   path: 'front/homepage',
+  //   component: FrontOfficeWrapperComponent
+  // },
   {
-    path: 'form-user',
-    component: FormComponent
+    path: 'front',
+    loadChildren: './frontOffice/pages/front-office-wrapper/frontOffice-routing.module#FrontRoutingModule'
   },
+
+  // ************** BACK OFFICE ********************
+
   {
-    path: 'catalogue-mangas',
-    component: CatalogueMangasComponent
-  },
-  {
-    path: 'form-user',
-    component: FormComponent
-  },
-  {
-    path: 'user-login',
-    component: UserLoginComponent
+    path: 'back',
+    component:  BackOfficeWrapperComponent,
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
 ];
 
