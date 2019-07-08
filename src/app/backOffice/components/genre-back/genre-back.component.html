@@ -1,6 +1,6 @@
 <div class="genreCtn">
 
-    <h3>Ajouter Genres</h3>
+    <h3>AJOUTER DES GENRES</h3>
 
     <div class="searchBar">
 
@@ -17,7 +17,7 @@
         </div>
 
         <select [(ngModel)]="selectedKindindex">
-            <option *ngFor="let genre of genres let i = index" [value]="i" >{{genre.name}}</option>
+            <option *ngFor="let genre of genres; let i = index" [value]="i" >{{genre.name}}</option>
         </select>
 
         <button (click)="addAKind()">Ajouter un genre</button>

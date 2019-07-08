@@ -1,0 +1,131 @@
+@import '../../../../styles.scss';
+
+@mixin inputs {
+    border: 4px solid $orange;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    background-color: $grey;
+    overflow: scroll;
+
+    h3{
+        font-size: 30px;
+        margin-left: 10px;
+    }
+}
+
+.background{
+    background-color: white;
+    height: fit-content;
+    overflow: scroll;
+    
+
+.infos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+
+    input {
+        @include inputs;
+    }
+
+    .infosPrio {
+
+        #title {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px;
+        }
+
+        #auteur {
+            margin: 10px;
+        }
+        
+        #photoCover {
+            display: flex;
+            flex-direction: column;
+
+            input {
+                margin-left: 10px;
+                width: 60vw;
+            }
+    
+            #cover {
+                height: 250px;
+                width: 150px;
+                margin: 10px;
+            }
+        }
+    }
+
+
+    #description {
+        width: 60vw;
+        height: 15vh;
+        margin: 10px;
+    }
+
+
+    #selectOption {
+        width: 100%;
+        margin: 10px;
+        display:flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        .public {
+            width: 25vw;
+
+            #public {
+                width: 80%;
+            }
+        }
+
+        .serie {
+            width: 25vw;
+
+            #serie {
+                width: 80%;
+            }
+        }
+    }
+
+    .infosSecondaires {
+        width: 60vw;
+        margin: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+
+        input {
+            margin-right: 10px;
+            width: 80%;
+        }
+
+    }
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-left:10px;
+    width: 90%;
+
+    button {
+        background-color:#FF8D30;
+        margin-top: 10px;
+        width: 20%;
+    }
+}
+
+}
+
+

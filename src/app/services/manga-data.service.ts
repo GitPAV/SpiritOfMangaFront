@@ -7,24 +7,23 @@ import { Mangas } from '../common/models/manga.model';
   providedIn: 'root'
 })
 export class MangaDataService {
-  seriesUrl = 'http://localhost:4242/series/manage-series';
   publicsUrl = 'http://localhost:4242/publics/manage-publics';
   mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
+  mangasUrlID = 'http://localhost:4242/mangas/manage-mangas/';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
   seriePublicUrl = 'http://localhost:4242/mangas/series';
+  packsMangasUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas';
+  mangasAwaitingUrl = 'http://localhost:4242/mangasAwaiting/manage-mangas-awaiting';
+  datasForAwaitingMangasUrl = 'http://localhost:4242/mangasAwaiting/awaiting-users-mangas';
 
   constructor(private http: HttpClient) { }
-
-  getSeries(): Observable<any> {
-    return this.http.get(this.seriesUrl);
-  }
 
   getPublics(): Observable<any> {
     return this.http.get(this.publicsUrl);
   }
 
   postManga(formManga) {
-    return this.http.post("http://localhost:4242/mangas/create-manga", formManga, {responseType: 'text'})
+    return this.http.post("http://localhost:4242/mangas/create-manga", formManga, {responseType: 'text'}).toPromise();
   }
 
   getSearchedTitle(title: string): Observable<Mangas[]> {
@@ -39,6 +38,14 @@ export class MangaDataService {
     return this.http.get(this.mangasUrl);
   }
 
+  getMangasById(id): Observable<any> {
+    return this.http.get(this.mangasUrlID + id);
+  }
+
+  getMangaById(id: number): Observable<Mangas[]> {
+    return this.http.get<Mangas[]>(`${this.mangasUrl}/${id}`);
+  }
+
   getSeriePublicByManga(title: string): Observable<any> {
     return this.http.get(`${this.seriePublicUrl}/${title}`);
   }
@@ -49,4 +56,20 @@ export class MangaDataService {
     return this.http.delete(url, {responseType: 'text'});
   }
 
+  deleteMangaPack(id1, id2) {
+    const idPack = id1;
+    const idManga = id2;
+    const url = `${this.packsMangasUrl}/${idPack}/${idManga}`;
+    return this.http.delete(url, {responseType: 'text'});
+  }
+  sendMangaAwaiting(infos) {
+    return this.http.post(this.mangasAwaitingUrl, infos, {responseType: 'text'}).toPromise()
+  }
+
+  getMangasAwaiting(): Observable<any> {
+    return this.http.get<any>(this.datasForAwaitingMangasUrl);
+  }
+
 }
+
+

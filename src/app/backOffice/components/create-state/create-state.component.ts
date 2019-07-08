@@ -1,24 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { UserServiceService } from 'src/app/services/user-service.service';
+import { Component } from '@angular/core';
+import { StatesService } from 'src/app/services/states.service';
 
 @Component({
   selector: 'app-create-state',
   templateUrl: './create-state.component.html',
   styleUrls: ['./create-state.component.scss']
 })
-export class CreateStateComponent implements OnInit {
-
+export class CreateStateComponent {
+  
+  selectedValue;
+  statesList = [];
   inputEtat: string;
-  stateUrl= "http://localhost:4242/states/manage-states"
+  stateUrl= "http://localhost:4242/states/manage-states";
 
-  constructor(private etatService: UserServiceService) { }
+  constructor(private stateService: StatesService) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    this.stateService.getStates()
+    .subscribe(state => {
+      this.statesList = state;
+    });
   }
 
   sendEtat(){
-    console.log(this.inputEtat)
-    this.etatService.testPost(this.inputEtat,this.stateUrl).subscribe();
+    this.stateService.postState(this.inputEtat,this.stateUrl).subscribe();
+  }
+
+  deleteState(){
+    this.stateService.delete(this.selectedValue).subscribe();
   }
 
 }

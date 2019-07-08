@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { SwitchFrontToBackService } from '../../../services/switch-front-to-back.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-back-office-page',
@@ -9,9 +12,17 @@ export class BackOfficePageComponent implements OnInit {
 
   dateValue = new Date;
 
-  constructor() { }
+  constructor(private frontToBack: SwitchFrontToBackService, private router: Router) { }
 
   ngOnInit() {
+  }
+
+  logOut(){
+    let logOut = false
+    this.frontToBack.getAdminClick(logOut)
+    localStorage.removeItem("token")
+    this.router.navigate([''])
+    console.log(localStorage.getItem("token"))
   }
 
 }

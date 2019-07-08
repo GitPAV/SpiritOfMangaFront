@@ -1,0 +1,19 @@
+<div class="main">
+
+  <div class="searchBarDiv">  
+    <div>
+      <input id='searchBar' 
+      #searchText (input)='getTitlePacks(searchText.value)' 
+      placeholder=" Which pack are you looking for ?" 
+      [(ngModel)]="research"
+      >
+    </div>
+    <div *ngIf="packs" class="packTable" >
+      <a class="titlesSearched" 
+      (click)="sendChosenPack(pack)" 
+      *ngFor= 'let pack of packs'>{{ pack.namePack }}
+    </a>
+    </div>
+  </div>
+
+</div>

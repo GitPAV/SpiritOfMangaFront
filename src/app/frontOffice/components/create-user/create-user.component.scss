@@ -1,0 +1,71 @@
+ @mixin inputFormat {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+
+    label{
+        text-align: center;
+        margin-top: 10px;
+    }
+    .error{
+        text-align: center;
+        font-style: italic;
+        margin-bottom: 7px;
+    }
+    input{
+        border:4px solid #FF8D30;
+    }
+}
+
+.main {
+    height: 80vh;
+    width: 75vw;
+    overflow: scroll;
+    box-shadow: 0 0 10px black;
+
+    .title {
+        text-align: center;
+    }
+
+    .form {
+
+        .inputField{
+            @include inputFormat();
+        }
+
+        .userInfoWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .adresse {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .userAdresseWrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .inputOption {
+            margin-top: 10px;
+        }
+
+        .butonForm {
+            border:4px solid #FF8D30;
+            background-color: rgb(245, 165, 100);
+            color: #080404;
+            display: flex;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 15px;
+        }
+    }
+
+}

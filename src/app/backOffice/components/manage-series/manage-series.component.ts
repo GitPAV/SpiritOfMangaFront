@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { UserServiceService } from './../../../services/user-service.service'
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
-
-  
+import { SeriesService } from 'src/app/services/series.service';
+import { TypesServiceService } from 'src/app/services/types-service.service';
+import { GenresService } from 'src/app/services/genres.service';
 
 @Component({
   selector: 'app-manage-series',
@@ -13,7 +13,10 @@ import { Validators } from '@angular/forms';
 })
 export class ManageSeriesComponent implements OnInit {
 
-  constructor( private fb: FormBuilder, private userService: UserServiceService) { }
+  constructor( private fb: FormBuilder, 
+    private seriesService: SeriesService,
+    private typesService: TypesServiceService,
+    private genresService: GenresService) { }
 
   manageSeriesForm : FormGroup;
 
@@ -33,15 +36,15 @@ export class ManageSeriesComponent implements OnInit {
   
   
   ngOnInit() {
-    this.userService.getSeries().subscribe(
+    this.seriesService.getSeries().subscribe(
       series => { this.series = series;
     });
     
-    this.userService.getTypes().subscribe(
+    this.typesService.getTypes().subscribe(
       types => { this.types = types;
       });
 
-      this.userService.getGenres().subscribe(genres => {
+      this.genresService.getGenres().subscribe(genres => {
         this.genres = genres;
       });
 
@@ -54,7 +57,7 @@ export class ManageSeriesComponent implements OnInit {
     this.description = serie.description
     this.types_id = serie.types_id
     this.serieId = serie.id
-    this.userService.getGenresId(this.serieId).subscribe(
+    this.genresService.getGenresId(this.serieId).subscribe(
       genreId => { this.genresId = JSON.parse(genreId);
         this.displayKinds = this.genresId
       });
@@ -77,7 +80,7 @@ export class ManageSeriesComponent implements OnInit {
 
   deletAKind(i) {
     event.preventDefault();
-    this.userService.deleteKind(i).then()
+    this.genresService.deleteKind(i).then()
   }
 
   initForm() {
@@ -95,7 +98,8 @@ export class ManageSeriesComponent implements OnInit {
       id : this.serieId,
       data : this.manageSeriesForm.value
     }
-    this.userService.testPut(body, seriesRoute).subscribe();
+    console.log(body);
+    this.seriesService.seriesPut(body, seriesRoute).subscribe();
   }
 
 }

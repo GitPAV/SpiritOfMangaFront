@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { UserServiceService} from '../../../services/user-service.service'
+
+import { TypesServiceService } from 'src/app/services/types-service.service';
+import { SeriesService } from '../../../services/series.service';
+import { GenresService } from 'src/app/services/genres.service';
 
 
 @Component({
@@ -20,7 +23,9 @@ export class CreateSeriesComponent implements OnInit {
   
   constructor(
     private fb: FormBuilder,
-    private userService: UserServiceService
+    private typesService: TypesServiceService,
+    private seriesService: SeriesService,
+    private genresService: GenresService
     ) { 
           this.postSeriesForm = this.fb.group({
             nameSeries: ['', Validators.required],
@@ -33,11 +38,11 @@ export class CreateSeriesComponent implements OnInit {
 
 
   ngOnInit() {
-    this.userService.getTypes().subscribe(
+    this.typesService.getTypes().subscribe(
       types => { this.types = types;
     });
 
-    this.userService.getGenres().subscribe(genres => {
+    this.genresService.getGenres().subscribe(genres => {
       this.genres = genres;
     });
   }
@@ -62,7 +67,7 @@ export class CreateSeriesComponent implements OnInit {
     //Call the observable in service with the apropiate http method 
     this.postSeriesForm.value.kinds = this.kindlist;
     const seriesRoute = 'http://localhost:4242/series/manage-series';
-    this.userService.testPost(this.postSeriesForm.value, seriesRoute).subscribe();
+    this.seriesService.seriePost(this.postSeriesForm.value, seriesRoute).subscribe();
     this.postSeriesForm.reset();
     this.displayKind = [];
     this.kindlist = [];

@@ -1,0 +1,10 @@
+<div class="main">
+  <h3 class="formTitle">MANGAS EN ATTENTE DE DISPONIBILITÉ</h3>
+  <p>Liste des mangas demandés :</p>
+  <div class="awaitingOrders">
+    <a *ngFor="let manga of mangas" (click)="getAwaitingUsers(manga, ordersAwaiting)">{{manga}}</a>
+  </div>
+
+  <p *ngFor="let user of users">{{ user.firstname + ' ' + user.lastname + ' ' + user.email }}</p>
+
+</div>

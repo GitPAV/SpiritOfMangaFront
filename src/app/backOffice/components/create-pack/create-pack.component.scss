@@ -1,0 +1,125 @@
+.main{
+    height: 80vh;
+    width: 75vw;
+    overflow: scroll;
+    justify-content:center;
+    box-shadow: 0 0 10px black;
+    .tabForm {
+        display: flex;
+        justify-content: center;
+        h3{
+            font-size: 30px;
+            margin: 5%;
+        }
+    }    
+    form{
+        width: 75vw;
+    }
+    input{
+        border:4px solid #FF8D30;
+    }
+    select{
+        border:4px solid #FF8D30;
+    }
+    .formInput{
+        width: 33vw;
+        display: flex;
+        flex-direction: column;
+    }
+    .button{
+        background-color: #FF8D30;
+        margin: 3%;
+    }
+}
+
+.formP1{
+    display: flex;
+    .column1{
+        margin-left: 2vw;
+    }
+    .column2{
+        margin-left: 2vw;
+    }
+    textarea{
+        width: 100%;
+        height: 13vh;
+        border:4px solid #FF8D30;
+    }
+    
+}
+
+.formP2{
+text-align: center
+}
+
+
+
+.form2{
+    display: flex;
+    margin-bottom: 10vh;
+    margin-left: 3vw;
+    margin-right: 3vw;
+    .mangasList{
+        width: 75%;
+        p{
+            text-align: center;
+            margin-bottom: 2vh;
+        }
+        ul{
+            width: 100%;
+            display: flex;
+            border: 1px solid black;
+            margin-top: 0.5vh;
+            padding: auto;
+            li{
+                width:75%;
+                display: flex;
+            }
+            button{
+                width: 10%;
+                height: 5%;
+                margin: auto;
+            }
+        }
+        img{
+            width: 5vw;
+            height: 7vh;
+        }
+    }
+    h2{
+        margin-top: 1vh;
+        margin-bottom: 1vh;
+    }
+
+
+    // .resultSearch{
+    //     box-shadow: 0 0 10px black;
+    //     width: 20vw;
+    //     text-align: center;
+    //     display: flex;
+    //     margin-left: 2vw;
+    //     margin-bottom: 10vh;
+    //     padding-left: 4%;
+    
+    //     img{
+    //         width: 11vw;
+    //         height: 20vh;
+    //     }
+    // }
+}
+
+.formLeft{
+    width: 50%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    .searchPack{
+        width: 30vw;
+    }
+}
+
+.formRight{
+    width: 50%;
+    padding-left: 2vw;
+    padding-right: 2vw;
+
+}

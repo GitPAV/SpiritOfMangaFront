@@ -1,4 +1,5 @@
 @import '../../../../styles.scss';
+@import '../../../common/styles/back-office.scss';
 
 #bodyBack{
     display: flex;
@@ -55,6 +56,7 @@
     width: 100vw;
     height: 7vh;
     background-color: white;
+    border: $borderBackComponents;
     span{  
         position: fixed;
         left: 53vw;
@@ -63,10 +65,12 @@
         font-size: 27px;
         font-weight: bold;
     }
-    i{
+    img{
+        height: 5.5vh;
+        width: 4vw;
         position: fixed;
         left: 95vw;
-        top: 1.5vh;
+        top: 0.8vh;
         font-size: 33px;    
     }
 }
