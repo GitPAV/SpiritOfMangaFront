@@ -9,7 +9,9 @@ import { MangaDataService } from 'src/app/services/manga-data.service';
 export class DisponibilityAlertsComponent implements OnInit {
   ordersAwaiting: [];
   mangas = [];
-  users = []
+  users = [];
+  manga;
+  displayUsers = false;
 
   constructor(private mangaService: MangaDataService) { }
 
@@ -36,15 +38,14 @@ export class DisponibilityAlertsComponent implements OnInit {
   // filter to get every user who has asked for the manga clicked by admin
   getAwaitingUsers(manga, datas) {
     this.users = []
+    this.manga = manga;
+    this.displayUsers = true;
 
     datas.forEach (item => {
       if (item.title === manga && !this.users.includes(manga)) {
         this.users.push(item)
       }
     })
-
-    console.log(this.users)
-
   }
 
 }

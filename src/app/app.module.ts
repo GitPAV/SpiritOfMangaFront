@@ -41,6 +41,7 @@ import { FrontFooterComponent } from './frontOffice/components/front-footer/fron
 import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
 import { PackListItemComponent } from './backOffice/components/pack-list-item/pack-list-item.component';
 import { MangaListItemComponent } from './backOffice/components/manga-list-item/manga-list-item.component';
+import { ManageHomeComponent } from './backOffice/components/manage-home/manage-home.component';
 
 
 @NgModule({
@@ -82,6 +83,7 @@ import { MangaListItemComponent } from './backOffice/components/manga-list-item/
     DisponibilityAlertsComponent,
     HeaderHomeTwoComponent,
     FrontFooterComponent,
+    ManageHomeComponent
   ],
   imports: [
     BrowserModule,

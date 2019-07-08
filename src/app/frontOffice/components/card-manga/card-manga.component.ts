@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Mangas } from 'src/app/common/models/manga.model';
 
 @Component({
   selector: 'app-card-manga',

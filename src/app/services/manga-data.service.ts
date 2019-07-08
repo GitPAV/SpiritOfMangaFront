@@ -15,6 +15,9 @@ export class MangaDataService {
   packsMangasUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas';
   mangasAwaitingUrl = 'http://localhost:4242/mangasAwaiting/manage-mangas-awaiting';
   datasForAwaitingMangasUrl = 'http://localhost:4242/mangasAwaiting/awaiting-users-mangas';
+  mangasPromotedUrl = 'http://localhost:4242/statesMangas/get-promotions';
+  setAsFavoriteUrl = 'http://localhost:4242/statesMangas/promote-on-home';
+  setAsUnFavoriteUrl = 'http://localhost:4242/statesMangas/unpromote-on-home';
 
   constructor(private http: HttpClient) { }
 
@@ -25,25 +28,25 @@ export class MangaDataService {
   postManga(formManga) {
     return this.http.post("http://localhost:4242/mangas/create-manga", formManga, {responseType: 'text'}).toPromise();
   }
+  
+  getMangas(): Observable<any> {
+    return this.http.get(this.mangasUrl);
+  }
 
   getSearchedTitle(title: string): Observable<Mangas[]> {
     return this.http.get<Mangas[]>(`${this.searchUrl}/${title}`);
+  }
+
+  getMangaById(id: number): Observable<Mangas[]> {
+    return this.http.get<Mangas[]>(`${this.mangasUrl}/${id}`);
   }
 
   updateManga(manga): Observable<any> {
     return this.http.put(this.mangasUrl, manga, {responseType: 'text'});
   }
 
-  getMangas(): Observable<any> {
-    return this.http.get(this.mangasUrl);
-  }
-
   getMangasById(id): Observable<any> {
     return this.http.get(this.mangasUrlID + id);
-  }
-
-  getMangaById(id: number): Observable<Mangas[]> {
-    return this.http.get<Mangas[]>(`${this.mangasUrl}/${id}`);
   }
 
   getSeriePublicByManga(title: string): Observable<any> {
@@ -62,12 +65,38 @@ export class MangaDataService {
     const url = `${this.packsMangasUrl}/${idPack}/${idManga}`;
     return this.http.delete(url, {responseType: 'text'});
   }
+
+   // METHODS FOR THE DISPONIBILITY ALERTS FEATURE
   sendMangaAwaiting(infos) {
     return this.http.post(this.mangasAwaitingUrl, infos, {responseType: 'text'}).toPromise()
   }
 
   getMangasAwaiting(): Observable<any> {
     return this.http.get<any>(this.datasForAwaitingMangasUrl);
+  }
+
+  // METHODS TO DISPLAY MANGAS ON HOME PAGE
+  getPromotedMangaById(id: number): Observable<Mangas[]> {
+    return this.http.get<Mangas[]>(`${this.mangasPromotedUrl}/${id}`);
+  }
+
+  getPromotedManga(): Observable<[]> {
+    return this.http.get<[]>(`${this.mangasPromotedUrl}`);
+  }
+
+  // Method to set a manga as favorite in DB and display randomly in first home page header
+  declareAsFavorite(id){
+    return this.http.put(`${this.setAsFavoriteUrl}/${id}`, {responseType: 'text'}).toPromise()
+  }
+  // Method to unfavorite a manga and not display it in home page 
+  declareAsNotFavorite(id){
+    let route = `${this.setAsUnFavoriteUrl}/${id}`
+    console.log(route)
+    return this.http.put(route, {responseType: 'text'}).toPromise()
+  }
+  // Get mangas from DB declared as favorite 
+  getFavorites(): Observable<any> {
+    return this.http.get(`http://localhost:4242/statesMangas/get-favorites`);
   }
 
 }

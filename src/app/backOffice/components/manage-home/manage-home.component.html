@@ -1,0 +1,26 @@
+<div id="main">
+
+  <h3>GÉRER LES COUPS DE COEUR EN HOME PAGE</h3>
+
+  <p class='headers'>Actuellement en favoris :</p>
+
+  <div *ngFor="let favorite of currentsFavorites">
+    <p class='mangasDisplayed'>{{ favorite.title + ', tome ' + favorite.tome}}</p>
+    <button type="text" (click)="unFavorite(favorite.mangas_id)">SUPPRIMER DES COUPS DE COEUR</button>
+  </div>
+
+  <p class='headers'>Choisir les mangas à afficher sur la home (maximum 5) :</p>
+
+  <div id="searchBar">
+    <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+  </div>
+
+  <div class="mangasChoice">
+    <div *ngFor="let manga of mangasToDisplay">
+      <h4>{{ manga.title + ', tome ' + manga.tome }}</h4>
+      <p>{{ manga.resume }}</p>
+      <button type="text" (click)="promote(manga.id)">AFFICHER DANS LES COUPS DE COEUR</button>
+    </div>
+  </div>
+
+</div>
