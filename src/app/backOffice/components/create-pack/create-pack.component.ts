@@ -33,7 +33,7 @@ export class CreatePackComponent implements OnInit {
 
   states = [];
   chosenManga = [];
-  chosenPack = [];
+  chosenPack;
   listMangas = [];
   mangasPacks = {};
   listMangasPacks = [];
@@ -41,7 +41,6 @@ export class CreatePackComponent implements OnInit {
   packs = [];
   packsMangas;
   id1;
-  id2;
   idPack;
   id;
   idManga;
@@ -59,12 +58,34 @@ export class CreatePackComponent implements OnInit {
     this.packService.getPacks()
       .subscribe(packs => {
         this.packs = packs;
-        console.log(this.packs);
       });
+
   }
 
+  getPacks(event) { // Recupère le pack select de la searchBar
+    console.log('EVENT', typeof event[0]);
+    this.listMangasPacks = [];
 
-  getChosenManga(event) {
+    this.chosenPack = event[0];
+    console.log('CHOSEN PACK', this.chosenPack);
+    this.idPack = this.chosenPack.id;
+    this.packService.getPacksByID(this.idPack)
+    .subscribe(packManga => { // Récupère les mangas contenus dans le pack selectionné
+      this.packsMangas = packManga;
+      console.log(this.packsMangas);
+
+      this.packsMangas.forEach(element => {
+        const value = element.mangas_id;
+        this.mangaService.getMangasById(value)
+        .subscribe(listMangas => {
+          this.mangasPacks = listMangas;
+          this.listMangasPacks.push(this.mangasPacks[0]);
+        });
+      });
+    });
+  }
+
+  getChosenManga(event) { // Recupère le manga select de la searchBar
     this.displaySearch = true;
     this.chosenManga = event;
     console.log(this.chosenManga);
@@ -74,32 +95,6 @@ export class CreatePackComponent implements OnInit {
     this.idManga = this.id1.join();
   }
 
-  getPacks(event) {
-    this.listMangasPacks = [];
-    this.chosenPack = event;
-    console.log('CHOSEN PACK' + this.chosenPack);
-    
-    this.id2 = this.chosenPack.map((pack) => {
-      return pack.id;
-    });
-    this.idPack = this.id2.join();
-    this.selectedPack = this.packs[this.idPack - 1];
-    console.log('selected pack:' + this.selectedPack);
-    this.packService.getPacksByID(this.idPack)
-      .subscribe(packManga => {
-      this.packsMangas = packManga;
-      this.packsMangas.forEach(element => {
-        const value = element.mangas_id;
-        this.mangaService.getMangasById(value)
-          .subscribe(listMangas => {
-          this.mangasPacks = listMangas;
-          this.listMangasPacks.push(this.mangasPacks[0]);
-          });
-      });
-    });
-  }
-
-
   deleteManga(idManga, index) {
     const id2 = idManga;
     const id1 = this.idPack;
@@ -108,8 +103,6 @@ export class CreatePackComponent implements OnInit {
       console.log(this.listMangasPacks);
     });
   }
-
-
 
   onSubmit() {
     const seriesRoute = 'http://localhost:4242/packs/manage-packs';
@@ -128,17 +121,15 @@ export class CreatePackComponent implements OnInit {
     this.displaySearch = false;
   }
 
-  //   this.packService.postPacks(this.createMangasPackForm.value, seriesRoute).subscribe();
-  // }
-
-  chosenForm(){
-    if(this.conditionCreate == false){
+  chosenForm() {
+    if (this.conditionCreate === false) {
       this.conditionCreate = !this.conditionCreate;
       this.conditionModifPack = !this.conditionModifPack;
     }
   }
-  chosenForm_1(){  
-    if(this.conditionModifPack == false){
+
+  chosenForm_1() {
+    if (this.conditionModifPack === false) {
       this.conditionCreate = !this.conditionCreate;
       this.conditionModifPack = !this.conditionModifPack;
     }

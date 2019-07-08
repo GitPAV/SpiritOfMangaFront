@@ -34,6 +34,8 @@ export class SearchPackBarComponent implements OnInit {
     packsToSend.push(pack);
     this.searchPackService.emitterPack(packsToSend);
     this.selectPack.emit(packsToSend);
+    console.log('P', packsToSend);
+    
     this.research = '';
     this.packs = [];
     this.formCondition = !this.formCondition;

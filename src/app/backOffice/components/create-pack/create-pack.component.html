@@ -114,14 +114,6 @@
     <form [formGroup]="createMangasPackForm">
         <div class="form2">
             <div class="formLeft">
-                <!-- <div class="formInput">
-                    <label>
-                        <h2>Pack sélectionné :</h2>
-                        <select formControlName='packs_id' id='packs_id' required>
-                            <option *ngFor="let pack of packs" [value]=pack.id (click)="getPacksMangas()">{{pack.namePack}}</option>
-                        </select>
-                    </label>    
-                </div> -->
                 <div class="searchPack">
                     <h2>Recherchez votre pack :</h2>
 
@@ -129,7 +121,7 @@
                 </div>
 
                 <div *ngIf="chosenPack" class="mangasList">
-                    <p>Pack selectionné : {{selectedPack.namePack}}</p>
+                    <p>Pack selectionné : {{chosenPack.namePack}}</p>
                     <ul *ngFor="let manga of listMangasPacks, let i =index" class="eachMangas">
                         <li>
                             <img src={{manga.photoCover}}>
