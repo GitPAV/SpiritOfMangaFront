@@ -20,7 +20,6 @@ export class ManageHomeComponent implements OnInit {
     this.mangaService.getMangaById(event[0].id).subscribe(
       manga => {
         this.mangasToDisplay.push(manga[0])
-        console.log(this.mangasToDisplay)
       }
     )
   }
