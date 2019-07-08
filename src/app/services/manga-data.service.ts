@@ -81,8 +81,8 @@ export class MangaDataService {
     return this.http.get<Mangas[]>(`${this.mangasPromotedUrl}/${id}`);
   }
 
-  getPromotedManga(): Observable<Mangas[]> {
-    return this.http.get<Mangas[]>(`${this.mangasPromotedUrl}`);
+  getPromotedManga(): Observable<[]> {
+    return this.http.get<[]>(`${this.mangasPromotedUrl}`);
   }
 
   // Method to set a manga as favorite in DB and display randomly in first home page header
@@ -91,7 +91,9 @@ export class MangaDataService {
   }
   // Method to unfavorite a manga and not display it in home page 
   declareAsNotFavorite(id){
-    return this.http.put(`${this.setAsUnFavoriteUrl}/${id}`, {responseType: 'text'}).toPromise()
+    let route = `${this.setAsUnFavoriteUrl}/${id}`
+    console.log(route)
+    return this.http.put(route, {responseType: 'text'}).toPromise()
   }
   // Get mangas from DB declared as favorite 
   getFavorites(): Observable<any> {

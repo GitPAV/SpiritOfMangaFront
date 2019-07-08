@@ -2,10 +2,22 @@
     height: 80vh;
     width: 75vw;
     overflow: scroll;
+    padding: 15px;
 
     .topContainer{
         display: flex;
+        flex-direction: column;
         justify-content: space-around;
+
+        #searchBar {
+            width: 50vw;
+            margin-left: 15px;
+
+            p {
+                margin-bottom: 15px;
+                font-size: 20px;
+            }
+        }
     }
     
     .cardManga{
@@ -23,7 +35,7 @@
     
         .titleManga {
             grid-area: titleManga;
-            font-size:30px;
+            font-size:25px;
             text-align: center;
         }
 
@@ -87,21 +99,21 @@
         .TVA {
             grid-area: TVA;
             .input {
-                border:4px solid #FF8D30 ;
+                border:4px solid #FF8D30;
             }
         }
 
         .prixTTC {
             grid-area: prixTTC;
             .input {
-                border:4px solid #FF8D30 ;
+                border:4px solid #FF8D30;
             }
         }
 
         .button {
             grid-area: button;
             text-align: center;
-            background-color:#FF8D30 ;
+            background-color:#FF8D30;
             
         }
     }
