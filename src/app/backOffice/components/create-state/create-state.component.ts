@@ -16,6 +16,7 @@ export class CreateStateComponent {
   constructor(private stateService: StatesService) { }
 
   ngOnInit(){
+    this.selectedValue = "Sélectionner un état"
     this.stateService.getStates()
     .subscribe(state => {
       this.statesList = state;

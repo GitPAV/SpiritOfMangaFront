@@ -10,10 +10,20 @@
     justify-content:center;
     background-color: $grey;
     overflow: scroll;
+    margin-bottom: 0;
 
     h3{
         font-size: 30px;
         margin-left: 10px;
+    }
+
+    #searchBar {
+        width: 60vw;
+    }
+
+    .titreAuteur {
+        display: flex;
+        flex-direction: row;
     }
 }
 
@@ -68,7 +78,7 @@
 
     #description {
         width: 60vw;
-        height: 15vh;
+        height: 10vh;
         margin: 10px;
     }
 

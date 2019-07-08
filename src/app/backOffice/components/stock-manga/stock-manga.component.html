@@ -2,8 +2,10 @@
   <div class="topContainer">
 
     <app-create-state></app-create-state>
-    <app-search-manga-bar (chosenManga)="getTheChosenManga($event)"></app-search-manga-bar>
-
+    <div id="searchBar">
+      <p> Sélectionner une entité manga :</p>
+      <app-search-manga-bar (chosenManga)="getTheChosenManga($event)"></app-search-manga-bar>
+    </div>
 
   </div>
 
@@ -14,14 +16,14 @@
     (ngSubmit)="onSubmit()"
     *ngIf="mangaTitle"
   >
-    <div class="titleManga">{{mangaTitle[0].title}}</div>
+    <div class="titleManga">Titre : {{mangaTitle[0].title}}</div>
     <div class="tomeManga">Tome : {{mangaTitle[0].tome}}</div>
     <img [src]="mangaTitle[0].photoCover" class="imgManga">
     
 
 
 
-    <p class="titleForm">Stock/Prix/Etat</p>
+    <p class="titleForm">GÉRER STOCK PRIX ET ÉTAT DE VENTE</p>
 
       <div class= "state">
         <label for='state'>

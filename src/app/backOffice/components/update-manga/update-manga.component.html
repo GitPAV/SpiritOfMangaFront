@@ -1,7 +1,6 @@
 <div class="component">
-
   
-  <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+  <app-search-manga-bar id="searchBar" (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
   
   <section class='main' *ngIf="chosenManga">
     

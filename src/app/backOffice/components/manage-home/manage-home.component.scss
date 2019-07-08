@@ -1,0 +1,32 @@
+@import '../../../common/styles/back-office.scss';
+
+#main {
+    height: 80vh;
+    width: 75vw;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border: $borderBackComponents;
+    padding:15px;
+
+    h3 {
+        font-size: 30px;
+    }
+
+    .headers {
+        padding-top: 15px;
+        font-size: 20px;
+    }
+
+    #searchBar {
+        width: 60vw;
+        padding-right: 0;
+        padding-top: 10px;
+        background-color: white;
+    }
+
+    button {
+        background-color:#FF8D30 ;
+    }
+}

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MangaDataService } from '../../../services/manga-data.service';
+import { Mangas } from 'src/app/common/models/manga.model';
+
 
 @Component({
   selector: 'app-manage-home',
@@ -8,10 +10,17 @@ import { MangaDataService } from '../../../services/manga-data.service';
 })
 export class ManageHomeComponent implements OnInit {
   mangasToDisplay = [];
+  currentsFavorites : [];
   
   constructor(private mangaService: MangaDataService) { }
 
   ngOnInit() {
+    this.mangaService.getFavorites().subscribe(
+      mangas => {
+        this.currentsFavorites = mangas
+        console.log(this.currentsFavorites)
+      }
+    )
   }
 
   // Favorite mangas selection to display on home page
@@ -31,12 +40,13 @@ export class ManageHomeComponent implements OnInit {
       console.log(res)
     }).catch( error => {
       console.error(error);
+      alert('Merci de choisir cinq mangas favoris au maximum')
     })
   }
 
   unFavorite(id) {
     this.mangaService.declareAsNotFavorite(id).then(res => {
-      console.log('ce manga n\' plus favori')
+      console.log('ce manga n\'est plus favori')
     }).catch( error => {
       console.error(error);
     })
