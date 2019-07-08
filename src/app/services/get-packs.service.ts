@@ -30,10 +30,7 @@ export class GetPacksService {
   }
 
   deletePacksByID(id) {
-    console.log('IM INNNN' + id);
     const url = this.packsUrl2 + '/' +id;
-    console.log('url : ' , url);
-    // this.http.delete(url)
     return this.http.delete(url, {responseType: 'text'});
   }
 
