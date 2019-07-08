@@ -42,6 +42,10 @@ export class MangaDataService {
     return this.http.get(this.mangasUrlID + id);
   }
 
+  getMangaById(id: number): Observable<Mangas[]> {
+    return this.http.get<Mangas[]>(`${this.mangasUrl}/${id}`);
+  }
+
   getSeriePublicByManga(title: string): Observable<any> {
     return this.http.get(`${this.seriePublicUrl}/${title}`);
   }
@@ -65,4 +69,7 @@ export class MangaDataService {
   getMangasAwaiting(): Observable<any> {
     return this.http.get<any>(this.datasForAwaitingMangasUrl);
   }
+
+}
+
 

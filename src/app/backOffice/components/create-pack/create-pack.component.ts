@@ -63,16 +63,13 @@ export class CreatePackComponent implements OnInit {
   }
 
   getPacks(event) { // Recupère le pack select de la searchBar
-    console.log('EVENT', typeof event[0]);
     this.listMangasPacks = [];
 
     this.chosenPack = event[0];
-    console.log('CHOSEN PACK', this.chosenPack);
     this.idPack = this.chosenPack.id;
     this.packService.getPacksByID(this.idPack)
     .subscribe(packManga => { // Récupère les mangas contenus dans le pack selectionné
       this.packsMangas = packManga;
-      console.log(this.packsMangas);
 
       this.packsMangas.forEach(element => {
         const value = element.mangas_id;
@@ -88,7 +85,6 @@ export class CreatePackComponent implements OnInit {
   getChosenManga(event) { // Recupère le manga select de la searchBar
     this.displaySearch = true;
     this.chosenManga = event;
-    console.log(this.chosenManga);
     this.id1 = this.chosenManga.map((manga) => {
       return manga.id;
     });
@@ -100,7 +96,6 @@ export class CreatePackComponent implements OnInit {
     const id1 = this.idPack;
     this.mangaService.deleteMangaPack(id1, id2).subscribe(_ => {
       this.listMangasPacks.splice(index, 1);
-      console.log(this.listMangasPacks);
     });
   }
 
@@ -114,7 +109,6 @@ export class CreatePackComponent implements OnInit {
     const seriesRoute = 'http://localhost:4242/packsMangas/create-packs-mangas';
     this.createMangasPackForm.value.mangas_id = this.idManga;
     this.createMangasPackForm.value.packs_id = this.idPack;
-    console.log(this.createMangasPackForm.value);
     this.packService.postPacks(this.createMangasPackForm.value, seriesRoute).subscribe(_ => {
       this.listMangasPacks.push(this.chosenManga[i]);
     });
