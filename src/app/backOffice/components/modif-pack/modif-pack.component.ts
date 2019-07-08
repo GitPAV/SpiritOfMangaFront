@@ -7,6 +7,7 @@ import { GetPacksService } from 'src/app/services/get-packs.service';
   templateUrl: './modif-pack.component.html',
   styleUrls: ['./modif-pack.component.scss']
 })
+
 export class ModifPackComponent implements OnInit {
 
   constructor(
@@ -52,17 +53,14 @@ export class ModifPackComponent implements OnInit {
 
   deletePack() {
     event.preventDefault();
-
     const packId = this.createPackForm.value.id;
-    console.log('moyen ok');
-    this.packsService.deletePacksByID(packId);
-    console.log('now ok');
+    this.packsService.deletePacksByID(packId).subscribe();
     this.createPackForm.reset();
   }
 
   onSubmit() {
- this.packsService.updatePack(this.createPackForm.value).subscribe();
- this.createPackForm.reset();
+    this.packsService.updatePack(this.createPackForm.value).subscribe();
+    this.createPackForm.reset();
   }
 
 }

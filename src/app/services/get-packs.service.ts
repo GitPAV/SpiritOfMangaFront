@@ -10,9 +10,10 @@ import { Observable } from 'rxjs';
 
 
 export class GetPacksService {
-  packsUrl = 'http://localhost:4242/packs/manage-packs/';
+  packsUrl = 'http://localhost:4242/packs/manage-packs';
+  packsUrl2 = 'http://localhost:4242/packs/delete-packs';
   searchUrl = 'http://localhost:4242/packs/search-packs';
-  packsIdUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas/'
+  packsIdUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas/';
   url = 'http://localhost:4242/packsMangas/manage-packs-mangas';
 
   @Output() chosenPackEvent = new EventEmitter();
@@ -30,8 +31,10 @@ export class GetPacksService {
 
   deletePacksByID(id) {
     console.log('IM INNNN' + id);
-    
-    return this.http.delete(this.packsUrl + id, {responseType: 'text'});
+    const url = this.packsUrl2 + '/' +id;
+    console.log('url : ' , url);
+    // this.http.delete(url)
+    return this.http.delete(url, {responseType: 'text'});
   }
 
   getSearchTitle( title:string ): Observable<Packs[]> {
