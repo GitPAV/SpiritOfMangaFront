@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
 import { GetPacksService } from 'src/app/services/get-packs.service';
 import { Packs } from '../../../common/models/pack.model';
 
@@ -12,10 +12,9 @@ import { Packs } from '../../../common/models/pack.model';
 export class SearchPackBarComponent implements OnInit {
   packs: Packs[];
   research: string;
-  selectPack;
-  formCondition:boolean;
-  chosenPack: Packs;
+  formCondition: boolean;
 
+  @Output() selectPack = new EventEmitter();
 
   constructor(private searchPackService: GetPacksService) { }
 
@@ -30,11 +29,16 @@ export class SearchPackBarComponent implements OnInit {
   }
 
   sendChosenPack(pack){
-    this.chosenPack = pack;
+    console.log(pack);
+    let packsToSend = [];
+    packsToSend.push(pack);
+    this.searchPackService.emitterPack(packsToSend);
+    this.selectPack.emit(packsToSend);
+    console.log('P', packsToSend);
+    
     this.research = '';
-    this.selectPack = '';
     this.packs = [];
     this.formCondition = !this.formCondition;
   }
-  
+
 }

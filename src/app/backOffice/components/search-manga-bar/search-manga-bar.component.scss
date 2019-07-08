@@ -3,11 +3,9 @@
 .main {
     display: flex;
     flex-direction: column;
-    background-color: $grey;
-    background-color: white;
 }
 #searchBar {
-    width: 33vw;
+    width: 75%;
     border: 1px solid black;
 }
 .mangaTable {
