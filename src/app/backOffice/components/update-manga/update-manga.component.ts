@@ -3,6 +3,7 @@ import { MangaDataService } from 'src/app/services/manga-data.service';
 import { Mangas } from '../../../common/models/manga.model';
 import { SeriesService } from 'src/app/services/series.service';
 
+
 @Component({
   selector: 'app-update-manga',
   templateUrl: './update-manga.component.html',

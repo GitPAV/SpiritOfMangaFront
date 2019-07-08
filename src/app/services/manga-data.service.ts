@@ -75,7 +75,6 @@ export class MangaDataService {
     return this.http.get<any>(this.datasForAwaitingMangasUrl);
   }
 
-
   // METHODS TO DISPLAY MANGAS ON HOME PAGE
   getPromotedMangaById(id: number): Observable<Mangas[]> {
     return this.http.get<Mangas[]>(`${this.mangasPromotedUrl}/${id}`);
