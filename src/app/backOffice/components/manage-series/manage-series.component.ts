@@ -22,15 +22,14 @@ export class ManageSeriesComponent implements OnInit {
   description= '';
   searchText = '';
   types_id = '';
-  kinds = [];
   serieId;
   genresId;
 
   series;
   types;
   genres;
-  displayGenres= false;
   displayKinds = [];
+  newKinds = [];
   
   
   ngOnInit() {
@@ -44,7 +43,6 @@ export class ManageSeriesComponent implements OnInit {
 
       this.userService.getGenres().subscribe(genres => {
         this.genres = genres;
-            console.log(genres);
       });
 
     this.initForm()
@@ -56,13 +54,32 @@ export class ManageSeriesComponent implements OnInit {
     this.description = serie.description
     this.types_id = serie.types_id
     this.serieId = serie.id
-    this.displayGenres = true;
     this.userService.getGenresId(this.serieId).subscribe(
       genreId => { this.genresId = JSON.parse(genreId);
         this.displayKinds = this.genresId
-        console.log('displayKind', this.displayKinds);
       });
-    this.initForm()
+      this.initForm()
+    }
+    
+
+
+  getNewKind(genre) {
+    event.preventDefault();
+    console.log(genre)
+    this.newKinds.push(genre)
+  }
+
+  addNewKind() {
+    // this.newKinds.values = 
+    // il faut trouver un moyen que a partir des values qui sont les id des genres on crée un object avec l'id et le name
+    // cela afin de display le name dans le front des genres ajoutés ( et pouvoir les supprimer dans le front) 
+  }
+
+
+  deletAKind(i) {
+    event.preventDefault();
+    console.log(i)
+    this.userService.deleteKind(i).then()
   }
 
   initForm() {
@@ -80,7 +97,7 @@ export class ManageSeriesComponent implements OnInit {
       id : this.serieId,
       data : this.manageSeriesForm.value
     }
-    console.log(body);
+    // console.log(body);
     this.userService.testPut(body, seriesRoute).subscribe();
   }
 
