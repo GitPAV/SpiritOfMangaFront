@@ -29,7 +29,7 @@ export class ManageSeriesComponent implements OnInit {
   types;
   genres;
   displayKinds = [];
-  newKinds = [];
+  newKindId: number;
   
   
   ngOnInit() {
@@ -65,20 +65,18 @@ export class ManageSeriesComponent implements OnInit {
 
   getNewKind(genre) {
     event.preventDefault();
-    console.log(genre)
-    this.newKinds.push(genre)
+    this.newKindId = genre
+    console.log(this.newKindId)
+    console.log(this.serieId)
   }
 
   addNewKind() {
-    // this.newKinds.values = 
-    // il faut trouver un moyen que a partir des values qui sont les id des genres on crée un object avec l'id et le name
-    // cela afin de display le name dans le front des genres ajoutés ( et pouvoir les supprimer dans le front) 
+    
   }
 
 
   deletAKind(i) {
     event.preventDefault();
-    console.log(i)
     this.userService.deleteKind(i).then()
   }
 
@@ -97,7 +95,6 @@ export class ManageSeriesComponent implements OnInit {
       id : this.serieId,
       data : this.manageSeriesForm.value
     }
-    // console.log(body);
     this.userService.testPut(body, seriesRoute).subscribe();
   }
 

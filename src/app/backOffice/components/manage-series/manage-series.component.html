@@ -37,18 +37,25 @@
             
             
             <div>
-                genre:
+
+                Genres :
                 <select (change)="getNewKind($event.target.value)">
                 <!-- <select > -->
-                    <option *ngFor="let genre of genres" [value]="genre.id"  > {{genre.name}}</option>
+                    <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
                 </select>
                 <button (click)="addNewKind()">Ajouter un genre</button>
-                <div >
-                        <span *ngFor="let kind of displayKinds">{{kind.name}} <button (click)="deletAKind(kind.id)">X</button></span>
+
+                <br>
+
+                <div>
+                    <span *ngFor="let kind of displayKinds">
+                        {{ kind.name }}
+                        <button (click)="deletAKind(kind.id)">
+                            X
+                        </button>
+                    </span>
                 </div>
-                <div >
-                    <span> <button (click)="deletAKind($event.target.value)">X</button></span>
-                </div>
+
             </div>
         
             <label>
