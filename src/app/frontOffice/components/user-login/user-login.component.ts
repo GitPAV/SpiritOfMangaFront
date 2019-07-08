@@ -32,7 +32,7 @@ export class UserLoginComponent implements OnInit {
         this.loginService.login();
         this.userMail = this.loginForm.get('email').value;
         this.mailSender.emit(this.userMail)
-        this.router.navigate(['/back'])
+        this.router.navigate(['back'])
       } )
     }/* can make another get or send email to user or...*/)
     .catch( error => {

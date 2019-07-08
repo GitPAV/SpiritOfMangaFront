@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { frontOfficeModule } from './frontOffice.module'
+import { FrontOfficeModule } from './frontOffice.module'
 
 import { FrontOfficeWrapperComponent } from './front-office-wrapper.component';
 import { HomepageComponent } from '../homepage/homepage.component';
+import { CreateUserComponent } from '../../components/create-user/create-user.component';
 
 export const frontOfficeRouteList: Routes = [
 
@@ -21,13 +22,17 @@ export const frontOfficeRouteList: Routes = [
         path: 'homepage-front',
         component: HomepageComponent
       },
+      {
+        path: 'form-user',
+        component: CreateUserComponent
+      }
     ]
   }
 ];
   
   @NgModule({
     imports: [
-        frontOfficeModule,
+        FrontOfficeModule,
         RouterModule.forChild(frontOfficeRouteList),
         
     ],

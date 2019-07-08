@@ -31,10 +31,6 @@ const routes: Routes = [
     redirectTo: 'front',
     pathMatch: 'full'
   },
-  // {
-  //   path: 'front/homepage',
-  //   component: FrontOfficeWrapperComponent
-  // },
   {
     path: 'front',
     loadChildren: './frontOffice/pages/front-office-wrapper/frontOffice-routing.module#FrontRoutingModule'
@@ -44,7 +40,7 @@ const routes: Routes = [
 
   {
     path: 'back',
-    component:  BackOfficeWrapperComponent,
+    loadChildren: './backOffice/pages/back-office-wrapper/backOffice-routing.module#BackRoutingModule',
     canActivate: [RoleGuardService], 
     data: { 
       expectedRole: 'admin'

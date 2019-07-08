@@ -5,10 +5,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { CreateMangaComponent } from './backOffice/components/create-manga/create-manga.component';
 import { UpdateMangaComponent } from './backOffice/components/update-manga/update-manga.component';
 import { SearchMangaBarComponent } from './backOffice/components/search-manga-bar/search-manga-bar.component';
-import { FormComponent } from './frontOffice/components/create-user/create-user.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CreateSeriesComponent } from './backOffice/components/create-series/create-series.component';
 import { SeriesComponent } from './backOffice/components/create-modify-series/create-modify-serie.component';
@@ -31,21 +29,15 @@ import { DisponibilityAlertsComponent } from './backOffice/components/disponibil
 import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
 import { PackListItemComponent } from './backOffice/components/pack-list-item/pack-list-item.component';
 import { MangaListItemComponent } from './backOffice/components/manga-list-item/manga-list-item.component';
-import { HeaderBackComponent } from './backOffice/components/header-back/header-back.component';
-import { NavBarBackComponent } from './backOffice/components/nav-bar-back/nav-bar-back.component';
-import { BackOfficeWrapperComponent } from './backOffice/pages/back-office-wrapper/back-office-wrapper.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormComponent,
-    CreateMangaComponent,
     UpdateMangaComponent,
     SearchMangaBarComponent,
     CreateSeriesComponent,
     SeriesComponent,
     ManageSeriesComponent,
-    BackOfficePageComponent,
     FilterPipe,
     CreatePackComponent,
     SearchPackBarComponent,
@@ -64,9 +56,6 @@ import { BackOfficeWrapperComponent } from './backOffice/pages/back-office-wrapp
     UserDetailsComponent,
     AlertButtonComponent,
     DisponibilityAlertsComponent,
-    HeaderBackComponent,
-    NavBarBackComponent,
-    BackOfficeWrapperComponent,
   ],
   imports: [
     BrowserModule,
