@@ -2,14 +2,14 @@
 <div class="manageSerieCtn">
 
         <h3>
-            Modifier Série
+            MODIFIER UNE SÉRIE
         </h3>
     
         <div class="searchBar"> 
             <input type="text" placeholder="Search Series" [(ngModel)]="searchText" >
         </div>
         <div class="resultBar" *ngFor="let serie of series | filter : searchText" >
-            <div  *ngIf="searchText"> <span (click)=getTheSerie(serie) > {{serie.nameSeries}}</span>
+            <div  *ngIf="searchText"> <span (click)=getTheSerie(serie)> {{serie.nameSeries}}</span>
             </div>
         </div>
     
@@ -39,15 +39,15 @@
             <div>
                 genre:
                 <select >
-                    <option *ngFor="let genre of genres"></option>
+                    <option *ngFor="let genre of genres">{{ genre.name }}</option>
                 </select>
                 <div *ngIf="displayGenres">
-                        <span *ngFor="let kind of displayKinds">{{kind.name}}</span>
+                    <span *ngFor="let kind of displayKinds">{{kind.name}}</span>
                 </div>
             </div>
         
             <label>
-                Descritption:
+                Description:
                 <textarea formControlName="description" [value]=description  ></textarea>
             </label>
                 

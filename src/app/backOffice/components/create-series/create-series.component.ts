@@ -39,7 +39,6 @@ export class CreateSeriesComponent implements OnInit {
 
     this.userService.getGenres().subscribe(genres => {
       this.genres = genres;
-          console.log(genres);
     });
   }
   addAKind() {
@@ -50,23 +49,18 @@ export class CreateSeriesComponent implements OnInit {
     });
     this.kindlist.push(kindId);
     this.displayKind.push(kind);
-    console.log(this.displayKind);
-    console.log(this.kindlist);
   }
 
   deletAKind(i) {
     event.preventDefault();
     this.displayKind.splice(i, 1);
     this.kindlist.splice(i, 1);
-    console.log(this.displayKind);
-    console.log(this.kindlist);
   }
 
 
   onSubmit() {
     //Call the observable in service with the apropiate http method 
     this.postSeriesForm.value.kinds = this.kindlist;
-    console.log(this.postSeriesForm.value);
     const seriesRoute = 'http://localhost:4242/series/manage-series';
     this.userService.testPost(this.postSeriesForm.value, seriesRoute).subscribe();
     this.postSeriesForm.reset();
