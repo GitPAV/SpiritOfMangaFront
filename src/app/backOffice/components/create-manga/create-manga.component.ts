@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MangaDataService } from 'src/app/services/manga-data.service';
 import { SeriesService } from 'src/app/services/series.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-manga',
@@ -17,7 +18,8 @@ export class CreateMangaComponent implements OnInit {
 
   constructor(private fb: FormBuilder, 
     private mangaService: MangaDataService,
-    private seriesService: SeriesService) { }
+    private seriesService: SeriesService,
+    private router: Router) { }
 
   ngOnInit() {
     this.formInit();
@@ -49,7 +51,11 @@ export class CreateMangaComponent implements OnInit {
 
   onSubmit() {
     this.mangaService.postManga(this.mangaForm.value)
-    .then(/* can make another get or send email to user or...*/)
+    .then( res => {
+      if (confirm('Voulez-vous gérer les stocks, états et prix des mangas maintenant ?')) {
+        this.router.navigate(['/update-manga'])
+      }
+    })
     .catch( error => {
       console.error(error);
     })
