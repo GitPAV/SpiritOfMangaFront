@@ -57,6 +57,7 @@
     height: 7vh;
     background-color: white;
     border: $borderBackComponents;
+    
     span{  
         position: fixed;
         left: 53vw;
@@ -67,7 +68,7 @@
     }
     img{
         height: 5.5vh;
-        width: 4vw;
+        width: auto;
         position: fixed;
         left: 95vw;
         top: 0.8vh;

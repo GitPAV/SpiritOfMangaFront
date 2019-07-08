@@ -69,12 +69,10 @@ export class ManageSeriesComponent implements OnInit {
   getNewKind(genre) {
     event.preventDefault();
     this.newKindId = genre
-    console.log(this.newKindId)
-    console.log(this.serieId)
   }
 
   addNewKind() {
-    
+    this.genresService.postGenresManga(this.newKindId, this.serieId)
   }
 
 
