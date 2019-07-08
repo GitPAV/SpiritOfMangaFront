@@ -4,7 +4,6 @@ import { CreateMangaComponent } from './backOffice/components/create-manga/creat
 import { UpdateMangaComponent } from './backOffice/components/update-manga/update-manga.component';
 import { SeriesComponent } from './backOffice/components/create-modify-series/create-modify-serie.component';
 import { CreatePackComponent } from './backOffice/components/create-pack/create-pack.component';
-import { FormComponent } from './frontOffice/components/create-user/create-user.component';
 import { UpdatePacksComponent} from './backOffice/components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component';

@@ -17,18 +17,14 @@ import { SearchPackBarComponent } from './backOffice/components/search-pack-bar/
 import { UpdatePacksComponent } from './backOffice/components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
-import { CatalogueMangasComponent } from './frontOffice/pages/catalogue-mangas/catalogue-mangas.component';
-import { PromotionsComponent } from './frontOffice/pages/promotions/promotions.component';
-import { CataloguePacksComponent } from './frontOffice/pages/catalogue-packs/catalogue-packs.component';
-import { VendreMangasComponent } from './frontOffice/pages/vendre-mangas/vendre-mangas.component';
 import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pack.component';
 import { ManageUsersComponent } from './backOffice/components/manage-users/manage-users.component';
 import { UserDetailsComponent } from './backOffice/components/user-details/user-details.component';
-import { AlertButtonComponent } from './frontOffice/components/alert-button/alert-button.component';
 import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
 import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
 import { PackListItemComponent } from './backOffice/components/pack-list-item/pack-list-item.component';
 import { MangaListItemComponent } from './backOffice/components/manga-list-item/manga-list-item.component';
+
 
 @NgModule({
   declarations: [
@@ -44,18 +40,14 @@ import { MangaListItemComponent } from './backOffice/components/manga-list-item/
     UpdatePacksComponent,
     StockMangaComponent,
     CreateStateComponent,
-    CatalogueMangasComponent,
-    PromotionsComponent,
-    CataloguePacksComponent,
-    VendreMangasComponent,
     ManageUsersComponent,
     OnGoingOrderComponent,
     PackListItemComponent,
     MangaListItemComponent,
     ModifPackComponent,
     UserDetailsComponent,
-    AlertButtonComponent,
     DisponibilityAlertsComponent,
+
   ],
   imports: [
     BrowserModule,
