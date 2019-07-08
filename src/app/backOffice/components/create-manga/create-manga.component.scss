@@ -1,12 +1,7 @@
 @import '../../../common/styles/back-office.scss';
 
 .main {
-    height: 80vh;
-    width: 75vw;
-    overflow: scroll;
-    display: flex;
-    justify-content:center;
-    border: $borderBackComponents;
+    padding: 70px;
     .form {
 
         display: grid;

@@ -8,6 +8,7 @@ import { Mangas } from 'src/app/common/models/manga.model';
   styleUrls: ['./search-manga-bar.component.scss']
 })
 export class SearchMangaBarComponent implements OnInit {
+  
   mangas: Mangas[];
   research: string;
   selectedManga;

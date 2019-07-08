@@ -27,14 +27,17 @@ export const frontOfficeRouteList: Routes = [
         redirectTo: 'page-dacceuil',
         pathMatch: 'full'
       },
-      // { path: '**', 
-      //   component: 
-      //   404 error component
-      // },
       {
         path: 'page-dacceuil',
         component: HomepageComponent
       },
+      // { path: '**', 
+      //   component: 
+      //   404 error component
+      // },
+
+      // NAVBAR
+
       {
         path: 'creation-utilisateur',
         component: CreateUserComponent
@@ -57,7 +60,7 @@ export const frontOfficeRouteList: Routes = [
       },
 
       // FOOTER
-      
+
       {
         path : 'CGV',
         component : CGVFooterComponent
