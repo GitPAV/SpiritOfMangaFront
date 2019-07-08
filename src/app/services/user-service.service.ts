@@ -44,6 +44,9 @@ export class UserServiceService {
       return this.http.post(`http://localhost:4242/genresMangas/manage-genres-mangas/${genresMangasData}/${serieId}`, {responseType: 'text'}).toPromise();
     }
 
+    getGenresId(serieId) {
+      return this.http.get(`http://localhost:4242/genresMangas/manage-genres-mangas/${serieId}`, {responseType: 'text'})
+    }
 
 
 }

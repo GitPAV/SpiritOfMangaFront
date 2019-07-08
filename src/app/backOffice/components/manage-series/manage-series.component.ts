@@ -22,10 +22,15 @@ export class ManageSeriesComponent implements OnInit {
   description= '';
   searchText = '';
   types_id = '';
+  kinds = [];
   serieId;
+  genresId;
 
   series;
   types;
+  genres;
+  displayGenres= false;
+  displayKinds = [];
   
   
   ngOnInit() {
@@ -37,6 +42,11 @@ export class ManageSeriesComponent implements OnInit {
       types => { this.types = types;
       });
 
+      this.userService.getGenres().subscribe(genres => {
+        this.genres = genres;
+            console.log(genres);
+      });
+
     this.initForm()
   };
 
@@ -46,6 +56,12 @@ export class ManageSeriesComponent implements OnInit {
     this.description = serie.description
     this.types_id = serie.types_id
     this.serieId = serie.id
+    this.displayGenres = true;
+    this.userService.getGenresId(this.serieId).subscribe(
+      genreId => { this.genresId = JSON.parse(genreId);
+        this.displayKinds = this.genresId
+        console.log('displayKind', this.displayKinds);
+      });
     this.initForm()
   }
 

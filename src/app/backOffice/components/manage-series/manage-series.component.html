@@ -32,8 +32,18 @@
                 type:
                 <select formControlName="types_id" id="types" >
                     <option [value]=type.id *ngFor="let type of types">{{type.name}}</option>
-            
                 </select>
+            </div>
+            
+            
+            <div>
+                genre:
+                <select >
+                    <option *ngFor="let genre of genres"></option>
+                </select>
+                <div *ngIf="displayGenres">
+                        <span *ngFor="let kind of displayKinds">{{kind.name}}</span>
+                </div>
             </div>
         
             <label>
