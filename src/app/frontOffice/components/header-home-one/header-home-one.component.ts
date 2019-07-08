@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mangas } from 'src/app/common/models/manga.model';
+import { MangaDataService } from '../../../services/manga-data.service';
 
 @Component({
   selector: 'app-header-home-one',
@@ -7,13 +8,31 @@ import { Mangas } from 'src/app/common/models/manga.model';
   styleUrls: ['./header-home-one.component.scss']
 })
 export class HeaderHomeOneComponent implements OnInit {
-  // receive a table from a service or a table from BDD and then ng-for on it
-  // send datas to manga card component
-  mangasToPromote : Mangas[] = JSON.parse(localStorage.getItem("promotions"));
 
-  constructor() { }
+  mangasToPromote : Mangas[];
+  // mangasToDisplay = []
+
+  constructor(private mangaService: MangaDataService) { }
 
   ngOnInit() {
+    this.mangaService.getFavorites().subscribe( mangas => {
+      this.mangasToPromote = mangas
+     // this.displayRandomly()
+    })
+
   }
+
+  // displayRandomly(){
+  //   let numMax = this.mangasToPromote.length
+
+  //   while (this.mangasToDisplay.length < 5) {
+  //     let index = Math.floor(Math.random() * numMax)
+  //     if (!this.mangasToDisplay.includes(this.mangasToPromote[index])){
+  //       this.mangasToDisplay.push(this.mangasToPromote[index])
+  //     }
+  //   }
+
+  //   console.log(this.mangasToDisplay)
+  // }
 
 }

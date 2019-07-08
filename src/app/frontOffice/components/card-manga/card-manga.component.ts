@@ -7,12 +7,10 @@ import { Mangas } from 'src/app/common/models/manga.model';
   styleUrls: ['./card-manga.component.scss']
 })
 export class CardMangaComponent implements OnInit {
-  @Input() mangasToPromote : Mangas[];
 
   constructor() { }
 
   ngOnInit() {
-    console.log(this.mangasToPromote)
   }
 
 }

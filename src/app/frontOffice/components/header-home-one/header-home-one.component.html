@@ -1,9 +1,17 @@
 <div class="headerCtn">
   <div class="headerContent" >
     <h3>NOS COUPS DE COEUR</h3>
-    <!-- <div *ngFor="let manga of list">     </div> -->
-    <!-- <app-card-manga [manga]="manga"></app-card-manga> -->
-    <app-card-manga [mangasToPromote]="mangasToPromote"></app-card-manga>
+
+    <div class="theCtn">
+        <div class="cardCtn" *ngFor="let manga of mangasToPromote">
+            <div class="cardContent">
+                <img [src]="manga.photoCover"> 
+                <h4>{{manga.title}}</h4>
+                <p>{{manga.tome}}</p>
+            </div>
+        </div>
+    </div>
+
   </div>  
 </div>
 <link href="https://fonts.googleapis.com/css?family=Asap:400,700&display=swap" rel="stylesheet">
