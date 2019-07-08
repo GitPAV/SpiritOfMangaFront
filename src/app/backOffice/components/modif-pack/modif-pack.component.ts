@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Packs } from '../../../common/models/pack.model';
+import { Component, OnInit, } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { GetPacksService } from 'src/app/services/get-packs.service';
 
@@ -8,8 +7,8 @@ import { GetPacksService } from 'src/app/services/get-packs.service';
   templateUrl: './modif-pack.component.html',
   styleUrls: ['./modif-pack.component.scss']
 })
+
 export class ModifPackComponent implements OnInit {
-@Input()  infoPack: Packs
 
   constructor(
     private fb: FormBuilder,
@@ -25,33 +24,43 @@ export class ModifPackComponent implements OnInit {
     weight: ['', Validators.required],
     prixPublic: ['', Validators.required],
     promo: ['', Validators.required],
-    prixPromo: ['', Validators.required],
-    statesPack_id: ['', Validators.required],
+    prixPromo: [],
+    comment: [],
     notrePrix: ['', Validators.required],
-    tomes: ['', Validators.required],
+    tomes: [],
   });
-  
+
   ngOnInit() {
-    console.log(this.infoPack)
-    this.createPackForm.patchValue({
-      id: this.infoPack.id,
-      namePack: this.infoPack.namePack,
-      photoPack: this.infoPack.photoPack,
-      resumePack: this.infoPack.resumePack,
-      stock: this.infoPack.stock,
-      weight: this.infoPack.weight,
-      prixPublic: this.infoPack.prixPublic,
-      promo: this.infoPack.promo,
-      prixPromo: this.infoPack.prixPromo,
-      statesPack_id: this.infoPack.statesPack_id,
-      notrePrix: this.infoPack.notrePrix,
-      tomes: this.infoPack.tomes,
+    this.packsService.chosenPackEvent.subscribe(dataArray => {
+      const data = dataArray[0];
+      this.createPackForm.patchValue({
+        id: data.id,
+        namePack: data.namePack,
+        photoPack: data.photoPack,
+        resumePack: data.resumePack,
+        stock: data.stock,
+        weight: data.weight,
+        prixPublic: data.prixPublic,
+        promo: data.promo,
+        prixPromo: data.prixPromo,
+        comment: data.comment,
+        notrePrix: data.notrePrix,
+        tomes: data.tomes,
+      });
     });
+
   }
 
-  onSubmit(){
- this.packsService.updatePack(this.createPackForm.value).subscribe()
- this.createPackForm.reset()
+  deletePack() {
+    event.preventDefault();
+    const packId = this.createPackForm.value.id;
+    this.packsService.deletePacksByID(packId).subscribe();
+    this.createPackForm.reset();
+  }
+
+  onSubmit() {
+    this.packsService.updatePack(this.createPackForm.value).subscribe();
+    this.createPackForm.reset();
   }
 
 }

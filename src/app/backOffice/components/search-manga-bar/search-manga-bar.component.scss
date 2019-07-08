@@ -3,11 +3,14 @@
 .main {
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD
     background-color: $grey;
     height: fit-content;
+=======
+>>>>>>> dev
 }
 #searchBar {
-    width: 33vw;
+    width: 75%;
     border: 1px solid black;
 }
 .mangaTable {

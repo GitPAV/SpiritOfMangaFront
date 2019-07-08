@@ -9,8 +9,10 @@ import { Mangas } from '../common/models/manga.model';
 export class MangaDataService {
   publicsUrl = 'http://localhost:4242/publics/manage-publics';
   mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
+  mangasUrlID = 'http://localhost:4242/mangas/manage-mangas/';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
   seriePublicUrl = 'http://localhost:4242/mangas/series';
+  packsMangasUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas';
   mangasAwaitingUrl = 'http://localhost:4242/mangasAwaiting/manage-mangas-awaiting';
   datasForAwaitingMangasUrl = 'http://localhost:4242/mangasAwaiting/awaiting-users-mangas';
   mangasPromotedUrl = 'http://localhost:4242/statesMangas/get-promotions';
@@ -43,6 +45,10 @@ export class MangaDataService {
     return this.http.put(this.mangasUrl, manga, {responseType: 'text'});
   }
 
+  getMangasById(id): Observable<any> {
+    return this.http.get(this.mangasUrlID + id);
+  }
+
   getSeriePublicByManga(title: string): Observable<any> {
     return this.http.get(`${this.seriePublicUrl}/${title}`);
   }
@@ -53,9 +59,14 @@ export class MangaDataService {
     return this.http.delete(url, {responseType: 'text'});
   }
 
+  deleteMangaPack(id1, id2) {
+    const idPack = id1;
+    const idManga = id2;
+    const url = `${this.packsMangasUrl}/${idPack}/${idManga}`;
+    return this.http.delete(url, {responseType: 'text'});
+  }
 
-  // METHODS FOR THE DISPONIBILITY ALERTS FEATURE
-
+   // METHODS FOR THE DISPONIBILITY ALERTS FEATURE
   sendMangaAwaiting(infos) {
     return this.http.post(this.mangasAwaitingUrl, infos, {responseType: 'text'}).toPromise()
   }
@@ -66,7 +77,6 @@ export class MangaDataService {
 
 
   // METHODS TO DISPLAY MANGAS ON HOME PAGE
-
   getPromotedMangaById(id: number): Observable<Mangas[]> {
     return this.http.get<Mangas[]>(`${this.mangasPromotedUrl}/${id}`);
   }
@@ -89,3 +99,5 @@ export class MangaDataService {
   }
 
 }
+
+
