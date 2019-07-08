@@ -8,23 +8,15 @@ import { MangaDataService } from '../../../services/manga-data.service';
 })
 export class ManageHomeComponent implements OnInit {
   mangasToDisplay = [];
-<<<<<<< HEAD
   
-=======
-  mangasSentToFront = localStorage.getItem("promotions") ? JSON.parse(localStorage.getItem("promotions")) : [];
-
->>>>>>> dev
   constructor(private mangaService: MangaDataService) { }
 
   ngOnInit() {
   }
 
-<<<<<<< HEAD
   // Favorite mangas selection to display on home page
 
   // Method to get manga from search bar -> select any manga for the moment and needs improvement
-=======
->>>>>>> dev
   getChosenManga(event) {
     this.mangaService.getMangaById(event[0].id).subscribe(
       manga => {
@@ -33,7 +25,6 @@ export class ManageHomeComponent implements OnInit {
     )
   }
 
-<<<<<<< HEAD
   // Method to send to home page header
   promote(id){
     this.mangaService.declareAsFavorite(id).then( res => {
@@ -53,18 +44,4 @@ export class ManageHomeComponent implements OnInit {
 
   // Method to delete a sale on a manga
 
-
-=======
-  promote(id){
-    // method to post into BDD ?
-    this.mangaService.getMangaById(id).subscribe(
-      manga => {
-        this.mangasSentToFront.push(manga[0])
-        localStorage.setItem("promotions", JSON.stringify(this.mangasSentToFront))
-        console.log(localStorage.getItem("promotions"))
-      }
-    )
-  }
-
->>>>>>> dev
 }
