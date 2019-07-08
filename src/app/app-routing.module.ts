@@ -18,13 +18,19 @@ import { CatalogueMangasComponent } from './frontOffice/pages/catalogue-mangas/c
 import { DisponibilityAlertsComponent } from './backOffice/components/disponibility-alerts/disponibility-alerts.component';
 import { RoleGuardService } from './common/security/role-guard.service';
 import { OnGoingOrderComponent } from './backOffice/components/on-going-order/on-going-order.component';
-import { AppComponent } from './app.component';
-
+import { ManageHomeComponent } from './backOffice/components/manage-home/manage-home.component';
 
 const routes: Routes = [
 
 // ************** BACK OFFICE ********************
-
+  {
+    path: 'manage-home',
+    component: ManageHomeComponent,
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
+  },
   {
     path: 'form-manga',
     component: CreateMangaComponent,

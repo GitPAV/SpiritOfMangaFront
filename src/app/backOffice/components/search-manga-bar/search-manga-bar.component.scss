@@ -3,6 +3,8 @@
 .main {
     display: flex;
     flex-direction: column;
+    background-color: $grey;
+    height: fit-content;
 }
 #searchBar {
     width: 75%;
@@ -15,6 +17,7 @@
     display : flex;
     flex-direction: column;
     background-color: rgba(45,52,65,1);
+    padding-bottom: 0;
 
     .titlesSearched {
         color: white;

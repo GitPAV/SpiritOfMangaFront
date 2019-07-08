@@ -1,0 +1,14 @@
+<p>Coups de coeurs à afficher sur la home (maximum 5) :</p>
+
+<app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+
+<div class="main">
+  <div *ngFor="let manga of mangasToDisplay">
+    <h4>{{ manga.title }}</h4>
+    <p>{{ manga.resume }}</p>
+    <button type="text" (click)="promote(manga.id)">AFFICHER DANS LES COUPS DE COEUR</button>
+    <button type="text" (click)="unFavorite(manga.id)">NE PLUS AFFICHER DANS LES COUPS DE COEUR</button>
+  </div>
+</div>
+
+<p>Enlever une promotion</p>
