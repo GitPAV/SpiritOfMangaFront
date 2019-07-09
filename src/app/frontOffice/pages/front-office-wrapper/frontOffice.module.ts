@@ -48,6 +48,7 @@ import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-p
     UserOpinionFooterComponent,
     ContactFooterComponent,
     GalleryMangaComponent,
+    GalleryMangaPageComponent,
     CardComponent,
     GalleryMangaPageComponent,
   ],
