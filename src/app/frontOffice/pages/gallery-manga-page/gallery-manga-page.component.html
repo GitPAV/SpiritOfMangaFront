@@ -4,11 +4,13 @@
     <input type="text" placeholder="Rechercher">
 
     <select>
-        <option>type</option>
+        <option>Recherche par type</option>
+        <option *ngFor="let type of types" (click)="searchByType(type.id)">{{ type.name }}</option>
     </select>
 
-    <select>
-        <option>genre</option>
+    <select (change)="searchByGenre($event.target.value)">
+        <option>Recherche par genre</option>
+        <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
     </select>
   </div>
 
