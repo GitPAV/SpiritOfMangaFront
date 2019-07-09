@@ -7,6 +7,7 @@ import { CreatePackComponent } from './backOffice/components/create-pack/create-
 import { FormComponent } from './frontOffice/components/create-user/create-user.component';
 import { UpdatePacksComponent} from './backOffice/components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
+import { ManageHeadersComponent } from './backOffice/components/manage-headers/manage-headers.component';
 import { BackOfficePageComponent } from './backOffice/pages/back-office-page/back-office-page.component';
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component';
 import { ModifPackComponent } from './backOffice/components/modif-pack/modif-pack.component';
@@ -138,6 +139,18 @@ const routes: Routes = [
   {
     path: 'form-user',
     component: FormComponent
+  },
+  {
+  path: 'manage-packs',
+  component: UpdatePacksComponent
+},
+{
+    path: 'stock-manga',
+    component: StockMangaComponent
+  },
+  {
+    path: 'manage-headers',
+    component: ManageHeadersComponent
   },
   {
     path: 'user-login',

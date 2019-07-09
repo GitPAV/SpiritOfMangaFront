@@ -4,6 +4,7 @@ import { Validators } from '@angular/forms';
 
 import { SeriesService } from 'src/app/services/series.service';
 import { TypesServiceService } from 'src/app/services/types-service.service';
+import { GenresService } from 'src/app/services/genres.service';
 
 @Component({
   selector: 'app-manage-series',
@@ -14,7 +15,8 @@ export class ManageSeriesComponent implements OnInit {
 
   constructor( private fb: FormBuilder, 
     private seriesService: SeriesService,
-    private typesService: TypesServiceService) { }
+    private typesService: TypesServiceService,
+    private genresService: GenresService) { }
 
   manageSeriesForm : FormGroup;
 
@@ -24,9 +26,13 @@ export class ManageSeriesComponent implements OnInit {
   searchText = '';
   types_id = '';
   serieId;
+  genresId;
 
   series;
   types;
+  genres;
+  displayKinds = [];
+  newKindId: number;
   
   
   ngOnInit() {
@@ -38,6 +44,10 @@ export class ManageSeriesComponent implements OnInit {
       types => { this.types = types;
       });
 
+      this.genresService.getGenres().subscribe(genres => {
+        this.genres = genres;
+      });
+
     this.initForm()
   };
 
@@ -47,7 +57,28 @@ export class ManageSeriesComponent implements OnInit {
     this.description = serie.description
     this.types_id = serie.types_id
     this.serieId = serie.id
-    this.initForm()
+    this.genresService.getGenresId(this.serieId).subscribe(
+      genreId => { this.genresId = JSON.parse(genreId);
+        this.displayKinds = this.genresId
+      });
+      this.initForm()
+    }
+    
+
+
+  getNewKind(genre) {
+    event.preventDefault();
+    this.newKindId = genre
+  }
+
+  addNewKind() {
+    this.genresService.postGenresManga(this.newKindId, this.serieId)
+  }
+
+
+  deletAKind(i) {
+    event.preventDefault();
+    this.genresService.deleteKind(i).then()
   }
 
   initForm() {

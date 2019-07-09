@@ -1,0 +1,33 @@
+<div class="genreCtn">
+
+    <h3>AJOUTER DES GENRES</h3>
+
+    <div class="searchBar">
+
+        <input type="text" placeholder="rechercher série" [(ngModel)]="searchText">
+
+        <div class="resultBar" *ngFor="let serie of series | filter : searchText" >
+            <div *ngIf="searchText"> 
+                <span (click)=getTheSerie(serie)> {{serie.nameSeries}}</span>
+            </div>
+        </div>
+
+        <div class="resultCtn" *ngIf="selectedSerie">
+            <span>{{selectedSerie.nameSeries}}</span>
+        </div>
+
+        <select [(ngModel)]="selectedKindindex">
+            <option *ngFor="let genre of genres; let i = index" [value]="i" >{{genre.name}}</option>
+        </select>
+
+        <button (click)="addAKind()">Ajouter un genre</button>
+        
+        <p>
+            <span *ngFor="let kind of kinds"> {{ kind.name }} <button (click)="deletAKind()">X</button></span>
+        </p>
+
+        <button type="submit" (click)="onSubmit()">ENVOYER</button>
+
+
+    </div>
+</div>

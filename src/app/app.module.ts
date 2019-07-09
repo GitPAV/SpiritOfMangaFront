@@ -24,6 +24,8 @@ import { SearchPackBarComponent } from './backOffice/components/search-pack-bar/
 import { UpdatePacksComponent } from './backOffice/components/update-packs/update-packs.component';
 import { StockMangaComponent } from './backOffice/components/stock-manga/stock-manga.component';
 import { CreateStateComponent } from './backOffice/components/create-state/create-state.component';
+import { ManageHeadersComponent } from './backOffice/components/manage-headers/manage-headers.component';
+import { GenreBackComponent } from './backOffice/components/genre-back/genre-back.component';
 import { CatalogueMangasComponent } from './frontOffice/pages/catalogue-mangas/catalogue-mangas.component';
 import { PromotionsComponent } from './frontOffice/pages/promotions/promotions.component';
 import { CataloguePacksComponent } from './frontOffice/pages/catalogue-packs/catalogue-packs.component';
@@ -63,6 +65,8 @@ import { ManageHomeComponent } from './backOffice/components/manage-home/manage-
     UpdatePacksComponent,
     StockMangaComponent,
     CreateStateComponent,
+    ManageHeadersComponent,
+    GenreBackComponent,
     CatalogueMangasComponent,
     PromotionsComponent,
     CataloguePacksComponent,

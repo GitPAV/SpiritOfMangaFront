@@ -1,5 +1,5 @@
 <div id="bodyBack">
-  <aside class="menu">
+  <div class="menu">
     <img src="../../../../assets/img/logo.png" alt="logo_spiritofmanga">
     <ul class="menu-list">
 
@@ -26,13 +26,14 @@
         <li><a [routerLink]="['/manage-users']">Mes utilisateurs</a></li>
         <li><a [routerLink]="['/alerts']">Alertes disponibilités</a></li>
     </ul>
-  </aside>
+  </div>
 
   <div class="headerBack">
     <span class="date">{{dateValue | date:' d MMMM y '}}</span>
     <img (click)="logOut()" src="../../../../assets/img/logoSignOut.png" alt="signOutLogo"> <!-- ICI FONCTION DISCONNECT -->
 
   </div>
+
 </div>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">

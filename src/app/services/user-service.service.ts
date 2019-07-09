@@ -56,18 +56,5 @@ export class UserServiceService {
   /* Methods put into other services and to delete from here.
   testPut(dataForm, route) {
     return this.http.put(`${route}`, dataForm, {responseType: 'text'});
-  }
-
-  getTypes() {
-    return this.http.get(`http://localhost:4242/types/manage-types`);
-  } 
-
-  getSeries() {
-    return this.http.get(`http://localhost:4242/series/manage-series`);
-  }
-
-  getPacks() {
-    return this.http.get(`http://localhost:4242/packs/manage-packs`, {responseType: 'text'});
   } */
-
 }
