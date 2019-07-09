@@ -13,7 +13,7 @@ import { DeliveryFeeFooterComponent } from '../delivery-fee-footer/delivery-fee-
 import { AboutUsFooterComponent } from '../about-us-footer/about-us-footer.component';
 import { UserOpinionFooterComponent } from '../user-opinion-footer/user-opinion-footer.component';
 import { ContactFooterComponent } from '../contact-footer/contact-footer.component';
-import { GalleryMangaComponent } from '../../components/gallery-manga/gallery-manga.component';
+import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-page.component';
 
 export const frontOfficeRouteList: Routes = [
 
@@ -44,7 +44,7 @@ export const frontOfficeRouteList: Routes = [
       },
       {
         path : 'mangas-liste',
-        component : GalleryMangaComponent
+        component : GalleryMangaPageComponent
       },
       {
         path : 'promotion',
