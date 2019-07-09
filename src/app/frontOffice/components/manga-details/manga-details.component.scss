@@ -23,9 +23,21 @@
     }
     .mangaTxt{
         padding-left: 3%;
+        .txtRow{
+            display: flex;
+        }
         h3 {
             font-size: 3.5rem;
             color: #FFFFFF;
+        }
+        h5{
+            font-size: 2rem;
+            color: #FFFFFF;
+        }
+        em{
+            font-size: 2rem;
+            color: #FFFFFF;
+            padding-left: 1vw;
         }
     }
 }

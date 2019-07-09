@@ -16,7 +16,7 @@ export class MangaDetailsComponent implements OnInit {
 
   constructor(private mangadataservice: MangaDataService,
               private activatedRoute: ActivatedRoute,
-    ) {
+              ) {
       this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
         this.mangadataservice.getMangas().subscribe(mangas => {
           this.mangas = mangas;
@@ -24,11 +24,11 @@ export class MangaDetailsComponent implements OnInit {
           const mangaId = parseInt(params.get('mangaID'));
           this.choosenManga = this.mangas[mangaId - 1];
           console.log(this.choosenManga);
-        });
-      });
-     }
+    });
+  });
+}
 
-  ngOnInit() {
+ngOnInit() {
   }
 
 }
