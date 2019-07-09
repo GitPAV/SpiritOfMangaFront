@@ -27,11 +27,11 @@ export class GalleryMangaPageComponent implements OnInit {
   }
 
   searchByGenre(genreId) {
-    this.mangaDataService.sendDatas(genreId)
+    this.mangaDataService.sendDatasGenre(genreId)
   }
 
   searchByType(typeId) {
-
+    this.mangaDataService.sendDatasType(typeId)
   }
 
 }
