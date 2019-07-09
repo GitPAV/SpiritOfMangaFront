@@ -27,7 +27,8 @@ import { UserDetailsComponent } from '../../components/user-details/user-details
 import { DisponibilityAlertsComponent } from '../../components/disponibility-alerts/disponibility-alerts.component';
 import { ManageHomeComponent } from '../../components/manage-home/manage-home.component';
 import { ArchiveOrderComponent } from '../../components/archive-order/archive-order.component';
-
+import { ArchivePackListItemComponent } from '../../components/archive-pack-list-item/archive-pack-list-item.component';
+import { ArchiveMangaListItemComponent } from '../../components/archive-manga-list-item/archive-manga-list-item.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,9 @@ import { ArchiveOrderComponent } from '../../components/archive-order/archive-or
     UserDetailsComponent,
     DisponibilityAlertsComponent,
     ManageHomeComponent,
-    ArchiveOrderComponent
+    ArchiveOrderComponent,
+    ArchivePackListItemComponent,
+    ArchiveMangaListItemComponent
   ],
   imports: [
     CommonModule,
