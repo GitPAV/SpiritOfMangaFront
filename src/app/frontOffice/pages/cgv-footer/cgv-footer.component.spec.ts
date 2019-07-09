@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageHeadersComponent } from './manage-headers.component';
+import { CGVFooterComponent } from './cgv-footer.component';
 
-describe('ManageHeadersComponent', () => {
-  let component: ManageHeadersComponent;
-  let fixture: ComponentFixture<ManageHeadersComponent>;
+describe('CGVFooterComponent', () => {
+  let component: CGVFooterComponent;
+  let fixture: ComponentFixture<CGVFooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageHeadersComponent ]
+      declarations: [ CGVFooterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageHeadersComponent);
+    fixture = TestBed.createComponent(CGVFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

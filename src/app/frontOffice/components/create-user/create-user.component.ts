@@ -11,7 +11,7 @@ streetNumberValidator, streetValidator, cityValidator, zipValidator } from '../.
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.scss']
 })
-export class FormComponent {
+export class CreateUserComponent {
 
   postUserForm = this.fb.group({
     pseudo: ['', [Validators.required, pseudoValidator()]],
@@ -33,6 +33,8 @@ export class FormComponent {
  
   constructor(private fb: FormBuilder, private userService: UserServiceService) { }
 
+  // Random string for forgetPassword formValue
+
   randomString() {
     let chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
     let string_length = 20;
@@ -53,17 +55,6 @@ export class FormComponent {
       droits : 'user',
     })
     this.postUserForm.controls.checkPassword.disable()
-
-    console.log(this.postUserForm.controls['forgetPassword'].value)
-    console.log(this.postUserForm.controls['droits'].value)
-
-    console.log('***************' ,this.postUserForm.value)
-    console.log('*value.email*' ,this.postUserForm.value.email)
-
-
-    // const getEmailRoute = 'http://localhost:4242/users/get-email'
-    // this.userService.userGetEmail(this.postUserForm.value.email, getEmailRoute).subscribe()
-
 
     const profileRoute = 'http://localhost:4242/users/create-profile';
     this.userService.userPost(this.postUserForm.value, profileRoute).subscribe()

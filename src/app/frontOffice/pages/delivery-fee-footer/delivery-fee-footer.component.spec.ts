@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BackOfficePageComponent } from './back-office-page.component';
+import { DeliveryFeeFooterComponent } from './delivery-fee-footer.component';
 
-describe('BackOfficePageComponent', () => {
-  let component: BackOfficePageComponent;
-  let fixture: ComponentFixture<BackOfficePageComponent>;
+describe('DeliveryFeeFooterComponent', () => {
+  let component: DeliveryFeeFooterComponent;
+  let fixture: ComponentFixture<DeliveryFeeFooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BackOfficePageComponent ]
+      declarations: [ DeliveryFeeFooterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BackOfficePageComponent);
+    fixture = TestBed.createComponent(DeliveryFeeFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GenreBackComponent } from './genre-back.component';
+import { ContactFooterComponent } from './contact-footer.component';
 
-describe('GenreBackComponent', () => {
-  let component: GenreBackComponent;
-  let fixture: ComponentFixture<GenreBackComponent>;
+describe('ContactFooterComponent', () => {
+  let component: ContactFooterComponent;
+  let fixture: ComponentFixture<ContactFooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GenreBackComponent ]
+      declarations: [ ContactFooterComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GenreBackComponent);
+    fixture = TestBed.createComponent(ContactFooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

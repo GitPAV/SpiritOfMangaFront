@@ -1,0 +1,21 @@
+.backCore {
+    display: grid;
+    grid-template-columns: 17% auto;
+    grid-template-rows: 7% auto;
+    .backHeader {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1; 
+        grid-row-end: 1; 
+    }
+    .backNavBar {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2; 
+    }
+    .backComponent {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 2; 
+    }
+}

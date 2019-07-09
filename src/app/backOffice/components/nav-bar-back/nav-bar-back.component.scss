@@ -25,7 +25,6 @@
 }
 
 .menu-list{
-
     padding-top: 5vh;
     padding-left: 2vw;
     a{
@@ -47,31 +46,5 @@
         font-weight: bold;
         padding-top: 1.75vh;
         padding-bottom: 1vh;
-
     }    
-}
-
-.headerBack{
-    position: fixed;        
-    width: 100vw;
-    height: 7vh;
-    background-color: white;
-    border: $borderBackComponents;
-    
-    span{  
-        position: fixed;
-        left: 53vw;
-        top: 1.25vh;
-        color: $orange;
-        font-size: 27px;
-        font-weight: bold;
-    }
-    img{
-        height: 5.5vh;
-        width: auto;
-        position: fixed;
-        left: 95vw;
-        top: 0.8vh;
-        font-size: 33px;    
-    }
 }

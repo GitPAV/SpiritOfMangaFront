@@ -32,13 +32,13 @@ export class UserLoginComponent implements OnInit {
         this.loginService.login();
         this.userMail = this.loginForm.get('email').value;
         this.mailSender.emit(this.userMail)
-        // this.router.navigate(['/create-pack'])
+        this.router.navigate(['back'])
       } )
     }/* can make another get or send email to user or...*/)
     .catch( error => {
       console.error(error);
       alert('Mauvais email ou mot de passe')
-      this.router.navigate(['/form-user'])
+      this.router.navigate(['creation-utilisateur'])
     });
   }
 

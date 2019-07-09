@@ -5,10 +5,10 @@
     <div class="rootCtn">
 
         <ul>
-            <li>MANGAS</li>
-            <li>PROMOTIONS</li>
-            <li>PACKS</li>
-            <li>VENDRE VOS MANGAS</li>
+            <li><a [routerLink]="['mangas-liste']">MANGAS</a></li>
+            <li><a [routerLink]="['promotion']">PROMOTIONS</a></li>
+            <li><a [routerLink]="['packs-liste']">PACKS</a></li>
+            <li><a [routerLink]="['vendre-manga']">VENDRE VOS MANGAS</a></li>
             <li class="dropdown"><a (click)="activateLoginForm()">SE CONNECTER</a>
                 <div class="dropdown-content" *ngIf="loginForm">
                     <li><app-user-login (mailSender)='getUserConnected($event)'></app-user-login></li>

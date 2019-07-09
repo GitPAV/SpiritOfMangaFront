@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { SwitchFrontToBackService } from '../../../services/switch-front-to-back.service';
-import { Router } from '@angular/router';
-
+import { Router } from '@angular/router';
+import { SwitchFrontToBackService } from 'src/app/services/switch-front-to-back.service';
 
 @Component({
-  selector: 'app-back-office-page',
-  templateUrl: './back-office-page.component.html',
-  styleUrls: ['./back-office-page.component.scss']
+  selector: 'app-header-back',
+  templateUrl: './header-back.component.html',
+  styleUrls: ['./header-back.component.scss']
 })
-export class BackOfficePageComponent implements OnInit {
+export class HeaderBackComponent implements OnInit {
 
   dateValue = new Date;
 
