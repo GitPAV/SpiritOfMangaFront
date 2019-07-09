@@ -53,9 +53,9 @@
             
             <div class="formInput">
                 <label>
-                    Etat :
+                    Commentaire d'etat :
                 </label>    
-                <input type="number" formControlName="statesPack_id">
+                <input type="text" formControlName="comment">
             </div>
             
             <div class="formInput">
@@ -92,6 +92,7 @@
     <div class="formP2">
           <div>
             <button type="submit" [disabled]="!createPackForm.valid" class="button">Submit</button>
+            <button (click)="deletePack()" [disabled]="!createPackForm.valid" class="button">Delete</button>
         </div>
     </div>    
   

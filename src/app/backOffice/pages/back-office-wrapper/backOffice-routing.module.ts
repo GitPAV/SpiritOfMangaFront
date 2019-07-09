@@ -12,6 +12,7 @@ import { OnGoingOrderComponent } from '../../components/on-going-order/on-going-
 import { ManageUsersComponent } from '../../components/manage-users/manage-users.component';
 import { DisponibilityAlertsComponent } from '../../components/disponibility-alerts/disponibility-alerts.component';
 import { UserDetailsComponent } from '../../components/user-details/user-details.component';
+import { ManageHomeComponent } from '../../components/manage-home/manage-home.component';
 
 
 export const backOfficeRouteList: Routes = [
@@ -23,17 +24,21 @@ export const backOfficeRouteList: Routes = [
     children: [
       {
         path:'',
-        redirectTo: 'homepage',
+        redirectTo: 'gestion-pagedacceuil',
         pathMatch: 'full'
       },
       {
-        path: 'homepage',
-        component: CreateMangaComponent
+        path: 'gestion-pagedacceuil',
+        component: ManageHomeComponent
       },
       // { path: '**', 
       //   component: 
       //   404 error component
       // },
+      {
+        path: 'creer-manga',
+        component: CreateMangaComponent
+      },
       {
         path: 'serie',
         component: SeriesComponent

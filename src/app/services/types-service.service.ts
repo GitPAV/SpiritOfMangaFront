@@ -10,6 +10,6 @@ export class TypesServiceService {
   constructor(private http: HttpClient) { }
 
   getTypes(): Observable<any> {
-    return this.http.get(`http://localhost:4242/types/manage-types`, {responseType: 'text'} );
+    return this.http.get(`http://localhost:4242/types/manage-types`);
   }
 }

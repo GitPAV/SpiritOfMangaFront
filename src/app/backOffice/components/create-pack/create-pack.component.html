@@ -58,11 +58,9 @@
             
             <div class="formInput">
                 <label>
-                    Etat :
+                    Commentaire sur l'état :
                 </label>    
-                <select formControlName='statesPack_id' id='statesPack' required>
-                    <option *ngFor="let statesPack of states" [value]=statesPack.id>{{statesPack.name}}</option>
-                </select>
+                <input type="text" formControlName='comment'>
             </div>
             
             <div class="formInput">
@@ -106,45 +104,55 @@
 
     <div *ngIf="conditionModifPack">
         <app-search-pack-bar></app-search-pack-bar>
+        <app-modif-pack></app-modif-pack>
     </div>
     
     <br><br><hr>
     
     <h3 class="formTitle">2- AJOUTEZ DES MANGAS</h3>
-    <form [formGroup]="createMangasPackForm" (ngSubmit)="onSubmitMangaPack()">
-        <div class="headerForm2">
-            <div class="formInput">
-                <label>
-                    <h2>Pack sélectionné :</h2>
-                    <select formControlName='packs_id' id='packs_id' required>
-                        <option *ngFor="let pack of packs" [value]=pack.id>{{pack.namePack}}</option>
-                    </select>
-                </label>    
-            </div>
-            
-            
-            <div class="formInput">
-                <h2>Ajouter des mangas au pack :</h2>
+
+    <form [formGroup]="createMangasPackForm">
+        <div class="form2">
+            <div class="formLeft">
                 
-                <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+                <div class="searchPack">
+                    <h2>Recherchez votre pack :</h2>
+
+                    <app-search-pack-bar (selectPack)="getPacks($event)"></app-search-pack-bar>
+                </div>
+
+                <div *ngIf="chosenPack" class="mangasList">
+                    <p>Pack selectionné : </p>
+                    <ul *ngFor="let manga of listMangasPacks, let i =index" class="eachMangas">
+                        <li>
+                            <img src={{manga.photoCover}}>
+                            <p>{{manga.title + " tome : " + manga.tome}}</p>
+                        </li>
+                        <button (click)="deleteManga(manga.id, i)" class="button">X</button>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="formRight">
+                <div class="formInput">
+                    <h2>Ajouter des mangas au pack :</h2>
+                    
+                    <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+                </div>
+                
+                <div class="resultSearch" *ngIf="displaySearch == true">
+                    <div *ngIf="chosenManga" class="mangasList">
+                        <ul *ngFor="let manga of chosenManga, let i = index" class="eachMangas">
+                            <li>
+                                <img src={{manga.photoCover}}>
+                                <p>{{manga.title + " tome : " + manga.tome}}</p>
+                            </li>
+                            <button (click)="onSubmitMangaPack(i)" class="button">Add</button>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    
-        <div class="resultSearch">
-            <div *ngIf="chosenManga">
-                <ul *ngFor="let manga of chosenManga" class="eachMangas">
-                    <li>
-                        <p>{{manga.title + '(' + manga.tome + ')'}}</p>
-                    </li>
-                    <li>
-                        <img src={{manga.photoCover}}>
-                    </li>
-                    <button type="submit" class="button">Add</button>
-                </ul>
-            </div>
-        </div>
-    
-    
     </form>
 </div>
 

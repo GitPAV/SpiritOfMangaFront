@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
-import { StatesService } from 'src/app/services/states.service';
 import { GetPacksService } from 'src/app/services/get-packs.service';
-import { Packs } from 'src/app/common/models/pack.model';
+import { MangaDataService } from 'src/app/services/manga-data.service';
 
 
 @Component({
@@ -21,10 +20,10 @@ export class CreatePackComponent implements OnInit {
     weight: ['', Validators.required],
     prixPublic: ['', Validators.required],
     promo: ['', Validators.required],
-    prixPromo: ['', Validators.required],
-    statesPack_id: ['', Validators.required],
+    prixPromo: [],
     notrePrix: ['', Validators.required],
-    tomes: ['', Validators.required],
+    tomes: [],
+    comment: [],
   });
 
   createMangasPackForm = this.fb.group({
@@ -34,64 +33,97 @@ export class CreatePackComponent implements OnInit {
 
   states = [];
   chosenManga = [];
-  packs : Packs[];
+  chosenPack;
+  listMangas = [];
+  mangasPacks = {};
+  listMangasPacks = [];
+  selectedPack = [];
+  packs = [];
+  packsMangas;
+  id1;
+  idPack;
   id;
   idManga;
-  conditionCreate:boolean = true;
-  conditionModifPack: boolean = false;
+  displaySearch = true;
+  conditionCreate = true;
+  conditionModifPack = false;
 
-  constructor(private fb: FormBuilder, 
-    private packService: GetPacksService,
-    private statesService: StatesService) { }
+  constructor(private fb: FormBuilder,
+              private packService: GetPacksService,
+              private mangaService: MangaDataService,
+              ) { }
 
   ngOnInit() {
-
-    this.statesService.getStates()
-      .subscribe(states => {
-        this.states = states;
-      });
 
     this.packService.getPacks()
       .subscribe(packs => {
         this.packs = packs;
-        console.log(this.packs);
       });
+
   }
 
+  getPacks(event) { // Recupère le pack select de la searchBar
+    this.listMangasPacks = [];
 
-  getChosenManga(event) {
+    this.chosenPack = event[0];
+    this.idPack = this.chosenPack.id;
+    this.packService.getPacksByID(this.idPack)
+    .subscribe(packManga => { // Récupère les mangas contenus dans le pack selectionné
+      this.packsMangas = packManga;
+
+      this.packsMangas.forEach(element => {
+        const value = element.mangas_id;
+        this.mangaService.getMangasById(value)
+        .subscribe(listMangas => {
+          this.mangasPacks = listMangas;
+          this.listMangasPacks.push(this.mangasPacks[0]);
+        });
+      });
+    });
+  }
+
+  getChosenManga(event) { // Recupère le manga select de la searchBar
+    this.displaySearch = true;
     this.chosenManga = event;
-    console.log(this.chosenManga);
-    this.id = this.chosenManga.map((manga) => {
+    this.id1 = this.chosenManga.map((manga) => {
       return manga.id;
     });
-    this.idManga = this.id.join();
+    this.idManga = this.id1.join();
   }
 
+  deleteManga(idManga, index) {
+    const id2 = idManga;
+    const id1 = this.idPack;
+    this.mangaService.deleteMangaPack(id1, id2).subscribe(_ => {
+      this.listMangasPacks.splice(index, 1);
+    });
+  }
 
   onSubmit() {
-    // Call the observable in service with the apropiate http method
-
     const seriesRoute = 'http://localhost:4242/packs/manage-packs';
     this.packService.postPacks(this.createPackForm.value, seriesRoute).subscribe();
     this.createPackForm.reset();
   }
 
-  onSubmitMangaPack() {
+  onSubmitMangaPack(i) {
     const seriesRoute = 'http://localhost:4242/packsMangas/create-packs-mangas';
     this.createMangasPackForm.value.mangas_id = this.idManga;
-    console.log(this.createMangasPackForm.value);
-    this.packService.postPacks(this.createMangasPackForm.value, seriesRoute).subscribe();
+    this.createMangasPackForm.value.packs_id = this.idPack;
+    this.packService.postPacks(this.createMangasPackForm.value, seriesRoute).subscribe(_ => {
+      this.listMangasPacks.push(this.chosenManga[i]);
+    });
+    this.displaySearch = false;
   }
 
-  chosenForm(){
-    if(this.conditionCreate == false){
+  chosenForm() {
+    if (this.conditionCreate === false) {
       this.conditionCreate = !this.conditionCreate;
       this.conditionModifPack = !this.conditionModifPack;
     }
   }
-  chosenForm_1(){  
-    if(this.conditionModifPack == false){
+
+  chosenForm_1() {
+    if (this.conditionModifPack === false) {
       this.conditionCreate = !this.conditionCreate;
       this.conditionModifPack = !this.conditionModifPack;
     }
