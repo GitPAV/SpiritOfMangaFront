@@ -1,0 +1,28 @@
+.theCtn {
+    display: flex;
+}
+
+.cardCtn {
+    width: 15%;
+    height: 15%;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.cardContent {
+    text-align: center;
+    h4 {
+        color: rgb(39, 39, 39);
+        font-weight: bold;
+        font-family: 'Dosis', sans-serif;
+        font-size: 150%;
+        letter-spacing: .1rem;
+    } p {
+            color: rgb(39, 39, 39);
+            font-weight: bold;
+            font-family: 'Asap', sans-serif;
+            font-size: 100%;
+            letter-spacing: .1rem;
+        }
+}
+

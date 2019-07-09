@@ -10,7 +10,7 @@ const routes: Routes = [
   // ************** FRONT OFFICE ********************
 
   {
-    path:'',
+    path: '',
     redirectTo: 'front',
     pathMatch: 'full'
   },
@@ -24,11 +24,11 @@ const routes: Routes = [
   {
     path: 'back',
     loadChildren: './backOffice/pages/back-office-wrapper/backOffice-routing.module#BackRoutingModule',
-    canActivate: [RoleGuardService], 
-    data: { 
+    canActivate: [RoleGuardService],
+    data: {
       expectedRole: 'admin'
     }
-  },
+  }
 ];
 
 @NgModule({

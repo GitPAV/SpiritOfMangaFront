@@ -5,7 +5,6 @@ import { FrontOfficeModule } from './frontOffice.module'
 import { FrontOfficeWrapperComponent } from './front-office-wrapper.component';
 import { HomepageComponent } from '../homepage/homepage.component';
 import { CreateUserComponent } from '../../components/create-user/create-user.component';
-import { CatalogueMangasComponent } from '../catalogue-mangas/catalogue-mangas.component';
 import { CataloguePacksComponent } from '../catalogue-packs/catalogue-packs.component';
 import { PromotionsComponent } from '../promotions/promotions.component';
 import { VendreMangasComponent } from '../vendre-mangas/vendre-mangas.component';
@@ -14,6 +13,7 @@ import { DeliveryFeeFooterComponent } from '../delivery-fee-footer/delivery-fee-
 import { AboutUsFooterComponent } from '../about-us-footer/about-us-footer.component';
 import { UserOpinionFooterComponent } from '../user-opinion-footer/user-opinion-footer.component';
 import { ContactFooterComponent } from '../contact-footer/contact-footer.component';
+import { GalleryMangaComponent } from '../../components/gallery-manga/gallery-manga.component';
 
 export const frontOfficeRouteList: Routes = [
 
@@ -44,7 +44,7 @@ export const frontOfficeRouteList: Routes = [
       },
       {
         path : 'mangas-liste',
-        component : CatalogueMangasComponent
+        component : GalleryMangaComponent
       },
       {
         path : 'promotion',
@@ -84,13 +84,12 @@ export const frontOfficeRouteList: Routes = [
     ]
   }
 ];
-  
-  @NgModule({
-    imports: [
-        FrontOfficeModule,
-        RouterModule.forChild(frontOfficeRouteList),
-        
-    ],
 
-  })
-  export class FrontRoutingModule { }
+@NgModule({
+  imports: [
+      FrontOfficeModule,
+      RouterModule.forChild(frontOfficeRouteList),
+  ],
+
+})
+export class FrontRoutingModule {}
