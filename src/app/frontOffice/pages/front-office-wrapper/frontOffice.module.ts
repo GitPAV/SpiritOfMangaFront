@@ -49,6 +49,7 @@ import { MangaDetailsComponent } from '../../components/manga-details/manga-deta
     UserOpinionFooterComponent,
     ContactFooterComponent,
     GalleryMangaComponent,
+    GalleryMangaPageComponent,
     CardComponent,
     GalleryMangaPageComponent,
     MangaDetailsComponent,
