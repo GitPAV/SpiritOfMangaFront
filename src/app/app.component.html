@@ -1,39 +1,20 @@
- <!-- <div *ngIf="backOfficeOn"> 
-    <div id="bodyBackContent">
-
-        <div id="navbarBack">
-            <app-back-office-page></app-back-office-page>
-        </div>
-        
-        <div id="componentsBack">
-            <router-outlet></router-outlet>
+ <div>
+     <div *ngIf="backOfficeOn"> 
+        <div id="bodyBackContent">
+    
+            <div id="navbarBack">
+                <app-back-office-page></app-back-office-page>
+            </div>
+            
         </div>
     </div> 
 
- <div>
+    <div *ngIf="!backOfficeOn">
+        <app-homepage></app-homepage>
+    </div>
+
+    <div class='routerBack'>
+        <router-outlet></router-outlet>
     </div>
  </div>
 
-<div *ngIf="frontOfficeOn">
-    <app-homepage></app-homepage>
-</div> 
-</div> -->
-
-<!-- ************************ DEV MODE FOR FRONT/BACK OFFICE ***************************** -->
-
-<div> 
-    <div id="bodyBackContent">
-
-        <div id="navbarBack">
-            <app-back-office-page></app-back-office-page>
-        </div>
-        
-        <div id="componentsBack">
-            <router-outlet></router-outlet>
-        </div>
-    </div>
- </div>
-
-<!-- <div>
-    <app-homepage></app-homepage>
-</div> -->

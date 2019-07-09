@@ -1,0 +1,57 @@
+.headerCtn{
+    background-image: url(../../../../assets/img/picTwo.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 72vh;
+}
+
+.headerContent {
+    // background-color: rgba(255, 255, 255, 0.3);
+    background: linear-gradient( rgba(255, 255, 255, 0.3) 60%, black );
+    height: 72vh;
+}
+
+h3{
+    text-align: center;
+    color: #ff7b01;
+    text-shadow: 2px 2px 1px  black;
+    font-weight: bold;
+    font-family: 'Asap', sans-serif;
+    font-size: 180%;
+    letter-spacing: .1rem;
+    padding: 1%;
+}
+
+.theCtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cardCtn {
+    width: 15%;
+    height: 15%;
+    margin-left: 3%;
+    margin-right: 3%;
+    
+}
+
+.cardContent {
+    text-align: center;
+}
+
+.cardContent h4 {
+    color: rgb(224, 223, 223);
+    font-weight: bold;
+    font-family: 'Dosis', sans-serif;
+    font-size: 150%;
+    letter-spacing: .1rem;
+}
+
+.cardContent p {
+    color: rgb(224, 223, 223);
+    font-weight: bold;
+    font-family: 'Asap', sans-serif;
+    font-size: 100%;
+    letter-spacing: .1rem;
+}

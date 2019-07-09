@@ -1,0 +1,17 @@
+@import '../../../../styles.scss';
+
+.footerCtn {
+    background-color: black;
+    color: $orange;
+    text-align: center;
+    padding: 2%;
+    p {
+        font-size: 11px;
+    }
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1.5%;
+}

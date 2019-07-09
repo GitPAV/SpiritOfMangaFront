@@ -10,7 +10,7 @@ import { SwitchFrontToBackService } from '../../../services/switch-front-to-back
 export class NavBarComponent implements OnInit {
   userMail: string;
   adminConnected: boolean;
-  route = 'http://localhost:4242/users/get-users';
+  route = 'http://localhost:4242/users/display-user';
   userConnected;
   loginForm = false;
 
