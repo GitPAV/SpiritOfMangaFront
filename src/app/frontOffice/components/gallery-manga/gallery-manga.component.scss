@@ -1,0 +1,7 @@
+.container {
+    display: grid;
+    grid-template-columns: 22vw 22vw 22vw 22vw;
+    grid-template-rows: auto;
+    justify-items: center;
+    grid-row-gap: 5vh;
+}

@@ -23,6 +23,7 @@ import { UserOpinionFooterComponent } from '../user-opinion-footer/user-opinion-
 import { ContactFooterComponent } from '../contact-footer/contact-footer.component';
 import { GalleryMangaComponent } from '../../components/gallery-manga/gallery-manga.component';
 import { CardComponent } from '../../components/card/card.component';
+import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-page.component';
 
 
 
@@ -47,6 +48,7 @@ import { CardComponent } from '../../components/card/card.component';
     UserOpinionFooterComponent,
     ContactFooterComponent,
     GalleryMangaComponent,
+    GalleryMangaPageComponent,
     CardComponent,
   ],
   imports: [
