@@ -15,6 +15,7 @@ import { UserOpinionFooterComponent } from '../user-opinion-footer/user-opinion-
 import { ContactFooterComponent } from '../contact-footer/contact-footer.component';
 import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-page.component';
 
+
 export const frontOfficeRouteList: Routes = [
 
     // ************** FRONT OFFICE ********************
