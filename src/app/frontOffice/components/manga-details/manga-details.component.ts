@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+
 import { MangaDataService } from '../../../services/manga-data.service';
 
 
@@ -10,18 +12,25 @@ import { MangaDataService } from '../../../services/manga-data.service';
 export class MangaDetailsComponent implements OnInit {
 
   mangas = [];
-  i = 0; // remplacer 0 par l'ID du manga selectionné
-  choosenManga = [];
+  choosenManga: {};
 
-  constructor( private mangadataservice: MangaDataService) { }
+  constructor(private mangadataservice: MangaDataService,
+              private activatedRoute: ActivatedRoute,
+    ) {
+      this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+        this.mangadataservice.getMangas().subscribe(mangas => {
+          this.mangas = mangas;
+          console.log(this.mangas);
+          
+          const mangaId = parseInt(params.get('mangaID'));
+          this.choosenManga = this.mangas[mangaId];
+          console.log(this.choosenManga);
+        });
+      });
+     }
 
   ngOnInit() {
-    this.mangadataservice.getMangas().subscribe(mangas => {
-      this.mangas = mangas;
-      // Change la value du I par l'ID du manga selectionné
-      this.choosenManga = this.mangas[this.i];
-      console.log(this.choosenManga);
-    });
+
 
   }
 
