@@ -9,18 +9,33 @@ import { StockMangaComponent } from './backOffice/components/stock-manga/stock-m
 import { HomepageComponent } from './frontOffice/pages/homepage/homepage.component';
 import { GalleryMangaPageComponent } from './frontOffice/pages/gallery-manga-page/gallery-manga-page.component';
 
+import { RoleGuardService } from './common/security/role-guard.service';
+
+
+
 const routes: Routes = [
+
+  // ************** FRONT OFFICE ********************
+
   {
-    path:'form-manga',
-    component: CreateMangaComponent
+    path:'',
+    redirectTo: 'front',
+    pathMatch: 'full'
   },
   {
-    path: 'form-user',
-    component: FormComponent
+    path: 'front',
+    loadChildren: './frontOffice/pages/front-office-wrapper/frontOffice-routing.module#FrontRoutingModule'
   },
+
+  // ************** BACK OFFICE ********************
+
   {
-    path: 'update-manga',
-    component: UpdateMangaComponent
+    path: 'back',
+    loadChildren: './backOffice/pages/back-office-wrapper/backOffice-routing.module#BackRoutingModule',
+    canActivate: [RoleGuardService], 
+    data: { 
+      expectedRole: 'admin'
+    }
   },
   { 
     path: 'manage-series', 

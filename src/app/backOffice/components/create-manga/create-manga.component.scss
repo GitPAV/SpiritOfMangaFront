@@ -1,0 +1,115 @@
+@import '../../../common/styles/back-office.scss';
+
+.main {
+    padding: 70px;
+    .form {
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows:repeat(6,100px) ; 
+        grid-template-areas: 
+        "formTitle . ."
+        "mangaTitle image cleanPrice"
+        "author tome public"
+        "editeur weight serie"
+        "description description ."
+        ". type button";
+
+        .formTitle {
+            grid-area: formTitle;
+            font-size: 30px;
+        }
+
+        .mangaTitle {
+            grid-area: mangaTitle;
+            .input {
+                border:4px solid #FF8D30 ;
+            }
+        }
+
+        .serie {
+            grid-area: serie;
+        }
+        
+        .prixNeuf {
+            grid-area: cleanPrice;
+            .input {
+                border:4px solid #FF8D30 ;
+            }
+        }
+
+        .auteur {
+            grid-area: author;
+            flex-direction: column;
+            .input {
+                border:4px solid #FF8D30 ;
+            }
+        }
+        
+        .tome {
+            grid-area: tome;
+            .input {
+                border:4px solid #FF8D30 ;
+            }
+        }
+        
+        .public {
+            grid-area: public;
+            .input {
+                border:4px solid #FF8D30 ;
+            }
+        }
+        
+        .editeur {
+            grid-area: editeur;
+            .input {
+                border:4px solid #FF8D30 ;
+            }
+        }
+
+
+        .photoCover {
+            grid-area: image;
+            .input {
+                border:4px solid #FF8D30 ;
+            }
+        }
+        
+
+        .public-price {
+            grid-area: public;
+            .input {
+                border:4px solid #FF8D30 ;
+            }
+    }
+        .resume {
+            grid-area: description;
+            .toto {
+                width: 100% !important;
+                .textarea {
+                    border:4px solid #FF8D30 ;
+                }
+            }  
+        }
+
+        .weight {
+            grid-area: weight;
+            .input {
+                border:4px solid #FF8D30 ;
+            }
+        }
+
+        .create {
+            grid-area: button;
+            text-align: center;
+            .button {
+            background-color:#FF8D30 ;
+            }
+        }
+    }    
+}
+
+.errorMessage {
+    color: #FF8D30;
+    font-size: 16px;
+}

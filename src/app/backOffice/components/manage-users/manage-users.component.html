@@ -1,0 +1,10 @@
+<p> ---------------------- </p>
+
+<div>
+  <li *ngFor="let user of userList">
+    <a routerLink="utilisateurs/{{user.id}}" (click)="getUserById(user.id)">
+      {{ user.id }}
+      {{ user.pseudo}}
+    </a>
+  </li>
+</div>

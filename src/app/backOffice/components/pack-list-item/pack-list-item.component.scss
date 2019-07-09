@@ -1,0 +1,9 @@
+@import '../../../../styles.scss';
+
+.main{
+    background-color: rgba($grey,0.6);
+    border: 3px solid $grey; 
+    color: black;
+    padding: 20px;
+    margin: 15px;
+}

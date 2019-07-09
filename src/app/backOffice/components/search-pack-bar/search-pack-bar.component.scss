@@ -1,0 +1,35 @@
+@import '../../../../styles.scss';
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+.searchBarDiv{
+    text-align: center;
+}
+}
+#searchBar {
+    width: 75%;
+    border: 1px solid black;
+}
+.packTable {
+    width: 75%;
+    height: fit-content;
+    margin-bottom: 5vh;
+    display : flex;
+    flex-direction: column;
+    background-color: rgba(45,52,65,1);
+    text-align: center;
+    margin: 0 auto;
+
+
+    .titlesSearched {
+        color: white;
+        padding-top: 1vh;
+        cursor: pointer;
+    }
+}
+
+.modifForm {
+    margin-top:40px;
+}
