@@ -12,7 +12,6 @@ import { CardMangaComponent } from '../../components/card-manga/card-manga.compo
 import { FrontOfficeWrapperComponent } from './front-office-wrapper.component';
 import { CreateUserComponent } from '../../components/create-user/create-user.component';
 import { UserLoginComponent } from 'src/app/frontOffice/components/user-login/user-login.component';
-import { CatalogueMangasComponent } from '../catalogue-mangas/catalogue-mangas.component';
 import { AlertButtonComponent } from '../../components/alert-button/alert-button.component';
 import { CataloguePacksComponent } from '../catalogue-packs/catalogue-packs.component';
 import { PromotionsComponent } from '../promotions/promotions.component';
@@ -22,6 +21,9 @@ import { DeliveryFeeFooterComponent } from '../delivery-fee-footer/delivery-fee-
 import { AboutUsFooterComponent } from '../about-us-footer/about-us-footer.component';
 import { UserOpinionFooterComponent } from '../user-opinion-footer/user-opinion-footer.component';
 import { ContactFooterComponent } from '../contact-footer/contact-footer.component';
+import { GalleryMangaComponent } from '../../components/gallery-manga/gallery-manga.component';
+import { CardComponent } from '../../components/card/card.component';
+
 
 
 @NgModule({
@@ -35,7 +37,6 @@ import { ContactFooterComponent } from '../contact-footer/contact-footer.compone
     FrontFooterComponent,
     CreateUserComponent,
     UserLoginComponent,
-    CatalogueMangasComponent,
     AlertButtonComponent,
     CataloguePacksComponent,
     PromotionsComponent,
@@ -45,6 +46,8 @@ import { ContactFooterComponent } from '../contact-footer/contact-footer.compone
     AboutUsFooterComponent,
     UserOpinionFooterComponent,
     ContactFooterComponent,
+    GalleryMangaComponent,
+    CardComponent,
   ],
   imports: [
     CommonModule,
