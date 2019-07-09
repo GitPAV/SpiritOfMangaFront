@@ -26,6 +26,7 @@ import { MangaListItemComponent } from '../../components/manga-list-item/manga-l
 import { UserDetailsComponent } from '../../components/user-details/user-details.component';
 import { DisponibilityAlertsComponent } from '../../components/disponibility-alerts/disponibility-alerts.component';
 import { ManageHomeComponent } from '../../components/manage-home/manage-home.component';
+import { ArchiveOrderComponent } from '../../components/archive-order/archive-order.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ManageHomeComponent } from '../../components/manage-home/manage-home.co
     UserDetailsComponent,
     DisponibilityAlertsComponent,
     ManageHomeComponent,
+    ArchiveOrderComponent
   ],
   imports: [
     CommonModule,

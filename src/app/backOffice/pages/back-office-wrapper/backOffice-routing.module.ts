@@ -13,7 +13,7 @@ import { ManageUsersComponent } from '../../components/manage-users/manage-users
 import { DisponibilityAlertsComponent } from '../../components/disponibility-alerts/disponibility-alerts.component';
 import { UserDetailsComponent } from '../../components/user-details/user-details.component';
 import { ManageHomeComponent } from '../../components/manage-home/manage-home.component';
-
+import { ArchiveOrderComponent } from '../../components/archive-order/archive-order.component';
 
 export const backOfficeRouteList: Routes = [
 
@@ -66,6 +66,10 @@ export const backOfficeRouteList: Routes = [
       {
         path: 'gerer-utilisateurs/utilisateurs/:id',
         component: UserDetailsComponent
+      },
+      {
+        path: 'commande-archive',
+        component: ArchiveOrderComponent
       },
       {
         // redirection provisoire en attente de mieux
