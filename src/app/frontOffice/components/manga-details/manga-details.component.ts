@@ -20,18 +20,15 @@ export class MangaDetailsComponent implements OnInit {
       this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
         this.mangadataservice.getMangas().subscribe(mangas => {
           this.mangas = mangas;
-          console.log(this.mangas);
-          
+          // tslint:disable-next-line: radix
           const mangaId = parseInt(params.get('mangaID'));
-          this.choosenManga = this.mangas[mangaId];
+          this.choosenManga = this.mangas[mangaId - 1];
           console.log(this.choosenManga);
         });
       });
      }
 
   ngOnInit() {
-
-
   }
 
 }

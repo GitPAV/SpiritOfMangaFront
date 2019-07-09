@@ -63,7 +63,7 @@ export const frontOfficeRouteList: Routes = [
       // MANGAS BY ID
 
       {
-        path : 'manga/:mangaID',
+        path : 'mangas-liste/:mangaID',
         component : FullMangaComponent
       },
 

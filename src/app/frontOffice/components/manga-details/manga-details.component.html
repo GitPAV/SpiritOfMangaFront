@@ -1,8 +1,10 @@
 <div class="bodyContent">
+  <div class="imgBlur">
   <div class="mangaDetails">
-      <img src={{choosenManga.photoCover}}>
-      ID : {{choosenManga.id}}
-      Titre : {{choosenManga.title}}
-
+      <img [src]="choosenManga.photoCover">
+      <div class="mangaTxt">
+      <h3>{{choosenManga.title}}</h3>
+      </div>
+    </div>
   </div>
 </div>
