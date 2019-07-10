@@ -1,10 +1,11 @@
 @import '../../../../styles.scss';
 
 .main{
-    background-color: rgba($grey,0.6); 
-    border: 3px solid $grey; 
+    background-color: rgba(white,0.6); 
+    border: 3px solid white; 
     color: black;
+    display: flex;
     margin: 15px;
     padding: 20px;
-
+    width:300px;
 }
