@@ -10,6 +10,7 @@ export class MangaDataService {
   publicsUrl = 'http://localhost:4242/publics/manage-publics';
   mangasUrl = 'http://localhost:4242/mangas/manage-mangas';
   mangasUrlID = 'http://localhost:4242/mangas/manage-mangas/';
+  mangasStatesUrl = 'http://localhost:4242/statesMangas/manage-states-mangas/';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
   seriePublicUrl = 'http://localhost:4242/mangas/series';
   packsMangasUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas';
@@ -39,6 +40,10 @@ export class MangaDataService {
 
   getMangaById(id: number): Observable<Mangas[]> {
     return this.http.get<Mangas[]>(`${this.mangasUrl}/${id}`);
+  }
+
+  getMangasStatesById(id: number){
+    return this.http.get(this.mangasStatesUrl + id)
   }
 
   updateManga(manga): Observable<any> {

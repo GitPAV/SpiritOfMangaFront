@@ -4,6 +4,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { MangaDataService } from '../../../services/manga-data.service';
 import { SeriesService } from '../../../services/series.service';
 import { TypesServiceService } from '../../../services/types-service.service';
+import { GenresService } from '../../../services/genres.service';
+import { StatesService } from '../../../services/states.service';
 
 import { Mangas } from 'src/app/common/models/manga.model';
 
@@ -20,6 +22,10 @@ export class MangaDetailsComponent implements OnInit {
   mangas = [];
   series = [];
   types = [];
+  states = [];
+  statesMangas;
+  statesID;
+  displayState;
   choosenManga: Mangas;
   choosenSerie: {
     desciption;
@@ -29,10 +35,15 @@ export class MangaDetailsComponent implements OnInit {
     types_id;
   };
   choosenType;
+  genres;
+  prixTTC;
+  genresDisplay = "";
 
   constructor(private mangadataservice: MangaDataService,
               private seriesService: SeriesService,
               private typeService: TypesServiceService,
+              private genresService: GenresService,
+              private stateService: StatesService,
               private activatedRoute: ActivatedRoute) {
 
               this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
@@ -48,14 +59,36 @@ export class MangaDetailsComponent implements OnInit {
                     this.choosenSerie = this.series[this.choosenManga.series_id - 1]; // Récupère la série du Manga
                     console.log(this.choosenSerie);
                     this.choosenType = this.types[this.choosenSerie.types_id - 1]; // Récupère le type de la Série
+
+                    this.genresService.getGenresId(this.choosenManga.series_id).subscribe(genres => { // Récupère les genres de la Série
+                      this.genres = JSON.parse(genres);
+                      console.log(this.genres);
+                      // tslint:disable-next-line: prefer-for-of
+                      for (let i = 0 ; i < this.genres.length;  i++) { // Push les genres de la Série dans "genresDisplay"
+                        this.genresDisplay = this.genresDisplay + this.genres[i].name + ' / ';
+                      }
+                      this.genresDisplay = this.genresDisplay.substr(0 , this.genresDisplay.length - 2);
+                    });
                   });
+
+                  this.mangadataservice.getMangasStatesById(this.mangaId).subscribe(statesMangas => { // Récupère 2nd part des DATA du manga
+                    this.statesMangas = statesMangas;
+                    this.prixTTC = this.statesMangas[0].prixTTC; // Recupere prix TTC du manga
+                    this.statesID = this.statesMangas[0].states_id;
+                    this.displayState = this.states[this.statesID - 1].name; // Récupere etat du manga
+                  });
+
                 });
+
               });
             }
 
 ngOnInit() {
     this.typeService.getTypes().subscribe(types => {
       this.types = types;
+    });
+    this.stateService.getStates().subscribe(states => {
+      this.states = states;
     });
   }
 

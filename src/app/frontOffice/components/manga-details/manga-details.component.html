@@ -6,7 +6,7 @@
         <h3>{{choosenManga.title}}</h3>
         <h5>Tome {{choosenManga.tome}}</h5>
         <div class="txtRow">
-          <h5>Genres :</h5><em> * TO IMPORT *</em>
+          <h5>Genres :</h5><em>{{genresDisplay}}</em>
         </div>
         <div class="txtRow">
           <h5>Type :</h5><em>{{choosenType.name}}</em>
@@ -21,10 +21,10 @@
           <h5>Prix public :</h5><em>{{choosenManga.prixNeuf}}€</em>
         </div>
         <div class="txtRow">
-          <h5>Notre Prix :</h5><em> * TO IMPORT *</em>
+          <h5>Notre Prix :</h5><em>{{prixTTC}}€</em>
         </div>
         <div class="txtRow">
-          <h5>Etat :</h5><em> * TO IMPORT *</em>
+          <h5>Etat :</h5><em> {{displayState}}</em>
         </div>
         <div class="txtRow">
           <p>{{choosenManga.resume}}</p>
