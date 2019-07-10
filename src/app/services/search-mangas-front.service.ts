@@ -12,12 +12,24 @@ export class SearchMangasFrontService {
   getMangasUrl = 'http://localhost:4242/mangas/manage-mangas';
   filterGenresUrl = 'http://localhost:4242/search/filter-genres';
   filterTypesUrl = 'http://localhost:4242/search/filter-types';
+  searchUrl = 'http://localhost:4242/mangas/search-mangas';
 
   constructor(private http: HttpClient) { }
 
   getMangas(): Observable<any> {
     this.mangasToDisplay = this.http.get(`${this.getMangasUrl}`)
     return this.mangasToDisplay
+  }
+
+  getSearchedTitle(title: string): Observable<any> {
+    return this.http.get(`${this.searchUrl}/${title}`);
+  }
+
+  sendResearch(title) {
+    this.getSearchedTitle(title).subscribe( mangas => {
+      this.mangasToDisplay = mangas
+      this.sendMangas.emit(this.mangasToDisplay)
+    })
   }
 
   sendDatasGenre(id) {

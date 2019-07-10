@@ -1,7 +1,7 @@
 <div class="galleryBlk"> 
 
   <div class="searchBar">
-    <input type="text" placeholder="Rechercher">
+    <input type="text" #searchText (input)='getSearchedManga(searchText.value)' placeholder="Rechercher">
 
     <select (change)="searchByType($event.target.value)">
         <option>Recherche par type</option>

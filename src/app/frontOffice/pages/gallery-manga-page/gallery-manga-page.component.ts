@@ -26,6 +26,10 @@ export class GalleryMangaPageComponent implements OnInit {
     })
   }
 
+  getSearchedManga(search){
+    this.mangaDataService.sendResearch(search)
+  }
+
   searchByGenre(genreId) {
     this.mangaDataService.sendDatasGenre(genreId)
   }
