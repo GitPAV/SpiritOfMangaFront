@@ -1,3 +1,12 @@
-<p>
-  panier works!
-</p>
+<div class="main">
+  <div class="listItem" *ngFor="let item of itemsOrdered">
+    <div *ngFor="let manga of item">
+      <img [src]='manga.photoCover'>
+      <p>{{manga.title}}</p>
+      <p>{{manga.tome}}</p>
+      <p>{{manga.auteur}}</p>
+      <p>{{manga.prixTTC}}</p>
+      <p>{{manga.name}}</p>
+    </div>
+  </div>
+</div>

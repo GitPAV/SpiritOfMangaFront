@@ -17,6 +17,7 @@ import { Mangas } from 'src/app/common/models/manga.model';
 export class MangaDetailsComponent implements OnInit {
 
   mangaId;
+  stateMangaId = 1; // Id to get when statesMangas will be called
   mangas = [];
   series = [];
   types = [];

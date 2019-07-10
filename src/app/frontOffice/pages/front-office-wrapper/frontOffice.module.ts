@@ -26,7 +26,7 @@ import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-p
 import { MangaDetailsComponent } from '../../components/manga-details/manga-details.component';
 import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { OrderButtonComponent } from '../../components/order-button/order-button.component';
-
+import { PanierComponent } from '../../../frontOffice/pages/panier/panier.component'
 
 
 
@@ -57,6 +57,7 @@ import { OrderButtonComponent } from '../../components/order-button/order-button
     MangaDetailsComponent,
     FullMangaComponent,
     OrderButtonComponent,
+    PanierComponent,
   ],
   imports: [
     CommonModule,
