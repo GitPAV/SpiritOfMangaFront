@@ -14,6 +14,7 @@ import { AboutUsFooterComponent } from '../about-us-footer/about-us-footer.compo
 import { UserOpinionFooterComponent } from '../user-opinion-footer/user-opinion-footer.component';
 import { ContactFooterComponent } from '../contact-footer/contact-footer.component';
 import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-page.component';
+import { FullMangaComponent } from '../full-manga/full-manga.component';
 
 export const frontOfficeRouteList: Routes = [
 
@@ -57,6 +58,13 @@ export const frontOfficeRouteList: Routes = [
       {
         path : 'vendre-manga',
         component : VendreMangasComponent
+      },
+
+      // MANGAS BY ID
+
+      {
+        path : 'mangas-liste/:mangaID',
+        component : FullMangaComponent
       },
 
       // FOOTER
