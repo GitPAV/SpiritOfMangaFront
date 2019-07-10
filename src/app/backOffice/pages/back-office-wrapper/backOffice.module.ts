@@ -29,7 +29,7 @@ import { ManageHomeComponent } from '../../components/manage-home/manage-home.co
 import { ArchiveOrderComponent } from '../../components/archive-order/archive-order.component';
 import { ArchivePackListItemComponent } from '../../components/archive-pack-list-item/archive-pack-list-item.component';
 import { ArchiveMangaListItemComponent } from '../../components/archive-manga-list-item/archive-manga-list-item.component';
-
+import { ArchiveUsersListComponent } from '../../components/archive-users-list/archive-users-list.component';
 @NgModule({
   declarations: [
     BackOfficeWrapperComponent,
@@ -57,7 +57,9 @@ import { ArchiveMangaListItemComponent } from '../../components/archive-manga-li
     ManageHomeComponent,
     ArchiveOrderComponent,
     ArchivePackListItemComponent,
-    ArchiveMangaListItemComponent
+    ArchiveMangaListItemComponent,
+    ArchiveUsersListComponent,
+
   ],
   imports: [
     CommonModule,

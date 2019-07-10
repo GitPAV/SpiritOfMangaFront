@@ -12,6 +12,7 @@ export class ArchiveOrderComponent implements OnInit {
   mangaArchiveOrderTable = [];
   conditionPacks: Boolean = true;
   conditionMangas: Boolean = false;
+  conditionUsers: Boolean = false;
 
   constructor(private ArchiveOrderServive: ArchiveOrderService) { }
 
@@ -40,15 +41,25 @@ export class ArchiveOrderComponent implements OnInit {
   showPacks(){
     if(this.conditionPacks === false){
       this.conditionPacks = !this.conditionPacks;
-      this.conditionMangas = !this.conditionMangas;
+      this.conditionMangas = false;
+      this.conditionUsers = false;
     }
   }
 
   showMangas(){
     if(this.conditionMangas === false){
       this.conditionMangas = !this.conditionMangas;
-      this.conditionPacks = !this.conditionPacks;
+      this.conditionPacks = false;
+      this.conditionUsers = false;
     }  
+  }
+
+  showUsers(){
+    if(this.conditionUsers === false){
+      this.conditionUsers = true;
+      this.conditionPacks = false;
+      this.conditionMangas = false;
+    }
   }
 
   underlinePack(){
@@ -57,5 +68,8 @@ export class ArchiveOrderComponent implements OnInit {
 
   underlineManga(){
     return this.conditionMangas ? 'underline' : '';
+  }
+  underlineUser(){
+    return this.conditionUsers ? 'underline' : '';
   }
 }

@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 export class ArchiveOrderService {
   archiveOrderUrl = 'http://localhost:4242/finalOrderArchive/manage-final-order-archive';
   mangaArchiveOrderUrl= 'http://localhost:4242/finalOrderArchive/manage-final-order-archive-manga';
+  archiveUserList=''
 
   constructor(private http: HttpClient) { }
 
