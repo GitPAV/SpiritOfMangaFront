@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
   ngOnInit(){
 
     localStorage.getItem('backOfficeOn') === 'true' ? this.backOfficeOn = true : this.backOfficeOn = false
-    console.log(localStorage.getItem('backOfficeOn'))
 
     this.frontToBack.sendBool.subscribe(bool => {
         this.backOfficeOn = bool;

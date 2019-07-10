@@ -39,7 +39,6 @@ export class LoginService {
   }
 
   getUserConnected(): Observable<User>{
-    console.log(this.getUserByMail)
     return this.http.get<User>(`${this.getUserByMail}/${this.userConnectedMail}`)
   }
 
