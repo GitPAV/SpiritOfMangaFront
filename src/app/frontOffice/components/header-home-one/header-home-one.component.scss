@@ -17,41 +17,42 @@ h3{
     text-shadow: 2px 2px 1px  black;
     font-weight: bold;
     font-family: 'Asap', sans-serif;
-    font-size: 180%;
+    font-size: 2em;
     letter-spacing: .1rem;
     padding: 1%;
 }
 
 .theCtn {
     display: flex;
-    flex-direction: row;
-    align-items: center;
+
 }
 
 .cardCtn {
-    width: 15%;
-    height: 15%;
     margin-left: 3%;
     margin-right: 3%;
-    
 }
 
 .cardContent {
+    object-fit: cover;
     text-align: center;
-}
-
-.cardContent h4 {
-    color: rgb(224, 223, 223);
-    font-weight: bold;
-    font-family: 'Dosis', sans-serif;
-    font-size: 150%;
-    letter-spacing: .1rem;
-}
-
-.cardContent p {
-    color: rgb(224, 223, 223);
-    font-weight: bold;
-    font-family: 'Asap', sans-serif;
-    font-size: 100%;
-    letter-spacing: .1rem;
+    h4 {
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-family: 'Dosis', sans-serif;
+        font-size: 1.4em;
+        letter-spacing: .1rem;
+        line-height: 1.2em;
+    } p {
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+            font-family: 'Asap', sans-serif;
+            font-size: 0.9em;
+            letter-spacing: .1rem;
+    } img {
+        width: 14vw;
+        height: 43vh;
+        object-fit: cover;
+        border: solid 1px white;
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
+    }
 }
