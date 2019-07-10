@@ -1,14 +1,16 @@
 <div class="galleryBlk"> 
 
   <div class="searchBar">
-    <input type="text" placeholder="Rechercher">
+    <input type="text" #searchText (input)='getSearchedManga(searchText.value)' placeholder="Rechercher">
 
-    <select>
-        <option>type</option>
+    <select (change)="searchByType($event.target.value)">
+        <option>Recherche par type</option>
+        <option *ngFor="let type of types" [value]="type.id">{{ type.name }}</option>
     </select>
 
-    <select>
-        <option>genre</option>
+    <select (change)="searchByGenre($event.target.value)">
+        <option>Recherche par genre</option>
+        <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
     </select>
   </div>
 
