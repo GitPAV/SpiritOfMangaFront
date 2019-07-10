@@ -22,7 +22,6 @@ export class GenresService {
   }
 
   deleteKind(id) {
-    console.log(id)
     return this.http.delete(`http://localhost:4242/genresMangas/manage-genres-mangas/${id}`).toPromise();
   }
   
