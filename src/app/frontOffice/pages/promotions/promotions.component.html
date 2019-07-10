@@ -1,3 +1,9 @@
-<p>
-  promotions works!
-</p>
+<app-header-home-two></app-header-home-two>
+<!-- <app-card-promo></app-card-promo> -->
+<div class="container">
+    <div *ngFor="let manga of mangas" >
+        <div >
+            <app-card-promo  [manga]="manga"></app-card-promo>   
+        </div>  
+    </div> 
+</div>

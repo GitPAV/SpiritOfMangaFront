@@ -5,9 +5,11 @@
     <div class="theCtn">
         <div class="cardCtn" *ngFor="let manga of mangasToDisplay">
             <div class="cardContent">
+                <div class="promo"><p>-{{manga.promoValue}}%</p></div>
+                <div class="price"><p>{{manga.prixTTC}}€</p></div>
                 <img [src]="manga.photoCover"> 
                 <h4>{{manga.title}}</h4>
-                <p>{{manga.tome}}</p>
+                <p>TOME  {{manga.tome}}</p>
             </div>
         </div>
     </div>

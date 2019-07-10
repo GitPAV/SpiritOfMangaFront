@@ -26,6 +26,7 @@ import { CardComponent } from '../../components/card/card.component';
 import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-page.component';
 import { GalleryPackComponent } from '../../components/gallery-pack/gallery-pack.component';
 import { CardPackComponent } from '../../components/card-pack/card-pack.component';
+import { CardPromoComponent } from '../../components/card-promo/card-promo.component';
 
 
 
@@ -54,7 +55,8 @@ import { CardPackComponent } from '../../components/card-pack/card-pack.componen
     CardComponent,
     GalleryMangaPageComponent,
     GalleryPackComponent,
-    CardPackComponent
+    CardPackComponent,
+    CardPromoComponent,
   ],
   imports: [
     CommonModule,

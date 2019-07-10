@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MangaDataService } from '../../../services/manga-data.service';
 
 @Component({
   selector: 'app-promotions',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PromotionsComponent implements OnInit {
 
-  constructor() { }
+  mangas ;
+  
+  constructor(private mangadataservice: MangaDataService) { }
 
   ngOnInit() {
+    this.mangadataservice.getPromotedManga().subscribe(mangas => {
+      this.mangas = mangas;
+      console.log(this.mangas)
+    });
   }
 
 }
