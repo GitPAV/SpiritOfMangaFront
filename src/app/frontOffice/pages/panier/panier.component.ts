@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from '../../../services/basket.service';
+import decode from 'jwt-decode';
 
 @Component({
   selector: 'app-panier',
@@ -8,11 +9,14 @@ import { BasketService } from '../../../services/basket.service';
 })
 export class PanierComponent implements OnInit {
   itemsOrdered = [];
+  firstname;
+  lastname;
 
   constructor(private basketService: BasketService) { }
 
   ngOnInit() {
     this.getOrderedMangas()
+    this.getToken()
   }
 
   getOrderedMangas() {
@@ -26,7 +30,19 @@ export class PanierComponent implements OnInit {
     })
   }
 
+  getToken(){
+    const token = localStorage.getItem('token')
+    const tokenPayload = decode(token)
+    this.firstname = tokenPayload.firstname
+    this.lastname = tokenPayload.lastname
+  }
 
-
+  removeItemStorage(i){
+    let datas = JSON.parse(sessionStorage.getItem("ordersList"))
+    datas = datas.splice(i)
+    sessionStorage.removeItem("ordersList")
+    datas = JSON.stringify(datas)
+    sessionStorage.setItem("ordersList",datas)
+  }
 
 }

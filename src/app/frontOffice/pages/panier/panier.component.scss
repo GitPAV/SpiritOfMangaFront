@@ -1,0 +1,26 @@
+@import '../../../../styles.scss';
+
+.main {
+    .userName{
+        text-align: center;
+        font-size: 30px;
+    }
+    .listItem{
+
+        .listA{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        img {
+            height:150px;
+            margin-right:20px;
+        }
+        p{
+            margin:20px;
+            font-size: 20px;
+
+        }
+    }
+    }
+}

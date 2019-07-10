@@ -1,12 +1,17 @@
 <div class="main">
-  <div class="listItem" *ngFor="let item of itemsOrdered">
-    <div *ngFor="let manga of item">
+  <div class="userName">
+    <p>Panier de {{lastname}}</p>
+  </div>
+  <div class="listItem" *ngFor="let item of itemsOrdered; let i = index">
+    <div *ngFor="let manga of item" class="listA">
       <img [src]='manga.photoCover'>
       <p>{{manga.title}}</p>
       <p>{{manga.tome}}</p>
       <p>{{manga.auteur}}</p>
       <p>{{manga.prixTTC}}</p>
       <p>{{manga.name}}</p>
+      <button (click)="removeItemStorage(i)">Supprimer</button>
+      
     </div>
   </div>
 </div>
