@@ -11,7 +11,7 @@ export class SearchMangasFrontService {
   @Output() sendMangas = new EventEmitter()
   getMangasUrl = 'http://localhost:4242/mangas/manage-mangas';
   filterGenresUrl = 'http://localhost:4242/search/filter-genres';
-  filterTypesUrl = 'http://localhost:4242/search/filter-types/:id';
+  filterTypesUrl = 'http://localhost:4242/search/filter-types';
 
   constructor(private http: HttpClient) { }
 
