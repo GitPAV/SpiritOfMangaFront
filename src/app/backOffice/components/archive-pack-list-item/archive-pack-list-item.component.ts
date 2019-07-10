@@ -6,12 +6,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./archive-pack-list-item.component.scss']
 })
 export class ArchivePackListItemComponent implements OnInit {
-
+ 
   @Input()packItem:any;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.packItem)
   }
 
 }

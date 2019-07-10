@@ -10,6 +10,7 @@ export class ArchiveMangaListItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.mangaItem)
   }
 
 }

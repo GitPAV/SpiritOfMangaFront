@@ -18,12 +18,14 @@ export class ArchiveOrderComponent implements OnInit {
   ngOnInit() {
     this.getArchiveOrder();
     this.getMangaArchiveOrder();
+    
   }
 
   getArchiveOrder(){
     this.ArchiveOrderServive.getArchiveOrder().subscribe(
       item => {
         this.archiveOrderTable = item;
+        console.log(this.archiveOrderTable)
       }
     )
   }

@@ -16,7 +16,7 @@
 
   <div class="listItem">
     <div class="packOrder" *ngIf="conditionPacks"> 
-      <div *ngFor="let item of archiveOrderTable">
+      <div *ngFor="let item of archiveOrderTable; let i = index">
         <app-archive-pack-list-item [packItem]="item"></app-archive-pack-list-item>
       </div>
     </div>
