@@ -5,13 +5,14 @@
   <div class="listItem" *ngFor="let item of itemsOrdered; let i = index">
     <div *ngFor="let manga of item" class="listA">
       <img [src]='manga.photoCover'>
-      <p>{{manga.title}}</p>
-      <p>{{manga.tome}}</p>
-      <p>{{manga.auteur}}</p>
-      <p>{{manga.prixTTC}}</p>
-      <p>{{manga.name}}</p>
-      <button (click)="removeItemStorage(i)">Supprimer</button>
-      
+      <p>Titre : {{manga.title}}</p>
+      <p>Tome {{manga.tome}}</p>
+      <p>Auteur : {{manga.auteur}}</p>
+      <p>Prix : {{manga.prixTTC}}</p>
+      <p>État : {{manga.name}}</p>
+      <button (click)="removeItemStorage(i)">SUPPRIMER</button>
     </div>
   </div>
+  <p>Prix total : {{ prixTotal }} euros</p>
+  <button type="text">VALIDER LE PANIER</button>
 </div>

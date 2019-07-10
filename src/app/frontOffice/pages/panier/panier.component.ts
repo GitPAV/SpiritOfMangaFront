@@ -11,6 +11,7 @@ export class PanierComponent implements OnInit {
   itemsOrdered = [];
   firstname;
   lastname;
+  prixTotal: number = 0;
 
   constructor(private basketService: BasketService) { }
 
@@ -25,6 +26,7 @@ export class PanierComponent implements OnInit {
       this.basketService.getOrderedManga(item.manga, item.state).subscribe(
         manga => {
           this.itemsOrdered.push(manga)
+          this.prixTotal += manga[0].prixTTC
         }
       )
     })
@@ -37,6 +39,7 @@ export class PanierComponent implements OnInit {
     this.lastname = tokenPayload.lastname
   }
 
+// Put logic into a service and make itemsOrdered subscribe to an event emitter
   removeItemStorage(i){
     let datas = JSON.parse(sessionStorage.getItem("ordersList"))
     datas = datas.splice(i)
