@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ArchiveOrderService {
   archiveOrderUrl = 'http://localhost:4242/finalOrderArchive/manage-final-order-archive';
   mangaArchiveOrderUrl= 'http://localhost:4242/finalOrderArchive/manage-final-order-archive-manga';
-  archiveUserList=''
+  archiveUserList='http://localhost:4242/finalOrderArchive/manage-list-user-archive';
 
   constructor(private http: HttpClient) { }
 
@@ -18,5 +18,9 @@ export class ArchiveOrderService {
 
   getMangaArchiveOrder(): Observable<any> {
     return this.http.get(this.mangaArchiveOrderUrl)
+  }
+
+  getListUsersArchive(): Observable<any> {
+    return this.http.get(this.archiveUserList)
   }
 }

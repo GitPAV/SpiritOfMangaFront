@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ArchiveOrderService } from '../../../services/archive-order.service'
 
 @Component({
   selector: 'app-archive-users-list',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./archive-users-list.component.scss']
 })
 export class ArchiveUsersListComponent implements OnInit {
-
-  constructor() { }
+listUsers; 
+  constructor(private archiveOrderService: ArchiveOrderService) { }
 
   ngOnInit() {
+    this.getListUser()
+    console.log(this.listUsers)
+  }
+
+  getListUser(){
+    return this.archiveOrderService.getListUsersArchive().subscribe(
+      item => {
+        this.listUsers = item
+        console.log(item)
+      }
+    )
   }
 
 }

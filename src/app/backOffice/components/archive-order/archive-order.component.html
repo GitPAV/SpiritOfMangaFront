@@ -6,12 +6,19 @@
     <p (click)="showUsers()" [ngStyle]="{ textDecoration: underlineUser() }">USERS</p>
   </div>
 
-  <div class="header">
+  <div class="header" *ngIf="conditionHeader">
     <ul>
       <li>Titre (et tome)</li>
       <li>Client</li>
       <li></li>
       <li>date d'achat/Quantité</li>
+    </ul>
+  </div>
+
+  <div class="headerUser" *ngIf="conditionHeaderUser">
+    <ul>
+      <li>Prénom</li>
+      <li>Nom</li>
     </ul>
   </div>
 

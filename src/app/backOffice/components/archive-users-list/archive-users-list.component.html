@@ -1,3 +1,4 @@
-<p>
-  archive-users-list works!
-</p>
+<div class="main" *ngFor="let user of listUsers">
+  <p>{{user.firstname}}</p>
+  <p>{{user.lastname}}</p>
+</div>

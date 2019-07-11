@@ -13,6 +13,8 @@ export class ArchiveOrderComponent implements OnInit {
   conditionPacks: Boolean = true;
   conditionMangas: Boolean = false;
   conditionUsers: Boolean = false;
+  conditionHeader: Boolean = true;
+  conditionHeaderUser: Boolean = false;
 
   constructor(private ArchiveOrderServive: ArchiveOrderService) { }
 
@@ -43,6 +45,8 @@ export class ArchiveOrderComponent implements OnInit {
       this.conditionPacks = !this.conditionPacks;
       this.conditionMangas = false;
       this.conditionUsers = false;
+      this.conditionHeaderUser = false;
+      this.conditionHeader = true;
     }
   }
 
@@ -51,6 +55,8 @@ export class ArchiveOrderComponent implements OnInit {
       this.conditionMangas = !this.conditionMangas;
       this.conditionPacks = false;
       this.conditionUsers = false;
+      this.conditionHeaderUser = false;
+      this.conditionHeader = true;
     }  
   }
 
@@ -59,6 +65,8 @@ export class ArchiveOrderComponent implements OnInit {
       this.conditionUsers = true;
       this.conditionPacks = false;
       this.conditionMangas = false;
+      this.conditionHeaderUser = true;
+      this.conditionHeader = false;
     }
   }
 

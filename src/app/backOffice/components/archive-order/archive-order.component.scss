@@ -10,10 +10,16 @@
             font-size: 40px;
         }
     }
-    .header ul{
+    .header ul {
         display: flex;
         justify-content: space-around;
-
+    }
+    .headerUser ul {
+        display: flex;
+        margin-left: 10px;
+        li {
+            padding: 10px;
+        }
     }
     .packOrder {
         display: flex;
@@ -25,6 +31,5 @@
     }
     .userOrder {
         display: flex;
-        justify-content: space-around;
     }
 }
