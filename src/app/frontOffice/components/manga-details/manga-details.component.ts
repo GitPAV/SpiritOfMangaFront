@@ -31,9 +31,7 @@ export class MangaDetailsComponent implements OnInit {
   choosenType;
 
   // to display the order button or the disponibility alert button
-  stock: number;
   stockUnsubs;
-
   noStock: boolean;
 
   constructor(private mangadataservice: MangaDataService,
