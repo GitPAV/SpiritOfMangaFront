@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { MangaDataService } from '../../../services/manga-data.service';
 
 @Component({
   selector: 'app-order-button',
@@ -8,13 +9,17 @@ import { Router } from '@angular/router';
 })
 export class OrderButtonComponent implements OnInit {
   @Input() mangaOrderedId: number;
-  @Input() stateId: number;
+  stateId: number;
   ordersList = sessionStorage.getItem('ordersList') ? JSON.parse(sessionStorage.getItem('ordersList')) : [];
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private mangaService: MangaDataService) { }
 
   ngOnInit() {
-    console.log(this.mangaOrderedId)
+    this.mangaService.getPromotedMangaById(this.mangaOrderedId).subscribe( manga => {
+      this.stateId = manga[0].id
+      console.log(this.stateId)
+    })
   }
 
   checkLogin(mangaId, statesId){
@@ -33,7 +38,7 @@ export class OrderButtonComponent implements OnInit {
 
   saveToLocalStorage() {
     sessionStorage.setItem('ordersList', JSON.stringify(this.ordersList));
-}
+  }
 
 
 }

@@ -32,7 +32,7 @@
       </div>
     </div>
     <div class='buttons'>
-      <app-order-button *ngIf="!noStock" [mangaOrderedId]="choosenManga.id" [stateId]="stateMangaId"></app-order-button>
+      <app-order-button *ngIf="!noStock" [mangaOrderedId]="choosenManga.id"></app-order-button>
     
       <div *ngIf="noStock">
         <p>Ce manga n'est plus disponible pour le moment !</p>

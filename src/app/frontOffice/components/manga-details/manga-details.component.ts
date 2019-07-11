@@ -15,8 +15,9 @@ import { Mangas } from 'src/app/common/models/manga.model';
 })
 export class MangaDetailsComponent implements OnInit {
 
+  // Data sent to order button and stored in session storage for the basket
   mangaId;
-  stateMangaId = 1; // Id to get when statesMangas will be called
+
   mangas = [];
   series = [];
   types = [];
@@ -47,7 +48,6 @@ export class MangaDetailsComponent implements OnInit {
 
                   this.stockUnsubs = this.mangadataservice.getPromotedMangaById(this.choosenManga.id).subscribe( manga => {
                     manga[0].stock > 0 ? this.noStock = false : this.noStock = true;
-
                     this.stockUnsubs.unsubscribe()
                   })
 
