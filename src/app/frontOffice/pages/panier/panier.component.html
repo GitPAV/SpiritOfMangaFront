@@ -1,18 +1,22 @@
 <div class="main">
   <div class="userName">
-    <p>Panier de {{lastname}}</p>
+    <p>Panier de {{firstname + ' ' + lastname}}</p>
   </div>
   <div class="listItem" *ngFor="let item of itemsOrdered; let i = index">
     <div *ngFor="let manga of item" class="listA">
       <img [src]='manga.photoCover'>
-      <p>Titre : {{manga.title}}</p>
-      <p>Tome {{manga.tome}}</p>
-      <p>Auteur : {{manga.auteur}}</p>
-      <p>Prix : {{manga.prixTTC}}</p>
-      <p>État : {{manga.name}}</p>
-      <button (click)="removeItemStorage(i)">SUPPRIMER</button>
+      <div class='listB'>
+        <p>Titre : {{manga.title}}</p>
+        <p>Tome {{manga.tome}}</p>
+        <p>Auteur : {{manga.auteur}}</p>
+        <p>Prix : {{manga.prixTTC}}</p>
+        <p>État : {{manga.name}}</p>
+        <button (click)="removeItemStorage(i)">SUPPRIMER</button>
+      </div>
     </div>
   </div>
-  <p>Prix total : {{ prixTotal }} euros</p>
-  <button type="text">VALIDER LE PANIER</button>
+  <div id="order">
+    <p>Prix total : {{ prixTotal }} euros</p>
+    <button (click)="buy()" type="text">VALIDER LE PANIER</button>
+  </div>
 </div>

@@ -18,7 +18,6 @@ export class OrderButtonComponent implements OnInit {
   ngOnInit() {
     this.mangaService.getPromotedMangaById(this.mangaOrderedId).subscribe( manga => {
       this.stateId = manga[0].id
-      console.log(this.stateId)
     })
   }
 
@@ -39,6 +38,5 @@ export class OrderButtonComponent implements OnInit {
   saveToLocalStorage() {
     sessionStorage.setItem('ordersList', JSON.stringify(this.ordersList));
   }
-
 
 }

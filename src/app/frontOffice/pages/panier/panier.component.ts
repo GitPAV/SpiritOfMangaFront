@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BasketService } from '../../../services/basket.service';
 import decode from 'jwt-decode';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panier',
@@ -13,7 +14,8 @@ export class PanierComponent implements OnInit {
   lastname;
   prixTotal: number = 0;
 
-  constructor(private basketService: BasketService) { }
+  constructor(private basketService: BasketService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getOrderedMangas()
@@ -34,9 +36,14 @@ export class PanierComponent implements OnInit {
 
   getToken(){
     const token = localStorage.getItem('token')
-    const tokenPayload = decode(token)
-    this.firstname = tokenPayload.firstname
-    this.lastname = tokenPayload.lastname
+
+    if (token) {
+      const tokenPayload = decode(token)
+      this.firstname = tokenPayload.firstname
+      this.lastname = tokenPayload.lastname
+    } else {
+      this.router.navigate(['front/user-login'])
+    }
   }
 
 // Put logic into a service and make itemsOrdered subscribe to an event emitter
@@ -46,6 +53,10 @@ export class PanierComponent implements OnInit {
     sessionStorage.removeItem("ordersList")
     datas = JSON.stringify(datas)
     sessionStorage.setItem("ordersList",datas)
+  }
+
+  buy() {
+    sessionStorage.removeItem("ordersList")
   }
 
 }
