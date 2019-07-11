@@ -1,13 +1,23 @@
+@import "../../../styles.scss";
+
 $borderBackComponents: 1px solid rgba(0, 0, 0, 0.2);
 
+
+
 // Input form border
-$borderBackInput: 4px solid #FF8D30 ;
+$borderBackInput: 4px solid $orangeBack;
 
 // Component title style
 @mixin titleStyle {
     text-align: center;
     font-size: 2em;
     font-weight: bold;
-    text-decoration: #FF8D30 underline;
+    text-decoration: $orangeBack underline;
 }
 
+// validate button style
+@mixin validateButtonStyle {
+    text-align: center;
+    margin: 2vh;
+    background-color:$orangeBack;
+}

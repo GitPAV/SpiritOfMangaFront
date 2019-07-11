@@ -1,8 +1,5 @@
-@import '../../../../styles.scss';
+@import "../../../common/styles/back-office.scss";
 
-@mixin inputs {
-    border: 4px solid $orange;
-}
 
 .main {
     width: 100%;
@@ -41,7 +38,7 @@
     height: auto;
 
     input {
-        @include inputs;
+        border: $borderBackInput;
     }
 
     .infosPrio {
@@ -130,7 +127,7 @@
     width: 90%;
 
     button {
-        background-color:#FF8D30;
+        background-color:$orangeBack;
         margin-top: 10px;
         width: 20%;
     }

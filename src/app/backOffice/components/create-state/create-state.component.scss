@@ -1,3 +1,5 @@
+@import "../../../common/styles/back-office.scss";
+
 #main {
     display:flex;
     flex-direction: column;
@@ -22,7 +24,7 @@
     }
 
     button {
-        background-color:#FF8D30;
+        background-color:$orangeBack;
         width: 150px;
     }
 }

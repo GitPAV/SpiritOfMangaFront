@@ -4,9 +4,11 @@
 
   <p class='headers'>Actuellement en favoris :</p>
 
-  <div *ngFor="let favorite of currentsFavorites">
-    <p class='mangasDisplayed'>{{ favorite.title + ', tome ' + favorite.tome}}</p>
-    <button type="text" (click)="unFavorite(favorite.mangas_id)">SUPPRIMER DES COUPS DE COEUR</button>
+  <div class="favoritesWrapper">
+    <div class='favoritesManga' *ngFor="let favorite of currentsFavorites">
+      <p class='mangasDisplayed'>{{ favorite.title + ', tome ' + favorite.tome}}</p>
+      <button type="text" (click)="unFavorite(favorite.mangas_id)">SUPPRIMER DES COUPS DE COEUR</button>
+    </div>
   </div>
 
   <p class='headers'>Choisir les mangas à afficher sur la home (maximum 5) :</p>

@@ -155,15 +155,14 @@
         }
         .create {
             text-align: center;
-            margin: 2vh;
             .button {
-            background-color:#FF8D30 ;
+            @include validateButtonStyle;
             }
         }
     }    
 }
 
 .errorMessage {
-    color: #FF8D30;
+    color: $orangeBack;
     font-size: 16px;
 }

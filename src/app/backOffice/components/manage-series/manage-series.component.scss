@@ -1,7 +1,7 @@
-@import '../../../../styles.scss' ;
+@import "../../../common/styles/back-office.scss";
 
 input, textarea, select {
-    border:4px solid #FF8D30 ;
+    border:4px solid $orangeBack ;
 }
 
 h3 {
@@ -20,7 +20,7 @@ label p {
     
 }
 .button {
-    background-color: orange;
+    background-color: $orangeBack;
 }
 
 form {
