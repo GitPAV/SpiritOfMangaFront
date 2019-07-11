@@ -4,23 +4,24 @@
 .headerBack{
     position: fixed;        
     width: 100vw;
-    height: 7vh;
+    height: 5vh;
     background-color: white;
-    border: $borderBackComponents;
-    span{  
+    z-index: 1;
+    border-bottom: #F29447 1px solid;
+    box-shadow: 0px 1px 10px #FF8D30;
+    .date{  
         position: fixed;
         left: 53vw;
-        top: 1.25vh;
         color: $orange;
         font-size: 27px;
         font-weight: bold;
     }
     img{
-        height: 5.5vh;
+        height: 4.7vh;
         width: 4vw;
         position: fixed;
         left: 95vw;
-        top: 0.8vh;
-        font-size: 33px;    
+        top: 0.25vh; 
+        font-size: 33px;   
     }
 }

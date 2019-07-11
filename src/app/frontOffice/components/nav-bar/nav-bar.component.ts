@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService } from '../../../services/user-service.service';
 import { SwitchFrontToBackService } from '../../../services/switch-front-to-back.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,7 +16,8 @@ export class NavBarComponent implements OnInit {
   loginForm = false;
 
   constructor(private userService: UserServiceService,
-    private goToBackOfficeService: SwitchFrontToBackService) { }
+    private goToBackOfficeService: SwitchFrontToBackService,
+    private router: Router) { }
 
   ngOnInit() {
     this.adminConnected = false;
@@ -36,6 +38,7 @@ export class NavBarComponent implements OnInit {
   }
 
   goToBackOffice(){
+    this.router.navigate(['back'])
     this.goToBackOfficeService.getAdminClick(this.adminConnected);
   }
 

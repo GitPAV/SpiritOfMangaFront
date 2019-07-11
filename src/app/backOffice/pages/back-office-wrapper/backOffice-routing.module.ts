@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BackOfficeModule } from './backOffice.module';
+import { RoleGuardService } from '../../../common/security/role-guard.service';
+
 
 import { BackOfficeWrapperComponent } from './back-office-wrapper.component';
 import { CreateMangaComponent } from '../../components/create-manga/create-manga.component';
@@ -25,11 +27,19 @@ export const backOfficeRouteList: Routes = [
       {
         path:'',
         redirectTo: 'gestion-pagedacceuil',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'gestion-pagedacceuil',
-        component: ManageHomeComponent
+        component: ManageHomeComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       // { path: '**', 
       //   component: 
@@ -37,46 +47,86 @@ export const backOfficeRouteList: Routes = [
       // },
       {
         path: 'creer-manga',
-        component: CreateMangaComponent
+        component: CreateMangaComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'serie',
-        component: SeriesComponent
+        component: SeriesComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'nouveau-pack',
-        component: CreatePackComponent
+        component: CreatePackComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'modifier-manga',
-        component: UpdateMangaComponent
+        component: UpdateMangaComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'gerer-stockprixetat',
-        component: StockMangaComponent
+        component: StockMangaComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'commande-encours',
-        component: OnGoingOrderComponent
+        component: OnGoingOrderComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'gerer-utilisateurs',
-        component: ManageUsersComponent
+        component: ManageUsersComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'gerer-utilisateurs/utilisateurs/:id',
-        component: UserDetailsComponent
+        component: UserDetailsComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         // redirection provisoire en attente de mieux
         path: 'gerer-utilisateurs/utilisateurs/:id/gerer-utilisateurs',
         component: UserDetailsComponent,
         redirectTo: 'gerer-utilisateurs',
-        pathMatch: 'full' 
+        pathMatch: 'full' ,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'alerte-disponibilitee',
-        component: DisponibilityAlertsComponent
+        component: DisponibilityAlertsComponent,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
     ]
   }
