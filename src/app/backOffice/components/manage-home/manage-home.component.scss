@@ -10,6 +10,7 @@
   .headers {
     font-style: italic;
     font-size: 1.5em;
+    margin-top: 2vh;
   }
   .favoritesWrapper{
     border: 5px solid $orangeBack;
@@ -21,15 +22,33 @@
     justify-content: space-evenly;
     border: 1px solid $orangeBack;
   }
+
   #searchBar {
-    width: 60vw;
-    padding-right: 0;
-    padding-top: 10px;
-    background-color: white;
+    margin: 0.5vw 0vh 2vh 0vh;
+  }
+  .favoritesToAdd {
+    border: 6px dashed $orangeBack;
+    border-radius: 0px 40px 40px 0px;
+    margin-bottom: 5vh;
+    h4 {
+        text-align: center;
+        font-size: 1.5em;
+      }
+    hr {
+        background-color: #5F72A8AD;
+        margin: 2% 5%;
+    }
+    p {
+        text-align: center;
+        margin-top: 2vh;
+    }
+    .addButton {
+        text-align: center;
+    }
   }
 
   button {
     @include validateButtonStyle;
-    color: #16233B;
+    color: $blue;
   }
 }

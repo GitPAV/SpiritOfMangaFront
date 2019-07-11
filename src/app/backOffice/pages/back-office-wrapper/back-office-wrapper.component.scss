@@ -1,8 +1,10 @@
+@import '../../../common/styles/back-office.scss';
+
 .backCore {
 
     .backNavBar {
         width: 22vw;
-        background-color: #16233B;   
+        background-color: $blue;   
     }
     .main {
         display: flex;

@@ -18,10 +18,14 @@
   </div>
 
   <div class="mangasChoice">
-    <div *ngFor="let manga of mangasToDisplay">
+    <div class="favoritesToAdd" *ngFor="let manga of mangasToDisplay">
+
       <h4>{{ manga.title + ', tome ' + manga.tome }}</h4>
+      <hr>
       <p>{{ manga.resume }}</p>
-      <button type="text" (click)="promote(manga.id)">AFFICHER DANS LES COUPS DE COEUR</button>
+      <div class="addButton">
+        <button type="text" (click)="promote(manga.id)">AFFICHER DANS LES COUPS DE COEUR</button>
+      </div>
     </div>
   </div>
 
