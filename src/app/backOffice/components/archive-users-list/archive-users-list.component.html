@@ -1,4 +1,6 @@
 <div class="main" *ngFor="let user of listUsers">
-  <p>{{user.firstname}}</p>
-  <p>{{user.lastname}}</p>
+  <div class= "listUser" *ngFor="let item of user">
+    <p>{{item.firstname}}</p>
+    <p>{{item.lastname}}</p>
+  </div>
 </div>
