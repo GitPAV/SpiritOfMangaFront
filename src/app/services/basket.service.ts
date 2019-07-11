@@ -20,11 +20,13 @@ export class BasketService {
     let datas = JSON.parse(sessionStorage.getItem("ordersList"))
     datas = datas.splice(index)
     sessionStorage.removeItem("ordersList")
-    
+
     datas.map(item => {
       this.getOrderedManga(item.manga, item.state).subscribe( manga => {
         this.ordersList.push(manga)
+        // push everything before emitting maybe in the back ?
         this.basketContent.emit(this.ordersList)
+        this.ordersList = []
       })
     });
 
