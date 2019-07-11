@@ -47,6 +47,7 @@ export class MangaDetailsComponent implements OnInit {
                   this.choosenManga = this.mangas[this.mangaId - 1]; // Récupère l'objet Manga
 
                   this.stockUnsubs = this.mangadataservice.getPromotedMangaById(this.choosenManga.id).subscribe( manga => {
+                    manga.length == 0 ? this.noStock = true : this.noStock = false;
                     manga[0].stock > 0 ? this.noStock = false : this.noStock = true;
                     this.stockUnsubs.unsubscribe()
                   })

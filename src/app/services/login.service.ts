@@ -3,6 +3,7 @@ import { HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { User } from '../common/models/user.model';
+import decode from 'jwt-decode';
 
 
 @Injectable({
@@ -39,7 +40,9 @@ export class LoginService {
   }
 
   getUserConnected(): Observable<User>{
-    return this.http.get<User>(`${this.getUserByMail}/${this.userConnectedMail}`)
+    const token = localStorage.getItem('token')
+    const tokenPayload = decode(token)
+    return this.http.get<User>(`${this.getUserByMail}/${tokenPayload.email}`)
   }
 
 }

@@ -22,6 +22,7 @@ export class AlertButtonComponent implements OnInit {
 
   ngOnInit() {
     this.infosToSend = [];
+    console.log(this.idManga)
   }
 
   /* Need to manage unconnected users when they click on the alert button */
@@ -29,6 +30,7 @@ export class AlertButtonComponent implements OnInit {
   sendToGetAlert(){
     this.loginService.getUserConnected().subscribe(
       user => {
+        console.log(user)
         this.user = user;
         this.infosToSend.push(this.user[0].id, this.idManga)
         this.mangaService.sendMangaAwaiting(this.infosToSend)
