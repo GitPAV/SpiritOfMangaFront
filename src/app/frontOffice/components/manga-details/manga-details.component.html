@@ -31,7 +31,13 @@
         </div>
       </div>
     </div>
+    <div class='buttons'>
+      <app-order-button *ngIf="!noStock" [mangaOrderedId]="choosenManga.id" [stateId]="stateMangaId"></app-order-button>
+    
+      <div *ngIf="noStock">
+        <p>Ce manga n'est plus disponible pour le moment !</p>
+        <app-alert-button [idManga]="choosenManga.id"></app-alert-button>
+      </div>
+    </div>
   </div>
-  <app-order-button [mangaOrderedId]="choosenManga.id" [stateId]="stateMangaId"></app-order-button>
-  <app-alert-button></app-alert-button>
 </div>

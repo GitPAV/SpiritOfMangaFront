@@ -26,11 +26,9 @@ export class OrderButtonComponent implements OnInit {
   }
 
   saveItem(mangaId, statesId) {
-    console.log(statesId)
     let datas = {manga: mangaId, state: statesId}
     this.ordersList.push(datas)
     this.saveToLocalStorage()
-    console.log(sessionStorage.getItem("orders"))
   }
 
   saveToLocalStorage() {

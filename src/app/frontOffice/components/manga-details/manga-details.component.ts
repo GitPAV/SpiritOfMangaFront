@@ -8,7 +8,6 @@ import { TypesServiceService } from '../../../services/types-service.service';
 import { Mangas } from 'src/app/common/models/manga.model';
 
 
-
 @Component({
   selector: 'app-manga-details',
   templateUrl: './manga-details.component.html',
@@ -31,6 +30,12 @@ export class MangaDetailsComponent implements OnInit {
   };
   choosenType;
 
+  // to display the order button or the disponibility alert button
+  stock: number;
+  stockUnsubs;
+
+  noStock: boolean;
+
   constructor(private mangadataservice: MangaDataService,
               private seriesService: SeriesService,
               private typeService: TypesServiceService,
@@ -39,25 +44,32 @@ export class MangaDetailsComponent implements OnInit {
               this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
                 this.mangadataservice.getMangas().subscribe(mangas => {
                   this.mangas = mangas;
-                  // tslint:disable-next-line: radix
                   this.mangaId = parseInt(params.get('mangaID')); // Récupère id du manga dans l'adresse url
                   this.choosenManga = this.mangas[this.mangaId - 1]; // Récupère l'objet Manga
-                  console.log(this.choosenManga);
+
+                  this.stockUnsubs = this.mangadataservice.getPromotedMangaById(this.choosenManga.id).subscribe( manga => {
+                    manga[0].stock > 0 ? this.noStock = false : this.noStock = true;
+
+                    this.stockUnsubs.unsubscribe()
+                  })
 
                   this.seriesService.getSeries().subscribe(series => {
                     this.series = series;
                     this.choosenSerie = this.series[this.choosenManga.series_id - 1]; // Récupère la série du Manga
-                    console.log(this.choosenSerie);
                     this.choosenType = this.types[this.choosenSerie.types_id - 1]; // Récupère le type de la Série
                   });
                 });
               });
+
+
             }
 
 ngOnInit() {
+
     this.typeService.getTypes().subscribe(types => {
       this.types = types;
     });
+
   }
 
 }
