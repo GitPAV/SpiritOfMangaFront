@@ -33,6 +33,9 @@ export class PanierComponent implements OnInit {
           this.basketService.basketContent.subscribe(list => {
             this.itemsOrdered = list;
           })
+          this.basketService.prixTotal.subscribe( prix => {
+            this.prixTotal = prix
+          })
         }
       )
     })
@@ -53,7 +56,6 @@ export class PanierComponent implements OnInit {
 // Put logic into a service and make itemsOrdered subscribe to an event emitter
   removeItemStorage(i){
     this.basketService.removeMangas(i)
-    console.log(this.itemsOrdered)
   }
 
   buy() {

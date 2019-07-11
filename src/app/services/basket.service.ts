@@ -8,7 +8,9 @@ import { Observable } from 'rxjs';
 export class BasketService {
   ordersUrl = 'http://localhost:4242/statesMangas/get-mangas-order';
   @Output() basketContent = new EventEmitter();
+  @Output() prixTotal = new EventEmitter();
   ordersList = [];
+  prix: number = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -17,21 +19,26 @@ export class BasketService {
   }
 
   removeMangas(index) {
+    this.ordersList = []
+    this.prix = 0
     let datas = JSON.parse(sessionStorage.getItem("ordersList"))
     datas = datas.splice(index)
     sessionStorage.removeItem("ordersList")
+    let len = datas.length
 
     datas.map(item => {
       this.getOrderedManga(item.manga, item.state).subscribe( manga => {
         this.ordersList.push(manga)
-        // push everything before emitting maybe in the back ?
-        this.basketContent.emit(this.ordersList)
-        this.ordersList = []
+        this.prix += manga[0].prixTTC
+
+        if (this.ordersList.length === len) {
+          this.basketContent.emit(this.ordersList)
+          this.prixTotal.emit(this.prix)
+          datas = JSON.stringify(datas)
+          sessionStorage.setItem("ordersList",datas)
+        }
       })
     });
-
-    datas = JSON.stringify(datas)
-    sessionStorage.setItem("ordersList",datas)
   }
   
 }
