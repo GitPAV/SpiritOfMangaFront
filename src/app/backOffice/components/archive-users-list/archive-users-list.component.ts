@@ -12,14 +12,13 @@ listUsers;
 
   ngOnInit() {
     this.getListUser()
-    console.log(this.listUsers)
   }
 
   getListUser(){
     return this.archiveOrderService.getListUsersArchive().subscribe(
       item => {
         this.listUsers = item
-        console.log(item)
+        console.log(this.listUsers)
       }
     )
   }
