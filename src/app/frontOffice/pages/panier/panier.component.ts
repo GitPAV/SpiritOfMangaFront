@@ -20,6 +20,7 @@ export class PanierComponent implements OnInit {
   ngOnInit() {
     this.getOrderedMangas()
     this.getToken()
+
   }
 
   getOrderedMangas() {
@@ -29,6 +30,9 @@ export class PanierComponent implements OnInit {
         manga => {
           this.itemsOrdered.push(manga)
           this.prixTotal += manga[0].prixTTC
+          this.basketService.basketContent.subscribe(list => {
+            this.itemsOrdered = list;
+          })
         }
       )
     })
@@ -48,11 +52,8 @@ export class PanierComponent implements OnInit {
 
 // Put logic into a service and make itemsOrdered subscribe to an event emitter
   removeItemStorage(i){
-    let datas = JSON.parse(sessionStorage.getItem("ordersList"))
-    datas = datas.splice(i)
-    sessionStorage.removeItem("ordersList")
-    datas = JSON.stringify(datas)
-    sessionStorage.setItem("ordersList",datas)
+    this.basketService.removeMangas(i)
+    console.log(this.itemsOrdered)
   }
 
   buy() {
