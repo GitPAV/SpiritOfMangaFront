@@ -5,10 +5,7 @@
     .form {
 
         .formTitle {
-            text-align: center;
-            font-size: 2em;
-            font-weight: bold;
-            text-decoration: #FF8D30 underline;
+            @include titleStyle
         }
 
         .formWrapper {
