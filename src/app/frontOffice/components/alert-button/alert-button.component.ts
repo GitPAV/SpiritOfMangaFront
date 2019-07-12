@@ -30,7 +30,6 @@ export class AlertButtonComponent implements OnInit {
   sendToGetAlert(){
     this.loginService.getUserConnected().subscribe(
       user => {
-        console.log(user)
         this.user = user;
         this.infosToSend.push(this.user[0].id, this.idManga)
         this.mangaService.sendMangaAwaiting(this.infosToSend)
