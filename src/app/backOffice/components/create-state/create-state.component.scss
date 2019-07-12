@@ -1,28 +1,22 @@
+@import "../../../common/styles/back-office.scss";
+
 #main {
-    display:flex;
-    flex-direction: column;
-    padding: 15px;
 
     h3{
-        font-size: 30px;
-        padding-bottom: 15px;
+        @include titleStyle;
     }
 
     input, select {
         margin-right: 15px;
     }
 
-    #stateCreation {
-        width: 60vw;
-    }
-
-    .deleteState {
-        padding-top: 15px;
-        padding-bottom: 15px;
+    .stateCreation, .deleteState {
+        margin-top: 2vh;
+        margin-left: 2vw;
     }
 
     button {
-        background-color:#FF8D30;
+        background-color:$orangeBack;
         width: 150px;
     }
 }

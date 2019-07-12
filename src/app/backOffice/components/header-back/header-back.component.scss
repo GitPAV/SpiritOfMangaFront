@@ -1,26 +1,26 @@
-@import '../../../../styles.scss';
 @import '../../../common/styles/back-office.scss';
 
 .headerBack{
     position: fixed;        
     width: 100vw;
-    height: 7vh;
+    height: 5vh;
     background-color: white;
-    border: $borderBackComponents;
-    span{  
+    z-index: 1;
+    border-bottom: #F29447 1px solid;
+    box-shadow: 0px 1px 10px $orangeBack;
+    .date{  
         position: fixed;
         left: 53vw;
-        top: 1.25vh;
         color: $orange;
         font-size: 27px;
         font-weight: bold;
     }
     img{
-        height: 5.5vh;
+        height: 4.9vh;
         width: 4vw;
         position: fixed;
-        left: 95vw;
-        top: 0.8vh;
-        font-size: 33px;    
+        left: 96%;
+        font-size: 33px;  
+        opacity: 0.5; 
     }
 }
