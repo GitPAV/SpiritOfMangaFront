@@ -73,6 +73,7 @@ export class MangaDetailsComponent implements OnInit {
 
             this.genresService.getGenresId(this.choosenManga.series_id).subscribe(genres => { // Récupère les genres de la Série
               this.genres = JSON.parse(genres);
+              // tslint:disable-next-line: prefer-for-of
               for (let i = 0 ; i < this.genres.length;  i++) { // Push les genres de la Série dans "genresDisplay"
                 this.genresDisplay = this.genresDisplay + this.genres[i].name + ' / ';
               }
@@ -89,12 +90,12 @@ export class MangaDetailsComponent implements OnInit {
         });
       });
 
-    this.typeService.getTypes().subscribe(types => {
-      this.types = types;
-    });
-    this.stateService.getStates().subscribe(states => {
-      this.states = states;
-    });
+      this.typeService.getTypes().subscribe(types => {
+        this.types = types;
+      });
+      this.stateService.getStates().subscribe(states => {
+        this.states = states;
+      });
   }
 
 }
