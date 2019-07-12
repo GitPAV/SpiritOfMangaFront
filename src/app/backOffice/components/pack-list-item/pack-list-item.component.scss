@@ -1,9 +1,13 @@
 @import '../../../../styles.scss';
 
 .main{
-    background-color: rgba($grey,0.6);
-    border: 3px solid $grey; 
+    background-color: rgba(white,0.6);
+    border: 3px solid white; 
     color: black;
+    display: flex;
     padding: 20px;
     margin: 15px;
+    width:300px;
+    height: 100px;
+    align-items: center;
 }

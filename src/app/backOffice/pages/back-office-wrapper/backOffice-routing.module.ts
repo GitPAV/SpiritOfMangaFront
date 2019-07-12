@@ -13,6 +13,7 @@ import { ManageUsersComponent } from '../../components/manage-users/manage-users
 import { DisponibilityAlertsComponent } from '../../components/disponibility-alerts/disponibility-alerts.component';
 import { UserDetailsComponent } from '../../components/user-details/user-details.component';
 import { ManageHomeComponent } from '../../components/manage-home/manage-home.component';
+import { ArchiveOrderComponent } from '../../components/archive-order/archive-order.component';
 import { RoleGuardService } from '../../../common/security/role-guard.service';
 
 
@@ -111,6 +112,10 @@ export const backOfficeRouteList: Routes = [
         data: {
             expectedRole: 'admin'
         }
+      },
+      {
+        path: 'commande-archive',
+        component: ArchiveOrderComponent
       },
       {
         // redirection provisoire en attente de mieux
