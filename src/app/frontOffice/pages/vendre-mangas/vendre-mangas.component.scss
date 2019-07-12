@@ -28,7 +28,7 @@
 
 .contactBlk {
     width: 100vw;
-    display: flex;
+    display: grid;
     justify-content: space-around;
     div {
         padding: 4vw;
@@ -37,5 +37,8 @@
         font-family: 'Dosis', sans-serif;
         font-size: 34px;
         margin-bottom: 2vh;
+    }
+    strong {
+        font-weight: 600;
     }
 }
