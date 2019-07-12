@@ -1,3 +1,10 @@
+.logoPanier{
+    height:60px;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
 .navCtn {
     display: flex;
     margin-bottom: -2%;
@@ -27,6 +34,10 @@
     font-size: 120%;
     letter-spacing: .1rem;
     margin-bottom: 10%;
+    a {
+        text-decoration: none;
+        color: #1d1c1c;
+    }
 }
 
 .dropdown-content {
@@ -47,8 +58,10 @@
         a:hover {
             color:#ff7b01;
         }
+
     }
   }
+  
   
 //   .dropdown:hover .dropdown-content {
 //     display: block;
