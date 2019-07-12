@@ -25,6 +25,7 @@ import { CardComponent } from '../../components/card/card.component';
 import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-page.component';
 import { GalleryPackComponent } from '../../components/gallery-pack/gallery-pack.component';
 import { CardPackComponent } from '../../components/card-pack/card-pack.component';
+import { CardPromoComponent } from '../../components/card-promo/card-promo.component';
 import { MangaDetailsComponent } from '../../components/manga-details/manga-details.component';
 import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { OrderButtonComponent } from '../../components/order-button/order-button.component';
@@ -58,6 +59,7 @@ import { PanierComponent } from '../../../frontOffice/pages/panier/panier.compon
     GalleryMangaPageComponent,
     GalleryPackComponent,
     CardPackComponent,
+    CardPromoComponent,
     MangaDetailsComponent,
     FullMangaComponent,
     OrderButtonComponent,
