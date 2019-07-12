@@ -1,10 +1,6 @@
 @import "../../../common/styles/back-office.scss";
 
 #main{
-    height: 80vh;
-    width: 75vw;
-    overflow: scroll;
-    padding: 15px;
 
     .topContainer{
         display: flex;
@@ -12,116 +8,83 @@
         justify-content: space-around;
 
         #searchBar {
-            width: 50vw;
-            margin-left: 15px;
+            width: 100%;
+            margin-bottom: 2vh;
 
             p {
-                margin-bottom: 15px;
-                font-size: 20px;
+                @include lesserTitle;
+                margin-left: 2vw;
             }
         }
     }
     
     .cardManga{
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        //grid-template-rows:repeat(15,100px) ; 
-        grid-template-rows: repeat(6,100px);
-        grid-template-areas: 
-        " titleForm . titleManga "
-        " state promoCheck tomeManga "
-        " prixHT stock imgManga "
-        " prixTTC TVA imgManga "
-        " commentaire promo imgManga "
-        ". button . ";
-    
-        .titleManga {
-            grid-area: titleManga;
-            font-size:25px;
-            text-align: center;
-        }
-
-        .tomeManga{
-            grid-area: tomeManga;
-            text-align: center;
-        }
-
-        .imgManga{
-            grid-area: imgManga;
-            height: 300px;
-            margin:0 auto;
-
-        }
-
         .titleForm {
-            grid-area: titleForm;
-            font-size: 30px;
-            
+            @include lesserTitle;
+            margin-left: 2vw;
         }
 
-        .state {
-            grid-area: state;
-        }
-
-        .commentaire {
-            grid-area: commentaire;
-            .input {
-                border:4px solid $orangeBack ;
+        .MangaStockHeader {
+            margin: 2vh 0vw;
+            .titleManga {
+                font-size:25px;
+                text-align: center;
+            }
+            .tomeManga{   
+                text-align: center;
             }
         }
 
-        .stock {
-            grid-area: stock;
-            .input {
-                border:4px solid $orangeBack ;
+        .formStyleWrapper {
+            display: flex;
+            .imgWrapper {
+                width: 50%;
+                text-align: center;
+                height: 55vh;
+
+                .imgManga{
+                    width: 20vw;
+                    height: 100%;
+                }
+            }
+            .infoWrapper {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .selectWrapper {
+                    display: flex;
+                    .state {
+                        width: 50%;
+                    }
+                }
+
+                .commentaire, .stock, .promoCheck,.prixHT, .TVA, .prixTTC  {
+                    margin: 1vh 0vw;
+                    .input {
+                        border: $borderBackInput;
+                        width: 31vw;
+                    }
+                }
+                .prixTtc {
+                    text-align: center;
+                    background-color: $orangeBack;
+                    color: #16233B;
+                    padding: 4px;
+                    border: $borderBackInput;
+                }
             }
         }
-
-        .promo {
-            grid-area: promo;
-            .input {
-                border:4px solid $orangeBack ;
-            }
-        }
-
-        .promoCheck {
-            grid-area: promoCheck;
-            .input {
-                border:4px solid $orangeBack ;
-            }
-        }
-
-        .prixHT {
-            grid-area: prixHT;
-            .input {
-                border:4px solid $orangeBack ;
-            }
-        }
-
-        .TVA {
-            grid-area: TVA;
-            .input {
-                border:4px solid $orangeBack;
-            }
-        }
-
-        .prixTTC {
-            grid-area: prixTTC;
-            .input {
-                border:4px solid $orangeBack;
-            }
-        }
-
-        .button {
-            grid-area: button;
+        .submitButton {
             text-align: center;
-            background-color:$orangeBack;
-            
+            .button {
+                @include validateButtonStyle;
+            }
         }
     }
     
     .errorMessage {
-        color: $orangeBack;
-        font-size: 16px;
+        @include errorMessage
     }
 }

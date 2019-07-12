@@ -8,9 +8,7 @@
   }
 
   .headers {
-    font-style: italic;
-    font-size: 1.5em;
-    margin-top: 2vh;
+    @include lesserTitle;
   }
   .favoritesWrapper{
     border: 5px solid $orangeBack;
