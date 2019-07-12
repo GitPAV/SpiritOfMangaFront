@@ -1,138 +1,87 @@
 @import "../../../common/styles/back-office.scss";
 
-
-.main {
-    width: 100%;
-    display: flex;
-    justify-content:center;
-    background-color: $grey;
-    overflow: scroll;
-    margin-bottom: 0;
-
-    h3{
-        font-size: 30px;
-        margin-left: 10px;
-    }
-
+.component {
+  margin-bottom: 1vh;
+  h3 {
+    @include titleStyle;
+  }
+  .searchBarWrapper {
     #searchBar {
-        width: 60vw;
+      width: 60vw;
     }
+  }
+  .main {
+    .background {
+      height: fit-content;
 
-    .titreAuteur {
-        display: flex;
-        flex-direction: row;
-    }
-}
-
-.background{
-    background-color: white;
-    height: fit-content;
-    overflow: scroll;
-    
-
-.infos {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    height: auto;
-
-    input {
-        border: $borderBackInput;
-    }
-
-    .infosPrio {
-
-        #title {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            margin: 10px;
-        }
-
-        #auteur {
-            margin: 10px;
-        }
-        
-        #photoCover {
-            display: flex;
-            flex-direction: column;
-
-            input {
-                margin-left: 10px;
-                width: 60vw;
-            }
-    
-            #cover {
-                height: 250px;
-                width: 150px;
-                margin: 10px;
-            }
-        }
-    }
-
-
-    #description {
-        width: 60vw;
-        height: 10vh;
-        margin: 10px;
-    }
-
-
-    #selectOption {
-        width: 100%;
-        margin: 10px;
-        display:flex;
-        flex-direction: row;
-        justify-content: flex-start;
-
-        .public {
-            width: 25vw;
-
-            #public {
-                width: 80%;
-            }
-        }
-
-        .serie {
-            width: 25vw;
-
-            #serie {
-                width: 80%;
-            }
-        }
-    }
-
-    .infosSecondaires {
-        width: 60vw;
-        margin: 10px;
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-
+      .infos {
         input {
-            margin-right: 10px;
-            width: 80%;
+          border: $borderBackInput;
+          width: 31vw;
         }
 
+        .infosPrio {
+          display: flex;
+          justify-content: space-evenly;
+          margin-top: 2vh;
+
+          .imgWrapper {
+            width: 50%;
+            text-align: center;
+
+            #cover {
+              width: 20vw;
+              height: 100%;
+            }
+          }
+
+          .infoWrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 50%;
+          }
+        }
+        #photoCover {
+          text-align: center;
+          margin-top: 2vh;
+          input {
+            width: 62.2vw;
+          }
+        }
+        .resumeManga {
+          text-align: center;
+          margin-top: 2vh;
+          #description {
+            width: 62.2vw;
+            height: 15vh;
+          }
+        }
+        #selectOption {
+          display: flex;
+          justify-content: space-evenly;
+          margin-top: 2vh;
+          .public,
+          #public,
+          .serie,
+          #serie {
+            text-align: center;
+          }
+        }
+        hr {
+          background-color: #5f72a8ad;
+          margin: 2% 3%;
+        }
+        .buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          button {
+            background-color: $orangeBack;
+            width: 35%;
+          }
+        }
+      }
     }
+  }
 }
-
-.buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    margin-left:10px;
-    width: 90%;
-
-    button {
-        background-color:$orangeBack;
-        margin-top: 10px;
-        width: 20%;
-    }
-}
-
-}
-
-
