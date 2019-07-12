@@ -53,7 +53,7 @@ export class CreateMangaComponent implements OnInit {
     this.mangaService.postManga(this.mangaForm.value)
     .then( res => {
       if (confirm('Voulez-vous gérer les stocks, états et prix des mangas maintenant ?')) {
-        this.router.navigate(['back/modifier-manga'])
+        this.router.navigate(['back/gerer-stockprixetat'])
       }
     })
     .catch( error => {
