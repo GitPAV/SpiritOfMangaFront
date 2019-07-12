@@ -51,7 +51,7 @@ displayRandomly(){
   }      
     }
     
-    // console.log(this.mangasToDisplay)
+
   }
 
 

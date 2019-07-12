@@ -25,7 +25,7 @@ const routes: Routes = [
     path: 'back',
     loadChildren: './backOffice/pages/back-office-wrapper/backOffice-routing.module#BackRoutingModule',
     canActivate: [RoleGuardService],
-    data: {
+    data: {      
       expectedRole: 'admin'
     }
   }

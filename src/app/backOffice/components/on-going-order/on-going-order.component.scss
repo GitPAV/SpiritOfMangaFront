@@ -1,3 +1,5 @@
+@import "../../../common/styles/back-office.scss";
+
 .main {
     width:75vw;
     .tab{
@@ -14,5 +16,13 @@
         display: flex;
         justify-content: space-around;
 
+    }
+    .packOrder {
+        display: flex;
+        justify-content: space-around;
+    }
+    .mangaOrder {
+        display: flex;
+        justify-content: space-around;
     }
 }

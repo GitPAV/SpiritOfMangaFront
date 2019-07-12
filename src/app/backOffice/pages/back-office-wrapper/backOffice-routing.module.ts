@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BackOfficeModule } from './backOffice.module';
 
+
 import { BackOfficeWrapperComponent } from './back-office-wrapper.component';
 import { CreateMangaComponent } from '../../components/create-manga/create-manga.component';
 import { SeriesComponent } from '../../components/create-modify-series/create-modify-serie.component';
@@ -13,6 +14,8 @@ import { ManageUsersComponent } from '../../components/manage-users/manage-users
 import { DisponibilityAlertsComponent } from '../../components/disponibility-alerts/disponibility-alerts.component';
 import { UserDetailsComponent } from '../../components/user-details/user-details.component';
 import { ManageHomeComponent } from '../../components/manage-home/manage-home.component';
+import { ArchiveOrderComponent } from '../../components/archive-order/archive-order.component';
+import { RoleGuardService } from '../../../common/security/role-guard.service';
 
 
 export const backOfficeRouteList: Routes = [
@@ -21,15 +24,27 @@ export const backOfficeRouteList: Routes = [
   {
     path: '',
     component: BackOfficeWrapperComponent,
+    canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        },
     children: [
       {
         path:'',
         redirectTo: 'gestion-pagedacceuil',
-        pathMatch: 'full'
+        pathMatch: 'full',
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        },
       },
       {
         path: 'gestion-pagedacceuil',
-        component: ManageHomeComponent
+        component: ManageHomeComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
       },
       // { path: '**', 
       //   component: 
@@ -37,46 +52,90 @@ export const backOfficeRouteList: Routes = [
       // },
       {
         path: 'creer-manga',
-        component: CreateMangaComponent
+        component: CreateMangaComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
       },
       {
         path: 'serie',
-        component: SeriesComponent
+        component: SeriesComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
       },
       {
         path: 'nouveau-pack',
-        component: CreatePackComponent
+        component: CreatePackComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
       },
       {
         path: 'modifier-manga',
-        component: UpdateMangaComponent
+        component: UpdateMangaComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
       },
       {
         path: 'gerer-stockprixetat',
-        component: StockMangaComponent
+        component: StockMangaComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
       },
       {
         path: 'commande-encours',
-        component: OnGoingOrderComponent
+        component: OnGoingOrderComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
       },
       {
         path: 'gerer-utilisateurs',
-        component: ManageUsersComponent
+        component: ManageUsersComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
       },
       {
         path: 'gerer-utilisateurs/utilisateurs/:id',
-        component: UserDetailsComponent
+        component: UserDetailsComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
+      },
+      {
+        path: 'commande-archive',
+        component: ArchiveOrderComponent
       },
       {
         // redirection provisoire en attente de mieux
         path: 'gerer-utilisateurs/utilisateurs/:id/gerer-utilisateurs',
         component: UserDetailsComponent,
         redirectTo: 'gerer-utilisateurs',
-        pathMatch: 'full' 
+        pathMatch: 'full' ,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'alerte-disponibilitee',
-        component: DisponibilityAlertsComponent
+        component: DisponibilityAlertsComponent,
+        canActivate: [RoleGuardService],
+        data: {
+            expectedRole: 'admin'
+        }
       },
     ]
   }

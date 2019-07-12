@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MangaDataService } from '../../../services/manga-data.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { SearchMangasFrontService } from '../../../services/search-mangas-front.service';
 
 
 @Component({
@@ -8,16 +8,20 @@ import { MangaDataService } from '../../../services/manga-data.service';
   styleUrls: ['./gallery-manga.component.scss']
 })
 export class GalleryMangaComponent implements OnInit {
-
   mangas;
+  mangasUnsub;
+  @Input() genreId;
 
-  constructor( private mangadataservice: MangaDataService) { }
+  constructor( private mangaDataService: SearchMangasFrontService) { }
 
   ngOnInit() {
-    this.mangadataservice.getMangas().subscribe(mangas => {
+    this.mangasUnsub = this.mangaDataService.getMangas().subscribe(mangas => {
       this.mangas = mangas;
-      console.log(this.mangas)
+      this.mangasUnsub.unsubscribe();
     });
+    this.mangaDataService.sendMangas.subscribe(mangas => {
+      this.mangas = mangas
+    })
 
   }
 

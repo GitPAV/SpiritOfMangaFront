@@ -1,6 +1,6 @@
 <div id="bodyBack">
   <aside class="menu">
-    <img src="../../../../assets/img/logo.png" alt="logo_spiritofmanga">
+    <a [routerLink]="['/']"><img src="../../../../assets/img/logo.png" alt="logo_spiritofmanga"></a>
     <ul class="menu-list">
 
       <p class="menu-label">
@@ -17,7 +17,7 @@
         GÉRER MES COMMANDES
       </p>
       <li><a [routerLink]="['commande-encours']">Commandes en cours</a></li>
-      <li><a [routerLink]="['/']">Commandes archivées</a></li>
+      <li><a [routerLink]="['commande-archive']">Commandes archivées</a></li>
 
       <p class="menu-label">
         GÉRER MES UTILISATEURS
