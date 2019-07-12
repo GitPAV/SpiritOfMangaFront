@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { User } from 'src/app/common/models/user.model';
 import { MangaDataService } from 'src/app/services/manga-data.service';
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AlertButtonComponent implements OnInit {
   // idManga to get from the front office when manga card is done 
-  idManga: number = 1;
+  @Input() idManga: number;
   user: User;
   infosToSend = [];
 
@@ -22,6 +22,7 @@ export class AlertButtonComponent implements OnInit {
 
   ngOnInit() {
     this.infosToSend = [];
+    console.log(this.idManga)
   }
 
   /* Need to manage unconnected users when they click on the alert button */
@@ -29,6 +30,7 @@ export class AlertButtonComponent implements OnInit {
   sendToGetAlert(){
     this.loginService.getUserConnected().subscribe(
       user => {
+        console.log(user)
         this.user = user;
         this.infosToSend.push(this.user[0].id, this.idManga)
         this.mangaService.sendMangaAwaiting(this.infosToSend)

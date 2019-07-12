@@ -1,0 +1,43 @@
+<div class="main">
+
+  <div class="tab">
+    <p (click)="showPacks()" [ngStyle]="{ textDecoration: underlinePack() }">PACKS</p>
+    <p (click)="showMangas()" [ngStyle]="{ textDecoration: underlineManga() }">MANGAS</p>
+    <p (click)="showUsers()" [ngStyle]="{ textDecoration: underlineUser() }">USERS</p>
+  </div>
+
+  <div class="header" *ngIf="conditionHeader">
+    <ul>
+      <li>Titre (et tome)</li>
+      <li>Client</li>
+      <li></li>
+      <li>date d'achat/Quantité</li>
+    </ul>
+  </div>
+
+  <div class="headerUser" *ngIf="conditionHeaderUser">
+    <ul>
+      <li>Prénom</li>
+      <li>Nom</li>
+    </ul>
+  </div>
+
+  <div class="listItem">
+    <div class="packOrder" *ngIf="conditionPacks"> 
+      <div *ngFor="let item of archiveOrderTable; let i = index">
+        <app-archive-pack-list-item [packItem]="item"></app-archive-pack-list-item>
+      </div>
+    </div>
+
+    <div class="mangaOrder" *ngIf="conditionMangas"> 
+      <div *ngFor="let item of mangaArchiveOrderTable">
+        <app-archive-manga-list-item [mangaItem]="item"></app-archive-manga-list-item>
+      </div>
+    </div>
+
+    <div class="userOrder" *ngIf="conditionUsers">
+      <app-archive-users-list></app-archive-users-list>
+    </div>
+  </div>
+</div>
+

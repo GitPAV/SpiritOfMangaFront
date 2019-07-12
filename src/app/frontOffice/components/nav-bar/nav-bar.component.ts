@@ -33,7 +33,7 @@ export class NavBarComponent implements OnInit {
       })
   }
 
-  getUserStatus() {
+  getUserStatus(){
     this.userConnected[0].droits === 'admin' ? this.adminConnected = true : this.adminConnected = false;
   }
 

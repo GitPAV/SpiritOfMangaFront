@@ -25,6 +25,7 @@ export class OnGoingOrderComponent implements OnInit {
         this.finalOrderTable = item;
         console.log(this.finalOrderTable)
         })
+        
       }
 
   getMangaFinalOrder(){

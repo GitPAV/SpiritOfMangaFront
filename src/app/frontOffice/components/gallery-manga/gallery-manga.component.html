@@ -1,4 +1,8 @@
 
-<div *ngFor="let manga of mangas">
-    <app-card [manga]="manga"></app-card>     
-</div> 
+<div class="container">
+    <div *ngFor="let manga of mangas" >
+        <div >
+            <a routerLink="{{manga.id}}"><app-card  [manga]="manga"></app-card></a>
+        </div>  
+    </div> 
+</div>

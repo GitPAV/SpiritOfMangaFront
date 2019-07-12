@@ -26,8 +26,10 @@ import { MangaListItemComponent } from '../../components/manga-list-item/manga-l
 import { UserDetailsComponent } from '../../components/user-details/user-details.component';
 import { DisponibilityAlertsComponent } from '../../components/disponibility-alerts/disponibility-alerts.component';
 import { ManageHomeComponent } from '../../components/manage-home/manage-home.component';
-
-
+import { ArchiveOrderComponent } from '../../components/archive-order/archive-order.component';
+import { ArchivePackListItemComponent } from '../../components/archive-pack-list-item/archive-pack-list-item.component';
+import { ArchiveMangaListItemComponent } from '../../components/archive-manga-list-item/archive-manga-list-item.component';
+import { ArchiveUsersListComponent } from '../../components/archive-users-list/archive-users-list.component';
 @NgModule({
   declarations: [
     BackOfficeWrapperComponent,
@@ -53,6 +55,11 @@ import { ManageHomeComponent } from '../../components/manage-home/manage-home.co
     UserDetailsComponent,
     DisponibilityAlertsComponent,
     ManageHomeComponent,
+    ArchiveOrderComponent,
+    ArchivePackListItemComponent,
+    ArchiveMangaListItemComponent,
+    ArchiveUsersListComponent,
+
   ],
   imports: [
     CommonModule,
