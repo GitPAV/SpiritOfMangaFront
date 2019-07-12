@@ -58,6 +58,7 @@ export class CreateUserComponent {
 
     const profileRoute = 'http://localhost:4242/users/create-profile';
     this.userService.userPost(this.postUserForm.value, profileRoute).subscribe()
+    this.postUserForm.reset()
   }
 
 }
