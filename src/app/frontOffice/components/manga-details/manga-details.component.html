@@ -1,0 +1,43 @@
+<div class="bodyContent">
+  <div class="imgBlur">
+  <div class="mangaDetails">
+      <img [src]="choosenManga.photoCover">
+      <div class="mangaTxt">
+        <h3>{{choosenManga.title}}</h3>
+        <h5>Tome {{choosenManga.tome}}</h5>
+        <div class="txtRow">
+          <h5>Genres :</h5><em> * TO IMPORT *</em>
+        </div>
+        <div class="txtRow">
+          <h5>Type :</h5><em>{{choosenType.name}}</em>
+        </div>
+        <div class="txtRow">
+          <h5>Auteur :</h5><em>{{choosenManga.auteur}}</em>
+        </div>
+        <div class="txtRow">
+          <h5>Editeur :</h5><em>{{choosenManga.editeur}}</em>
+        </div>
+        <div class="txtRow">
+          <h5>Prix public :</h5><em>{{choosenManga.prixNeuf}}€</em>
+        </div>
+        <div class="txtRow">
+          <h5>Notre Prix :</h5><em> * TO IMPORT *</em>
+        </div>
+        <div class="txtRow">
+          <h5>Etat :</h5><em> * TO IMPORT *</em>
+        </div>
+        <div class="txtRow">
+          <p>{{choosenManga.resume}}</p>
+        </div>
+      </div>
+    </div>
+    <div class='buttons'>
+      <app-order-button *ngIf="!noStock" [mangaOrderedId]="choosenManga.id"></app-order-button>
+    
+      <div *ngIf="noStock">
+        <p>Ce manga n'est plus disponible pour le moment !</p>
+        <app-alert-button [idManga]="choosenManga.id"></app-alert-button>
+      </div>
+    </div>
+  </div>
+</div>

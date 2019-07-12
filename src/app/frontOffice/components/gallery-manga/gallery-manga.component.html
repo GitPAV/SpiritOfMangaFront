@@ -2,7 +2,7 @@
 <div class="container">
     <div *ngFor="let manga of mangas" >
         <div >
-            <app-card  [manga]="manga"></app-card>   
+            <a routerLink="{{manga.id}}"><app-card  [manga]="manga"></app-card></a>
         </div>  
     </div> 
 </div>

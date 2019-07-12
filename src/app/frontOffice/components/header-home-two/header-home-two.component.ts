@@ -31,8 +31,6 @@ export class HeaderHomeTwoComponent implements OnInit {
         this.mangasToDisplay.push(this.mangasOnSale[index])
       }
     }
-
-    console.log(this.mangasToDisplay)
   }
 
 }
