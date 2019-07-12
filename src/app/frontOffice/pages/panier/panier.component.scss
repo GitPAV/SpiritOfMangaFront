@@ -1,0 +1,53 @@
+@import '../../../../styles.scss';
+
+.main {
+    min-height: 76vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5vw;
+    margin-top: 5vh;
+
+    .userName {
+        text-align: center;
+        font-size: 30px;
+    }
+    .listItem {
+
+        .listA {
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+
+            img {
+                height:250px;
+                margin-right:20px;
+                margin-top: 10%;
+            }
+
+            p {
+                margin:20px;
+                font-size: 20px;
+
+            }
+
+            .listB{
+                display:flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 0;
+            }
+        }
+    }
+
+    #order {
+        width: 100%;
+        font-size: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5vh;
+    }
+}

@@ -23,6 +23,11 @@ import { ContactFooterComponent } from '../contact-footer/contact-footer.compone
 import { GalleryMangaComponent } from '../../components/gallery-manga/gallery-manga.component';
 import { CardComponent } from '../../components/card/card.component';
 import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-page.component';
+import { MangaDetailsComponent } from '../../components/manga-details/manga-details.component';
+import { FullMangaComponent } from '../full-manga/full-manga.component';
+import { OrderButtonComponent } from '../../components/order-button/order-button.component';
+import { PanierComponent } from '../../../frontOffice/pages/panier/panier.component'
+
 
 
 
@@ -49,6 +54,10 @@ import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-p
     GalleryMangaPageComponent,
     CardComponent,
     GalleryMangaPageComponent,
+    MangaDetailsComponent,
+    FullMangaComponent,
+    OrderButtonComponent,
+    PanierComponent,
   ],
   imports: [
     CommonModule,
