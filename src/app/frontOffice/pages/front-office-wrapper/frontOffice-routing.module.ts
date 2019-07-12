@@ -18,6 +18,7 @@ import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { PanierComponent } from '../panier/panier.component';
 import { UserLoginComponent } from '../../components/user-login/user-login.component';
 
+
 export const frontOfficeRouteList: Routes = [
 
     // ************** FRONT OFFICE ********************

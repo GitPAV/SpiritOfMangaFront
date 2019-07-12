@@ -23,6 +23,8 @@ import { ContactFooterComponent } from '../contact-footer/contact-footer.compone
 import { GalleryMangaComponent } from '../../components/gallery-manga/gallery-manga.component';
 import { CardComponent } from '../../components/card/card.component';
 import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-page.component';
+import { GalleryPackComponent } from '../../components/gallery-pack/gallery-pack.component';
+import { CardPackComponent } from '../../components/card-pack/card-pack.component';
 import { MangaDetailsComponent } from '../../components/manga-details/manga-details.component';
 import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { OrderButtonComponent } from '../../components/order-button/order-button.component';
@@ -54,6 +56,8 @@ import { PanierComponent } from '../../../frontOffice/pages/panier/panier.compon
     GalleryMangaPageComponent,
     CardComponent,
     GalleryMangaPageComponent,
+    GalleryPackComponent,
+    CardPackComponent,
     MangaDetailsComponent,
     FullMangaComponent,
     OrderButtonComponent,
