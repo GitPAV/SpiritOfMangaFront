@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BackOfficeModule } from './backOffice.module';
 
+
 import { BackOfficeWrapperComponent } from './back-office-wrapper.component';
 import { CreateMangaComponent } from '../../components/create-manga/create-manga.component';
 import { SeriesComponent } from '../../components/create-modify-series/create-modify-serie.component';
@@ -122,7 +123,11 @@ export const backOfficeRouteList: Routes = [
         path: 'gerer-utilisateurs/utilisateurs/:id/gerer-utilisateurs',
         component: UserDetailsComponent,
         redirectTo: 'gerer-utilisateurs',
-        pathMatch: 'full' 
+        pathMatch: 'full' ,
+        canActivate: [RoleGuardService],
+        data: {      
+          expectedRole: 'admin'
+        }
       },
       {
         path: 'alerte-disponibilitee',

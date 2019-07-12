@@ -1,11 +1,13 @@
+@import "../../../common/styles/back-office.scss";
+
 form{
     width: 75vw;
 }
 input{
-    border:4px solid #FF8D30;
+    border:4px solid $orangeBack;
 }
 select{
-    border:4px solid #FF8D30;
+    border:4px solid $orangeBack;
 }
 .formInput{
     width: 33vw;
@@ -13,7 +15,7 @@ select{
     flex-direction: column;
 }
 .button{
-    background-color: #FF8D30;
+    background-color: $orangeBack;
     margin: 3%;
 }
 
@@ -29,7 +31,7 @@ display: flex;
 textarea{
     width: 100%;
     height: 13vh;
-    border:4px solid #FF8D30;
+    border:4px solid $orangeBack;
 }
 
 }
