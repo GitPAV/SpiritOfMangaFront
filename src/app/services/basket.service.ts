@@ -25,30 +25,38 @@ export class BasketService {
   }
 
   removeMangas(index) {
-    this.ordersList = []
-    this.prix = 0
+    let list;
+    this.ordersList = [];
+    this.prix = 0;
+
     let datas = JSON.parse(sessionStorage.getItem("ordersList"))
-    sessionStorage.removeItem("ordersList")
-    datas = datas.splice(index)
-    let len = datas.length
-    sessionStorage.setItem("ordersList", JSON.stringify(datas))
+    let arr = datas
+    arr.splice(index, 1)
+    let len = arr.length
 
+    sessionStorage.setItem("ordersList", JSON.stringify(arr))
+
+    if (len > 1) {
       this.getUserChoices(sessionStorage.getItem("ordersList")).subscribe( manga => {
-        this.ordersList = manga
-
-        if (this.ordersList.length === len) {
-          this.basketContent.emit(this.ordersList)
-          this.ordersList.map( item => {
+          list = manga
+          this.basketContent.emit(list)
+          list.map( item => {
             this.prix += item[0].prixTTC
           })
           this.prixTotal.emit(this.prix)
 
-        } else {
-          this.basketContent.emit([])
-          this.prixTotal.emit(0)
-          sessionStorage.removeItem("ordersList")
-        }
-    });
+      })
+    } else if (len === 1) {
+      this.getOrderedManga(arr[0].manga, arr[0].state).subscribe(manga => {
+        this.ordersList.push(manga)
+        this.basketContent.emit(this.ordersList)
+        this.prixTotal.emit(this.ordersList[0].prixTTC)
+      })
+    } else {
+      this.basketContent.emit([])
+      this.prixTotal.emit(0)
+      sessionStorage.removeItem("ordersList")
+    }
   }
   
 }
