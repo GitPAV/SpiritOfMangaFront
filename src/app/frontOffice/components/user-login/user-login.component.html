@@ -1,41 +1,45 @@
 <div class="main">
-  <form 
-  [formGroup]='loginForm'
-  (ngSubmit)='onSubmit()'
-  >
+  <p class="titleLogin">SE CONNECTER</p>
+  <div class="container">
+    <img src="../../../../assets/img/catConnect.png" class="catConnectImg">
+    <form 
+    [formGroup]='loginForm'
+    (ngSubmit)='onSubmit()'
+    >
 
-    <label for='email'>
-      Adresse email : <br>
-      <input type='text' 
-      formControlName='email' 
-      id='email'
-      >
-    </label>
+      <label for='email'>
+        Adresse email : <br>
+        <input type='text' 
+        formControlName='email' 
+        id='email'
+        >
+      </label>
 
-    <br>
+      <br>
 
-    <label for='password'>
-      Mot de passe : <br>
-      <input type='password' 
-      formControlName='password' 
-      id='password'
-      >
-    </label>
+      <label for='password'>
+        Mot de passe : <br>
+        <input type='password' 
+        formControlName='password' 
+        id='password'
+        >
+      </label>
 
-    <br>
+      <br>
 
-    <div class="buttonLink">
+      <div class="buttonLink">
 
-      <button type="submit" 
-      [disabled]="!loginForm.valid"
-      class="buttonForm"
-      >
-        LOGIN
-      </button>
+        <button type="submit" 
+        [disabled]="!loginForm.valid"
+        class="buttonForm"
+        >
+          SE CONNECTE
+        </button>
 
-      <a *ngIf="adminConnected" (click)="goToBackOffice()">Aller sur le back-office</a>
-      <a *ngIf="adminConnected" (click)="goToFrontOffice()">Aller sur le front-office</a>
-      <a [routerLink]="['creation-utilisateur']" class="createLink">Nouveau client ? Créer ton compte </a>
-    </div>
-  </form>
+        <a *ngIf="adminConnected" (click)="goToBackOffice()">Aller sur le back-office</a>
+        <a *ngIf="adminConnected" (click)="goToFrontOffice()">Aller sur le front-office</a>
+        <a [routerLink]="['creation-utilisateur']" class="createLink">Nouveau client ? Créer ton compte </a>
+      </div>
+    </form>
+  </div>  
 </div>

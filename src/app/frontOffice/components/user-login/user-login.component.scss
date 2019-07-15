@@ -1,8 +1,19 @@
 @import '../../../common/styles/back-office.scss';
 
 .main {
-    display: flex;
-    height:80vh;
+    .titleLogin{
+        @include titleStyle;
+        margin-top:20px;
+    }
+    .container{
+        display: flex;
+        height:80vh;
+
+    .titleLogin {
+        font-size: 2em;
+        font-weight: bold;
+        text-decoration: $orangeBack underline;
+    }
     form{
         margin:auto auto;
         
@@ -29,6 +40,7 @@
     
             }
         }
+    }
     }
 }
 
