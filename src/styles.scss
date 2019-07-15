@@ -9,3 +9,22 @@ $blue2 : #263A60;
 $orange : #FD7003;
 $orangeBack : #FF8D30;
 $grey : #E6EAEE; 
+$white : #FFFFFF;
+
+    // MIXINS//
+
+@mixin selector (){
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #11ffee00;
+    background: url(../../../../assets/img/arrowWhite.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position: 90%;
+    color: $white;
+    margin-left: 1vw;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid $white;
+}

@@ -25,9 +25,11 @@
           </div>
           <div class="txtRow">
             <h5>Etat : </h5>
-            <select>
-              <option *ngFor="let state of states" [value]=state.id>{{state.name}}</option>
-            </select>
+            <div class="formfield-select--container">
+              <select>
+                <option *ngFor="let state of states" [value]=state.id>{{state.name}}</option>
+              </select>
+            </div>
           </div>
           <div class="resume">
             <span>{{choosenManga.resume}}</span>

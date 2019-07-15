@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 .bodyContent{
     background-image: url(../../../../assets/img/picOne.png);
     background-repeat: no-repeat;
@@ -49,6 +51,9 @@
         .resume{
             padding-top: 5vh;
             width: 50vw;
+        }
+        .formfield-select--container select {
+            @include selector ();
         }
     }
 }
