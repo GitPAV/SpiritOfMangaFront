@@ -82,16 +82,17 @@ h3{
 .price {
     background-color: $orange;
     box-shadow: 5px 5px 10px rgb(44, 44, 44);
-    width: 85px; height: 30px;
+    width: 88px; height: 35px;
     display: flex;
     justify-content: center;
     align-items: center;
+    float: right;
     position: relative;
-    top: 240px;
-    left: 60%;
-    margin: 0%;
+    top: 40vh;
+     right: -8px;
+
     p {
-        font-size: 1.3em;
+        font-size: 1.4em;
         color: aliceblue;
         font-family: 'Asap', sans-serif;
         font-weight: bold;
