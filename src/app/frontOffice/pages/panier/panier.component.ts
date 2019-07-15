@@ -13,6 +13,7 @@ export class PanierComponent implements OnInit {
   firstname;
   lastname;
   prixTotal: number = 0;
+  displayLink: boolean;
 
   constructor(private basketService: BasketService,
     private router: Router) { }

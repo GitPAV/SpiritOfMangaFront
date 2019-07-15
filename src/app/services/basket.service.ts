@@ -44,13 +44,12 @@ export class BasketService {
             this.prix += item[0].prixTTC
           })
           this.prixTotal.emit(this.prix)
-
       })
     } else if (len === 1) {
       this.getOrderedManga(arr[0].manga, arr[0].state).subscribe(manga => {
         this.ordersList.push(manga)
         this.basketContent.emit(this.ordersList)
-        this.prixTotal.emit(this.ordersList[0].prixTTC)
+        this.prixTotal.emit(manga[0].prixTTC)
       })
     } else {
       this.basketContent.emit([])
