@@ -1,8 +1,23 @@
-.logoPanier{
-    height:60px;
-    position: absolute;
-    right: 10px;
-    top: 5px;
+
+.iconLoginBasket{
+    display: flex;
+   
+    .logoPanier{
+        height:60px;
+        top: 5px;
+        outline:none;
+        position: absolute;
+        right:40px;
+    
+    }
+    .profilIcon{
+        height:60px;
+        background-color: #f9f9f9;
+        outline:none;
+        position: absolute;
+        right:120px;
+    
+    }
 }
 
 .navCtn {

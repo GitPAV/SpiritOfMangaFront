@@ -1,4 +1,4 @@
-<div>
+<div class="main">
   <form 
   [formGroup]='loginForm'
   (ngSubmit)='onSubmit()'
@@ -16,7 +16,7 @@
 
     <label for='password'>
       Mot de passe : <br>
-      <input type='text' 
+      <input type='password' 
       formControlName='password' 
       id='password'
       >
@@ -24,10 +24,18 @@
 
     <br>
 
-    <button type="submit" 
-    [disabled]="!loginForm.valid"
-    >
-      LOGIN
-    </button>
+    <div class="buttonLink">
+
+      <button type="submit" 
+      [disabled]="!loginForm.valid"
+      class="buttonForm"
+      >
+        LOGIN
+      </button>
+
+      <a *ngIf="adminConnected" (click)="goToBackOffice()">Aller sur le back-office</a>
+      <a *ngIf="adminConnected" (click)="goToFrontOffice()">Aller sur le front-office</a>
+      <a [routerLink]="['creation-utilisateur']" class="createLink">Nouveau client ? Créer ton compte </a>
+    </div>
   </form>
 </div>
