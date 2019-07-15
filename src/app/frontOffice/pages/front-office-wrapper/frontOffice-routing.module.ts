@@ -79,6 +79,10 @@ export const frontOfficeRouteList: Routes = [
         component : FullMangaComponent
       },
       {
+        path : 'page-dacceuil/:mangaID',
+        component : FullMangaComponent
+      },
+      {
         path : 'promotion/:mangaID',
         component : FullMangaComponent
       },
