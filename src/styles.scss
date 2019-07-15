@@ -13,7 +13,7 @@ $white : #FFFFFF;
 
     // MIXINS//
 
-@mixin selector (){
+@mixin selector (){ 
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -27,4 +27,13 @@ $white : #FFFFFF;
     border: 0;
     border-radius: 0;
     border-bottom: 1px solid $white;
+}
+
+@mixin order (){
+    background-color: $orangeBack;
+    border: 0;
+    border-radius: 30px;
+    padding: 10%;
+    padding-right: 30%;
+    color: $white;
 }
