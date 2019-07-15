@@ -1,7 +1,8 @@
 <div class="bodyContent">
   <div class="imgBlur">
-    <img [src]="choosenManga.photoCover">
-    <div class="mangaDetails">
+  </div>
+  <div class="mangaDetails">
+      <img [src]="choosenManga.photoCover">
         <div class="mangaTxt">
           <h3>{{choosenManga.title}}</h3>
           <h5>Tome {{choosenManga.tome}}</h5>
@@ -31,18 +32,19 @@
               </select>
             </div>
           </div>
-          <div class="resume">
-            <span>{{choosenManga.resume}}</span>
-          </div>
         </div>
-    </div>
-    <div class='buttons'>
-      <app-order-button *ngIf="!noStock" [mangaOrderedId]="choosenManga.id"></app-order-button>
-    
-      <div *ngIf="noStock">
-        <p>Ce manga n'est plus disponible pour le moment !</p>
-        <app-alert-button [idManga]="choosenManga.id"></app-alert-button>
+      </div>
+    <div class="mangasOptions">
+      <div class="resume">
+        <span>{{choosenManga.resume}}</span>
+      </div>
+      <div class='buttons'>
+        <app-order-button *ngIf="!noStock" [mangaOrderedId]="choosenManga.id"></app-order-button>
+        
+        <div *ngIf="noStock" class="alertMessage">
+          <app-alert-button [idManga]="choosenManga.id"></app-alert-button>
+          <p>Ce manga n'est plus disponible pour le moment !</p>
+        </div>
       </div>
     </div>
-  </div>
 </div>

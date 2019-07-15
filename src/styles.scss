@@ -29,11 +29,30 @@ $white : #FFFFFF;
     border-bottom: 1px solid $white;
 }
 
-@mixin order (){
-    background-color: $orangeBack;
+@mixin orderButton (){
+    background-color: $orangeBack!important;
+    background: url(../../../../assets/img/shopWhite.png);
+    background-repeat: no-repeat;
+    background-size: 16%;
+    background-position: 90%;
     border: 0;
     border-radius: 30px;
-    padding: 10%;
-    padding-right: 30%;
+    padding-right: 50px;
+    padding-left: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    color: $white;
+}
+
+@mixin alertButton (){
+    background-color: $orangeBack!important;
+    background: url(../../../../assets/img/bellWhite.png);
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position: 90%;
+    border: 0;
+    border-radius: 30px;
+    padding: 16px;
+    padding-right: 65px!important;
     color: $white;
 }
