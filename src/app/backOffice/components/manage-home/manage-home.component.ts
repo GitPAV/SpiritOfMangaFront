@@ -18,7 +18,6 @@ export class ManageHomeComponent implements OnInit {
     this.mangaService.getFavorites().subscribe(
       mangas => {
         this.currentsFavorites = mangas
-        console.log(this.currentsFavorites)
       }
     )
   }
