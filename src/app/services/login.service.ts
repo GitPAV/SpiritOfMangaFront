@@ -42,7 +42,6 @@ export class LoginService {
   getUserConnected(): Observable<User>{
     const token = localStorage.getItem('token')
     const tokenPayload = decode(token)
-    console.log(tokenPayload.email)
     return this.http.get<User>(`${this.getUserByMail}/${tokenPayload.email}`)
   }
 
