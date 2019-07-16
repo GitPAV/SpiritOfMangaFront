@@ -41,6 +41,7 @@ export class PacksDetailsComponent implements OnInit {
 
         this.GetPacksService.getPacksByID(this.packID).subscribe(packManga => {
           this.packManga = packManga;
+          this.nbTomes = this.packManga.length;
           this.packManga.forEach(element => {
             const value = element.mangas_id;
             this.MangaDataService.getMangasById(value).subscribe(listMangas => {
@@ -48,11 +49,6 @@ export class PacksDetailsComponent implements OnInit {
               this.listMangasPack.push(this.listMangas[0]);
             });
           });
-          this.nbTomes = this.listMangasPack.length;
-          console.log(this.listMangasPack.length);
-          console.log(this.listMangasPack);
-          
-          
         });
 
 
