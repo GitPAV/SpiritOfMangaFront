@@ -31,6 +31,7 @@ import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { OrderButtonComponent } from '../../components/order-button/order-button.component';
 import { PanierComponent } from '../../../frontOffice/pages/panier/panier.component';
 import { PacksDetailsComponent } from '../../components/packs-details/packs-details.component';
+import { FullPackComponent } from '../full-pack/full-pack.component';
 
 
 
@@ -66,6 +67,7 @@ import { PacksDetailsComponent } from '../../components/packs-details/packs-deta
     OrderButtonComponent,
     PanierComponent,
     PacksDetailsComponent,
+    FullPackComponent,
   ],
   imports: [
     CommonModule,

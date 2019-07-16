@@ -6,13 +6,7 @@
         <div class="packTxt">
           <h3>{{choosenPack.namePack}}</h3>
           <div class="txtRow">
-            <h5>Nb tomes :</h5><em>{{choosenPack.tomes}}</em>
-          </div>
-          <div class="txtRow">
-            <h5>Genres :</h5><em>{{genresDisplay}}</em>
-          </div>
-          <div class="txtRow">
-            <h5>Type :</h5><em>{{choosenPack.name}}</em>
+            <h5>Nb tomes :</h5><em *ngIf="nbTomes">{{nbTomes}}</em><em *ngIf="!nbTomes">Non spécifié</em>
           </div>
           <div class="txtRow">
             <h5>Prix public :</h5><em>{{choosenPack.prixPublic}}€</em>
@@ -21,13 +15,13 @@
             <h5>Notre Prix :</h5><em>{{choosenPack.notrePrix}}€</em>
           </div>
           <div class="txtRow">
-            <h5>Etat : </h5>
-            <div class="formfield-select--container">
-              <select>
-                <option *ngFor="let state of states" [value]=state.id>{{state.name}}</option>
-              </select>
-                <h5>Commentaire Etat</h5><em>{{choosenPack.comment}}</em>
-            </div>
+            <h5>Stock :</h5><em>{{choosenPack.stock}}</em>
+          </div>
+          <div class="txtRow" *ngIf="!comment">
+            <h5>Etat : </h5><em>Comme neuf</em>
+          </div>
+          <div class="txtRow" *ngIf="comment">
+            <h5>Commentaire d'etat spécifique : </h5><em>{{choosenPack.comment}}</em>
           </div>
         </div>
       </div>
@@ -36,12 +30,25 @@
         <span>{{choosenPack.resumePack}}</span>
       </div>
       <div class='buttons'>
-        <app-order-button *ngIf="!noStock" [mangaOrderedId]="choosenPack.id"></app-order-button>
+        <app-order-button *ngIf="stock" [mangaOrderedId]="choosenPack.id"></app-order-button>
         
-        <div *ngIf="noStock" class="alertMessage">
+        <div *ngIf="!stock" class="alertMessage">
           <app-alert-button [idManga]="choosenPack.id"></app-alert-button>
           <p>Ce pack n'est plus disponible pour le moment !</p>
         </div>
+      </div>
+    </div>
+    <div class="listMangas">
+      <div *ngFor="let manga of listMangasPack">
+          <div class="theCtn">
+              <div class="cardCtn">
+                  <div class="cardContent">
+                      <img src={{manga.photoCover}}> 
+                      <h4>{{manga.title}}</h4>
+                      <p>TOME {{manga.tome}}</p>
+                  </div>
+              </div>
+          </div>
       </div>
     </div>
 </div>

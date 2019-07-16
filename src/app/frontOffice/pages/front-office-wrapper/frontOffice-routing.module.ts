@@ -17,7 +17,7 @@ import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-p
 import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { PanierComponent } from '../panier/panier.component';
 import { UserLoginComponent } from '../../components/user-login/user-login.component';
-import { PacksDetailsComponent } from '../../components/packs-details/packs-details.component';
+import { FullPackComponent } from '../full-pack/full-pack.component';
 
 
 export const frontOfficeRouteList: Routes = [
@@ -88,7 +88,7 @@ export const frontOfficeRouteList: Routes = [
       },
       {
         path : 'packs-liste/:packID',
-        component : PacksDetailsComponent
+        component : FullPackComponent
       },
 
       // FOOTER
