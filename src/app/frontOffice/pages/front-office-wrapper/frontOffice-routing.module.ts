@@ -43,7 +43,7 @@ export const frontOfficeRouteList: Routes = [
       // NAVBAR
 
       {
-        path: 'creation-utilisateur',
+        path: 'user-login/creation-utilisateur',
         component: CreateUserComponent
       },
       {

@@ -1,7 +1,46 @@
-input {
-    width: 240px;
+@import '../../../common/styles/back-office.scss';
+
+.main {
+    .titleLogin{
+        @include titleStyle;
+        margin-top:20px;
+    }
+    .container{
+        display: flex;
+        height:80vh;
+
+    .titleLogin {
+        font-size: 2em;
+        font-weight: bold;
+        text-decoration: $orangeBack underline;
+    }
+    form{
+        margin:auto auto;
+        
+        label {
+            padding:10px;
+            input {
+                border: $borderBackInput;
+                width: 240px;
+            }
+        }
+        .buttonLink{
+            .buttonForm {
+                @include validateButtonStyle;
+
+            }
+            display: flex;
+            flex-direction: column;
+    
+            button {
+                margin-top: 10px;
+            }
+    
+            .createLink {
+    
+            }
+        }
+    }
+    }
 }
 
-button {
-    margin-top: 10px;
-}

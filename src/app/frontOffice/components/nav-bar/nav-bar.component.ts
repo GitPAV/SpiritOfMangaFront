@@ -37,11 +37,6 @@ export class NavBarComponent implements OnInit {
     this.userConnected[0].droits === 'admin' ? this.adminConnected = true : this.adminConnected = false;
   }
 
-  goToBackOffice(){
-    this.router.navigate(['back'])
-    this.goToBackOfficeService.getAdminClick(this.adminConnected);
-  }
-
   activateLoginForm(){
     this.loginForm = !this.loginForm
   }
