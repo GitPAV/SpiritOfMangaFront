@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { FrontFooterComponent } from '../../components/front-footer/front-footer.component';
-import { HomepageComponent } from '../homepage/homepage.component'
+import { HomepageComponent } from '../homepage/homepage.component';
 import { HeaderHomeTwoComponent } from '../../components/header-home-two/header-home-two.component';
 import { HeaderHomeOneComponent } from '../../components/header-home-one/header-home-one.component';
 import { FrontOfficeWrapperComponent } from './front-office-wrapper.component';
@@ -31,6 +31,7 @@ import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { OrderButtonComponent } from '../../components/order-button/order-button.component';
 import { PanierComponent } from '../../../frontOffice/pages/panier/panier.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PacksDetailsComponent } from '../../components/packs-details/packs-details.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     FullMangaComponent,
     OrderButtonComponent,
     PanierComponent,
-
+    PacksDetailsComponent,
   ],
   imports: [
     CommonModule,

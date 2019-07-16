@@ -1,7 +1,7 @@
 <div class="container">
   <div *ngFor="let pack of packs | paginate: { itemsPerPage: 12, currentPage: p }" >
       <div >
-          <app-card-pack [pack]="pack"></app-card-pack>   
+        <a routerLink="{{pack.id}}"><app-card-pack [pack]="pack"></app-card-pack></a>   
       </div>  
   </div> 
 </div>
