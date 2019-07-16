@@ -1,9 +1,12 @@
 <app-header-home-two></app-header-home-two>
 <!-- <app-card-promo></app-card-promo> -->
 <div class="container">
-    <div *ngFor="let manga of mangas" >
+    <div *ngFor="let manga of mangas | paginate: { itemsPerPage: 12, currentPage: p }" >
         <div >
             <app-card-promo  [manga]="manga"></app-card-promo>   
         </div>  
     </div> 
+</div>
+<div class="paginationBlock">
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

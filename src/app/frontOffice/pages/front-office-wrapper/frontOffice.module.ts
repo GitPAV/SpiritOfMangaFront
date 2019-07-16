@@ -29,10 +29,8 @@ import { CardPromoComponent } from '../../components/card-promo/card-promo.compo
 import { MangaDetailsComponent } from '../../components/manga-details/manga-details.component';
 import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { OrderButtonComponent } from '../../components/order-button/order-button.component';
-import { PanierComponent } from '../../../frontOffice/pages/panier/panier.component'
-
-
-
+import { PanierComponent } from '../../../frontOffice/pages/panier/panier.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -64,12 +62,15 @@ import { PanierComponent } from '../../../frontOffice/pages/panier/panier.compon
     FullMangaComponent,
     OrderButtonComponent,
     PanierComponent,
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    NgxPaginationModule
+
   ],
   providers: [],
 

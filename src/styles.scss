@@ -9,3 +9,27 @@ $blue2 : #263A60;
 $orange : #FD7003;
 $orangeBack : #FF8D30;
 $grey : #E6EAEE; 
+
+
+.paginationBlock{
+    text-align: center;
+
+    li {
+        outline: none;
+
+        &.current {
+            background-color: #FF8D30;
+        }
+        a {
+            outline: none;
+        }
+
+        &:hover{
+            background-color:#FF8D30;
+            a {
+                background-color:#FF8D30;
+            }
+        }   
+    }
+    
+}
