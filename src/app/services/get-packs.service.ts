@@ -69,7 +69,6 @@ export class GetPacksService {
   sendPacksByGenre(id){
     // make event emitter send packs list to gallery-pack
     this.getPacksByGenre(id).subscribe( packs => {
-      console.log(packs)
       this.packsToDisplay = packs
       this.sendPacksUpdate.emit(this.packsToDisplay)
     })
@@ -78,11 +77,16 @@ export class GetPacksService {
 
   getPacksByType(id): Observable<any> {
     // need to write the sql request in back
-    return
+    return this.http.get(`${this.searchByTypeUrl}/${id}`)
   }
 
   sendPacksByType(id) {
   // make event emitter send packs list to gallery-pack
+    this.getPacksByType(id).subscribe( packs => {
+      console.log(packs)
+      this.packsToDisplay = packs
+      this.sendPacksUpdate.emit(this.packsToDisplay)
+    })
   }
 
 }
