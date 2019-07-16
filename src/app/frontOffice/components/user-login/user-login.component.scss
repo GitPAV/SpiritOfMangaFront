@@ -2,26 +2,40 @@
 
 .main {
     .titleLogin{
-        @include titleStyle;
-        margin-top:20px;
+        color: #ff7b01;
+        font-weight: bold;
+        font-family: 'Dosis', sans-serif;
+        font-size: 2em;
+        letter-spacing: .1rem;
+        margin-top: 2%;
+        text-align: center;
+    }
+    p {
+        margin-bottom: 3%;
+        text-align: center;
     }
     .container{
         display: flex;
-        height:80vh;
+        margin-bottom: 2%;
 
-    .titleLogin {
-        font-size: 2em;
-        font-weight: bold;
-        text-decoration: $orangeBack underline;
+    img {
+        margin-top: -110px;
+        margin-bottom: -20px;
+        padding-left: 8%;
     }
+
     form{
-        margin:auto auto;
+        margin:auto;
+        margin-top: 4%;
         
         label {
             padding:10px;
+            font-size: 20px;
             input {
-                border: $borderBackInput;
-                width: 240px;
+                border-radius: 5px;
+                -webkit-appearance: none;
+                border: solid 2px $orangeLight;
+                width: 400px; height: 45px;
             }
         }
         .buttonLink{
@@ -31,14 +45,24 @@
             }
             display: flex;
             flex-direction: column;
+            text-align: center;
+            align-items: center;
     
             button {
                 margin-top: 10px;
-            }
+                -webkit-appearance: none;
+                width: 170px;
+                height: 40px;
+                background-color: $orange;
+                border: 0;
+                border-radius: 30px;
+                color: white;
+                font-weight: 700;
+             & :hover {
+                box-shadow: 4px 4px 0px black;
+                cursor: pointer;
+            }}
     
-            .createLink {
-    
-            }
         }
     }
     }
