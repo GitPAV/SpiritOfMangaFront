@@ -1,8 +1,11 @@
 
 <div class="container">
-    <div *ngFor="let manga of mangas" >
+    <div *ngFor="let manga of mangas | paginate: { itemsPerPage: 12, currentPage: p }" >
         <div >
             <a routerLink="{{manga.id}}"><app-card  [manga]="manga"></app-card></a>
         </div>  
     </div> 
+</div>
+<div class="paginationBlock">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
