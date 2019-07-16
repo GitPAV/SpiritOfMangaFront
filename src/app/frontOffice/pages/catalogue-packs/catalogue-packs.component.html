@@ -5,12 +5,12 @@
 
     <select (change)="searchByType($event.target.value)">
       <option>Recherche par type</option>
-      <option></option>
+      <option *ngFor="let type of types" [value]="type.id">{{ type.name }}</option>
   </select>
 
   <select (change)="searchByGenre($event.target.value)">
       <option>Recherche par genre</option>
-      <option></option>
+      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
   </select>
   </div>
 

@@ -32,8 +32,12 @@ export class CataloguePacksComponent implements OnInit {
     this.packsService.searchPacks(research)
   }
 
-  searchByType(event) {}
+  searchByType(event) {
+    this.packsService.sendPacksByType(event)
+  }
 
-  searchByGenre(event) {}
+  searchByGenre(event) {
+    this.packsService.sendPacksByGenre(event)
+  }
 
 }
