@@ -17,6 +17,7 @@ import { GalleryMangaPageComponent } from '../gallery-manga-page/gallery-manga-p
 import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { PanierComponent } from '../panier/panier.component';
 import { UserLoginComponent } from '../../components/user-login/user-login.component';
+import { PacksDetailsComponent } from '../../components/packs-details/packs-details.component';
 
 
 export const frontOfficeRouteList: Routes = [
@@ -43,7 +44,7 @@ export const frontOfficeRouteList: Routes = [
       // NAVBAR
 
       {
-        path: 'creation-utilisateur',
+        path: 'user-login/creation-utilisateur',
         component: CreateUserComponent
       },
       {
@@ -71,11 +72,23 @@ export const frontOfficeRouteList: Routes = [
         component: UserLoginComponent
       },
 
-      // MANGAS BY ID
+      // MANGAS & PACKS BY ID
 
       {
         path : 'mangas-liste/:mangaID',
         component : FullMangaComponent
+      },
+      {
+        path : 'page-dacceuil/:mangaID',
+        component : FullMangaComponent
+      },
+      {
+        path : 'promotion/:mangaID',
+        component : FullMangaComponent
+      },
+      {
+        path : 'packs-liste/:packID',
+        component : PacksDetailsComponent
       },
 
       // FOOTER

@@ -20,8 +20,8 @@ export class GalleryMangaComponent implements OnInit {
       this.mangasUnsub.unsubscribe();
     });
     this.mangaDataService.sendMangas.subscribe(mangas => {
-      this.mangas = mangas
-    })
+      this.mangas = mangas;
+    });
 
   }
 

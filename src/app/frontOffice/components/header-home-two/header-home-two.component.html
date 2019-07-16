@@ -4,6 +4,7 @@
 
     <div class="theCtn">
         <div class="cardCtn" *ngFor="let manga of mangasToDisplay">
+          <a routerLink="{{manga.mangas_id}}">
             <div class="cardContent">
                 <div class="promo"><p>-{{manga.promoValue}}%</p></div>
                 <div class="price"><p>{{manga.prixTTC}}€</p></div>
@@ -11,6 +12,7 @@
                 <h4>{{manga.title}}</h4>
                 <p>TOME  {{manga.tome}}</p>
             </div>
+          </a>
         </div>
     </div>
 

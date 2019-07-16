@@ -27,7 +27,7 @@
             letter-spacing: .1rem;
     } img {
         width: 16vw;
-        height: 47vh;
+        height: 50vh;
         object-fit: cover;
         border: solid 2px white;
         box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
@@ -42,11 +42,14 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    top: 55px;
-    left: -15px;
+    left: 4%;
+    top: 60px;
     margin: 0%;
+    padding: 8%;
+
 
     p{
+        font-size: 18px;
         color: aliceblue;
         font-family: 'Arial Narrow Bold', sans-serif;
         font-weight: bold;
@@ -60,12 +63,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    float: right;
     position: relative;
-    top: 260px;
-    left: 60%;
-    margin: 0%;
+    top: 40vh;
+    right: 20px;
+
     p {
-        font-size: 1.3em;
+        font-size: 1.4em;
         color: aliceblue;
         font-family: 'Asap', sans-serif;
         font-weight: bold;

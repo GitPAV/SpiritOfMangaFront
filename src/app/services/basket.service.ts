@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class BasketService {
   ordersUrl = 'http://localhost:4242/statesMangas/get-mangas-order';
+  userChoicesUrl = 'http://localhost:4242/statesMangas/get-user-choices';
   @Output() basketContent = new EventEmitter();
   @Output() prixTotal = new EventEmitter();
   ordersList = [];
@@ -19,27 +20,42 @@ export class BasketService {
     return this.http.get(`${this.ordersUrl}/${mangaId}/${statesId}`)
   }
 
+  getUserChoices(datasIds): Observable<any> {
+    return this.http.get(`${this.userChoicesUrl}?datas=${datasIds}`)
+  }
+
   removeMangas(index) {
-    this.ordersList = []
-    this.prix = 0
+    let list;
+    this.ordersList = [];
+    this.prix = 0;
+
     let datas = JSON.parse(sessionStorage.getItem("ordersList"))
-    datas = datas.splice(index)
-    sessionStorage.removeItem("ordersList")
-    let len = datas.length
+    let arr = datas
+    arr.splice(index, 1)
+    let len = arr.length
 
-    datas.map(item => {
-      this.getOrderedManga(item.manga, item.state).subscribe( manga => {
-        this.ordersList.push(manga)
-        this.prix += manga[0].prixTTC
+    sessionStorage.setItem("ordersList", JSON.stringify(arr))
 
-        if (this.ordersList.length === len) {
-          this.basketContent.emit(this.ordersList)
+    if (len > 1) {
+      this.getUserChoices(sessionStorage.getItem("ordersList")).subscribe( manga => {
+          list = manga
+          this.basketContent.emit(list)
+          list.map( item => {
+            this.prix += item[0].prixTTC
+          })
           this.prixTotal.emit(this.prix)
-          datas = JSON.stringify(datas)
-          sessionStorage.setItem("ordersList",datas)
-        }
       })
-    });
+    } else if (len === 1) {
+      this.getOrderedManga(arr[0].manga, arr[0].state).subscribe(manga => {
+        this.ordersList.push(manga)
+        this.basketContent.emit(this.ordersList)
+        this.prixTotal.emit(manga[0].prixTTC)
+      })
+    } else {
+      this.basketContent.emit([])
+      this.prixTotal.emit(0)
+      sessionStorage.removeItem("ordersList")
+    }
   }
   
 }

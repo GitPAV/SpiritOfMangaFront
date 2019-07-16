@@ -4,30 +4,39 @@
     min-height: 76vh;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    margin-left: 5vw;
+    align-items: center;
+    justify-content: flex-start;
     margin-top: 5vh;
+
+    #clientInfos {
+        margin-bottom: 5vh;
+    }
 
     .userName {
         text-align: center;
         font-size: 30px;
     }
     .listItem {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .listA {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: flex-start;
             margin-bottom: 20px;
+            background-color: #e6e6e6;
+            width: 80%;
 
             img {
-                height:250px;
-                margin-right:20px;
-                margin-top: 10%;
+                height:100%;
+                margin:10px;
             }
 
             p {
-                margin:20px;
+                margin:10px;
                 font-size: 20px;
 
             }
@@ -39,9 +48,17 @@
                 padding-top: 0;
             }
         }
+
+        button {
+            margin-left: 2vw;
+            height: 10vh;
+            width: 10vh;
+            border-radius: 50%;
+            font-size: 150%;
+        }
     }
 
-    #order {
+    .order {
         width: 100%;
         font-size: 28px;
         display: flex;
@@ -49,5 +66,19 @@
         align-items: center;
         justify-content: center;
         margin-bottom: 5vh;
+
+        p {
+            margin-bottom: 3vh;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color:$orange;
+        font-size: 24px;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 }
