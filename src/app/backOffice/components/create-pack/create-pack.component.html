@@ -122,7 +122,7 @@
                 </div>
 
                 <div *ngIf="chosenPack" class="mangasList">
-                    <p>Pack selectionné : </p>
+                    <p>Pack selectionné :  {{chosenPack.namePack}}</p>
                     <ul *ngFor="let manga of listMangasPacks, let i =index" class="eachMangas">
                         <li>
                             <img src={{manga.photoCover}}>
