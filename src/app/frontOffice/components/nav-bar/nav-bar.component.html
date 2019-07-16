@@ -10,16 +10,17 @@
             <li><a [routerLink]="['mangas-liste']">MANGAS</a></li>
             <li><a [routerLink]="['promotion']">PROMOTIONS</a></li>
             <li><a [routerLink]="['packs-liste']">PACKS</a></li>
-            <li><a [routerLink]="['vendre-manga']">VENDRE VOS MANGAS</a></li>
-            <li class="dropdown"><a (click)="activateLoginForm()">SE CONNECTER</a>
-                <div class="dropdown-content" *ngIf="loginForm">
-                    <li><app-user-login (mailSender)='getUserConnected($event)'></app-user-login></li>
-                    <li *ngIf="adminConnected"><a (click)="goToBackOffice()">Aller sur le back-office</a></li>
-                </div>
-            </li>
+            <li><a [routerLink]="['vendre-manga']">VENDRE VOS MANGAS</a></li>            
         </ul>
-        <img src="../../../../assets/img/shopOrange.png" class="logoPanier" alt="logo basket" [routerLink]="['panier']">
 
+        
+        
+    </div>
+
+    <div class="iconLoginBasket">
+
+        <img [routerLink]="['user-login']" src="../../../../assets/img/user-icon.png" alt="profile-icon" class="profilIcon">
+        <img src="../../../../assets/img/shopOrange.png" class="logoPanier" alt="logo basket" [routerLink]="['panier']">
 
     </div>
 
