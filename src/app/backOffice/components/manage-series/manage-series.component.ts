@@ -58,12 +58,16 @@ export class ManageSeriesComponent implements OnInit {
     this.types_id = serie.types_id
     this.serieId = serie.id
     this.genresService.getGenresId(this.serieId).subscribe(
-      genreId => { this.genresId = JSON.parse(genreId);
+      genreId => { 
+        this.genresId = JSON.parse(genreId);
         this.displayKinds = this.genresId
+        this.genresService.genresUpdate.subscribe( genres => {
+          this.genresId = JSON.parse(genres)
+          this.displayKinds = this.genresId
+        })
       });
       this.initForm()
     }
-    
 
 
   getNewKind(genre) {
@@ -72,13 +76,13 @@ export class ManageSeriesComponent implements OnInit {
   }
 
   addNewKind() {
-    this.genresService.postGenresManga(this.newKindId, this.serieId)
+    this.genresService.serieGenreUpdate(this.newKindId, this.serieId)
   }
 
 
   deletAKind(i) {
     event.preventDefault();
-    this.genresService.deleteKind(i).then()
+    this.genresService.serieGenreDelete(i, this.serieId)
   }
 
   initForm() {
@@ -96,7 +100,6 @@ export class ManageSeriesComponent implements OnInit {
       id : this.serieId,
       data : this.manageSeriesForm.value
     }
-    console.log(body);
     this.seriesService.seriesPut(body, seriesRoute).subscribe();
   }
 
