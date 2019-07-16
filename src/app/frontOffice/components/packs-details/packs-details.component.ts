@@ -35,14 +35,13 @@ export class PacksDetailsComponent implements OnInit {
         this.packs = packs;
         this.packID = parseInt(params.get('packID')); // Récupère ID du pack
         this.choosenPack = this.packs[this.packID - 1]; // Récupère le pack by ID
-        console.log(this.choosenPack);
         this.comment = this.choosenPack.comment;
         this.choosenPack.stock > 0 ? this.stock = true : this.stock = false;
 
-        this.GetPacksService.getPacksByID(this.packID).subscribe(packManga => {
+        this.GetPacksService.getPacksByID(this.packID).subscribe(packManga => { // Récupère les ID des mangas dans le pack
           this.packManga = packManga;
           this.nbTomes = this.packManga.length;
-          this.packManga.forEach(element => {
+          this.packManga.forEach(element => { // Push les mangas du pack 1 par 1 dans une liste
             const value = element.mangas_id;
             this.MangaDataService.getMangasById(value).subscribe(listMangas => {
               this.listMangas = listMangas;
