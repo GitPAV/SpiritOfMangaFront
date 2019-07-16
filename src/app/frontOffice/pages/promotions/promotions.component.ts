@@ -9,13 +9,12 @@ import { MangaDataService } from '../../../services/manga-data.service';
 export class PromotionsComponent implements OnInit {
 
   mangas ;
-  
+
   constructor(private mangadataservice: MangaDataService) { }
 
   ngOnInit() {
     this.mangadataservice.getPromotedManga().subscribe(mangas => {
       this.mangas = mangas;
-      console.log(this.mangas)
     });
   }
 

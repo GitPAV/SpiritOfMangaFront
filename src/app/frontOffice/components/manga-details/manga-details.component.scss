@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 .bodyContent{
     background-image: url(../../../../assets/img/picOne.png);
     background-repeat: no-repeat;
@@ -8,12 +10,15 @@
 .imgBlur {
     background: linear-gradient( rgba(255, 255, 255, 0.3) 30%, black );
     height: 53vh;
+}
+
+.mangaDetails{
+    position: relative;
+    left: 3%;
+    width: 75%;
+    bottom: 70%;
     display: flex;
-    padding-top: 20vh;
-    .buttons {
-        margin-left: 5vw;
-        margin-top: 3vh;
-    }
+    margin-bottom: 0%;
     img {
         width: 17vw;
         height: 52vh;
@@ -22,19 +27,14 @@
         border: solid 2px white;
         box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
     }
-    p {
-        color: #FFFFFF;
-    }
-}
-
-.mangaDetails{
     .mangaTxt{
-        padding-left: 3%;
+        height: 70%;
+        margin-left: 2%;
         .txtRow{
             display: flex;
         }
         h3 {
-            font-size: 2rem;
+            font-size: 40px;
             color: #FFFFFF;
         }
         h5{
@@ -44,11 +44,34 @@
         em{
             font-size: 1rem;
             color: #FFFFFF;
-            padding-left: 1vw;
+            padding-left: .75vw;
         }
-        .resume{
-            padding-top: 5vh;
-            width: 50vw;
+        .formfield-select--container select {
+            @include selector ();
         }
+    }
+}
+
+.mangasOptions{
+    display: flex;
+    position: relative;
+    bottom: 90%;
+    margin-left: 2%;
+    .resume{
+        position: relative;
+        left: 25%;
+        width: 50vw;
+    }
+    .buttons{
+        position: relative;
+        left: 30%;
+    }
+    .alertMessage {
+        text-align: center;
+        width: 70%;
+        padding-top: 2vh;
+    }
+    p{
+        padding-top: 1vh;
     }
 }
