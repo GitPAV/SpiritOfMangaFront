@@ -83,6 +83,8 @@ export class MangaDetailsComponent implements OnInit {
 
           this.mangadataservice.getMangasStatesById(this.mangaId).subscribe(statesMangas => { // Récupère 2nd part des DATA du manga
             this.statesMangas = statesMangas;
+            console.log(this.statesMangas);
+            
             this.prixTTC = this.statesMangas[0].prixTTC; // Recupere prix TTC du manga
             this.statesID = this.statesMangas[0].states_id;
             this.displayState = this.states[this.statesID - 1].name; // Récupere etat du manga

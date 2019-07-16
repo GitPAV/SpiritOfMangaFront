@@ -1,3 +1,51 @@
-<p>
-  packs-details works!
-</p>
+<div class="bodyContent">
+  <div class="imgBlur">
+  </div>
+  <div class="packDetails">
+      <img [src]="choosenPack.photoPack">
+        <div class="packTxt">
+          <h3>{{choosenPack.namePack}}</h3>
+          <div class="txtRow">
+            <h5>Nb tomes :</h5><em *ngIf="nbTomes">{{nbTomes}}</em><em *ngIf="!nbTomes">Non spécifié</em>
+          </div>
+          <div class="txtRow">
+            <h5>Prix public :</h5><em>{{choosenPack.prixPublic}}€</em>
+          </div>
+          <div class="txtRow">
+            <h5>Notre Prix :</h5><em>{{choosenPack.notrePrix}}€</em>
+          </div>
+          <div class="txtRow">
+            <h5>Stock :</h5><em>{{choosenPack.stock}}</em>
+          </div>
+          <div class="txtRow" *ngIf="!comment">
+            <h5>Etat : </h5><em>Comme neuf</em>
+          </div>
+          <div class="txtRow" *ngIf="comment">
+            <h5>Commentaire d'etat spécifique : </h5><em>{{choosenPack.comment}}</em>
+          </div>
+        </div>
+      </div>
+    <div class="packOptions">
+      <div class="resume">
+        <span>{{choosenPack.resumePack}}</span>
+      </div>
+      <div class='buttons'>
+        <app-order-button *ngIf="stock" [mangaOrderedId]="choosenPack.id"></app-order-button>
+        
+        <div *ngIf="!stock" class="alertMessage">
+          <app-alert-button [idManga]="choosenPack.id"></app-alert-button>
+          <p>Ce pack n'est plus disponible pour le moment !</p>
+        </div>
+      </div>
+    </div>
+    <div class="listMangas">
+      <div
+        class="cardContent"
+        *ngFor="let manga of listMangasPack"  
+      >
+          <img src={{manga.photoCover}}> 
+          <h4>{{manga.title}}</h4>
+          <p>TOME {{manga.tome}}</p>
+      </div>
+    </div>
+</div>

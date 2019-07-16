@@ -1,17 +1,12 @@
 @import '../../../../styles.scss';
 
-.theCtn {
-    display: flex;
-}
-
-.cardCtn {
-    margin-left: 3%;
-    margin-right: 3%;
-}
-
 .cardContent {
     object-fit: cover;
     text-align: center;
+    .effectContainer {
+        margin-left: 7vw;
+        margin-bottom: 3vh;
+    }
     h4 {
         color: rgb(49, 49, 49);
         font-weight: bold;
@@ -25,19 +20,30 @@
             font-family: 'Asap', sans-serif;
             font-size: 100%;
             letter-spacing: .1rem;
-    } img {
-        width: 16vw;
-        height: 47vh;
-        object-fit: cover;
-         border-right: solid 2px  rgb(37, 37, 37);
-         border-bottom: solid 2px  rgb(36, 35, 35);
-        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
-        
+    } .pileEffect{
+        display: flex;
+        height: 34vh;
     }
-}
+    .pack1{
+        filter: brightness(50%);
+    }
+    .pack2{
+        filter: brightness(75%);
+        transform: translateX(-108%) translateY(3%);    
+    }
+    .pack3{
+        transform: translateX(-216%) translateY(6%);
 
-.effet {
-    
+    }
+    img {
+        object-fit: cover;
+        border-top: solid 1px  rgb(37, 37, 37);
+        border-bottom: solid 1px  rgb(37, 37, 37);
+        border-left: solid 1px  rgb(37, 37, 37);
+        border-right: solid 5px  rgb(37, 37, 37);
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
+    }
+
 }
 
 @media (max-width: 1000px) {
