@@ -1,15 +1,17 @@
 <div class="galleryBlk"> 
 
   <div class="searchBar">
-    <input type="text" placeholder="Rechercher">
+    <input type="text" #searchText (input)='getSearchedPack(searchText.value)' placeholder="Rechercher">
 
-    <select>
-        <option>type</option>
-    </select>
+    <select (change)="searchByType($event.target.value)">
+      <option>Recherche par type</option>
+      <option></option>
+  </select>
 
-    <select>
-        <option>genre</option>
-    </select>
+  <select (change)="searchByGenre($event.target.value)">
+      <option>Recherche par genre</option>
+      <option></option>
+  </select>
   </div>
 
 </div>

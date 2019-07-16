@@ -7,8 +7,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-
-
 export class GetPacksService {
   packsUrl = 'http://localhost:4242/packs/manage-packs';
   packsUrl2 = 'http://localhost:4242/packs/delete-packs';
@@ -16,7 +14,13 @@ export class GetPacksService {
   packsIdUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas/';
   url = 'http://localhost:4242/packsMangas/manage-packs-mangas';
 
+  searchByGenreUrl = 'http://localhost:4242/search/filter-packs-genres';
+  searchByTypeUrl = 'http://localhost:4242/search/filter-packs-types';
+
   @Output() chosenPackEvent = new EventEmitter();
+  
+  @Output() sendPacksUpdate = new EventEmitter();
+  packsToDisplay;
 
 
   constructor( private http: HttpClient) { }
@@ -39,7 +43,6 @@ export class GetPacksService {
   }
 
   updatePack(pack): Observable<any> {
-    console.log(pack)
     return this.http.put(this.packsUrl, pack, {responseType: 'text'});
   }
 
@@ -49,6 +52,31 @@ export class GetPacksService {
 
   emitterPack(chosenPack) {
     this.chosenPackEvent.emit(chosenPack);
+  }
+
+  searchPacks(research) {
+    this.getSearchTitle(research).subscribe( packs => {
+      this.packsToDisplay = packs
+      this.sendPacksUpdate.emit(this.packsToDisplay)
+    })
+  }
+
+  getPacksByGenre(id): Observable<any> {
+    // need to write the sql request in back
+    return
+  }
+
+  sendPacksByGenre(id){
+
+  }
+
+  getPacksByType(id): Observable<any> {
+    // need to write the sql request in back
+    return
+  }
+
+  sendPacksByType(id) {
+
   }
 
 }
