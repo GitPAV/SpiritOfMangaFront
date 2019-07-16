@@ -73,7 +73,6 @@ export class MangaDataService {
 
    // METHODS FOR THE DISPONIBILITY ALERTS FEATURE
   sendMangaAwaiting(infos) {
-    console.log(infos)
     return this.http.post(this.mangasAwaitingUrl, infos, {responseType: 'text'}).toPromise()
   }
 
