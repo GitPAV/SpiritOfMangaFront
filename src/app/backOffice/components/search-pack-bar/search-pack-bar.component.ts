@@ -3,7 +3,6 @@ import { GetPacksService } from 'src/app/services/get-packs.service';
 import { Packs } from '../../../common/models/pack.model';
 
 
-
 @Component({
   selector: 'app-search-pack-bar',
   templateUrl: './search-pack-bar.component.html',
@@ -29,12 +28,10 @@ export class SearchPackBarComponent implements OnInit {
   }
 
   sendChosenPack(pack){
-    console.log(pack);
     let packsToSend = [];
     packsToSend.push(pack);
     this.searchPackService.emitterPack(packsToSend);
     this.selectPack.emit(packsToSend);
-    console.log('P', packsToSend);
     
     this.research = '';
     this.packs = [];
