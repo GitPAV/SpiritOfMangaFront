@@ -83,7 +83,6 @@ export class GetPacksService {
   sendPacksByType(id) {
   // make event emitter send packs list to gallery-pack
     this.getPacksByType(id).subscribe( packs => {
-      console.log(packs)
       this.packsToDisplay = packs
       this.sendPacksUpdate.emit(this.packsToDisplay)
     })
