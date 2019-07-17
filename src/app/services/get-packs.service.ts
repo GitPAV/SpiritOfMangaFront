@@ -14,6 +14,7 @@ export class GetPacksService {
   packsUrl2 = 'http://localhost:4242/packs/delete-packs';
   searchUrl = 'http://localhost:4242/packs/search-packs';
   packsIdUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas/';
+  packsIdUrl2 = 'http://localhost:4242/packs/manage-packs/';
   url = 'http://localhost:4242/packsMangas/manage-packs-mangas';
 
   @Output() chosenPackEvent = new EventEmitter();
@@ -23,6 +24,10 @@ export class GetPacksService {
 
   getPacks(): Observable<Packs[]> {
     return this.http.get<Packs[]>(this.packsUrl);
+  }
+
+  get1PackbyID(id) {
+    return this.http.get(this.packsIdUrl2 + id);
   }
 
   getPacksByID(id) {

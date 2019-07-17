@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
+import { Packs } from '../../../common/models/pack.model';
 import { GetPacksService } from '../../../services/get-packs.service';
 import { MangaDataService } from '../../../services/manga-data.service';
 
@@ -11,14 +12,12 @@ import { MangaDataService } from '../../../services/manga-data.service';
 })
 export class PacksDetailsComponent implements OnInit {
 
-  packs = [];
   mangas = [];
   listMangas = [];
   listMangasPack = [];
-
+  pack = {};
   packManga;
   choosenPack;
-  packID;
   comment;
   nbTomes;
   stock;
@@ -31,14 +30,14 @@ export class PacksDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-      this.GetPacksService.getPacks().subscribe(packs => {
-        this.packs = packs;
-        this.packID = parseInt(params.get('packID')); // Récupère ID du pack
-        this.choosenPack = this.packs[this.packID - 1]; // Récupère le pack by ID
+      const packID = parseInt(params.get('packID')); // Récupère ID du pack
+      this.GetPacksService.get1PackbyID(packID).subscribe(pack => { // Récupère le pack via l'ID
+        this.pack = pack;
+        this.choosenPack = this.pack[0];
         this.comment = this.choosenPack.comment;
         this.choosenPack.stock > 0 ? this.stock = true : this.stock = false;
 
-        this.GetPacksService.getPacksByID(this.packID).subscribe(packManga => { // Récupère les ID des mangas dans le pack
+        this.GetPacksService.getPacksByID(packID).subscribe(packManga => { // Récupère les ID des mangas dans le pack
           this.packManga = packManga;
           this.nbTomes = this.packManga.length;
           this.packManga.forEach(element => { // Push les mangas du pack 1 par 1 dans une liste
@@ -49,11 +48,9 @@ export class PacksDetailsComponent implements OnInit {
             });
           });
         });
-
-
       });
-    });
 
+    });
   }
 
 }
