@@ -18,6 +18,7 @@ import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { PanierComponent } from '../panier/panier.component';
 import { UserLoginComponent } from '../../components/user-login/user-login.component';
 import { FullPackComponent } from '../full-pack/full-pack.component';
+import { UserProfilComponent } from '../../components/user-profil/user-profil.component';
 
 
 export const frontOfficeRouteList: Routes = [
@@ -70,6 +71,10 @@ export const frontOfficeRouteList: Routes = [
       {
         path: 'user-login',
         component: UserLoginComponent
+      },
+      {
+        path: 'user-profil',
+        component: UserProfilComponent
       },
 
       // MANGAS & PACKS BY ID

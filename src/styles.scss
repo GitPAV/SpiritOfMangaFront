@@ -81,3 +81,11 @@ $white : #FFFFFF;
     padding-right: 65px!important;
     color: $white;
 }
+
+@mixin inputFront {
+    border-radius: 5px;
+    -webkit-appearance: none;
+    border: solid 2px $orangeLight;
+    width: 300px; height: 30px;
+    margin-bottom: 5%;
+}
