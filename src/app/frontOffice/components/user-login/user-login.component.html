@@ -1,5 +1,6 @@
 <div class="main">
-  <p class="titleLogin">SE CONNECTER</p>
+  <h3 class="titleLogin">CONNEXION</h3>
+  <p>Rejoignez la communauté Spirit of Manga <br>et achetez tous vos mangas préférés en toute sécurité ! </p>
   <div class="container">
     <img src="../../../../assets/img/catConnect.png" class="catConnectImg">
     <form 
@@ -28,6 +29,7 @@
       <br>
 
       <div class="buttonLink">
+        <a [routerLink]="['creation-utilisateur']" class="createLink">Nouveau client ? Créer un compte </a>
 
         <button type="submit" 
         [disabled]="!loginForm.valid"
@@ -38,7 +40,6 @@
 
         <a *ngIf="adminConnected" (click)="goToBackOffice()">Aller sur le back-office</a>
         <a *ngIf="adminConnected" (click)="goToFrontOffice()">Aller sur le front-office</a>
-        <a [routerLink]="['creation-utilisateur']" class="createLink">Nouveau client ? Créer ton compte </a>
       </div>
     </form>
   </div>  
