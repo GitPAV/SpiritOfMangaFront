@@ -7,7 +7,6 @@ import { GetPacksService } from '../../../services/get-packs.service'
   styleUrls: ['./gallery-pack.component.scss']
 })
 export class GalleryPackComponent implements OnInit {
-
   packs;
 
   constructor( private GetPacksService : GetPacksService) { }
@@ -15,8 +14,9 @@ export class GalleryPackComponent implements OnInit {
   ngOnInit() {
     this.GetPacksService.getPacks().subscribe(packs => {
       this.packs = packs;
-      console.log(this.packs)
-
+      this.GetPacksService.sendPacksUpdate.subscribe( packs => {
+        this.packs = packs
+      })
     })
   }
 
