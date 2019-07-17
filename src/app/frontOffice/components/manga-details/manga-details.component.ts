@@ -18,7 +18,7 @@ import { Mangas } from 'src/app/common/models/manga.model';
 export class MangaDetailsComponent implements OnInit {
 
   // Data sent to order button and stored in session storage for the basket
-  mangaId;
+  ;
 
   mangas = [];
   series = [];
@@ -55,10 +55,10 @@ export class MangaDetailsComponent implements OnInit {
               
     ngOnInit() {
       this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
-        this.mangadataservice.getMangas().subscribe(mangas => {
+        const mangaId = parseInt(params.get('mangaID')); // Récupère id du manga dans l'adresse url
+        this.mangadataservice.getMangasById(mangaId).subscribe(mangas => {
           this.mangas = mangas;
-          this.mangaId = parseInt(params.get('mangaID')); // Récupère id du manga dans l'adresse url
-          this.choosenManga = this.mangas[this.mangaId - 1]; // Récupère l'objet Manga
+          this.choosenManga = this.mangas[0]; // Récupère l'objet Manga
 
           this.stockUnsubs = this.mangadataservice.getPromotedMangaById(this.choosenManga.id).subscribe( manga => {
             manga.length == 0 ? this.noStock = true : this.noStock = false;
@@ -81,10 +81,9 @@ export class MangaDetailsComponent implements OnInit {
             });
           });
 
-          this.mangadataservice.getMangasStatesById(this.mangaId).subscribe(statesMangas => { // Récupère 2nd part des DATA du manga
+          this.mangadataservice.getMangasStatesById(mangaId).subscribe(statesMangas => { // Récupère 2nd part des DATA du manga
             this.statesMangas = statesMangas;
-            console.log(this.statesMangas);
-            
+            console.log(this.statesMangas[0]);
             this.prixTTC = this.statesMangas[0].prixTTC; // Recupere prix TTC du manga
             this.statesID = this.statesMangas[0].states_id;
             this.displayState = this.states[this.statesID - 1].name; // Récupere etat du manga
