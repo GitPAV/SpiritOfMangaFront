@@ -15,7 +15,7 @@ export class UserServiceService {
   getUserRoute = 'http://localhost:4242/users/manage-users'
 
 
-  userPost(dataForm, route): Observable<any> {
+  userPost(route, dataForm ): Observable<any> {
     return this.http.post(`${route}`, dataForm, {responseType: 'text'});
   }
 
