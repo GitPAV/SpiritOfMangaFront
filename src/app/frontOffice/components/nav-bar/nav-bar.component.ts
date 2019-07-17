@@ -14,14 +14,21 @@ export class NavBarComponent implements OnInit {
   route = 'http://localhost:4242/users/display-user';
   userConnected;
   loginForm = false;
+  status= false; 
 
   constructor(private userService: UserServiceService,
     private goToBackOfficeService: SwitchFrontToBackService,
-    private router: Router) { }
-
-  ngOnInit() {
-    this.adminConnected = false;
-    this.goToBackOfficeService.getAdminClick(this.adminConnected)
+    private router: Router) { 
+    }
+    ngOnInit() {
+      this.adminConnected = false;
+      this.goToBackOfficeService.getAdminClick(this.adminConnected)
+      this.userService.logStatus()
+      this.userService.userConnect.subscribe(status => {
+        this.status= status
+        console.log(this.status)
+      }) 
+      'token' in localStorage ? this.status = true : this.status = false ;
   }
 
   getUserConnected(email){

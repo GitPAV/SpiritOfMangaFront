@@ -7,13 +7,35 @@ import { Observable } from 'rxjs';
 })
 export class UserServiceService {
   @Output() listenUserList = new EventEmitter()
+  @Output() userConnect = new EventEmitter()
 
   userId: number;
+
 
   constructor(private http: HttpClient) { }
 
   getUserRoute = 'http://localhost:4242/users/manage-users'
 
+  logStatus() {
+    if ('token' in localStorage) {
+      this.userConnect.emit(true); 
+      console.log(this.userConnect)
+      console.log("bien")
+    } else {
+      console.log("pasbien")
+       this.userConnect.emit(false); 
+    }
+  }
+
+  // logStatus() {
+  //   if ('token' in localStorage) {
+  //     console.log("bien")
+  //     return this.userState = true; 
+  //   } else {
+  //     console.log("pasbien")
+  //     return this.userState = false; 
+  //   }
+  // }
 
   userPost(route, dataForm ): Observable<any> {
     return this.http.post(`${route}`, dataForm, {responseType: 'text'});

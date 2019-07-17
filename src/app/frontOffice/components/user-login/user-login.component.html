@@ -38,8 +38,8 @@
           SE CONNECTER
         </button>
 
-        <a *ngIf="adminConnected" (click)="goToBackOffice()">Aller sur le back-office</a>
-        <a *ngIf="adminConnected" (click)="goToFrontOffice()">Aller sur le front-office</a>
+        <a *ngIf="adminConnected" (click)="goToBackOffice()" class="accesLink">Accès back-office</a>
+        <a *ngIf="adminConnected" (click)="goToFrontOffice()" class="accesLink">Accès front-office</a>
       </div>
     </form>
   </div>  

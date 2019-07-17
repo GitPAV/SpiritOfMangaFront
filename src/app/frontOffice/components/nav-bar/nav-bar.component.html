@@ -18,7 +18,8 @@
     </div>
 
     <div class="iconLoginBasket">
-        <p><a class="logInIcon" [routerLink]="['user-login']">LOG IN</a></p>
+        <p><a class="logInIcon" [routerLink]="['user-login']" *ngIf="!status">LOG IN</a></p>
+        <p><a class="logInIcon" [routerLink]="['user-login']" *ngIf="status">Connecté !</a></p>
         <img [routerLink]="['user-login']" src="../../../../assets/img/user-icon.png" alt="profile-icon" class="profilConnect">
         <img src="../../../../assets/img/shopOrange.png" class="logoPanier" alt="logo basket" [routerLink]="['panier']">
 
