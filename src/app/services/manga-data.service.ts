@@ -43,7 +43,7 @@ export class MangaDataService {
   }
 
   getMangasStatesById(id: number){
-    return this.http.get(this.mangasStatesUrl + id)
+    return this.http.get(this.mangasStatesUrl + id);
   }
 
   updateManga(manga): Observable<any> {
