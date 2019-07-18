@@ -42,7 +42,7 @@ export class UserLoginComponent implements OnInit {
         console.log('allo');
         
         this.userService.logStatus()
-        this.router.navigate([''])
+        // this.router.navigate([''])
       } )
     }/* can make another get or send email to user or...*/)
     .catch( error => {
@@ -54,6 +54,7 @@ export class UserLoginComponent implements OnInit {
 
   goToBackOffice(){
     this.router.navigate(['back'])
+    console.log("user go to back")
     this.goToBackOfficeService.getAdminClick(this.adminConnected);
   }
   getUserConnected(email){

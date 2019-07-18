@@ -17,9 +17,9 @@ export class UserServiceService {
   getUserRoute = 'http://localhost:4242/users/manage-users'
 
   logStatus() {
-    this.userConnect.subscribe(value => {
-      console.log(value)
-    });
+    // this.userConnect.subscribe(value => {
+    //   console.log(value)
+    // });
     
     if ('token' in localStorage) {
       this.userConnect.emit(true); 
