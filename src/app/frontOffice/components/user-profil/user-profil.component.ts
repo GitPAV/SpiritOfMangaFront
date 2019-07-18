@@ -4,6 +4,7 @@ import { emailValidator, firstnameValidator, lastnameValidator, passwordValidato
   streetNumberValidator, streetValidator, cityValidator, zipValidator } from '../../../common/validators/users.validator';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-user-profil',
@@ -32,7 +33,9 @@ export class UserProfilComponent implements OnInit {
     droits: [''], 
   });
 
-  constructor(private fb: FormBuilder, private router : Router) { }
+  constructor(private fb: FormBuilder, 
+              private router : Router,
+              private userService: UserServiceService) { }
 
   ngOnInit() {
     
@@ -49,6 +52,7 @@ export class UserProfilComponent implements OnInit {
   disconnect(){
     localStorage.removeItem('token')
     this.router.navigate([''])
+    this.userService.logStatus()
   }
 
 }
