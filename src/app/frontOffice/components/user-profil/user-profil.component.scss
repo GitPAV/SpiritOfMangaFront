@@ -88,6 +88,16 @@
         }
     }
 
+    .addCtn {
+        display: flex;
+        img {
+            width: 25px;
+            height: 25px;
+            margin-top: auto; margin-bottom: 1%;
+        }
+
+    }
+
     .adresse {
         margin-top: 15px;
         font-weight: bold;

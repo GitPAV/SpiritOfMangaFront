@@ -17,12 +17,15 @@ export class UserServiceService {
   getUserRoute = 'http://localhost:4242/users/manage-users'
 
   logStatus() {
+    this.userConnect.subscribe(value => {
+      console.log(value)
+    });
+    
     if ('token' in localStorage) {
       this.userConnect.emit(true); 
-      console.log(this.userConnect)
-      console.log("bien")
+      console.log("token")
     } else {
-      console.log("pasbien")
+      console.log("no token")
        this.userConnect.emit(false); 
     }
   }

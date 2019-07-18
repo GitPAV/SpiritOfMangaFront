@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserServiceService } from '../../../services/user-service.service';
 import { SwitchFrontToBackService } from '../../../services/switch-front-to-back.service';
 import { Router } from '@angular/router'
@@ -8,7 +8,7 @@ import { Router } from '@angular/router'
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit, OnDestroy{
   userMail: string;
   adminConnected: boolean;
   route = 'http://localhost:4242/users/display-user';
@@ -19,17 +19,25 @@ export class NavBarComponent implements OnInit {
   constructor(private userService: UserServiceService,
     private goToBackOfficeService: SwitchFrontToBackService,
     private router: Router) { 
-      
-    }
-    ngOnInit() {
-      this.adminConnected = false;
-      this.goToBackOfficeService.getAdminClick(this.adminConnected)
-      this.userService.logStatus()
       this.userService.userConnect.subscribe(status => {
-        this.status= status
-        console.log(this.status)
+        console.log('sub', status)
+        this.status = status
       }) 
-      'token' in localStorage ? this.status === true : this.status = false ;
+    }
+  ngOnInit() {
+    this.adminConnected = false;
+    this.goToBackOfficeService.getAdminClick(this.adminConnected)
+    this.userService.logStatus()
+    console.log('logStatus passed');
+    
+  
+    console.log('after sub');
+    
+    // 'token' in localStorage ? this.status === true : this.status = false ;
+  }
+
+  ngOnDestroy() {
+    this.userService.userConnect.unsubscribe()
   }
 
   getUserConnected(email){
