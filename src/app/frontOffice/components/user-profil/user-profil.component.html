@@ -1,0 +1,132 @@
+<div class="titleCtn">
+  <img class="cloudLeft" src="../../../../assets/img/cloud.png">
+    <h2>Bonjour *prenom*</h2>
+  <img class="cloudRight" src="../../../../assets/img/cloud.png">
+</div>
+
+<div class="container">
+
+   <div class="profilCtn">
+      <h3>Votre Profil</h3>
+
+      <form class="form" [formGroup]="postUserForm" (ngSubmit)="onSubmit()">
+
+            <div class="formCtn">
+        
+                <div class="userInfoWrapper">
+                  <div class="inputField">
+                    <label>Pseudo :</label> <br>
+                    <input class="input" type="text" formControlName="pseudo">
+                  </div>
+                
+                  <div class="inputField">
+                    <label>Prénom :</label><br>
+                    <input type="text" formControlName="firstname" >
+                  </div>
+                
+                  <div class="inputField">
+                    <label>Nom :</label><br>
+                    <input class="input" type="text" formControlName="lastname" >
+                  </div>
+                
+                  <div class="inputField">
+                    <label>Modifier mot de passe :</label><br>
+                    <input class="input" type="password" formControlName="password" >
+                    <div class="error" *ngIf="postUserForm.get('password').errors && postUserForm.get('password').touched">
+                      Votre mot de passe doit au moins faire 8 caractères <br> contenir une minuscule, une masjuscule, un chiffre <br>et un
+                      caractère spécial(ex: !@#$%^&*)
+                    </div>
+                  </div>
+                
+                  <div class="inputField">
+                    <label>*Confirmez nouveau mot de passe :</label><br>
+                    <input class="input" type="password" formControlName="checkPassword" >
+                    <div class="error"
+                      *ngIf="postUserForm.get('password').value !== postUserForm.get('checkPassword').value && postUserForm.get('password').touched && postUserForm.get('checkPassword').touched">
+                      Le mot de passe ne correspond pas.
+                    </div>
+                  </div>
+                
+                  <div class="inputField">
+                    <label>Email :</label><br>
+                    <input class="input" type="email" formControlName="email">
+                    <div class="error" *ngIf="postUserForm.get('email').errors && postUserForm.get('email').touched">
+                      Veuillez entrer une adresse mail valide (ex: john@doe.fr)
+                    </div>
+                  </div>
+                
+                  <div class="inputField">
+                    <label>Téléphone :</label><br>
+                    <input class="input" type="text" formControlName="telephone">
+                  </div>
+                </div>
+        
+                <div class="addCtn"> 
+                  <p class="adresse">Adresse</p>
+                  <img src="../../../../assets/img/arrow.png" (click)="display()" >
+                </div>
+
+                <div *ngIf="show" class="userAdresseWrapper">
+                  <div class="inputField">
+                    <label>Numéro de rue :</label><br>
+                    <input class="input" type="text" formControlName="numRue">
+                    <div class="error" *ngIf="postUserForm.get('numRue').errors && postUserForm.get('numRue').touched">
+                      Veuillez entrer votre numéro de rue
+                    </div>
+                  </div>
+                
+                  <div class="inputField">
+                    <label>Rue :</label><br>
+                    <input class="input" type="text" formControlName="rue">
+                    <div class="error" *ngIf="postUserForm.get('rue').errors && postUserForm.get('rue').touched">
+                      Veuillez entrer un nom de rue valide
+                    </div>
+                  </div>
+                
+                  
+                  <div class="inputField">
+                     <label>Code postal :</label><br>
+                     <input class="input" type="text" formControlName="cp">
+                     <div class="error" *ngIf="postUserForm.get('cp').errors && postUserForm.get('cp').touched">
+                        Veuillez entrer un code postal au bon format
+                     </div>
+                  </div>
+                  
+                  <div class="inputField">
+                    <label>Ville :</label><br>
+                    <input class="input" type="text" formControlName="ville">
+                    <div class="error" *ngIf="postUserForm.get('ville').errors && postUserForm.get('ville').touched">
+                      Veuillez entrer un nom de ville valide
+                    </div>
+                  </div>
+
+                  <div class="inputOption">
+                    <label>*Newsletter :</label><br>
+                    <select name="newsletter" formControlName="newsletter">
+                      <option value="1">Oui</option>
+                      <option value="0" >Non</option>
+                    </select>
+                  </div>
+                
+                </div>
+        
+            </div>
+            <div class="butonForm" >
+              <button type="submit">Modifier</button>  
+            </div> 
+          </form>  
+   </div>
+
+   <div class="commandCtn">
+      <h3>Vos Commandes</h3>
+      <div class="commandBlk">
+        <p>Commande numéro:</p>
+        <p>Statut:</p>
+        <p>Date: </p>
+        <p>Produits:</p>
+      </div>
+   </div>   
+  </div>
+<div class="disCtn">
+  <button class="disconnect" (click)="disconnect()" >Deconnexion</button>
+</div>

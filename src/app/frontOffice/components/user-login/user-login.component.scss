@@ -37,7 +37,11 @@
                 border: solid 2px $orangeLight;
                 width: 400px; height: 45px;
             }
+            input:focus {
+                outline:none;
+            }
         }
+
         .buttonLink{
             .buttonForm {
                 @include validateButtonStyle;
@@ -58,13 +62,27 @@
                 border-radius: 30px;
                 color: white;
                 font-weight: 700;
+                outline: none !important;
+                border: none;
              & :hover {
                 box-shadow: 4px 4px 0px black;
                 cursor: pointer;
-            }}
+            } & :focus {
+                -webkit-appearance: none;
+                outline:none !important;
+            } 
+        }
     
         }
     }
-    }
+    .accesLink {
+        color: $orange;
+        text-decoration: none;
+        font-weight: 600;
+        &:hover {
+            color: rgb(54, 54, 156);
+            text-decoration: underline;
+        }
+    }}
 }
 

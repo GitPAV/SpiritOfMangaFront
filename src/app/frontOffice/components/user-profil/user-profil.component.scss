@@ -1,0 +1,165 @@
+@import "../../../../styles.scss";
+.titleCtn{
+    display: flex;
+    margin-bottom: 2%;
+    h2{
+        text-align: center;
+        font-weight: bold;
+        font-family: 'Dosis', sans-serif;
+        font-size: 2.5em;
+        color: $orange;
+        margin-top: 2%; margin-bottom: 3%;
+    }
+    .cloudLeft {
+        margin: auto;
+        margin-right: 2%;
+        transform: scaleX(-1);
+        width: 3.5%;
+        height: 3.5%;;
+    }
+    .cloudRight {
+        margin: auto;
+        margin-left: 2%;
+        width: 3.5%;
+        height: 3.5%;;
+    }
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5%;
+    h3 {
+        text-transform: uppercase;
+        text-align: center;
+        color:  rgb(44, 44, 44);
+        font-weight: bold;
+        font-family: 'Dosis', sans-serif;
+        font-size: 1.3em;
+        letter-spacing: .1rem;
+        margin-top: 2%;
+    }
+}
+.profilCtn {
+    margin-left: 80px;
+}
+
+.form {
+    .formCtn {
+
+    }
+    input {
+        @include inputFront();
+        outline:none;
+    }
+    input:focus {
+        outline:none;
+    }
+    select:focus {
+        outline:none;
+    }
+    button:focus {
+        outline:none;
+    }
+
+    select {
+        width: 70%;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url(../../../../assets/img/arrow.png);
+        background-repeat: no-repeat;
+        background-size: 10%;
+        background-position: 98%;
+        color: rgb(63, 62, 62);
+        margin-bottom: 1vw;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 2px solid rgb(44, 44, 44);
+    }
+
+    .inputField{
+        // @include inputFormat();
+        .error{
+            font-size: 12px;
+            font-weight: 600;
+            color: $orange;
+            margin-top: -3%;
+            margin-bottom: 2%;
+        }
+    }
+
+    .addCtn {
+        display: flex;
+        img {
+            width: 25px;
+            height: 25px;
+            margin-top: auto; margin-bottom: 1%;
+        }
+
+    }
+
+    .adresse {
+        margin-top: 15px;
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+
+    .inputOption {
+        margin-top: 10px;
+    }
+
+    .butonForm {
+        button {
+            -webkit-appearance: none;
+            width: 170px;
+            height: 40px;
+            background-color: $orangeLight;
+            border: 0;
+            border-radius: 30px;
+            color: white;
+            font-weight: 700;
+        }
+        text-align: center;
+        margin-top: 10%;
+     & :hover {
+        cursor: pointer;
+    }
+    }
+}
+.commandCtn{
+    margin-left: -50px;
+    margin-right: -50px;
+}
+.commandBlk {
+    margin-top: 5%;
+    width: 460px;
+    background-color: rgb(240, 240, 240);
+    box-shadow: 4px 4px 10px rgb(192, 192, 192);
+    padding: 4%;
+    padding-bottom: 7%;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.disCtn {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+    button:focus {
+        outline:none;
+    }
+    .disconnect{
+        -webkit-appearance: none;
+        width: 170px;
+        height: 40px;
+        background-color: rgb(44, 44, 44);
+        border: 0;
+        border-radius: 30px;
+        color: white;
+        font-weight: 700;
+        text-align: center;
+     & :hover {
+        cursor: pointer;
+        }
+    }
+}

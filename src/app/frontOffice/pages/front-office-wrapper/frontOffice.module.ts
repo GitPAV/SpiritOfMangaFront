@@ -33,6 +33,7 @@ import { PanierComponent } from '../../../frontOffice/pages/panier/panier.compon
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PacksDetailsComponent } from '../../components/packs-details/packs-details.component';
 import { FullPackComponent } from '../full-pack/full-pack.component';
+import { UserProfilComponent } from '../../components/user-profil/user-profil.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { FullPackComponent } from '../full-pack/full-pack.component';
     PanierComponent,
     PacksDetailsComponent,
     FullPackComponent,
+    UserProfilComponent,
   ],
   imports: [
     CommonModule,

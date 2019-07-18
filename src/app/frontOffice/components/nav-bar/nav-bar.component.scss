@@ -13,15 +13,15 @@
     } & :hover {
         height: 38px;
     }
-    .profilConnect{
-        display: none;
-        height:60px;
-        background-color: #f9f9f9;
-        outline:none;
-        position: absolute;
-        right:160px;
-        margin-top: 8px;
-    }
+    // .profilConnect{
+    //     display: none;
+    //     height:60px;
+    //     background-color: #f9f9f9;
+    //     outline:none;
+    //     position: absolute;
+    //     right:160px;
+    //     margin-top: 8px;
+    // }
     .logInIcon {
         position: absolute;
         right:9%;
@@ -34,6 +34,15 @@
     } & :hover {
         font-size: 26px;
         text-decoration: none;
+    }
+    .logoIcon {
+        height:36px;
+        outline:none;
+        position: absolute;
+        right:7%;
+        top: 1%;
+    } & :hover {
+        height: 40px;
     }
 }
 

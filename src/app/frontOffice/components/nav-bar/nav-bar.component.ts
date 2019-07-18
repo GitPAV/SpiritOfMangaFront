@@ -8,21 +8,34 @@ import { Router } from '@angular/router'
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.scss']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent implements OnInit{
   userMail: string;
   adminConnected: boolean;
   route = 'http://localhost:4242/users/display-user';
   userConnected;
   loginForm = false;
+  status; 
 
   constructor(private userService: UserServiceService,
-    private goToBackOfficeService: SwitchFrontToBackService,
-    private router: Router) { }
+      private goToBackOfficeService: SwitchFrontToBackService,
+      private router: Router) { 
 
+      this.statutState()
+
+    }
   ngOnInit() {
     this.adminConnected = false;
     this.goToBackOfficeService.getAdminClick(this.adminConnected)
+    this.userService.logStatus()
+
   }
+
+  statutState() {
+    this.userService.userConnect.subscribe(status => {
+      this.status = status
+    }) 
+  }
+
 
   getUserConnected(email){
     this.userMail = email;
