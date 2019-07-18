@@ -35,6 +35,7 @@ import { PacksDetailsComponent } from '../../components/packs-details/packs-deta
 import { FullPackComponent } from '../full-pack/full-pack.component';
 import { NewPasswordComponent } from '../../components/new-password/new-password.component';
 import { RegeneratePasswordComponent } from '../../components/regenerate-password/regenerate-password.component';
+import { UserProfilComponent } from '../../components/user-profil/user-profil.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { RegeneratePasswordComponent } from '../../components/regenerate-passwor
     PacksDetailsComponent,
     FullPackComponent,
     RegeneratePasswordComponent,
-    NewPasswordComponent
+    NewPasswordComponent,
+    UserProfilComponent,
   ],
   imports: [
     CommonModule,

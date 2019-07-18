@@ -20,6 +20,7 @@ import { UserLoginComponent } from '../../components/user-login/user-login.compo
 import { FullPackComponent } from '../full-pack/full-pack.component';
 import { NewPasswordComponent } from '../../components/new-password/new-password.component';
 import { RegeneratePasswordComponent } from '../../components/regenerate-password/regenerate-password.component';
+import { UserProfilComponent } from '../../components/user-profil/user-profil.component';
 
 
 export const frontOfficeRouteList: Routes = [
@@ -80,6 +81,10 @@ export const frontOfficeRouteList: Routes = [
       {
         path: 'TzApeyaNpBzRJmGrit59K4NJ5Cy/:token',
         component: NewPasswordComponent
+      },
+      {
+        path: 'user-profil',
+        component: UserProfilComponent
       },
 
       // MANGAS & PACKS BY ID

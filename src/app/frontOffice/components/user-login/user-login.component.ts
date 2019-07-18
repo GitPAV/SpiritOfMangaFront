@@ -39,6 +39,10 @@ export class UserLoginComponent implements OnInit {
         this.loginService.login();
         this.userMail = this.loginForm.get('email').value;
         this.getUserStatus()
+        console.log('allo');
+        
+        this.userService.logStatus()
+        // this.router.navigate([''])
       } )
     }/* can make another get or send email to user or...*/)
     .catch( error => {
@@ -50,18 +54,23 @@ export class UserLoginComponent implements OnInit {
 
   goToBackOffice(){
     this.router.navigate(['back'])
+    console.log("user go to back")
     this.goToBackOfficeService.getAdminClick(this.adminConnected);
   }
   getUserConnected(email){
     this.userMail = email;
     this.userService.userGetEmail(this.userMail, this.route)
       .subscribe( user => {
+        // console.log('user', user);
+        
         this.userConnected = user
         this.getUserStatus()
       })
   }
 
   getUserStatus(){
+    // console.log(this.userConnected);
+    
     if(this.userConnected[0].droits === 'admin') {
       this.adminConnected = true
     } else {
