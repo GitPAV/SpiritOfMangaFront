@@ -52,6 +52,22 @@
     }
 }
 
+.promo {
+    display: flex;
+    border: 1px solid white;
+    background-color: red;
+    width: 170px;
+    p{
+        padding-left: 20px;
+        font-size: 18px;
+        color: aliceblue;
+        font-family: 'Arial Narrow Bold', sans-serif;
+        font-weight: bold;
+    }
+}
+
+
+
 .mangasOptions{
     display: flex;
     position: relative;
@@ -63,15 +79,27 @@
         width: 50vw;
     }
     .buttons{
+        display:flex;
+        flex-direction: column;
         position: relative;
+        align-items: flex-end;
         left: 30%;
+        .price {
+            display: flex;
+            color: $orange;
+            font-size: 25px;
+            font-family: 'Asap', sans-serif;
+            font-weight: bold;
+            p {
+                margin-right: 40%;
+                margin-left: -10%;
+                margin-bottom: 7%;
+            }
+        }
     }
     .alertMessage {
         text-align: center;
         width: 70%;
         padding-top: 2vh;
-    }
-    p{
-        padding-top: 1vh;
     }
 }

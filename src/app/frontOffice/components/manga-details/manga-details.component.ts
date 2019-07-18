@@ -16,10 +16,10 @@ import { Mangas } from 'src/app/common/models/manga.model';
   styleUrls: ['./manga-details.component.scss']
 })
 export class MangaDetailsComponent implements OnInit {
-
+  
   // Data sent to order button and stored in session storage for the basket
   ;
-
+  
   mangas = [];
   series = [];
   types = [];
@@ -35,6 +35,9 @@ export class MangaDetailsComponent implements OnInit {
     photoCover;
     types_id;
   };
+  prixPromo;
+  promo;
+  valuePromo;
   choosenType;
   genres;
   prixTTC;
@@ -85,6 +88,13 @@ export class MangaDetailsComponent implements OnInit {
             this.statesMangas = statesMangas;
             console.log(this.statesMangas[0]);
             this.prixTTC = this.statesMangas[0].prixTTC; // Recupere prix TTC du manga
+            this.promo = this.statesMangas[0].promo; // Récupère si en promo
+            if (this.promo > 0) {
+            this.valuePromo = this.statesMangas[0].promoValue; // Récupère % promo
+            const coeff = 1 - (this.valuePromo / 100);
+            this.prixPromo = this.prixTTC * coeff;
+            this.prixPromo = this.prixPromo.toFixed(2); // Calcul du prix avec promotion
+            }
             this.statesID = this.statesMangas[0].states_id;
             this.displayState = this.states[this.statesID - 1].name; // Récupere etat du manga
           });

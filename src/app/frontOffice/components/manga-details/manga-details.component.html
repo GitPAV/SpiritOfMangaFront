@@ -2,7 +2,7 @@
   <div class="imgBlur">
   </div>
   <div class="mangaDetails">
-      <img [src]="choosenManga.photoCover">
+        <img [src]="choosenManga.photoCover">
         <div class="mangaTxt">
           <h3>{{choosenManga.title}}</h3>
           <h5>Tome {{choosenManga.tome}}</h5>
@@ -24,6 +24,7 @@
           <div class="txtRow">
             <h5>Notre Prix :</h5><em>{{prixTTC}}€</em>
           </div>
+          <div class="promo" *ngIf="promo"><p>PROMO !  -{{valuePromo}}%</p></div>
           <div class="txtRow">
             <h5>Etat : </h5>
             <div class="formfield-select--container">
@@ -39,6 +40,11 @@
         <span>{{choosenManga.resume}}</span>
       </div>
       <div class='buttons'>
+        <!-- <div class="promoPrice"><p>PRIX PROMO :</p></div> -->
+        <div class="price">
+          <p><del>{{prixTTC}}€</del></p>
+          <p>{{prixPromo}}€</p>
+        </div>
         <app-order-button *ngIf="!noStock" [mangaOrderedId]="choosenManga.id"></app-order-button>
         
         <div *ngIf="noStock" class="alertMessage">
