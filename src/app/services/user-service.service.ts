@@ -39,15 +39,15 @@ export class UserServiceService {
     return this.http.get(`${route}`);
   };
 
+  deleteUserById(route, id): Observable<any>{
+    return this.http.delete(`${route}/${id}`);
+  }
+
   getUserById(id) {
     this.userId = id;
   }
 
   sendUserId() {
     return this.userId;
-  }
-
-  deleteUserById(route, id): Observable<any>{
-    return this.http.delete(`${route}/${id}`);
   }
 }
