@@ -18,6 +18,8 @@ import { FullMangaComponent } from '../full-manga/full-manga.component';
 import { PanierComponent } from '../panier/panier.component';
 import { UserLoginComponent } from '../../components/user-login/user-login.component';
 import { FullPackComponent } from '../full-pack/full-pack.component';
+import { NewPasswordComponent } from '../../components/new-password/new-password.component';
+import { RegeneratePasswordComponent } from '../../components/regenerate-password/regenerate-password.component';
 
 
 export const frontOfficeRouteList: Routes = [
@@ -70,6 +72,14 @@ export const frontOfficeRouteList: Routes = [
       {
         path: 'user-login',
         component: UserLoginComponent
+      },
+      {
+        path: 'regenerate-password',
+        component: RegeneratePasswordComponent
+      },
+      {
+        path: 'TzApeyaNpBzRJmGrit59K4NJ5Cy/:token',
+        component: NewPasswordComponent
       },
 
       // MANGAS & PACKS BY ID

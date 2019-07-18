@@ -33,6 +33,8 @@ import { PanierComponent } from '../../../frontOffice/pages/panier/panier.compon
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PacksDetailsComponent } from '../../components/packs-details/packs-details.component';
 import { FullPackComponent } from '../full-pack/full-pack.component';
+import { NewPasswordComponent } from '../../components/new-password/new-password.component';
+import { RegeneratePasswordComponent } from '../../components/regenerate-password/regenerate-password.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,8 @@ import { FullPackComponent } from '../full-pack/full-pack.component';
     PanierComponent,
     PacksDetailsComponent,
     FullPackComponent,
+    RegeneratePasswordComponent,
+    NewPasswordComponent
   ],
   imports: [
     CommonModule,

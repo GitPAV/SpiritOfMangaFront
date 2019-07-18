@@ -57,11 +57,11 @@ export class CreateUserComponent implements OnInit{
     //Call the observable in service with the apropiate http method 
     
     if (this.postUserForm.invalid){
-      console.log("invalid");
+      console.log(this.postUserForm.value);
       alert("Formulaire invalide, veuillez entrer tous les champs requis.")
     }  else {
       
-      let forgotKey = this.randomString()
+      // let forgotKey = this.randomString()
       if ( this.postUserForm.value.telephone === ''){
         this.postUserForm.patchValue({
           telephone: 0,
@@ -69,8 +69,8 @@ export class CreateUserComponent implements OnInit{
       }
 
       this.postUserForm.patchValue({
-        forgetPassword : forgotKey,
-          droits : 'user',
+          forgetPassword : 'test',
+          droits : 'users',
         })
     
         this.postUserForm.controls.checkPassword.disable()
