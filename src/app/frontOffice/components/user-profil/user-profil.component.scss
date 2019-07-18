@@ -145,6 +145,9 @@
     display: flex;
     justify-content: center;
     margin: 5%;
+    button:focus {
+        outline:none;
+    }
     .disconnect{
         -webkit-appearance: none;
         width: 170px;

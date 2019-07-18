@@ -3,6 +3,8 @@ import { Validators } from '@angular/forms';
 import { emailValidator, firstnameValidator, lastnameValidator, passwordValidator, 
   streetNumberValidator, streetValidator, cityValidator, zipValidator } from '../../../common/validators/users.validator';
 import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-user-profil',
   templateUrl: './user-profil.component.html',
@@ -30,7 +32,7 @@ export class UserProfilComponent implements OnInit {
     droits: [''], 
   });
 
-  constructor(private fb: FormBuilder,) { }
+  constructor(private fb: FormBuilder, private router : Router) { }
 
   ngOnInit() {
     
@@ -42,6 +44,11 @@ export class UserProfilComponent implements OnInit {
     this.show = !this.show;
     console.log(this.show);
     
+  }
+
+  disconnect(){
+    localStorage.removeItem('token')
+    this.router.navigate([''])
   }
 
 }
