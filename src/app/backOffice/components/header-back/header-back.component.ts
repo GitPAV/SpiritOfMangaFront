@@ -19,8 +19,6 @@ export class HeaderBackComponent implements OnInit {
   logOut(){
     let logOut = false
     this.frontToBack.getAdminClick(logOut)
-    localStorage.removeItem("token")
-    this.router.navigate([''])
   }
 
 }
