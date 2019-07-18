@@ -16,7 +16,7 @@ export class LoginService {
   isLoggedIn : boolean;
   userConnectedMail: string;
 
-  forgottenPasswordUrl = 'http://localhost:4242/users/forgottenPassword'
+  forgottenPasswordUrl = 'http://localhost:4242/users/forgottenPassword';
 
   constructor(private http: HttpClient, private router: Router) { }
 
