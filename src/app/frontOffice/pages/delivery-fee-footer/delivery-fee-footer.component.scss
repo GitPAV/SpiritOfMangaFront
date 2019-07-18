@@ -1,5 +1,6 @@
 @import '../../../../styles.scss';
 
+
 .deliveryTitle {
     background-image: url("../../../../assets/img/picFive.jpg");
     background-repeat: no-repeat;
@@ -19,7 +20,7 @@
         font-family: 'Dosis', sans-serif;
         font-size: 53px;
         font-weight: 800;
-        color: black;
+        color: white;
         text-transform: uppercase;
         letter-spacing: .1em;
         overflow: hidden;
@@ -44,4 +45,54 @@
     p {
         width: 90%;
     }
+}
+
+.worldPrice {
+    width: 100vw;
+    display: grid;
+    justify-content: space-around;
+    div {
+        width: 100vw;
+        padding: 4vw;
+        // margin-bottom: -4%;
+    }
+    h3 {
+        font-family: 'Dosis', sans-serif;
+        font-size: 34px;
+        margin-bottom: 2vh;
+    }
+    p {
+        width: 90%;
+    }
+}
+
+table{
+    width: 60vw;
+    margin: 70px auto;
+    border-radius: 15px;
+    box-shadow: 3px 3px 3px 1px #a29393;
+    .trHeader{
+        text-transform: uppercase;
+        font-size:20px;
+        text-align: center;
+        background-color: $orangeLight;  
+        th{
+            text-align: center;
+            padding:10px;
+            color: white;
+        }
+        .thExtA{
+            border-radius: 15px 0 0 0;
+            text-align: center;
+        } 
+        .thExtB{
+            border-radius: 0 15px 0 0;
+            text-align: center;
+        }
+    }
+    td{
+        text-align: center;
+        padding: 10px;
+    }
+    
 }
