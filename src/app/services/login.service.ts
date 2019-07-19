@@ -16,6 +16,9 @@ export class LoginService {
   isLoggedIn : boolean;
   userConnectedMail: string;
 
+  forgottenPasswordUrl = 'http://localhost:4242/users/forgottenPassword';
+  setNewpasswordUrl = 'http://localhost:4242/users/new-password';
+
   constructor(private http: HttpClient, private router: Router) { }
 
   loginPost(userForm) {
@@ -45,4 +48,14 @@ export class LoginService {
     return this.http.get<User>(`${this.getUserByMail}/${tokenPayload.email}`)
   }
 
+  // handle forgotten password
+
+  regeneratePassword(emailForm): Observable<any> {
+    return this.http.post(this.forgottenPasswordUrl, emailForm, {responseType: 'text'})
+  }
+
+  setNewPassword(newPassword) {
+    console.log(newPassword)
+    return this.http.put(this.setNewpasswordUrl, newPassword, {responseType: 'text'}).toPromise()
+  }
 }
