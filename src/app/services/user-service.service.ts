@@ -23,9 +23,7 @@ export class UserServiceService {
     
     if ('token' in localStorage) {
       this.userConnect.emit(true); 
-      console.log("token")
     } else {
-      console.log("no token")
        this.userConnect.emit(false); 
     }
   }
