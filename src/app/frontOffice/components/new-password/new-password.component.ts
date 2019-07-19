@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
 
@@ -17,19 +17,28 @@ export class NewPasswordComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    console.log(this.userToken)
 
     this.newPasswordForm = this.fb.group({
       password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
+      confirmPassword: ['', [Validators.required, this.matchValidator()]],
       email: [this.userToken]
     })
-
   }
 
   onSubmit() {
-    console.log(this.newPasswordForm.get('email').value)
     this.loginService.setNewPassword(this.newPasswordForm.value).then()
+  }
+
+  matchValidator(): ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      if (control.value !== this.newPasswordForm.get('password').value) {
+        return {
+          password: control.value
+        }
+      } else {
+        return null
+      }
+    }
   }
 
 }
