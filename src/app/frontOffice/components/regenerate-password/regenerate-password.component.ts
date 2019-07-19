@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 
+
 @Component({
   selector: 'app-regenerate-password',
   templateUrl: './regenerate-password.component.html',
@@ -22,7 +23,10 @@ export class RegeneratePasswordComponent implements OnInit {
   }
 
   onSubmit(){
-    this.loginService.regeneratePassword(this.sendEmailForm.value).subscribe()
+    this.loginService.regeneratePassword(this.sendEmailForm.value).then( res => {
+      alert('Merci ! Vous allez recevoir un mail pour changer votre mot de passe.')
+      this.sendEmailForm.reset()
+    })
   }
 
 }

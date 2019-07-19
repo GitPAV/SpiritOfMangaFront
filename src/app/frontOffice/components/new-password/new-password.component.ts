@@ -33,7 +33,11 @@ export class NewPasswordComponent implements OnInit {
   }
 
   onSubmit() {
-    this.loginService.setNewPassword(this.newPasswordForm.value).then()
+    this.loginService.setNewPassword(this.newPasswordForm.value).then( res => {
+      alert('Nouveau mot de passe bien enregistré !')
+      this.newPasswordForm.reset()
+      this.router.navigate(['front/user-login'])
+    })
   }
 
 
