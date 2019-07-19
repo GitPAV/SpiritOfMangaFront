@@ -9,6 +9,7 @@ $blue2 : #263A60;
 $orange : #FD7003;
 $orangeBack : #FF8D30;
 $grey : #E6EAEE; 
+$orangeLight : rgb(250, 152, 73);
 
 
 .paginationBlock{
@@ -79,4 +80,12 @@ $white : #FFFFFF;
     padding: 16px;
     padding-right: 65px!important;
     color: $white;
+}
+
+@mixin inputFront {
+    border-radius: 5px;
+    -webkit-appearance: none;
+    border: solid 2px $orangeLight;
+    width: 300px; height: 30px;
+    margin-bottom: 5%;
 }
