@@ -64,7 +64,17 @@
     }
     .buttons{
         position: relative;
+        display: flex;
+        flex-direction: column;
         left: 30%;
+        align-items: flex-end;
+        .price {
+            display: flex;
+            color: $orange;
+            font-size: 23px;
+            font-family: 'Asap', sans-serif;
+            font-weight: bold;
+        }
     }
     .alertMessage{
         text-align: center;
