@@ -26,6 +26,9 @@ export class RegeneratePasswordComponent implements OnInit {
     this.loginService.regeneratePassword(this.sendEmailForm.value).then( res => {
       alert('Merci ! Vous allez recevoir un mail pour changer votre mot de passe.')
       this.sendEmailForm.reset()
+    }).catch( err => {
+      console.log(err)
+      alert('Une erreur est survenue. Merci de réessayer.')
     })
   }
 

@@ -37,6 +37,9 @@ export class NewPasswordComponent implements OnInit {
       alert('Nouveau mot de passe bien enregistré !')
       this.newPasswordForm.reset()
       this.router.navigate(['front/user-login'])
+    }).catch( err => {
+      console.log(err)
+      alert('Une erreur est survenue. Merci de réessayer.')
     })
   }
 
