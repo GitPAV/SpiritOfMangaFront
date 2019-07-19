@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { LoginService } from '../../../services/login.service';
 import { Router } from '@angular/router';
+import { passwordValidator } from '../../../common/validators/users.validator';
 
 @Component({
   selector: 'app-new-password',
@@ -22,7 +23,7 @@ export class NewPasswordComponent implements OnInit {
 
   initForm() {
     this.newPasswordForm = this.fb.group({
-      password: ['', Validators.required],
+      password: ['', [Validators.required, passwordValidator()]],
       confirmPassword: ['', Validators.required],
       email: [this.userToken],
     }, 

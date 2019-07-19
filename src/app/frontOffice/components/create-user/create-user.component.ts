@@ -18,7 +18,7 @@ export class CreateUserComponent implements OnInit{
     pseudo: [''],
     firstname: ['', [Validators.required, firstnameValidator()]],
     lastname: ['', [Validators.required, lastnameValidator()]],
-    password: ['', [Validators.required, passwordValidator ()]],
+    password: ['', [Validators.required, passwordValidator()]],
     checkPassword: ['', Validators.required],
     forgetPassword: [''],
     email: ['', [Validators.required, emailValidator()]],
