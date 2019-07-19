@@ -17,11 +17,17 @@ export class NewPasswordComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.initForm()
+  }
 
+  initForm() {
     this.newPasswordForm = this.fb.group({
       password: ['', Validators.required],
-      confirmPassword: ['', [Validators.required, this.matchValidator()]],
-      email: [this.userToken]
+      confirmPassword: ['', Validators.required],
+      email: [this.userToken],
+    }, 
+    {
+      validator: this.matchPassword('password', 'confirmPassword')
     })
   }
 
@@ -29,16 +35,19 @@ export class NewPasswordComponent implements OnInit {
     this.loginService.setNewPassword(this.newPasswordForm.value).then()
   }
 
-  matchValidator(): ValidatorFn {
+
+  matchPassword(password: string, confirmPassword: string): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
-      if (control.value !== this.newPasswordForm.get('password').value) {
-        return {
-          password: control.value
-        }
+  
+      const firstPassword = control.get(password).value;
+      const secondPassword = control.get(confirmPassword).value;
+  
+      if (firstPassword !== secondPassword) {
+        return { error: 'Les deux mots de passe ne correspondent pas' };
       } else {
-        return null
+          return null;
       }
-    }
+    };
   }
 
 }
