@@ -30,6 +30,9 @@
         <span>{{choosenPack.resumePack}}</span>
       </div>
       <div class='buttons'>
+        <div class="price">
+          <span>{{choosenPack.notrePrix}}€</span>
+        </div>
         <app-order-button *ngIf="stock" [mangaOrderedId]="choosenPack.id"></app-order-button>
         
         <div *ngIf="!stock" class="alertMessage">

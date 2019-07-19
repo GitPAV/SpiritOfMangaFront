@@ -42,7 +42,7 @@
       <div class='buttons'>
         <!-- <div class="promoPrice"><p>PRIX PROMO :</p></div> -->
         <div class="price">
-          <p><del>{{prixTTC}}€</del></p>
+          <span><del>{{prixTTC}}€</del></span>
           <p>{{prixPromo}}€</p>
         </div>
         <app-order-button *ngIf="!noStock" [mangaOrderedId]="choosenManga.id"></app-order-button>

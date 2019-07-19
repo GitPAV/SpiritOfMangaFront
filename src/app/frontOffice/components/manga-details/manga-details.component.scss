@@ -48,6 +48,7 @@
         }
         .formfield-select--container select {
             @include selector ();
+            outline: none;
         }
     }
 }
@@ -55,7 +56,7 @@
 .promo {
     display: flex;
     border: 1px solid white;
-    background-color: red;
+    background-color: $orangeBack;
     width: 170px;
     p{
         padding-left: 20px;
@@ -82,18 +83,21 @@
         display:flex;
         flex-direction: column;
         position: relative;
-        align-items: flex-end;
         left: 30%;
         .price {
             display: flex;
             color: $orange;
-            font-size: 25px;
+            font-size: 23px;
             font-family: 'Asap', sans-serif;
             font-weight: bold;
             p {
-                margin-right: 40%;
-                margin-left: -10%;
-                margin-bottom: 7%;
+
+                margin-left: 18%;
+            }
+            del {
+                font-size: 16px;
+                color: rgb(156, 156, 156);
+                font-weight: 400;
             }
         }
     }
