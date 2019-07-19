@@ -2,4 +2,5 @@
 
 button {
     @include alertButton();
+    outline: none;
 }

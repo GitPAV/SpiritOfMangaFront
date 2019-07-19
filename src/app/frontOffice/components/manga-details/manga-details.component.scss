@@ -48,9 +48,26 @@
         }
         .formfield-select--container select {
             @include selector ();
+            outline: none;
         }
     }
 }
+
+.promo {
+    display: flex;
+    border: 1px solid white;
+    background-color: $orangeBack;
+    width: 170px;
+    p{
+        padding-left: 20px;
+        font-size: 18px;
+        color: aliceblue;
+        font-family: 'Arial Narrow Bold', sans-serif;
+        font-weight: bold;
+    }
+}
+
+
 
 .mangasOptions{
     display: flex;
@@ -63,15 +80,30 @@
         width: 50vw;
     }
     .buttons{
+        display:flex;
+        flex-direction: column;
         position: relative;
         left: 30%;
+        .price {
+            display: flex;
+            color: $orange;
+            font-size: 23px;
+            font-family: 'Asap', sans-serif;
+            font-weight: bold;
+            p {
+
+                margin-left: 18%;
+            }
+            del {
+                font-size: 16px;
+                color: rgb(156, 156, 156);
+                font-weight: 400;
+            }
+        }
     }
     .alertMessage {
         text-align: center;
         width: 70%;
         padding-top: 2vh;
-    }
-    p{
-        padding-top: 1vh;
     }
 }
