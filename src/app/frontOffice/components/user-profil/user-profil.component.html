@@ -1,6 +1,6 @@
 <div class="titleCtn">
   <img class="cloudLeft" src="../../../../assets/img/cloud.png">
-    <h2>Bonjour *prenom*</h2>
+    <h2>Bonjour {{firstname}}</h2>
   <img class="cloudRight" src="../../../../assets/img/cloud.png">
 </div>
 
@@ -28,25 +28,7 @@
                     <label>Nom :</label><br>
                     <input class="input" type="text" formControlName="lastname" >
                   </div>
-                
-                  <div class="inputField">
-                    <label>Modifier mot de passe :</label><br>
-                    <input class="input" type="password" formControlName="password" >
-                    <div class="error" *ngIf="postUserForm.get('password').errors && postUserForm.get('password').touched">
-                      Votre mot de passe doit au moins faire 8 caractères <br> contenir une minuscule, une masjuscule, un chiffre <br>et un
-                      caractère spécial(ex: !@#$%^&*)
-                    </div>
-                  </div>
-                
-                  <div class="inputField">
-                    <label>*Confirmez nouveau mot de passe :</label><br>
-                    <input class="input" type="password" formControlName="checkPassword" >
-                    <div class="error"
-                      *ngIf="postUserForm.get('password').value !== postUserForm.get('checkPassword').value && postUserForm.get('password').touched && postUserForm.get('checkPassword').touched">
-                      Le mot de passe ne correspond pas.
-                    </div>
-                  </div>
-                
+              
                   <div class="inputField">
                     <label>Email :</label><br>
                     <input class="input" type="email" formControlName="email">
