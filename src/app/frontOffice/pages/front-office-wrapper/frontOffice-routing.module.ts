@@ -21,6 +21,7 @@ import { FullPackComponent } from '../full-pack/full-pack.component';
 import { NewPasswordComponent } from '../../components/new-password/new-password.component';
 import { RegeneratePasswordComponent } from '../../components/regenerate-password/regenerate-password.component';
 import { UserProfilComponent } from '../../components/user-profil/user-profil.component';
+import { ResetPasswordPage } from '../../../common/security/new-password.guard';
 
 
 export const frontOfficeRouteList: Routes = [
@@ -80,7 +81,8 @@ export const frontOfficeRouteList: Routes = [
       },
       {
         path: 'TzApeyaNpBzRJmGrit59K4NJ5Cy/:token',
-        component: NewPasswordComponent
+        component: NewPasswordComponent,
+        canActivate: [ResetPasswordPage]
       },
       {
         path: 'user-profil',
