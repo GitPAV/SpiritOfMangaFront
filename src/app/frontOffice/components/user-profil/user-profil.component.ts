@@ -5,6 +5,8 @@ import { emailValidator, firstnameValidator, lastnameValidator, passwordValidato
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserServiceService } from 'src/app/services/user-service.service';
+import { getToken } from '@angular/router/src/utils/preactivation';
+import decode from 'jwt-decode';
 
 @Component({
   selector: 'app-user-profil',
@@ -14,14 +16,14 @@ import { UserServiceService } from 'src/app/services/user-service.service';
 export class UserProfilComponent implements OnInit {
   
   show:boolean;
+  firstname;
+  userId;
+  userProfil;
 
   postUserForm = this.fb.group({
     pseudo: [''],
     firstname: ['', [firstnameValidator()]],
     lastname: ['', [lastnameValidator()]],
-    password: ['', [passwordValidator ()]],
-    checkPassword: ['',],
-    forgetPassword: [''],
     email: ['', [ emailValidator()]],
     telephone: [''],
     numRue: ['', [streetNumberValidator()]],
@@ -32,27 +34,56 @@ export class UserProfilComponent implements OnInit {
     connaissance: [''],
     droits: [''], 
   });
+   token = localStorage.getItem('token');
 
   constructor(private fb: FormBuilder, 
-              private router : Router,
-              private userService: UserServiceService) { }
-
-  ngOnInit() {
+    private router : Router,
+    private userService: UserServiceService) { }
     
+    ngOnInit() {
+      this.getToken();
+      this.userService.getUserById(this.userId).subscribe(
+        user => {
+          const userData = user;
+          this.userProfil = userData[0];
+          this.firstname = this.userProfil.firstname;
+          this.postUserForm.patchValue({
+          pseudo: this.userProfil.pseudo,
+          firstname: this.userProfil.firstname,
+          lastname: this.userProfil.lastname,
+          email: this.userProfil.email,
+          telephone: this.userProfil.telephone,
+          numRue: this.userProfil.numRue,
+          rue: this.userProfil.rue,
+          ville: this.userProfil.ville,
+          cp: this.userProfil.cp,
+          newsletter: this.userProfil.newsletter,
+          connaissance: [''],
+          droits: [''],
+        });
+    });
   }
 
-  display() {
-    console.log(this.show);
-    
-    this.show = !this.show;
-    console.log(this.show);
-    
+  onSubmit(){
+    this.userService.modifUser(this.userId, this.postUserForm.value).subscribe()
+  }
+
+    getToken(){
+      if(this.token){
+        const tokenPayload = decode(this.token);
+        this.userId = tokenPayload.id;
+      } else {
+        console.log('error with user token');
+      }
+    }
+    display() {
+      this.show = !this.show;
   }
 
   disconnect(){
-    localStorage.removeItem('token')
-    this.router.navigate([''])
-    this.userService.logStatus()
+    localStorage.removeItem('token');
+    this.router.navigate(['']);
+    this.userService.logStatus();
   }
 
 }

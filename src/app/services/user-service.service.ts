@@ -17,9 +17,7 @@ export class UserServiceService {
   getUserRoute = 'http://localhost:4242/users/manage-users'
 
   logStatus() {
-    // this.userConnect.subscribe(value => {
-    //   console.log(value)
-    // });
+
     
     if ('token' in localStorage) {
       this.userConnect.emit(true); 
@@ -28,15 +26,6 @@ export class UserServiceService {
     }
   }
 
-  // logStatus() {
-  //   if ('token' in localStorage) {
-  //     console.log("bien")
-  //     return this.userState = true; 
-  //   } else {
-  //     console.log("pasbien")
-  //     return this.userState = false; 
-  //   }
-  // }
 
   userPost(route, dataForm ): Observable<any> {
     return this.http.post(`${route}`, dataForm, {responseType: 'text'});
@@ -64,6 +53,11 @@ export class UserServiceService {
 
   getUserById(id) {
     this.userId = id;
+    return this.http.get(`http://localhost:4242/users/get-users/${id}`);
+  }
+
+  modifUser(id, data){
+    return this.http.put(`http://localhost:4242/users/edit-profile/${id}`, data, {responseType: 'text'});
   }
 
   sendUserId() {
