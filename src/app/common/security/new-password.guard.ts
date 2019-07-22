@@ -16,26 +16,23 @@ export class ResetPasswordPage implements CanActivate {
         ) { }
 
     canActivate(): boolean {
-        let guardBoolean;
        
-        this.forgottenPwToken = window.location.pathname.split('/')[3];
-
-        this.loginService.getForgetPasswordToken(this.forgottenPwToken).then( res => {
-            
-            if ( this.forgottenPwToken !== res[0].forgetPassword) {
-                guardBoolean = false
-            } else {
-                guardBoolean = true
-                localStorage.setItem('forgottenPwToken', this.forgottenPwToken)
-                // this.router.navigate([`front/TzApeyaNpBzRJmGrit59K4NJ5Cy/${this.forgottenPwToken}`])
-            }
-            return guardBoolean
-        })
-
+        if( !localStorage.getItem('forgottenPwToken')) {
+            this.forgottenPwToken = window.location.pathname.split('/')[3];
+            this.loginService.getForgetPasswordToken(this.forgottenPwToken).then( res => {
+                
+                if (this.forgottenPwToken !== res[0].forgetPassword) {
+                    return false
+                } else {
+                    localStorage.setItem('forgottenPwToken', this.forgottenPwToken)
+                    this.router.navigate([`front/TzApeyaNpBzRJmGrit59K4NJ5Cy/${this.forgottenPwToken}`])
+                }
+            })
+        } else if (localStorage.getItem('forgottenPwToken')) {
+            return true
+        }
         
-        return guardBoolean
-
-          
+        return false
     }
     
     
