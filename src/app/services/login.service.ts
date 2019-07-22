@@ -19,6 +19,8 @@ export class LoginService {
   forgottenPasswordUrl = 'http://localhost:4242/users/forgottenPassword';
   setNewpasswordUrl = 'http://localhost:4242/users/new-password';
 
+  getForgottenPwTokenUrl = 'http://localhost:4242/users/get-forget-password-token';
+
   constructor(private http: HttpClient, private router: Router) { }
 
   loginPost(userForm) {
@@ -57,5 +59,9 @@ export class LoginService {
   setNewPassword(newPassword) {
     console.log(newPassword)
     return this.http.put(this.setNewpasswordUrl, newPassword, {responseType: 'text'}).toPromise()
+  }
+
+  getForgetPasswordToken(token) {
+    return this.http.get(`${this.getForgottenPwTokenUrl}/${token}`).toPromise()
   }
 }
