@@ -17,7 +17,7 @@
   </div>
   <div *ngIf="itemsOrdered" class="order">
     <p>Prix total : {{ prixTotal }} euros</p>
-    <button (click)="buy()" type="text">VALIDER LE PANIER</button>
+    <button (click)="buy()" type="text" class="validButton">VALIDER LE PANIER</button>
   </div>
   <div *ngIf="!itemsOrdered || itemsOrdered.length === 0" class="order">
     <p>Votre panier est vide !</p>
