@@ -92,7 +92,6 @@
     justify-content: space-evenly;
     position: relative;
     bottom: 70%;
-    margin-left: 5%;
     
     .cardContent {
         margin-bottom: 5%;
@@ -114,8 +113,8 @@
                 font-size: 100%;
                 letter-spacing: .1rem;
         } img {
-            width: 55%;
-            height: 75%;
+            width: 75%;
+            height: 85%;
             border: solid 2px white;
             box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
         }

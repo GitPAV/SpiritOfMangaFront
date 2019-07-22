@@ -14,21 +14,43 @@ $orangeLight : rgb(250, 152, 73);
 
 .paginationBlock{
     text-align: center;
+    margin-bottom: 5%;
+    margin-top: -5%;
+    
+    ul {
+    vertical-align: baseline;
+    }
+    span {
+    vertical-align: baseline;
+
+    }
 
     li {
         outline: none;
-
+        vertical-align: baseline;
+        border: none;
+        
         &.current {
             background-color: #FF8D30;
+            border-radius: 5px;
         }
         a {
             outline: none;
+            color: #FF8D30;
         }
 
         &:hover{
-            background-color:#FF8D30;
+            background-color: white;
             a {
-                background-color:#FF8D30;
+                text-decoration: none;
+                background-color: white;
+            }
+            span{
+                // color: #FF8D30;
+            }
+            &.current {
+                background-color: #FF8D30;
+                border-radius: 5px;
             }
         }   
     }
