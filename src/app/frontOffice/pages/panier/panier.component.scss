@@ -55,6 +55,7 @@
             width: 10vh;
             border-radius: 50%;
             font-size: 150%;
+            outline: none;
         }
     }
 
@@ -69,6 +70,21 @@
 
         p {
             margin-bottom: 3vh;
+        }
+    }
+
+    .validButton {
+        background-color: $orangeBack;
+        border-radius: 30px;
+        color: white;
+        outline: none;
+        -webkit-appearance: none;
+        padding-left: 1%; padding-right: 1%;
+        padding-top: 10px; padding-bottom: 10px;
+        border: none;
+        font-size: 17px;
+        &:hover {
+            font-size: 20px;
         }
     }
 
