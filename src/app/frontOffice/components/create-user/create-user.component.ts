@@ -18,7 +18,7 @@ export class CreateUserComponent implements OnInit{
     pseudo: [''],
     firstname: ['', [Validators.required, firstnameValidator()]],
     lastname: ['', [Validators.required, lastnameValidator()]],
-    password: ['', [Validators.required, passwordValidator ()]],
+    password: ['', [Validators.required, passwordValidator()]],
     checkPassword: ['', Validators.required],
     forgetPassword: [''],
     email: ['', [Validators.required, emailValidator()]],
@@ -41,23 +41,23 @@ export class CreateUserComponent implements OnInit{
   constructor(private fb: FormBuilder, private userService: UserServiceService, private router: Router) { }
   
   // Random string for forgetPassword formValue
+  // Replaced by module Bcrypt in back-end by Julia
 
-  randomString() {
-    let chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-    let string_length = 20;
-    let randomstring = '';
-    for (let i=0; i<string_length; i++) {
-      let rnum = Math.floor(Math.random() * chars.length);
-      randomstring += chars.substring(rnum,rnum+1);
-    }  
-    return randomstring
-  }
+  // randomString() {
+  //   let chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+  //   let string_length = 20;
+  //   let randomstring = '';
+  //   for (let i=0; i<string_length; i++) {
+  //     let rnum = Math.floor(Math.random() * chars.length);
+  //     randomstring += chars.substring(rnum,rnum+1);
+  //   }  
+  //   return randomstring
+  // }
   
   onSubmit() {
     //Call the observable in service with the apropiate http method 
     
     if (this.postUserForm.invalid){
-      console.log(this.postUserForm.value);
       alert("Formulaire invalide, veuillez entrer tous les champs requis.")
     }  else {
       
@@ -74,7 +74,6 @@ export class CreateUserComponent implements OnInit{
         })
     
         this.postUserForm.controls.checkPassword.disable()
-        console.log("coucou")
     
         const profileRoute = 'http://localhost:4242/users/create-profile';
         this.userService.userPost(profileRoute, this.postUserForm.value ).subscribe()

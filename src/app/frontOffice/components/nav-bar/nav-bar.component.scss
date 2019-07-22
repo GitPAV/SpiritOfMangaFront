@@ -3,13 +3,13 @@
 
 .iconLoginBasket{
     display: flex;
-   
+    
     .logoPanier{
         height:34px;
         outline:none;
         position: absolute;
-        right:2%;
-        top: 1%;
+        right:3%;
+        top: 3%;
     } & :hover {
         height: 38px;
     }
@@ -24,7 +24,7 @@
     // }
     .logInIcon {
         position: absolute;
-        right:9%;
+        right:8%;
         top:3%;
         -webkit-appearance: none;
         color: $orangeLight;
@@ -40,19 +40,21 @@
         outline:none;
         position: absolute;
         right:7%;
-        top: 1%;
+        top: 3%;
     } & :hover {
         height: 40px;
     }
 }
 
 .navCtn {
+    margin-left: 1%;
     display: flex;
     margin-bottom: -2%;
 }
 
-.navCtn img {
-    margin: 1%;
+.navCtn #logo {
+    width: 250px;
+    margin: 2%;
     z-index: 999;
 }
 
