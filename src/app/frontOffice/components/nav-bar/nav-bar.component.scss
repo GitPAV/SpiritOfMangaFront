@@ -5,6 +5,7 @@
     display: flex;
     
     .logoPanier{
+        cursor: pointer;
         height:34px;
         outline:none;
         position: absolute;
@@ -23,6 +24,7 @@
     //     margin-top: 8px;
     // }
     .logInIcon {
+        cursor: pointer;
         position: absolute;
         right:8%;
         top:3%;

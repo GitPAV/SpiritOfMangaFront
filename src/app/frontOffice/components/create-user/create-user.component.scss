@@ -1,7 +1,7 @@
 @import "../../../../styles.scss";
  
 .main {
-
+    width: 100vw;
     .title {
         text-align: center;
         h3 {
@@ -13,12 +13,13 @@
             margin-top: 2%;
         }
     }
-
+    
     .form {
         .container {
+            width: 100vw;
             display: flex;
             justify-content: space-around;
-            align-items: flex-start;
+            margin: auto !important;
         }
         input {
             @include inputFront();
@@ -35,7 +36,7 @@
         }
 
         select {
-            width: 70%;
+            width: 76%;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -66,7 +67,7 @@
             flex-direction: column;
             flex-wrap: wrap;
             justify-content: space-evenly;
-            padding-left: 15%;
+        
         }
 
         .adresse {
@@ -76,6 +77,7 @@
         }
 
         .userAdresseWrapper {
+        
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;

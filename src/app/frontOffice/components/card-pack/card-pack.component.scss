@@ -4,6 +4,7 @@
     object-fit: cover;
     text-align: center;
     .effectContainer {
+
         margin-left: 7vw;
         margin-bottom: 3vh;
     }
@@ -20,11 +21,14 @@
             font-family: 'Asap', sans-serif;
             font-size: 100%;
             letter-spacing: .1rem;
-    } .pileEffect{
+    } 
+    .pileEffect{
         display: flex;
-        height: 34vh;
+        // height: 34vh;
+  
     }
     .pack1{
+    
         filter: brightness(50%);
     }
     .pack2{
@@ -46,28 +50,28 @@
 
 }
 
-@media (max-width: 1000px) {
-    .cardContent { img {
-        width: 26vw;
-        height: auto;
-        object-fit: cover;
-    } h4 {
-        font-size: 120%;
-    } p {
-        font-size: 80%;
-    }
-    }
-}
+// @media (max-width: 1000px) {
+//     .cardContent { img {
+//         width: 26vw;
+//         height: auto;
+//         object-fit: cover;
+//     } h4 {
+//         font-size: 120%;
+//     } p {
+//         font-size: 80%;
+//     }
+//     }
+// }
 
-@media (max-width: 750px) {
-    .cardContent { img {
-        width: 46vw;
-        height: auto;
-        object-fit: cover;
-    } h4 {
-        font-size: 150%;
-    } p {
-        font-size: 90%;
-    }
-    }
-}
+// @media (max-width: 750px) {
+//     .cardContent { img {
+//         width: 46vw;
+//         height: auto;
+//         object-fit: cover;
+//     } h4 {
+//         font-size: 150%;
+//     } p {
+//         font-size: 90%;
+//     }
+//     }
+// }
