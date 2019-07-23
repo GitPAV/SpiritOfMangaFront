@@ -1,0 +1,69 @@
+@import '../../../../styles.scss';
+
+.main {
+    font-family: 'Dosis', sans-serif;
+    margin-bottom: 10vh;
+
+    .title {
+        background-image: url("../../../../assets/img/bannerAboutUs.jpg");
+        background-repeat: no-repeat;
+        height: 50vh;
+        background-size: 100% 190%;
+
+        .banner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        h4 {
+            font-family: 'Dosis', sans-serif;
+            font-size: 53px;
+            font-weight: 800;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            overflow: hidden;
+            text-decoration: underline $orange ; 
+
+        }
+
+    }
+
+    .infos {
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10vh;
+        margin-left: 2vw;
+
+        .firstList {
+            width: 80%;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 5vh;
+
+            li {
+                margin-right: 4vw;
+                font-size: 30px;
+                color: $orange ;
+            }
+        }
+
+
+        .text {
+            width: 80%;
+
+            h4 {
+                font-size: 30px;
+                margin-bottom: 3vh;
+                margin-top: 3vh;
+            }
+        }
+
+    }
+}
