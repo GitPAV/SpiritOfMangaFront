@@ -52,7 +52,13 @@ export class StockMangaComponent implements OnInit {
 
   onSubmit(){
     /* setting boolean type */
-    this.stockForm.get('promo').value === "oui" ? this.stockForm.get('promo').patchValue(true) : this.stockForm.get('promo').patchValue(false);
+    if (this.stockForm.get('promo').value === "oui") {
+      this.stockForm.get('promo').patchValue(true) 
+    } else {
+      this.stockForm.get('promo').patchValue(false);
+      this.stockForm.get('promoValue').patchValue(0);
+    }
+      
 
     /* setting manga id before sending to DB*/
     this.stockForm.get("mangas_id").patchValue(this.mangaTitle[0].id);
