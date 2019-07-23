@@ -1,0 +1,98 @@
+@import '../../../../styles.scss';
+
+h2{
+    font-family: 'Dosis', sans-serif;
+    font-size: 40px;
+    color: $orangeLight;
+    margin: 3%;
+}
+
+h3 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 30px;
+    margin-bottom: 2vh;
+    margin-top: 3vh;
+    text-decoration: underline $orangeLight;
+}
+
+.ctn {
+    display: flex;
+    img {
+        width: 34%;
+        height: 34%;;
+        // margin-top: -2%;
+        margin-left: 13%;
+    }
+}
+
+.userAvis{
+    margin-left: 12%;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        label {
+            // color: $orange;
+            margin-bottom: 20px;
+        }
+        input {
+            border-radius: 5px;
+            -webkit-appearance: none;
+            border: solid 2px $orangeLight;
+            width: 300px; height: 35px;
+        }
+        input:focus {
+            outline:none;
+        }
+        textarea {
+            -webkit-appearance: none;
+            border-radius: 5px;
+            border: solid 2px $orangeLight;
+            width: 350px; height: 180px;
+        }
+        textarea:focus {
+            outline:none;
+        }
+        button {
+            -webkit-appearance: none;
+            width: 170px;
+            height: 40px;
+            background-color: $orange;
+            border: 0;
+            border-radius: 30px;
+            color: white;
+            font-weight: 700;
+        }
+    }
+
+}
+
+.listAvis {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10%;
+    h3{
+        margin-left: 10%;
+        margin-top: 6%; margin-bottom: 3%;
+    }
+    .quote{
+        margin: auto;
+        width: 660px;
+        background-color: rgb(240, 240, 240);
+        box-shadow: 4px 4px 10px rgb(192, 192, 192);
+        padding: 3%;
+        // padding-bottom: %;
+        font-size: 14px;
+        border-radius: 5px;
+        margin-bottom: 3%;
+        h4{
+            font-family: 'Dosis', sans-serif;
+            font-size: 28px;
+            color: black;
+            text-transform: uppercase;
+        }
+        .date{
+            margin-bottom: 3%;
+        }
+    }
+}
