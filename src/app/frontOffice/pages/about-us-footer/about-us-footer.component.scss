@@ -37,23 +37,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 10vh;
+        margin-top: 7vh;
         margin-left: 2vw;
-
-        .firstList {
-            width: 80%;
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-            margin-bottom: 5vh;
-
-            li {
-                margin-right: 4vw;
-                font-size: 30px;
-                color: $orange ;
-            }
-        }
-
 
         .text {
             width: 80%;
@@ -62,6 +47,39 @@
                 font-size: 30px;
                 margin-bottom: 3vh;
                 margin-top: 3vh;
+            }
+
+            p {
+                margin-top: 2vh;
+            }
+
+            .firstList {
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                margin-top: 5vh;
+                margin-bottom: 5vh;
+    
+                li {
+                    margin-right: 4vw;
+                    font-size: 30px;
+                    color: $orange;
+                }
+            }
+
+            .secondList {
+                display: flex;
+                flex-direction: column;
+                
+                li {
+                    margin-bottom: 3vh;
+
+                    a {
+                        text-decoration: underline;
+                        color: $orange;
+                    }
+                }
+
             }
         }
 
