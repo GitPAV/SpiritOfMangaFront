@@ -42,7 +42,6 @@ export class UserLoginComponent implements OnInit {
         console.log('allo');
         
         this.userService.logStatus()
-        // this.router.navigate([''])
       } )
     }/* can make another get or send email to user or...*/)
     .catch( error => {
