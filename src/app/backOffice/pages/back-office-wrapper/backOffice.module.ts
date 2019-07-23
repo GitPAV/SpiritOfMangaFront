@@ -30,6 +30,9 @@ import { ArchiveOrderComponent } from '../../components/archive-order/archive-or
 import { ArchivePackListItemComponent } from '../../components/archive-pack-list-item/archive-pack-list-item.component';
 import { ArchiveMangaListItemComponent } from '../../components/archive-manga-list-item/archive-manga-list-item.component';
 import { ArchiveUsersListComponent } from '../../components/archive-users-list/archive-users-list.component';
+import { SearchStateMangaBarComponent } from '../../components/search-state-manga-bar/search-state-manga-bar.component';
+
+
 @NgModule({
   declarations: [
     BackOfficeWrapperComponent,
@@ -59,6 +62,7 @@ import { ArchiveUsersListComponent } from '../../components/archive-users-list/a
     ArchivePackListItemComponent,
     ArchiveMangaListItemComponent,
     ArchiveUsersListComponent,
+    SearchStateMangaBarComponent,
 
   ],
   imports: [

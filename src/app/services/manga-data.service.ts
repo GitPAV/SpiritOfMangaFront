@@ -12,6 +12,7 @@ export class MangaDataService {
   mangasUrlID = 'http://localhost:4242/mangas/manage-mangas/';
   mangasStatesUrl = 'http://localhost:4242/statesMangas/manage-states-mangas/';
   searchUrl = 'http://localhost:4242/mangas/search-mangas';
+  searchStatesManga = 'http://localhost:4242/statesMangas/search-statesmangas'
   seriePublicUrl = 'http://localhost:4242/mangas/series';
   packsMangasUrl = 'http://localhost:4242/packsMangas/manage-packs-mangas';
   mangasAwaitingUrl = 'http://localhost:4242/mangasAwaiting/manage-mangas-awaiting';
@@ -104,6 +105,9 @@ export class MangaDataService {
     return this.http.get(`http://localhost:4242/statesMangas/get-favorites`);
   }
 
+  //Search in statesManga
+  getStatesMangaBySearch(title: string):Observable<any> {
+    return this.http.get(`${this.searchStatesManga}/${title}`)
+  }
+
 }
-
-
