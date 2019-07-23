@@ -1,0 +1,8 @@
+<div class="main">
+ 
+  <input id='searchBar' #searchText (input)='getSearchedManga(searchText.value)' placeholder=" Quel manga recherchez-vous ?" [(ngModel)]="research">
+
+<div *ngIf="mangas" class="mangaTable">
+  <a class="titlesSearched" (click)="sendChosenManga(manga)" *ngFor= 'let manga of mangas'>{{ manga.title }} tome {{manga.tome}}</a>
+</div>
+</div>
