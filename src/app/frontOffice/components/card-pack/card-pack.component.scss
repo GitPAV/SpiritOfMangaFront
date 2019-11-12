@@ -1,0 +1,73 @@
+@import '../../../../styles.scss';
+
+.cardContent {
+    object-fit: cover;
+    text-align: center;
+    .effectContainer {
+        margin-left: 7vw;
+        margin-bottom: 3vh;
+    }
+    h4 {
+        color: rgb(49, 49, 49);
+        font-weight: bold;
+        font-family: 'Dosis', sans-serif;
+        font-size: 150%;
+        letter-spacing: .1rem;
+        line-height: 1.2em;
+    } p {
+            color: rgb(77, 76, 76);
+            font-weight: bold;
+            font-family: 'Asap', sans-serif;
+            font-size: 100%;
+            letter-spacing: .1rem;
+    } .pileEffect{
+        display: flex;
+        height: 34vh;
+    }
+    .pack1{
+        filter: brightness(50%);
+    }
+    .pack2{
+        filter: brightness(75%);
+        transform: translateX(-108%) translateY(3%);    
+    }
+    .pack3{
+        transform: translateX(-216%) translateY(6%);
+
+    }
+    img {
+        object-fit: cover;
+        border-top: solid 1px  rgb(37, 37, 37);
+        border-bottom: solid 1px  rgb(37, 37, 37);
+        border-left: solid 1px  rgb(37, 37, 37);
+        border-right: solid 5px  rgb(37, 37, 37);
+        box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.4);
+    }
+
+}
+
+@media (max-width: 1000px) {
+    .cardContent { img {
+        width: 26vw;
+        height: auto;
+        object-fit: cover;
+    } h4 {
+        font-size: 120%;
+    } p {
+        font-size: 80%;
+    }
+    }
+}
+
+@media (max-width: 750px) {
+    .cardContent { img {
+        width: 46vw;
+        height: auto;
+        object-fit: cover;
+    } h4 {
+        font-size: 150%;
+    } p {
+        font-size: 90%;
+    }
+    }
+}

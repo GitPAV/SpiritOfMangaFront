@@ -1,0 +1,75 @@
+<div class="manageSerieCtn">
+
+    <h3>
+        MODIFIER UNE SÉRIE
+    </h3>
+
+    <div class="searchBar">
+        <input type="text" placeholder="Search Series" [(ngModel)]="searchText">
+    </div>
+    <div class="resultBar" *ngFor="let serie of series | filter : searchText">
+        <div *ngIf="searchText"> <span (click)=getTheSerie(serie)> {{serie.nameSeries}}</span>
+        </div>
+    </div>
+
+</div>
+
+<form [formGroup]="manageSeriesForm" (ngSubmit)="onSubmit()">
+    <div class="manageSerieForm">
+
+        <div>
+            <label>
+                <p>Titre :</p>
+                <input type="text" formControlName="nameSeries" [value]=nameSerie>
+            </label>
+        </div>
+        <label>
+            <p>Image :</p>
+            <input type="text" formControlName="photoCover" [value]=photoSerie>
+        </label>
+
+        <div>
+            <label>
+                <p>Description :</p>
+                <textarea formControlName="description" [value]=description></textarea>
+            </label>
+        </div>
+
+        <div class="genreWrapper">
+            <p>Genres :</p>
+            <select (change)="getNewKind($event.target.value)">
+                <!-- <select > -->
+                <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+            </select>
+            <div class="genreButtonWrapper">
+                <button class="genreButton" (click)="addNewKind()">Ajouter un genre</button>
+            </div>
+        </div>
+
+        <div class="modifyGenre">
+            <div *ngFor="let kind of displayKinds">
+                <div class="genreSelect">
+                    {{ kind.name }}
+                    <div class="smallButtonWrapper">
+                        <button (click)="deletAKind(kind.id)">
+                            <p>X</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="type">
+            <p>Type :</p>
+            <select formControlName="types_id" id="types">
+                <option [value]=type.id *ngFor="let type of types">{{type.name}}</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="buttonWrapper">
+        <button type="submit" class="button">ENVOYER</button>
+    </div>
+
+</form>

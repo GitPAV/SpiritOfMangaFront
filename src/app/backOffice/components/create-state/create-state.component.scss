@@ -1,0 +1,22 @@
+@import "../../../common/styles/back-office.scss";
+
+#main {
+
+    h3{
+        @include titleStyle;
+    }
+
+    input, select {
+        margin-right: 15px;
+    }
+
+    .stateCreation, .deleteState {
+        margin-top: 2vh;
+        margin-left: 2vw;
+    }
+
+    button {
+        background-color:$orangeBack;
+        width: 150px;
+    }
+}

@@ -1,0 +1,52 @@
+@import "../../../common/styles/back-office.scss";
+
+#main {
+  padding: 15px;
+
+  h3 {
+    @include titleStyle;
+  }
+
+  .headers {
+    @include lesserTitle;
+  }
+  .favoritesWrapper{
+    border: 5px solid $orangeBack;
+    border-radius: 5px;
+  }
+  .favoritesManga {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid $orangeBack;
+  }
+
+  #searchBar {
+    margin: 0.5vw 0vh 2vh 0vh;
+  }
+  .favoritesToAdd {
+    border: 6px dashed $orangeBack;
+    border-radius: 0px 40px 40px 0px;
+    margin-bottom: 5vh;
+    h4 {
+        text-align: center;
+        font-size: 1.5em;
+      }
+    hr {
+        background-color: #5F72A8AD;
+        margin: 2% 5%;
+    }
+    p {
+        text-align: center;
+        margin-top: 2vh;
+    }
+    .addButton {
+        text-align: center;
+    }
+  }
+
+  button {
+    @include validateButtonStyle;
+    color: $blue;
+  }
+}

@@ -1,0 +1,27 @@
+<div class="navCtn">
+
+    <a [routerLink]="['/']"><img id="logo" src="../../../../assets/img/logo.png" alt="logo_spiritofmanga"></a>
+    
+
+    <div class="rootCtn">
+
+        <ul>
+            <li><a [routerLink]="['page-dacceuil']">ACCUEIL</a></li>
+            <li><a [routerLink]="['mangas-liste']">MANGAS</a></li>
+            <li><a [routerLink]="['promotion']">PROMOTIONS</a></li>
+            <li><a [routerLink]="['packs-liste']">PACKS</a></li>
+            <li><a [routerLink]="['vendre-manga']">VENDRE VOS MANGAS</a></li>            
+        </ul>
+
+        
+        
+    </div>
+
+    <div class="iconLoginBasket">
+        <p><a class="logInIcon" [routerLink]="['user-login']" *ngIf="!status">LOG IN</a></p>
+        <img class="logoIcon" *ngIf="status" [routerLink]="['user-profil']" src="../../../../assets/img/profilIcon.png" >
+        <img src="../../../../assets/img/shopOrange.png" class="logoPanier" alt="logo basket" [routerLink]="['panier']">
+    </div>
+
+</div>
+<link href="https://fonts.googleapis.com/css?family=Dosis&display=swap" rel="stylesheet">

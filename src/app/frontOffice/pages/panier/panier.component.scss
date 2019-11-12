@@ -1,0 +1,100 @@
+@import '../../../../styles.scss';
+
+.main {
+    min-height: 76vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 5vh;
+
+    #clientInfos {
+        margin-bottom: 5vh;
+    }
+
+    .userName {
+        text-align: center;
+        font-size: 30px;
+    }
+    .listItem {
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .listA {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+            background-color: #e6e6e6;
+            width: 80%;
+
+            img {
+                height:100%;
+                margin:10px;
+            }
+
+            p {
+                margin:10px;
+                font-size: 20px;
+
+            }
+
+            .listB{
+                display:flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 0;
+            }
+        }
+
+        button {
+            margin-left: 2vw;
+            height: 10vh;
+            width: 10vh;
+            border-radius: 50%;
+            font-size: 150%;
+            outline: none;
+        }
+    }
+
+    .order {
+        width: 100%;
+        font-size: 28px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5vh;
+
+        p {
+            margin-bottom: 3vh;
+        }
+    }
+
+    .validButton {
+        background-color: $orangeBack;
+        border-radius: 30px;
+        color: white;
+        outline: none;
+        -webkit-appearance: none;
+        padding-left: 1%; padding-right: 1%;
+        padding-top: 10px; padding-bottom: 10px;
+        border: none;
+        font-size: 17px;
+        &:hover {
+            font-size: 20px;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        color:$orange;
+        font-size: 24px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}

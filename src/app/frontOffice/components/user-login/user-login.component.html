@@ -1,0 +1,47 @@
+<div class="main">
+  <h3 class="titleLogin">CONNEXION</h3>
+  <p>Rejoignez la communauté Spirit of Manga <br>et achetez tous vos mangas préférés en toute sécurité ! </p>
+  <div class="container">
+    <img src="../../../../assets/img/catConnect.png" class="catConnectImg">
+    <form 
+    [formGroup]='loginForm'
+    (ngSubmit)='onSubmit()'
+    >
+
+      <label for='email'>
+        Adresse email : <br>
+        <input type='text' 
+        formControlName='email' 
+        id='email'
+        >
+      </label>
+
+      <br>
+
+      <label for='password'>
+        Mot de passe : <br>
+        <input type='password' 
+        formControlName='password' 
+        id='password'
+        >
+      </label>
+
+      <br>
+
+      <div class="buttonLink">
+        <a [routerLink]="['creation-utilisateur']" class="createLink">Nouveau client ? Créer un compte </a>
+        <a routerLink="/front/regenerate-password" class="createLink">Mot de passe oublié ?</a>
+
+        <button type="submit" 
+        [disabled]="!loginForm.valid"
+        class="buttonForm"
+        >
+          SE CONNECTER
+        </button>
+
+        <a *ngIf="adminConnected" (click)="goToBackOffice()" class="accesLink">Accès back-office</a>
+        <a *ngIf="adminConnected" (click)="goToFrontOffice()" class="accesLink">Accès front-office</a>
+      </div>
+    </form>
+  </div>  
+</div>

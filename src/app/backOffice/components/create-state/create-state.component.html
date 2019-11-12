@@ -1,0 +1,22 @@
+<div id="main">
+  <h3>CRÉER ET GÉRER LES ÉTATS</h3>
+  <label class="stateCreation" for="etat">
+    <input 
+    placeholder="Écrire un nouvel état" 
+    id="etat" 
+    [(ngModel)]="inputEtat" 
+    type="text" 
+    >
+    <button (click)="sendEtat()" [disabled]='!inputEtat'>
+      Créer
+    </button>
+  </label>
+
+  <div class="deleteState">
+    <select [(ngModel)]="selectedValue">
+      <option value="Sélectionner un état">Sélectionner un état</option>
+      <option *ngFor="let state of statesList" [value]="state.id">{{state.name}}</option>
+    </select>
+    <button (click)="deleteState()">Supprimer</button>
+  </div>
+</div>

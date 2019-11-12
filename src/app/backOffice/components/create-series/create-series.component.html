@@ -1,0 +1,66 @@
+<h3>
+  CRÉER UNE SÉRIE
+</h3>
+
+<form [formGroup]="postSeriesForm" (ngSubmit)="onSubmit()">
+  <div class="formWrapper">
+    <div>
+      <label>
+        <p>Titre :</p>
+        <input type="text" formControlName="nameSeries" required>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        <p>Image :</p>
+        <input type="text" formControlName="photoCover" required>
+      </label>
+    </div>
+
+    <div>
+      <label>
+        <p>Description :</p>
+        <textarea formControlName="description" required></textarea>
+      </label>
+    </div>
+
+    <div class="genreOption">
+      <div>
+        <p>Genre : </p>
+      </div>
+      <div>
+        <select formControlName="kinds">
+          <option *ngFor="let genre of genres" [value]=genre.id>{{genre.name}}</option>
+        </select>
+      </div>
+
+      <div class="genreButtonWrapper">
+        <button class="genreButton" (click)="addAKind()">Ajouter un genre</button>
+      </div>
+    </div>
+
+    <div class="typeOption">
+      <p>Type :</p>
+      <select formControlName="types_id" id="types" required>
+        <option [value]=type.id *ngFor="let type of types">{{type.name}}</option>
+      </select>
+    </div>
+
+
+    <!-- [(ngModel)]="selectedKindindex" -->
+
+
+    <div>
+      <p>
+        <span *ngFor="let kind of displayKind, let i = index "> {{ kind.name }} <button
+            (click)="deletAKind(i)">X</button></span>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="buttonWrapper">
+    <button type="submit" [disabled]="!postSeriesForm.valid" class="button">ENVOYER</button>
+  </div>
+</form>

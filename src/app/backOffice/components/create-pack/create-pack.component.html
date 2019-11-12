@@ -1,0 +1,158 @@
+<div class="main">
+
+    <div class="tabForm">
+        <h3 class="formTitle" (click)="chosenForm()">1- CRÉER UN PACK</h3>
+        <h3 class="formModif" (click)="chosenForm_1()">2- MODIFIER UN PACK</h3>
+    </div>
+
+    <form [formGroup]="createPackForm" (ngSubmit)="onSubmit()" *ngIf="conditionCreate">
+
+    <div class="formP1">
+        <div class="column1">
+            <div class="formInput">
+            <label>
+                Nom :
+                </label>
+                <input type="text" formControlName="namePack">
+            </div>
+            
+            <div class="formInput">
+            <label>
+                Image :
+                </label>
+                <input type="text" formControlName="photoPack">
+            </div>
+            
+            <div class="formInput">
+                Stock : 
+                <select formControlName="stock" id="stock" >
+                    <option [value]=1>1</option>
+                    <option [value]=2>2</option>
+                    <option [value]=3>3</option>
+                </select>
+            </div>
+                
+            <div class="formInput">    
+                <label>
+                    Poids :
+                </label>
+                <input type="number" formControlName="weight">
+            </div>
+
+            <div class="formInput">
+                <label>
+                    Résumé :
+                </label>    
+                <textarea formControlName="resumePack"></textarea>
+            </div>   
+        </div>  
+
+        <div class="column2">    
+            <div class="formInput">
+                <label>
+                    Prix Public :
+                </label>
+                <input type="number" formControlName="prixPublic">
+            </div>
+                
+            
+            <div class="formInput">
+                <label>
+                    Commentaire sur l'état :
+                </label>    
+                <input type="text" formControlName='comment'>
+            </div>
+            
+            <div class="formInput">
+                <label>
+                    Notre Prix :
+                </label>
+                <input type="number" formControlName="notrePrix">
+            </div>
+            
+            <div class="formInput">    
+                <label>
+                    Tomes :
+                </label>
+                <input type="number" formControlName="tomes">
+            </div>
+
+            <div class="formInput">
+                Promotion :
+                <select formControlName="promo" id="promo">
+                    <option [value]=0>Non</option>
+                    <option [value]=1>Oui</option>
+                </select>
+            </div>
+                
+            <div *ngIf="createPackForm.value.promo == 1" class="formInput">  
+                <label>
+                    Prix Promotion :
+                </label>
+                <input type="number" formControlName="prixPromo">
+            </div>
+        </div>
+    </div>
+    
+    <div class="formP2">
+         <div>
+            <button type="submit" [disabled]="!createPackForm.valid" class="button">Submit</button>
+        </div>
+    </div>    
+
+    </form>
+
+    <div *ngIf="conditionModifPack">
+        <app-search-pack-bar></app-search-pack-bar>
+        <app-modif-pack></app-modif-pack>
+    </div>
+    
+    <br><br><hr>
+    
+    <h3 class="formTitle">2- AJOUTEZ DES MANGAS</h3>
+
+    <form [formGroup]="createMangasPackForm">
+        <div class="form2">
+            <div class="formLeft">
+                
+                <div class="searchPack">
+                    <h2>Recherchez votre pack :</h2>
+
+                    <app-search-pack-bar (selectPack)="getPacks($event)"></app-search-pack-bar>
+                </div>
+
+                <div *ngIf="chosenPack" class="mangasList">
+                    <p>Pack selectionné :  {{chosenPack.namePack}}</p>
+                    <ul *ngFor="let manga of listMangasPacks, let i =index" class="eachMangas">
+                        <li>
+                            <img src={{manga.photoCover}}>
+                            <p>{{manga.title + " tome : " + manga.tome}}</p>
+                        </li>
+                        <button (click)="deleteManga(manga.id, i)" class="button">X</button>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="formRight">
+                <div class="formInput">
+                    <h2>Ajouter des mangas au pack :</h2>
+                    
+                    <app-search-manga-bar (chosenManga)="getChosenManga($event)"></app-search-manga-bar>
+                </div>
+                
+                <div class="resultSearch" *ngIf="displaySearch == true">
+                    <div *ngIf="chosenManga" class="mangasList">
+                        <ul *ngFor="let manga of chosenManga, let i = index" class="eachMangas">
+                            <li>
+                                <img src={{manga.photoCover}}>
+                                <p>{{manga.title + " tome : " + manga.tome}}</p>
+                            </li>
+                            <button (click)="onSubmitMangaPack(i)" class="button">Add</button>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+

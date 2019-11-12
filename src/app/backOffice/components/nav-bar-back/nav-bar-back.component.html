@@ -1,0 +1,29 @@
+<div id="bodyBack">
+  <aside class="menu">
+    <a [routerLink]="['/']"><img src="../../../../assets/img/logo.png" alt="logo_spiritofmanga"></a>
+    <ul class="menu-list">
+
+      <p class="menu-label">
+        GÉRER MES MANGAS
+      </p>
+      <li><a [routerLink]="['gestion-pagedacceuil']">Gérer Headers</a></li>
+      <li><a [routerLink]="['creer-manga']">Créer Manga</a></li>
+      <li><a [routerLink]="['modifier-manga']">Modifier/Supprimer Manga</a></li>
+      <li><a [routerLink]="['gerer-stockprixetat']">Gérer Stock/Prix/Etat</a></li>
+      <li><a [routerLink]="['serie']">Créer/Modifier Série</a></li>
+      <li><a [routerLink]="['nouveau-pack']">Créer Pack</a></li>
+
+      <p class="menu-label">
+        GÉRER MES COMMANDES
+      </p>
+      <li><a [routerLink]="['commande-encours']">Commandes en cours</a></li>
+      <li><a [routerLink]="['commande-archive']">Commandes archivées</a></li>
+
+      <p class="menu-label">
+        GÉRER MES UTILISATEURS
+      </p>
+      <li><a [routerLink]="['gerer-utilisateurs']">Mes utilisateurs</a></li>
+      <li><a [routerLink]="['alerte-disponibilitee']">Alertes disponibilités</a></li>
+    </ul>
+  </aside>
+</div>

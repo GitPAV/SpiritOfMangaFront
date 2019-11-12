@@ -1,0 +1,67 @@
+@import "../../../common/styles/back-office.scss";
+
+.manageSerieCtn {
+    text-align: center;
+    h3 {
+        @include titleStyle;
+        margin-bottom: 3.5vh;
+    }
+    .searchBar {
+
+    }
+    input{
+        width: 30vw;
+        border: $borderBackInput;
+    }
+}
+
+.manageSerieForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input, textarea {
+        border:4px solid $orangeBack ;
+        width: 30vw;
+        margin: 1vh 0vw;
+    }
+    .genreWrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 1vh 0vw;
+        .genreButtonWrapper{
+            margin: 1vh 0vw;
+            .genreButton {
+                text-align: center;
+                background-color: #FF8D30;
+                color: $blue;
+            }
+        }
+    }
+    .modifyGenre {
+        width: 100%;
+        display: flex;
+        margin-bottom: 2vh;
+        justify-content: space-between;
+        .smallButtonWrapper {
+            text-align: center;
+        }
+        button {
+            background-color: #FF8D30;
+        }
+    }
+    .type {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+}
+.buttonWrapper {
+    text-align: center;
+    margin: 2vh;
+    .button {
+        background-color: $orangeBack;
+    }
+}

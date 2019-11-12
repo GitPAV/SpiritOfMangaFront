@@ -1,0 +1,19 @@
+<div class="galleryBlk"> 
+
+  <div class="searchBar">
+    <input type="text" #searchText (input)='getSearchedPack(searchText.value)' placeholder="Rechercher">
+
+    <select (change)="searchByType($event.target.value)">
+      <option>Recherche par type</option>
+      <option *ngFor="let type of types" [value]="type.id">{{ type.name }}</option>
+  </select>
+
+  <select (change)="searchByGenre($event.target.value)">
+      <option>Recherche par genre</option>
+      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+  </select>
+  </div>
+
+</div>
+
+<app-gallery-pack></app-gallery-pack>

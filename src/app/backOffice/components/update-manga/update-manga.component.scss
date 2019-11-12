@@ -1,0 +1,87 @@
+@import "../../../common/styles/back-office.scss";
+
+.component {
+  margin-bottom: 1vh;
+  h3 {
+    @include titleStyle;
+  }
+  .searchBarWrapper {
+    #searchBar {
+      width: 60vw;
+    }
+  }
+  .main {
+    .background {
+      height: fit-content;
+
+      .infos {
+        input {
+          border: $borderBackInput;
+          width: 31vw;
+        }
+
+        .infosPrio {
+          display: flex;
+          justify-content: space-evenly;
+          margin-top: 2vh;
+
+          .imgWrapper {
+            width: 50%;
+            text-align: center;
+
+            #cover {
+              width: 20vw;
+              height: 100%;
+            }
+          }
+
+          .infoWrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 50%;
+          }
+        }
+        #photoCover {
+          text-align: center;
+          margin-top: 2vh;
+          input {
+            width: 62.2vw;
+          }
+        }
+        .resumeManga {
+          text-align: center;
+          margin-top: 2vh;
+          #description {
+            width: 62.2vw;
+            height: 15vh;
+          }
+        }
+        #selectOption {
+          display: flex;
+          justify-content: space-evenly;
+          margin-top: 2vh;
+          .public,
+          #public,
+          .serie,
+          #serie {
+            text-align: center;
+          }
+        }
+        hr {
+          background-color: #5f72a8ad;
+          margin: 2% 3%;
+        }
+        .buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-evenly;
+          button {
+            background-color: $orangeBack;
+            width: 35%;
+          }
+        }
+      }
+    }
+  }
+}

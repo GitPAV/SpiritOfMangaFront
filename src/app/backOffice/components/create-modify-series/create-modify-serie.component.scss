@@ -1,0 +1,12 @@
+@import "../../../common/styles/back-office.scss";
+
+.serieCtn{ 
+    display: flex;
+    .createSerie {
+        width: 50%;
+    }
+    .manageSerie {
+        width: 50%;
+    }
+}
+

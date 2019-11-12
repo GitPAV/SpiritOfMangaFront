@@ -1,0 +1,30 @@
+@import '../../../../styles.scss';
+
+.cgvCtn {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 7%;
+    margin-bottom: 12%;
+    text-align: justify;
+}
+h2{
+    font-family: 'Dosis', sans-serif;
+    font-size: 50px;
+    color: $orange;
+}
+
+
+h3 {
+    font-family: 'Dosis', sans-serif;
+    font-size: 30px;
+    margin-bottom: 2vh;
+    margin-top: 5vh;
+}
+
+p {
+    font-size: 14px;
+    a {
+        color: $orange;
+        text-decoration: underline $orange;
+    }
+}

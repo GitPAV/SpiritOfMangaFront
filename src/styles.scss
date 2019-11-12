@@ -1,1 +1,113 @@
-/* You can add global styles to this file, and also import other style files */
+// What is this import ?
+@import "styles/reset";
+
+// VARIABLES //
+
+    // COLORS //
+$blue : #16233B;
+$blue2 : #263A60;
+$orange : #FD7003;
+$orangeBack : #FF8D30;
+$grey : #E6EAEE; 
+$orangeLight : rgb(250, 152, 73);
+
+
+.paginationBlock{
+    text-align: center;
+    margin-bottom: 5%;
+    margin-top: -5%;
+    
+    ul {
+    vertical-align: baseline;
+    }
+    span {
+    vertical-align: baseline;
+
+    }
+
+    li {
+        outline: none;
+        vertical-align: baseline;
+        border: none;
+        
+        &.current {
+            background-color: #FF8D30;
+            border-radius: 5px;
+        }
+        a {
+            outline: none;
+            color: #FF8D30;
+        }
+
+        &:hover{
+            background-color: white;
+            a {
+                text-decoration: none;
+                background-color: white;
+            }
+            span{
+                // color: #FF8D30;
+            }
+            &.current {
+                background-color: #FF8D30;
+                border-radius: 5px;
+            }
+        }   
+    }
+}    
+    
+$white : #FFFFFF;
+
+    // MIXINS//
+
+@mixin selector (){ 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #11ffee00;
+    background: url(../../../../assets/img/arrowWhite.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position: 90%;
+    color: $white;
+    margin-left: 1vw;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid $white;
+}
+
+@mixin orderButton (){
+    background-color: $orangeBack!important;
+    background: url(../../../../assets/img/shopWhite.png);
+    background-repeat: no-repeat;
+    background-size: 16%;
+    background-position: 90%;
+    border: 0;
+    border-radius: 30px;
+    padding-right: 50px;
+    padding-left: 10%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    color: $white;
+}
+
+@mixin alertButton (){
+    background-color: $orangeBack!important;
+    background: url(../../../../assets/img/bellWhite.png);
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position: 90%;
+    border: 0;
+    border-radius: 30px;
+    padding: 16px;
+    padding-right: 65px!important;
+    color: $white;
+}
+
+@mixin inputFront {
+    border-radius: 5px;
+    -webkit-appearance: none;
+    border: solid 2px $orangeLight;
+    width: 300px; height: 30px;
+    margin-bottom: 5%;
+}

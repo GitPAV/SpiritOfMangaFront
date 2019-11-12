@@ -1,0 +1,46 @@
+@import '../../../common/styles/back-office.scss';
+
+#bodyBack{
+    display: flex;
+    background-color: $grey;
+    min-height: 100vh;
+    
+    .menu {
+        width: 22vw;
+        background-color: $blue ;
+        z-index: 2;
+        
+        img{
+            display: block;
+            width: 75%;
+            height: auto;
+            padding-top: 5vh;
+            margin-left: auto;
+            margin-right: auto;    
+        }
+        .menu-list{
+            padding-top: 5vh;
+            padding-left: 2vw;
+            a{
+                color: white;
+                font-size: 16px; 
+                padding-left: 1.25vw;
+                padding-top: 1.25vh;
+                padding-bottom: 1.25vh;
+            }
+            a:hover{
+                background-color: $blue2;
+                width: 80%;
+            }
+            p{
+                color: white;
+                text-decoration: underline;
+                text-underline-position: under;
+                font-size: 17px;
+                font-weight: bold;
+                padding-top: 1.75vh;
+                padding-bottom: 1vh;
+            }    
+        }
+    }
+}

@@ -1,0 +1,28 @@
+@import '../../../common/styles/back-office.scss';
+
+.backCore {
+
+    .backNavBar {
+        width: 22vw;
+        background-color: $blue;   
+    }
+    .main {
+        display: flex;
+        min-height: 100vh;
+    }
+    .testColor {
+        margin-top: 5vh;
+        width: 100%;
+        background-color: #e9e6e6;
+        padding: 3.5vw;
+    }
+    .backComponent {
+        background-color: white;
+        border: #cecece 2px solid;
+        border-radius: 15px;
+        box-shadow: 5px 5px 5px 3px #a29393;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}

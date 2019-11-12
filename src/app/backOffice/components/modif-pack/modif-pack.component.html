@@ -1,0 +1,103 @@
+<div class="main">
+
+  <form [formGroup]="createPackForm" (ngSubmit)="onSubmit()">
+
+    <div class="formP1">
+        <div class="column1">
+            <div class="formInput">
+            <label>
+                Nom :
+                </label>
+                <input type="text" formControlName="namePack">
+            </div>
+            
+            <div class="formInput">
+            <label>
+                Image :
+                </label>
+                <input type="text" formControlName="photoPack">
+            </div>
+            
+            <div class="formInput">
+                Stock : 
+                <select formControlName="stock" id="stock" >
+                    <option [value]=0>0</option>
+                    <option [value]=1>1</option>
+                    <option [value]=2>2</option>
+                    <option [value]=3>3</option>
+                </select>
+            </div>
+                
+            <div class="formInput">    
+                <label>
+                    Poids :
+                </label>
+                <input type="number" formControlName="weight">
+            </div>
+
+            <div class="formInput">
+                <label>
+                    Résumé :
+                </label>    
+                <textarea formControlName="resumePack"></textarea>
+            </div>   
+        </div>  
+
+        <div class="column2">    
+            <div class="formInput">
+                <label>
+                    Prix Public :
+                </label>
+                <input type="number" formControlName="prixPublic">
+            </div>
+                
+            
+            <div class="formInput">
+                <label>
+                    Commentaire d'etat :
+                </label>    
+                <input type="text" formControlName="comment">
+            </div>
+            
+            <div class="formInput">
+                <label>
+                    Notre Prix :
+                </label>
+                <input type="number" formControlName="notrePrix">
+            </div>
+            
+            <div class="formInput">    
+                <label>
+                    Tomes :
+                </label>
+                <input type="number" formControlName="tomes">
+            </div>
+
+            <div class="formInput">
+                Promotion :
+                <select formControlName="promo" id="promo">
+                    <option [value]=0>Non</option>
+                    <option [value]=1>Oui</option>
+                </select>
+            </div>
+                
+            <div *ngIf="createPackForm.value.promo == 1" class="formInput">  
+                <label>
+                    Prix Promotion :
+                </label>
+                <input type="number" formControlName="prixPromo">
+            </div>
+        </div>
+    </div>
+    
+    <div class="formP2">
+          <div>
+            <button type="submit" [disabled]="!createPackForm.valid" class="button">Submit</button>
+            <button (click)="deletePack()" [disabled]="!createPackForm.valid" class="button">Delete</button>
+        </div>
+    </div>    
+  
+  </form>
+        
+
+</div>  

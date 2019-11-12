@@ -1,0 +1,108 @@
+@import "../../../../styles.scss";
+ 
+.main {
+
+    .title {
+        text-align: center;
+        h3 {
+            color: #ff7b01;
+            font-weight: bold;
+            font-family: 'Dosis', sans-serif;
+            font-size: 2em;
+            letter-spacing: .1rem;
+            margin-top: 2%;
+        }
+    }
+
+    .form {
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+        input {
+            @include inputFront();
+            outline:none;
+        }
+        input:focus {
+            outline:none;
+        }
+        select:focus {
+            outline:none;
+        }
+        button:focus {
+            outline:none;
+        }
+
+        select {
+            width: 70%;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            background: url(../../../../assets/img/arrow.png);
+            background-repeat: no-repeat;
+            background-size: 10%;
+            background-position: 98%;
+            color: rgb(63, 62, 62);
+            margin-bottom: 1vw;
+            border: 0;
+            border-radius: 0;
+            border-bottom: 2px solid rgb(44, 44, 44);
+        }
+
+        .inputField{
+            // @include inputFormat();
+            .error{
+                font-size: 12px;
+                font-weight: 600;
+                color: $orange;
+                margin-top: -3%;
+                margin-bottom: 2%;
+            }
+        }
+
+        .userInfoWrapper {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding-left: 15%;
+        }
+
+        .adresse {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .userAdresseWrapper {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+
+        .inputOption {
+            margin-top: 10px;
+        }
+
+        .butonForm {
+            button {
+                -webkit-appearance: none;
+                width: 170px;
+                height: 40px;
+                background-color: $orangeLight;
+                border: 0;
+                border-radius: 30px;
+                color: white;
+                font-weight: 700;
+            }
+            text-align: center;
+            margin-bottom: 5%; margin-top: 3%;
+         & :hover {
+            cursor: pointer;
+        }
+        }
+    }
+
+}

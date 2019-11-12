@@ -1,0 +1,6 @@
+@import '../../../../styles.scss';
+
+button {
+    @include orderButton();
+    outline: none;
+}

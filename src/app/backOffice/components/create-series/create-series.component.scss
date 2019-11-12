@@ -1,0 +1,46 @@
+@import "../../../common/styles/back-office.scss";
+
+h3 {
+    @include titleStyle;
+ }
+
+.formWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    input, textarea {
+        border: $borderBackInput;
+        width: 30vw;
+        margin: 1vh 0vw;
+    }
+    
+    .typeOption {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .genreOption {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        margin: 2vh;
+            .genreButton {
+                background-color: $orangeBack;
+                text-align: center;
+                color: #16233B;
+            }
+        }
+}
+.buttonWrapper {
+    text-align: center;
+    margin: 2vh;
+    .button {
+        background-color: $orangeBack;
+    }
+}
+

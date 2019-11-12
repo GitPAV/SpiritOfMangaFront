@@ -1,0 +1,116 @@
+<div id="main">
+  <div class="topContainer">
+
+    <app-create-state></app-create-state>
+    <div id="searchBar">
+      <p> Sélectionner une entité manga :</p>
+      <app-search-manga-bar (chosenManga)="getTheChosenManga($event)"></app-search-manga-bar>
+    </div>
+
+  </div>
+
+  <form #formStock class="cardManga" [formGroup]="stockForm" (ngSubmit)="onSubmit()" *ngIf="mangaTitle">
+
+    <p class="titleForm">Ajouter un manga a votre stock :</p>
+
+    <div class="MangaStockHeader">
+      <div class="titleManga">Titre : {{mangaTitle[0].title}}</div>
+      <div class="tomeManga">Tome : {{mangaTitle[0].tome}}</div>
+    </div>
+
+    <div class="formStyleWrapper">
+
+      <div class="imgWrapper">
+        <img [src]="mangaTitle[0].photoCover" class="imgManga">
+      </div>
+
+      <div class="infoWrapper">
+
+        <div class="selectWrapper">
+          <div class="state">
+            <label for='state'>
+              <p>État :</p>
+              <select formControlName='states_id' id='state' required>
+                <option *ngFor="let state of states" [value]=state.id>{{state.name}}</option>
+              </select>
+            </label>
+            <div *ngIf="stockForm.get('states_id').errors && stockForm.get('states_id').touched">
+              <span class='errorMessage'>Champ requis</span>
+            </div>
+          </div>
+
+          <div class="promo">
+            <label for="promo">
+              <p>Promotion :</p> 
+              <select formControlName='promo' id='promo' (change)='applyPromo()' required>
+                <option *ngFor="let item of promoTable; let i = index" [value]="item.name">{{ item.name }}</option>
+              </select>
+            </label>
+            <div *ngIf="stockForm.get('promo').errors && stockForm.get('promo').touched">
+              <span class='errorMessage'>Indiquez si vous souhaitez appliquer une promotion</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="commentaire">
+          <label for="commentaire">
+            <p>Commentaire</p>
+            <textarea id="commentaire" type="text" name="commentaire" class="input" formControlName="commentaire">
+        </textarea>
+          </label>
+        </div>
+
+        <div class="stock">
+          <label for="stock">
+            <p>Stock</p>
+            <input id="stock" type="number" name="stock" class="input" formControlName="stock">
+          </label>
+          <div *ngIf="stockForm.get('stock').errors && stockForm.get('stock').touched">
+            <span class='errorMessage'>Champ requis</span>
+          </div>
+        </div>
+
+          <div *ngIf="promoCheck">
+            <label for="promoValue">
+              <p>Montant de la Promotion :</p>
+              <input id="promoValue" type="number" name="promoValue" class="input" formControlName="promoValue">
+            </label>
+            <a (click)='getPromoPrice()'> <br>Obtenir le prix TTC</a>
+          </div>
+
+        <div class="prixHT">
+          <label for="prixHT">
+            <p>Prix HT</p>
+            <input id="prixHT" type="number" name="prixHT" class="input" formControlName="prixHT">
+          </label>
+          <div *ngIf="stockForm.get('prixHT').errors && stockForm.get('prixHT').touched">
+            <span class='errorMessage'>Champ requis</span>
+          </div>
+        </div>
+
+        <div class="TVA">
+          <label for="TVA">
+            <p>TVA</p>
+            <input id="TVA" type="number" name="TVA" class="input" formControlName="TVA">
+          </label>
+        </div>
+
+        <div >
+          <a class="prixTtc" (click)='getPrice()'>Obtenir le prix TTC</a>
+        </div>
+
+        <div class="prixTTC">
+          <label for="prixTTC">
+            <p>Prix TTC</p>
+            <input id="PrixTTC" type="number" name="PrixTTC" class="input" formControlName="prixTTC">
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="submitButton">
+        <button type="submit" [disabled]="!stockForm.valid" class="button">CRÉER MANGA</button>
+    </div>
+
+  </form>
+</div>

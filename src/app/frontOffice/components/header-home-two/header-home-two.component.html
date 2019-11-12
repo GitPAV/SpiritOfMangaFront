@@ -1,0 +1,22 @@
+<div class="headerCtn">
+  <div class="headerContent" >
+    <h3>PROMOS MANGAS</h3>
+
+    <div class="theCtn">
+        <div class="cardCtn" *ngFor="let manga of mangasToDisplay">
+          <a routerLink="{{manga.mangas_id}}">
+            <div class="cardContent">
+                <div class="promo"><p>-{{manga.promoValue}}%</p></div>
+                <div class="price"><p>{{manga.prixTTC}}€</p></div>
+                <img [src]="manga.photoCover"> 
+                <h4>{{manga.title}}</h4>
+                <p>TOME  {{manga.tome}}</p>
+            </div>
+          </a>
+        </div>
+    </div>
+
+
+  </div>  
+</div>
+<link href="https://fonts.googleapis.com/css?family=Asap:400,700&display=swap" rel="stylesheet">

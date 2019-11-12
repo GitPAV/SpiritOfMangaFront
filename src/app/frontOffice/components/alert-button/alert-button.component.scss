@@ -1,0 +1,6 @@
+@import '../../../../styles.scss';
+
+button {
+    @include alertButton();
+    outline: none;
+}

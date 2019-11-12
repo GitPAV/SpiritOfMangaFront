@@ -1,0 +1,34 @@
+
+<div class="galleryBlk"> 
+
+  <div class="searchBar">
+    <input type="text" #searchText (input)='getSearchedManga(searchText.value)' placeholder="Rechercher">
+
+    <select (change)="searchByType($event.target.value)">
+        <option>Recherche par type</option>
+        <option *ngFor="let type of types" [value]="type.id">{{ type.name }}</option>
+    </select>
+
+    <select (change)="searchByGenre($event.target.value)">
+        <option>Recherche par genre</option>
+        <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+    </select>
+  </div>
+
+</div>
+
+<app-gallery-manga></app-gallery-manga>
+
+<!-- <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+  <a class="pagination-previous">Previous</a>
+  <a class="pagination-next">Next page</a>
+  <ul class="pagination-list">
+    <li><a class="pagination-link" aria-label="Goto page 1">1</a></li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><a class="pagination-link" aria-label="Goto page 45">4</a></li>
+    <li><a class="pagination-link is-current" aria-label="Page 46" aria-current="page">6</a></li>
+    <li><a class="pagination-link" aria-label="Goto page 47">7</a></li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li><a class="pagination-link" aria-label="Goto page 86">10</a></li>
+  </ul>
+</nav> -->

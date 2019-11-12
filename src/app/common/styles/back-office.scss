@@ -1,0 +1,36 @@
+@import "../../../styles.scss";
+
+$borderBackComponents: 1px solid rgba(0, 0, 0, 0.2);
+
+
+
+// Input form border
+$borderBackInput: 4px solid $orangeBack;
+
+// Component title style
+@mixin titleStyle {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: $orangeBack underline;
+}
+
+// Component lesser title
+@mixin lesserTitle {
+    font-style: italic;
+    font-size: 1.5em;
+    margin-top: 2vh;
+}
+
+// validate button style
+@mixin validateButtonStyle {
+    text-align: center;
+    margin: 2vh;
+    background-color:$orangeBack;
+}
+
+// error message
+@mixin errorMessage {
+    color: $orangeBack;
+    font-size: 16px;
+}

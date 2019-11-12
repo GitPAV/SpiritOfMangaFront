@@ -1,0 +1,90 @@
+@import "../../../common/styles/back-office.scss";
+
+#main{
+
+    .topContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        #searchBar {
+            width: 100%;
+            margin-bottom: 2vh;
+
+            p {
+                @include lesserTitle;
+                margin-left: 2vw;
+            }
+        }
+    }
+    
+    .cardManga{
+        .titleForm {
+            @include lesserTitle;
+            margin-left: 2vw;
+        }
+
+        .MangaStockHeader {
+            margin: 2vh 0vw;
+            .titleManga {
+                font-size:25px;
+                text-align: center;
+            }
+            .tomeManga{   
+                text-align: center;
+            }
+        }
+
+        .formStyleWrapper {
+            display: flex;
+            .imgWrapper {
+                width: 50%;
+                text-align: center;
+                height: 55vh;
+
+                .imgManga{
+                    width: 20vw;
+                    height: 100%;
+                }
+            }
+            .infoWrapper {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .selectWrapper {
+                    display: flex;
+                    .state {
+                        width: 50%;
+                    }
+                }
+
+                .commentaire, .stock, .promoCheck,.prixHT, .TVA, .prixTTC  {
+                    margin: 1vh 0vw;
+                    .input {
+                        border: $borderBackInput;
+                        width: 31vw;
+                    }
+                }
+                .prixTtc {
+                    text-align: center;
+                    background-color: $orangeBack;
+                    color: #16233B;
+                    padding: 4px;
+                    border: $borderBackInput;
+                }
+            }
+        }
+        .submitButton {
+            text-align: center;
+            .button {
+                @include validateButtonStyle;
+            }
+        }
+    }
+    
+    .errorMessage {
+        @include errorMessage
+    }
+}

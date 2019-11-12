@@ -1,0 +1,167 @@
+@import '../../../common/styles/back-office.scss';
+
+.main {
+    
+    .form {
+
+        .formTitle {
+            @include titleStyle
+        }
+
+        .formWrapper {
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 2vh;
+    
+            .mangaTitle {
+                order: 1;
+                height: 10vh;
+                width: 38vh;
+                flex-basis: 40%;
+                label {
+                    width: 100%;
+                }
+                .input {
+                    border: $borderBackInput;
+                }
+            }
+            .auteur {
+                order: 2;
+                height: 10vh;
+                width: 38vh;
+                flex-basis: 40%;
+                flex-direction: column;
+                label {
+                    width: 100%;
+                }
+                .input {
+                    border: $borderBackInput;
+                }
+            }
+
+            .editeur {
+                order: 3;
+                height: 10vh;
+                width: 38vh;
+                flex-basis: 40%;
+                label {
+                    width: 100%;
+                }
+                .input {
+                    border: $borderBackInput;
+                }
+            }
+            
+            .prixNeuf {
+                order: 4;
+                height: 10vh;
+                width: 38vh;
+                flex-basis: 40%;
+                label {
+                    width: 100%;
+                }
+                .input {
+                    border: $borderBackInput;
+                }
+            }
+    
+            .tome {
+                order: 5;
+                height: 10vh;
+                width: 38vh;
+                flex-basis: 40%;
+                label {
+                    width: 100%;
+                }
+                .input {
+                    border: $borderBackInput;
+                }
+            }
+            
+            .photoCover {
+                order: 8;
+                height: 10vh;
+                width: 38vh;
+                flex-basis: 40%;
+                flex-basis: 90%;
+                text-align: center;
+                label {
+                    width: 100%;
+                }
+                .input {
+                    border: $borderBackInput;
+                }
+            }   
+    
+            .public-price {
+                order: 7;
+                height: 10vh;
+                width: 38vh;
+                flex-basis: 40%;
+                label {
+                    width: 100%;
+                }
+                .input {
+                    border: $borderBackInput;
+                }
+        }
+    
+            .weight {
+                order: 6;
+                height: 10vh;
+                width: 38vh;
+                flex-basis: 40%;
+                label {
+                    width: 100%;
+                }
+                .input {
+                    border: $borderBackInput;
+                }
+            }
+
+            // Big textfield
+
+            .resume {
+                order: 9;
+                flex-basis: 90%;
+                text-align: center;
+                .toto {
+                    width: 100% !important;
+                    .textarea {
+                        border: $borderBackInput;
+                    }
+                }  
+            }
+
+            // Option in form
+
+            .public {
+                order: 11;
+                flex-basis: 50%;
+                text-align: center; 
+                margin-top: 2vh;
+                .input {
+                    border: $borderBackInput;
+                }
+            }
+            .serie {
+                order: 10;
+                flex-basis: 50%;
+                text-align: center; 
+                margin-top: 2vh;
+            }
+        }
+        .create {
+            text-align: center;
+            .button {
+            @include validateButtonStyle;
+            }
+        }
+    }    
+}
+
+.errorMessage {
+    @include errorMessage
+}

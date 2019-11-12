@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="userName">
+    <p id="clientInfos">Panier de {{firstname + ' ' + lastname}}</p>
+  </div>
+  <div class="listItem" *ngFor="let item of itemsOrdered; let i = index">
+    <div *ngFor="let manga of item" class="listA">
+      <img [src]='manga.photoCover'>
+      <div class='listB'>
+        <p>Titre : {{manga.title}}</p>
+        <p>Tome {{manga.tome}}</p>
+        <p>Auteur : {{manga.auteur}}</p>
+        <p>Prix : {{manga.prixTTC + ' euros'}}</p>
+        <p>État : {{manga.name}}</p>
+      </div>
+    </div>
+    <button (click)="removeItemStorage(i)">X</button>
+  </div>
+  <div *ngIf="itemsOrdered" class="order">
+    <p>Prix total : {{ prixTotal }} euros</p>
+    <button (click)="buy()" type="text" class="validButton">VALIDER LE PANIER</button>
+  </div>
+  <div *ngIf="!itemsOrdered || itemsOrdered.length === 0" class="order">
+    <p>Votre panier est vide !</p>
+  </div>
+  <a routerLink="/front/mangas-liste">Retourner sur le catalogue</a>
+</div>
